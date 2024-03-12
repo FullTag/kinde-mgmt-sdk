@@ -1,0 +1,30 @@
+name: Update Spec
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+env:
+  SPEC_URL: https://kinde.com/api/kinde-mgmt-api-specs.yaml
+
+jobs:
+  update-spec:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Download spec file
+        run: curl -o kinde-mgmt-api-specs.yaml $SPEC_URL
+      - name: Commit and push if changed
+        run: |
+          git diff --exit-code || {
+            # Configure the github actions bot user
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git config user.name "github-actions[bot]"
+
+            # Commit and push the changes
+            git add kinde-mgmt-api-specs.yaml
+            git commit -m "Update kinde-mgmt-api-specs.yaml"
+            git push
+          }

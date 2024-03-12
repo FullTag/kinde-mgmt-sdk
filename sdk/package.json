@@ -1,0 +1,33 @@
+{
+  "name": "@fulltag/kinde-mgmt-sdk",
+  "version": "1.0.0",
+  "description": "Automatically generated SDK for the Kinde Mgmt API",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "clean": "rm -rf dist src",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "kinde",
+    "sdk",
+    "management",
+    "api"
+  ],
+  "author": "Paul den Otter <paul@fulltag.dev> (https://fulltag.dev/)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FullTag/kinde-mgmt-sdk.git",
+    "directory": "sdk"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "tsup": "^8.0.2",
+    "typescript": "^5.4.2"
+  }
+}

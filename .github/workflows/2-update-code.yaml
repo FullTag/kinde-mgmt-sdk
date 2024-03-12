@@ -1,0 +1,32 @@
+name: Update Code
+
+on:
+  push:
+    paths:
+      - "kinde-mgmt-api-specs.yaml"
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  update-code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - uses: pnpm/action-setup@v3
+      - name: Generate SDK
+        run: pnpm -C sdk i && ./generate.sh
+      - name: Commit and push if changed
+        run: |
+          git diff --exit-code || {
+            # Configure the github actions bot user
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git config user.name "github-actions[bot]"
+
+            # Commit and push the changes
+            git add sdk
+            git commit -m "Update SDK"
+            npm version minor
+            git push
+          }
