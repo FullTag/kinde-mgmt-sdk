@@ -26,7 +26,7 @@ jobs:
 
             # Commit and push the changes
             git add sdk
-            git commit -m "Update SDK"
+            git commit -m "chore: update sdk"
             npm version minor
             git push
           }

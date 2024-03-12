@@ -25,6 +25,6 @@ jobs:
 
             # Commit and push the changes
             git add kinde-mgmt-api-specs.yaml
-            git commit -m "Update kinde-mgmt-api-specs.yaml"
+            git commit -m "chore: update kinde-mgmt-api-specs.yaml"
             git push
           }
