@@ -18,6 +18,8 @@ jobs:
       - name: Generate SDK
         run: pnpm -C sdk i && ./generate.sh
       - name: Commit and push if changed
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           git diff --exit-code || {
             # Configure the github actions bot user
