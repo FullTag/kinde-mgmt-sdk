@@ -27,4 +27,6 @@ jobs:
             git add kinde-mgmt-api-specs.yaml
             git commit -m "chore: update kinde-mgmt-api-specs.yaml"
             git push
+
+            gh workflow run 2-update-code.yaml
           }
