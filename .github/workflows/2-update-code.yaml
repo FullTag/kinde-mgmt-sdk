@@ -23,6 +23,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
+          git status
           git diff --exit-code || {
             # Configure the github actions bot user
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
