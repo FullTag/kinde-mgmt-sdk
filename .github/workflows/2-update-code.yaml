@@ -3,7 +3,9 @@ name: Update Code
 on:
   push:
     paths:
-      - "./kinde-mgmt-api-specs.yaml"
+      - kinde-mgmt-api-specs.yaml
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
