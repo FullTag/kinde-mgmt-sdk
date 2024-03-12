@@ -15,6 +15,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - uses: pnpm/action-setup@v3
+        with:
+          version: 8
       - name: Generate SDK
         run: pnpm -C sdk i && ./generate.sh
       - name: Commit and push if changed
