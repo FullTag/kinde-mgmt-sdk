@@ -5970,12 +5970,12 @@ declare class OrganizationsApi extends BaseAPI {
     getOrganizationFeatureFlags(requestParameters: GetOrganizationFeatureFlagsRequest, initOverrides?: RequestInit | InitOverrideFunction): Promise<GetOrganizationFeatureFlagsResponse>;
     /**
      * Gets properties for an organization by org code.
-     * Get property values
+     * Get Organization Property Values
      */
     getOrganizationPropertyValuesRaw(requestParameters: GetOrganizationPropertyValuesRequest, initOverrides?: RequestInit | InitOverrideFunction): Promise<ApiResponse<GetPropertyValuesResponse>>;
     /**
      * Gets properties for an organization by org code.
-     * Get property values
+     * Get Organization Property Values
      */
     getOrganizationPropertyValues(requestParameters: GetOrganizationPropertyValuesRequest, initOverrides?: RequestInit | InitOverrideFunction): Promise<GetPropertyValuesResponse>;
     /**
@@ -6049,23 +6049,23 @@ declare class OrganizationsApi extends BaseAPI {
      */
     updateOrganizationFeatureFlagOverride(requestParameters: UpdateOrganizationFeatureFlagOverrideRequest, initOverrides?: RequestInit | InitOverrideFunction): Promise<SuccessResponse>;
     /**
-     * Update property values.
-     * Update Property values
+     * Update organization property values.
+     * Update Organization Property values
      */
     updateOrganizationPropertiesRaw(requestParameters: UpdateOrganizationPropertiesOperationRequest, initOverrides?: RequestInit | InitOverrideFunction): Promise<ApiResponse<SuccessResponse>>;
     /**
-     * Update property values.
-     * Update Property values
+     * Update organization property values.
+     * Update Organization Property values
      */
     updateOrganizationProperties(requestParameters: UpdateOrganizationPropertiesOperationRequest, initOverrides?: RequestInit | InitOverrideFunction): Promise<SuccessResponse>;
     /**
-     * Update property value.
-     * Update Property value
+     * Update organization property value.
+     * Update Organization Property value
      */
     updateOrganizationPropertyRaw(requestParameters: UpdateOrganizationPropertyRequest, initOverrides?: RequestInit | InitOverrideFunction): Promise<ApiResponse<SuccessResponse>>;
     /**
-     * Update property value.
-     * Update Property value
+     * Update organization property value.
+     * Update Organization Property value
      */
     updateOrganizationProperty(requestParameters: UpdateOrganizationPropertyRequest, initOverrides?: RequestInit | InitOverrideFunction): Promise<SuccessResponse>;
     /**

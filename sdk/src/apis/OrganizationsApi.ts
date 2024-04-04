@@ -750,7 +750,7 @@ export class OrganizationsApi extends runtime.BaseAPI {
 
     /**
      * Gets properties for an organization by org code. 
-     * Get property values
+     * Get Organization Property Values
      */
     async getOrganizationPropertyValuesRaw(requestParameters: GetOrganizationPropertyValuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetPropertyValuesResponse>> {
         if (requestParameters['orgCode'] == null) {
@@ -784,7 +784,7 @@ export class OrganizationsApi extends runtime.BaseAPI {
 
     /**
      * Gets properties for an organization by org code. 
-     * Get property values
+     * Get Organization Property Values
      */
     async getOrganizationPropertyValues(requestParameters: GetOrganizationPropertyValuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetPropertyValuesResponse> {
         const response = await this.getOrganizationPropertyValuesRaw(requestParameters, initOverrides);
@@ -1164,8 +1164,8 @@ export class OrganizationsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Update property values.
-     * Update Property values
+     * Update organization property values.
+     * Update Organization Property values
      */
     async updateOrganizationPropertiesRaw(requestParameters: UpdateOrganizationPropertiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SuccessResponse>> {
         if (requestParameters['orgCode'] == null) {
@@ -1198,7 +1198,7 @@ export class OrganizationsApi extends runtime.BaseAPI {
         }
         const response = await this.request({
             path: `/api/v1/organizations/{org_code}/properties`.replace(`{${"org_code"}}`, encodeURIComponent(String(requestParameters['orgCode']))),
-            method: 'PUT',
+            method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
             body: UpdateOrganizationPropertiesRequestToJSON(requestParameters['updateOrganizationPropertiesRequest']),
@@ -1208,8 +1208,8 @@ export class OrganizationsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Update property values.
-     * Update Property values
+     * Update organization property values.
+     * Update Organization Property values
      */
     async updateOrganizationProperties(requestParameters: UpdateOrganizationPropertiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SuccessResponse> {
         const response = await this.updateOrganizationPropertiesRaw(requestParameters, initOverrides);
@@ -1217,8 +1217,8 @@ export class OrganizationsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Update property value.
-     * Update Property value
+     * Update organization property value.
+     * Update Organization Property value
      */
     async updateOrganizationPropertyRaw(requestParameters: UpdateOrganizationPropertyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SuccessResponse>> {
         if (requestParameters['orgCode'] == null) {
@@ -1260,7 +1260,7 @@ export class OrganizationsApi extends runtime.BaseAPI {
         }
         const response = await this.request({
             path: `/api/v1/organizations/{org_code}/properties/{property_key}`.replace(`{${"org_code"}}`, encodeURIComponent(String(requestParameters['orgCode']))).replace(`{${"property_key"}}`, encodeURIComponent(String(requestParameters['propertyKey']))),
-            method: 'PATCH',
+            method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
         }, initOverrides);
@@ -1269,8 +1269,8 @@ export class OrganizationsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Update property value.
-     * Update Property value
+     * Update organization property value.
+     * Update Organization Property value
      */
     async updateOrganizationProperty(requestParameters: UpdateOrganizationPropertyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SuccessResponse> {
         const response = await this.updateOrganizationPropertyRaw(requestParameters, initOverrides);

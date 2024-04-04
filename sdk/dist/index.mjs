@@ -5309,7 +5309,7 @@ var OrganizationsApi = class extends BaseAPI {
   }
   /**
    * Gets properties for an organization by org code. 
-   * Get property values
+   * Get Organization Property Values
    */
   async getOrganizationPropertyValuesRaw(requestParameters, initOverrides) {
     if (requestParameters["orgCode"] == null) {
@@ -5337,7 +5337,7 @@ var OrganizationsApi = class extends BaseAPI {
   }
   /**
    * Gets properties for an organization by org code. 
-   * Get property values
+   * Get Organization Property Values
    */
   async getOrganizationPropertyValues(requestParameters, initOverrides) {
     const response = await this.getOrganizationPropertyValuesRaw(requestParameters, initOverrides);
@@ -5652,8 +5652,8 @@ var OrganizationsApi = class extends BaseAPI {
     return await response.value();
   }
   /**
-   * Update property values.
-   * Update Property values
+   * Update organization property values.
+   * Update Organization Property values
    */
   async updateOrganizationPropertiesRaw(requestParameters, initOverrides) {
     if (requestParameters["orgCode"] == null) {
@@ -5680,7 +5680,7 @@ var OrganizationsApi = class extends BaseAPI {
     }
     const response = await this.request({
       path: `/api/v1/organizations/{org_code}/properties`.replace(`{${"org_code"}}`, encodeURIComponent(String(requestParameters["orgCode"]))),
-      method: "PUT",
+      method: "PATCH",
       headers: headerParameters,
       query: queryParameters,
       body: UpdateOrganizationPropertiesRequestToJSON(requestParameters["updateOrganizationPropertiesRequest"])
@@ -5688,16 +5688,16 @@ var OrganizationsApi = class extends BaseAPI {
     return new JSONApiResponse(response, (jsonValue) => SuccessResponseFromJSON(jsonValue));
   }
   /**
-   * Update property values.
-   * Update Property values
+   * Update organization property values.
+   * Update Organization Property values
    */
   async updateOrganizationProperties(requestParameters, initOverrides) {
     const response = await this.updateOrganizationPropertiesRaw(requestParameters, initOverrides);
     return await response.value();
   }
   /**
-   * Update property value.
-   * Update Property value
+   * Update organization property value.
+   * Update Organization Property value
    */
   async updateOrganizationPropertyRaw(requestParameters, initOverrides) {
     if (requestParameters["orgCode"] == null) {
@@ -5732,15 +5732,15 @@ var OrganizationsApi = class extends BaseAPI {
     }
     const response = await this.request({
       path: `/api/v1/organizations/{org_code}/properties/{property_key}`.replace(`{${"org_code"}}`, encodeURIComponent(String(requestParameters["orgCode"]))).replace(`{${"property_key"}}`, encodeURIComponent(String(requestParameters["propertyKey"]))),
-      method: "PATCH",
+      method: "PUT",
       headers: headerParameters,
       query: queryParameters
     }, initOverrides);
     return new JSONApiResponse(response, (jsonValue) => SuccessResponseFromJSON(jsonValue));
   }
   /**
-   * Update property value.
-   * Update Property value
+   * Update organization property value.
+   * Update Organization Property value
    */
   async updateOrganizationProperty(requestParameters, initOverrides) {
     const response = await this.updateOrganizationPropertyRaw(requestParameters, initOverrides);
