@@ -2844,12 +2844,12 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/organizations/{org_code}/properties/{property_key}:
-    patch:
+    put:
       tags:
         - Organizations
       operationId: UpdateOrganizationProperty
-      description: Update property value.
-      summary: Update Property value
+      description: Update organization property value.
+      summary: Update Organization Property value
       parameters:
         - name: org_code
           in: path
@@ -2901,7 +2901,7 @@ paths:
       operationId: GetOrganizationPropertyValues
       description: |
         Gets properties for an organization by org code.
-      summary: Get property values
+      summary: Get Organization Property Values
       parameters:
         - name: org_code
           in: path
@@ -2935,12 +2935,12 @@ paths:
           description: Request was throttled.
       security:
         - kindeBearerAuth: []
-    put:
+    patch:
       tags:
         - Organizations
       operationId: UpdateOrganizationProperties
-      description: Update property values.
-      summary: Update Property values
+      description: Update organization property values.
+      summary: Update Organization Property values
       parameters:
         - name: org_code
           in: path
