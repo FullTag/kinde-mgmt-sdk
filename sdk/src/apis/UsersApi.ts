@@ -542,7 +542,7 @@ export class UsersApi extends runtime.BaseAPI {
         }
         const response = await this.request({
             path: `/api/v1/users/{user_id}/properties`.replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters['userId']))),
-            method: 'PUT',
+            method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
             body: UpdateOrganizationPropertiesRequestToJSON(requestParameters['updateOrganizationPropertiesRequest']),
@@ -604,7 +604,7 @@ export class UsersApi extends runtime.BaseAPI {
         }
         const response = await this.request({
             path: `/api/v1/users/{user_id}/properties/{property_key}`.replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters['userId']))).replace(`{${"property_key"}}`, encodeURIComponent(String(requestParameters['propertyKey']))),
-            method: 'PATCH',
+            method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
         }, initOverrides);
