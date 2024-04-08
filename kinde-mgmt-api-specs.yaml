@@ -14,7 +14,6 @@ servers:
       businessName:
         default: app
         description: Business name created in the Kinde admin area.
-
 tags:
   - name: OAuth
     x-displayName: OAuth
