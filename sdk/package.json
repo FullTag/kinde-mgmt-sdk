@@ -9,9 +9,13 @@
     "dist"
   ],
   "scripts": {
+    "pregenerate": "mkdir -p ./src",
+    "generate": "docker run --rm -v $PWD/..:/repo openapitools/openapi-generator-cli generate -i /repo/kinde-mgmt-api-specs.yaml -g typescript-fetch -o /repo/sdk/src",
     "build": "tsup",
     "clean": "rm -rf dist src",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "version": "npm run generate && npm run build && git add ./src",
+    "postversion": "git push && git push --tags"
   },
   "keywords": [
     "kinde",
