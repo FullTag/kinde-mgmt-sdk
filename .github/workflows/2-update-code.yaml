@@ -23,6 +23,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
+          echo "tmp" >> ./tmp.txt # FORCE CHANGE, REMOVE LATER
           git add .
           if [ -n "$(git status --porcelain)" ]; then
             # Configure the github actions bot user
@@ -33,7 +34,8 @@ jobs:
             git add sdk
             git commit -m "chore: update sdk"
             npm --prefix sdk version minor
-            git push
+            git --no-pager log -2
+            git push --tags
 
             gh workflow run 3-update-package.yaml
           fi
