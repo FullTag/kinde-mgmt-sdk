@@ -14,7 +14,9 @@
     "build": "tsup",
     "clean": "rm -rf dist src",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "version": "npm run generate && npm run build && git add ./src",
+    "prepreversion": "mkdir -p ./.git",
+    "postpreversion": "rmdir ./.git",
+    "version": "npm run generate && npm run build && git add ./src ./dist",
     "postversion": "git push && git push --tags"
   },
   "keywords": [
