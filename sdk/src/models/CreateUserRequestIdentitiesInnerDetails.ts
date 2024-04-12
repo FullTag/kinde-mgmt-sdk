@@ -25,6 +25,18 @@ export interface CreateUserRequestIdentitiesInnerDetails {
      * @memberof CreateUserRequestIdentitiesInnerDetails
      */
     email?: string;
+    /**
+     * The phone number of the user.
+     * @type {string}
+     * @memberof CreateUserRequestIdentitiesInnerDetails
+     */
+    phone?: string;
+    /**
+     * The username of the user.
+     * @type {string}
+     * @memberof CreateUserRequestIdentitiesInnerDetails
+     */
+    username?: string;
 }
 
 /**
@@ -45,6 +57,8 @@ export function CreateUserRequestIdentitiesInnerDetailsFromJSONTyped(json: any, 
     return {
         
         'email': json['email'] == null ? undefined : json['email'],
+        'phone': json['phone'] == null ? undefined : json['phone'],
+        'username': json['username'] == null ? undefined : json['username'],
     };
 }
 
@@ -55,6 +69,8 @@ export function CreateUserRequestIdentitiesInnerDetailsToJSON(value?: CreateUser
     return {
         
         'email': value['email'],
+        'phone': value['phone'],
+        'username': value['username'],
     };
 }
 

@@ -32,6 +32,12 @@ export interface UserProfile {
      */
     preferredEmail?: string;
     /**
+     * Primary username of the user in Kinde.
+     * @type {string}
+     * @memberof UserProfile
+     */
+    username?: string;
+    /**
      * Value of the user's id in a third-party system when the user is imported into Kinde.
      * @type {string}
      * @memberof UserProfile
@@ -76,6 +82,7 @@ export function UserProfileFromJSONTyped(json: any, ignoreDiscriminator: boolean
         
         'id': json['id'] == null ? undefined : json['id'],
         'preferredEmail': json['preferred_email'] == null ? undefined : json['preferred_email'],
+        'username': json['username'] == null ? undefined : json['username'],
         'providedId': json['provided_id'] == null ? undefined : json['provided_id'],
         'lastName': json['last_name'] == null ? undefined : json['last_name'],
         'firstName': json['first_name'] == null ? undefined : json['first_name'],
@@ -91,6 +98,7 @@ export function UserProfileToJSON(value?: UserProfile | null): any {
         
         'id': value['id'],
         'preferred_email': value['preferredEmail'],
+        'username': value['username'],
         'provided_id': value['providedId'],
         'last_name': value['lastName'],
         'first_name': value['firstName'],

@@ -110,6 +110,10 @@ export interface DeleteOrganizationFeatureFlagOverridesRequest {
     orgCode: string;
 }
 
+export interface DeleteOrganizationHandleRequest {
+    orgCode: string;
+}
+
 export interface DeleteOrganizationUserPermissionRequest {
     orgCode: string;
     userId: string;
@@ -548,6 +552,49 @@ export class OrganizationsApi extends runtime.BaseAPI {
      */
     async deleteOrganizationFeatureFlagOverrides(requestParameters: DeleteOrganizationFeatureFlagOverridesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SuccessResponse> {
         const response = await this.deleteOrganizationFeatureFlagOverridesRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Delete organization handle 
+     * Delete organization handle
+     */
+    async deleteOrganizationHandleRaw(requestParameters: DeleteOrganizationHandleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SuccessResponse>> {
+        if (requestParameters['orgCode'] == null) {
+            throw new runtime.RequiredError(
+                'orgCode',
+                'Required parameter "orgCode" was null or undefined when calling deleteOrganizationHandle().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.accessToken) {
+            const token = this.configuration.accessToken;
+            const tokenString = await token("kindeBearerAuth", []);
+
+            if (tokenString) {
+                headerParameters["Authorization"] = `Bearer ${tokenString}`;
+            }
+        }
+        const response = await this.request({
+            path: `/api/v1/organization/{org_code}/handle`.replace(`{${"org_code"}}`, encodeURIComponent(String(requestParameters['orgCode']))),
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => SuccessResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Delete organization handle 
+     * Delete organization handle
+     */
+    async deleteOrganizationHandle(requestParameters: DeleteOrganizationHandleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SuccessResponse> {
+        const response = await this.deleteOrganizationHandleRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

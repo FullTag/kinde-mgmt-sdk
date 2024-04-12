@@ -19,6 +19,7 @@ import type {
   CreateUserResponse,
   ErrorResponse,
   GetPropertyValuesResponse,
+  SetUserPasswordRequest,
   SuccessResponse,
   UpdateOrganizationPropertiesRequest,
   UpdateUserRequest,
@@ -35,6 +36,8 @@ import {
     ErrorResponseToJSON,
     GetPropertyValuesResponseFromJSON,
     GetPropertyValuesResponseToJSON,
+    SetUserPasswordRequestFromJSON,
+    SetUserPasswordRequestToJSON,
     SuccessResponseFromJSON,
     SuccessResponseToJSON,
     UpdateOrganizationPropertiesRequestFromJSON,
@@ -77,6 +80,11 @@ export interface GetUsersRequest {
 
 export interface RefreshUserClaimsRequest {
     userId: string;
+}
+
+export interface SetUserPasswordOperationRequest {
+    userId: string;
+    setUserPasswordRequest: SetUserPasswordRequest;
 }
 
 export interface UpdateUserOperationRequest {
@@ -386,6 +394,59 @@ export class UsersApi extends runtime.BaseAPI {
      */
     async refreshUserClaims(requestParameters: RefreshUserClaimsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SuccessResponse> {
         const response = await this.refreshUserClaimsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Set user password.
+     * Set User password
+     */
+    async setUserPasswordRaw(requestParameters: SetUserPasswordOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SuccessResponse>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling setUserPassword().'
+            );
+        }
+
+        if (requestParameters['setUserPasswordRequest'] == null) {
+            throw new runtime.RequiredError(
+                'setUserPasswordRequest',
+                'Required parameter "setUserPasswordRequest" was null or undefined when calling setUserPassword().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.accessToken) {
+            const token = this.configuration.accessToken;
+            const tokenString = await token("kindeBearerAuth", []);
+
+            if (tokenString) {
+                headerParameters["Authorization"] = `Bearer ${tokenString}`;
+            }
+        }
+        const response = await this.request({
+            path: `/api/v1/users/{user_id}/password`.replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters['userId']))),
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: SetUserPasswordRequestToJSON(requestParameters['setUserPasswordRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => SuccessResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Set user password.
+     * Set User password
+     */
+    async setUserPassword(requestParameters: SetUserPasswordOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SuccessResponse> {
+        const response = await this.setUserPasswordRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

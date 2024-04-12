@@ -45,6 +45,12 @@ export interface User {
      */
     preferredEmail?: string;
     /**
+     * Primary username of the user in Kinde.
+     * @type {string}
+     * @memberof User
+     */
+    username?: string;
+    /**
      * User's last name.
      * @type {string}
      * @memberof User
@@ -126,6 +132,7 @@ export function UserFromJSONTyped(json: any, ignoreDiscriminator: boolean): User
         'id': json['id'] == null ? undefined : json['id'],
         'providedId': json['provided_id'] == null ? undefined : json['provided_id'],
         'preferredEmail': json['preferred_email'] == null ? undefined : json['preferred_email'],
+        'username': json['username'] == null ? undefined : json['username'],
         'lastName': json['last_name'] == null ? undefined : json['last_name'],
         'firstName': json['first_name'] == null ? undefined : json['first_name'],
         'isSuspended': json['is_suspended'] == null ? undefined : json['is_suspended'],
@@ -148,6 +155,7 @@ export function UserToJSON(value?: User | null): any {
         'id': value['id'],
         'provided_id': value['providedId'],
         'preferred_email': value['preferredEmail'],
+        'username': value['username'],
         'last_name': value['lastName'],
         'first_name': value['firstName'],
         'is_suspended': value['isSuspended'],

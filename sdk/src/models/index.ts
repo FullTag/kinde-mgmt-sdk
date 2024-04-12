@@ -73,6 +73,7 @@ export * from './ReplaceRedirectCallbackURLsRequest';
 export * from './Role';
 export * from './Roles';
 export * from './RolesPermissionResponseInner';
+export * from './SetUserPasswordRequest';
 export * from './Subscriber';
 export * from './SubscribersSubscriber';
 export * from './SuccessResponse';

@@ -90,6 +90,7 @@ models/ReplaceRedirectCallbackURLsRequest.ts
 models/Role.ts
 models/Roles.ts
 models/RolesPermissionResponseInner.ts
+models/SetUserPasswordRequest.ts
 models/Subscriber.ts
 models/SubscribersSubscriber.ts
 models/SuccessResponse.ts

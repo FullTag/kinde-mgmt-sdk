@@ -1226,7 +1226,9 @@ function CreateUserRequestIdentitiesInnerDetailsFromJSONTyped(json, ignoreDiscri
     return json;
   }
   return {
-    "email": json["email"] == null ? void 0 : json["email"]
+    "email": json["email"] == null ? void 0 : json["email"],
+    "phone": json["phone"] == null ? void 0 : json["phone"],
+    "username": json["username"] == null ? void 0 : json["username"]
   };
 }
 function CreateUserRequestIdentitiesInnerDetailsToJSON(value) {
@@ -1234,13 +1236,16 @@ function CreateUserRequestIdentitiesInnerDetailsToJSON(value) {
     return value;
   }
   return {
-    "email": value["email"]
+    "email": value["email"],
+    "phone": value["phone"],
+    "username": value["username"]
   };
 }
 
 // src/models/CreateUserRequestIdentitiesInner.ts
 var CreateUserRequestIdentitiesInnerTypeEnum = {
-  Email: "email"
+  Email: "email",
+  Username: "username"
 };
 function instanceOfCreateUserRequestIdentitiesInner(value) {
   return true;
@@ -2524,6 +2529,50 @@ function RolesPermissionResponseInnerToJSON(value) {
   };
 }
 
+// src/models/SetUserPasswordRequest.ts
+var SetUserPasswordRequestHashingMethodEnum = {
+  Bcrypt: "bcrypt",
+  Crypt: "crypt",
+  Md5: "md5",
+  Wordpress: "wordpress"
+};
+var SetUserPasswordRequestSaltPositionEnum = {
+  Prefix: "prefix",
+  Suffix: "suffix"
+};
+function instanceOfSetUserPasswordRequest(value) {
+  if (!("hashedPassword" in value))
+    return false;
+  return true;
+}
+function SetUserPasswordRequestFromJSON(json) {
+  return SetUserPasswordRequestFromJSONTyped(json, false);
+}
+function SetUserPasswordRequestFromJSONTyped(json, ignoreDiscriminator) {
+  if (json == null) {
+    return json;
+  }
+  return {
+    "hashedPassword": json["hashed_password"],
+    "hashingMethod": json["hashing_method"] == null ? void 0 : json["hashing_method"],
+    "salt": json["salt"] == null ? void 0 : json["salt"],
+    "saltPosition": json["salt_position"] == null ? void 0 : json["salt_position"],
+    "isTemporaryPassword": json["is_temporary_password"] == null ? void 0 : json["is_temporary_password"]
+  };
+}
+function SetUserPasswordRequestToJSON(value) {
+  if (value == null) {
+    return value;
+  }
+  return {
+    "hashed_password": value["hashedPassword"],
+    "hashing_method": value["hashingMethod"],
+    "salt": value["salt"],
+    "salt_position": value["saltPosition"],
+    "is_temporary_password": value["isTemporaryPassword"]
+  };
+}
+
 // src/models/SuccessResponse.ts
 function instanceOfSuccessResponse(value) {
   return true;
@@ -3149,6 +3198,7 @@ function UserFromJSONTyped(json, ignoreDiscriminator) {
     "id": json["id"] == null ? void 0 : json["id"],
     "providedId": json["provided_id"] == null ? void 0 : json["provided_id"],
     "preferredEmail": json["preferred_email"] == null ? void 0 : json["preferred_email"],
+    "username": json["username"] == null ? void 0 : json["username"],
     "lastName": json["last_name"] == null ? void 0 : json["last_name"],
     "firstName": json["first_name"] == null ? void 0 : json["first_name"],
     "isSuspended": json["is_suspended"] == null ? void 0 : json["is_suspended"],
@@ -3169,6 +3219,7 @@ function UserToJSON(value) {
     "id": value["id"],
     "provided_id": value["providedId"],
     "preferred_email": value["preferredEmail"],
+    "username": value["username"],
     "last_name": value["lastName"],
     "first_name": value["firstName"],
     "is_suspended": value["isSuspended"],
@@ -3196,6 +3247,7 @@ function UserProfileFromJSONTyped(json, ignoreDiscriminator) {
   return {
     "id": json["id"] == null ? void 0 : json["id"],
     "preferredEmail": json["preferred_email"] == null ? void 0 : json["preferred_email"],
+    "username": json["username"] == null ? void 0 : json["username"],
     "providedId": json["provided_id"] == null ? void 0 : json["provided_id"],
     "lastName": json["last_name"] == null ? void 0 : json["last_name"],
     "firstName": json["first_name"] == null ? void 0 : json["first_name"],
@@ -3209,6 +3261,7 @@ function UserProfileToJSON(value) {
   return {
     "id": value["id"],
     "preferred_email": value["preferredEmail"],
+    "username": value["username"],
     "provided_id": value["providedId"],
     "last_name": value["lastName"],
     "first_name": value["firstName"],
@@ -3271,6 +3324,7 @@ function UsersResponseUsersInnerFromJSONTyped(json, ignoreDiscriminator) {
     "id": json["id"] == null ? void 0 : json["id"],
     "providedId": json["provided_id"] == null ? void 0 : json["provided_id"],
     "email": json["email"] == null ? void 0 : json["email"],
+    "username": json["username"] == null ? void 0 : json["username"],
     "lastName": json["last_name"] == null ? void 0 : json["last_name"],
     "firstName": json["first_name"] == null ? void 0 : json["first_name"],
     "isSuspended": json["is_suspended"] == null ? void 0 : json["is_suspended"],
@@ -3291,6 +3345,7 @@ function UsersResponseUsersInnerToJSON(value) {
     "id": value["id"],
     "provided_id": value["providedId"],
     "email": value["email"],
+    "username": value["username"],
     "last_name": value["lastName"],
     "first_name": value["firstName"],
     "is_suspended": value["isSuspended"],
@@ -5143,6 +5198,42 @@ var OrganizationsApi = class extends BaseAPI {
     return await response.value();
   }
   /**
+   * Delete organization handle 
+   * Delete organization handle
+   */
+  async deleteOrganizationHandleRaw(requestParameters, initOverrides) {
+    if (requestParameters["orgCode"] == null) {
+      throw new RequiredError(
+        "orgCode",
+        'Required parameter "orgCode" was null or undefined when calling deleteOrganizationHandle().'
+      );
+    }
+    const queryParameters = {};
+    const headerParameters = {};
+    if (this.configuration && this.configuration.accessToken) {
+      const token = this.configuration.accessToken;
+      const tokenString = await token("kindeBearerAuth", []);
+      if (tokenString) {
+        headerParameters["Authorization"] = `Bearer ${tokenString}`;
+      }
+    }
+    const response = await this.request({
+      path: `/api/v1/organization/{org_code}/handle`.replace(`{${"org_code"}}`, encodeURIComponent(String(requestParameters["orgCode"]))),
+      method: "DELETE",
+      headers: headerParameters,
+      query: queryParameters
+    }, initOverrides);
+    return new JSONApiResponse(response, (jsonValue) => SuccessResponseFromJSON(jsonValue));
+  }
+  /**
+   * Delete organization handle 
+   * Delete organization handle
+   */
+  async deleteOrganizationHandle(requestParameters, initOverrides) {
+    const response = await this.deleteOrganizationHandleRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+  /**
    * Delete permission for an organization user.
    * Delete Organization User Permission
    */
@@ -6927,6 +7018,50 @@ var UsersApi = class extends BaseAPI {
     return await response.value();
   }
   /**
+   * Set user password.
+   * Set User password
+   */
+  async setUserPasswordRaw(requestParameters, initOverrides) {
+    if (requestParameters["userId"] == null) {
+      throw new RequiredError(
+        "userId",
+        'Required parameter "userId" was null or undefined when calling setUserPassword().'
+      );
+    }
+    if (requestParameters["setUserPasswordRequest"] == null) {
+      throw new RequiredError(
+        "setUserPasswordRequest",
+        'Required parameter "setUserPasswordRequest" was null or undefined when calling setUserPassword().'
+      );
+    }
+    const queryParameters = {};
+    const headerParameters = {};
+    headerParameters["Content-Type"] = "application/json";
+    if (this.configuration && this.configuration.accessToken) {
+      const token = this.configuration.accessToken;
+      const tokenString = await token("kindeBearerAuth", []);
+      if (tokenString) {
+        headerParameters["Authorization"] = `Bearer ${tokenString}`;
+      }
+    }
+    const response = await this.request({
+      path: `/api/v1/users/{user_id}/password`.replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters["userId"]))),
+      method: "PUT",
+      headers: headerParameters,
+      query: queryParameters,
+      body: SetUserPasswordRequestToJSON(requestParameters["setUserPasswordRequest"])
+    }, initOverrides);
+    return new JSONApiResponse(response, (jsonValue) => SuccessResponseFromJSON(jsonValue));
+  }
+  /**
+   * Set user password.
+   * Set User password
+   */
+  async setUserPassword(requestParameters, initOverrides) {
+    const response = await this.setUserPasswordRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+  /**
    * Update a user record. 
    * Update User
    */
@@ -7382,6 +7517,11 @@ export {
   RolesPermissionResponseInnerFromJSONTyped,
   RolesPermissionResponseInnerToJSON,
   RolesToJSON,
+  SetUserPasswordRequestFromJSON,
+  SetUserPasswordRequestFromJSONTyped,
+  SetUserPasswordRequestHashingMethodEnum,
+  SetUserPasswordRequestSaltPositionEnum,
+  SetUserPasswordRequestToJSON,
   SubscriberFromJSON,
   SubscriberFromJSONTyped,
   SubscriberToJSON,
@@ -7553,6 +7693,7 @@ export {
   instanceOfRole,
   instanceOfRoles,
   instanceOfRolesPermissionResponseInner,
+  instanceOfSetUserPasswordRequest,
   instanceOfSubscriber,
   instanceOfSubscribersSubscriber,
   instanceOfSuccessResponse,
