@@ -3445,6 +3445,12 @@ function UpdateOrganizationUsersResponseToJSON(value) {
 
 // src/models/UpdatePropertyRequest.ts
 function instanceOfUpdatePropertyRequest(value) {
+  if (!("name" in value))
+    return false;
+  if (!("isPrivate" in value))
+    return false;
+  if (!("categoryId" in value))
+    return false;
   return true;
 }
 function UpdatePropertyRequestFromJSON(json) {
@@ -3455,9 +3461,10 @@ function UpdatePropertyRequestFromJSONTyped(json, ignoreDiscriminator) {
     return json;
   }
   return {
-    "name": json["name"] == null ? void 0 : json["name"],
+    "name": json["name"],
     "description": json["description"] == null ? void 0 : json["description"],
-    "isPrivate": json["is_private"] == null ? void 0 : json["is_private"]
+    "isPrivate": json["is_private"],
+    "categoryId": json["category_id"]
   };
 }
 function UpdatePropertyRequestToJSON(value) {
@@ -3467,7 +3474,8 @@ function UpdatePropertyRequestToJSON(value) {
   return {
     "name": value["name"],
     "description": value["description"],
-    "is_private": value["isPrivate"]
+    "is_private": value["isPrivate"],
+    "category_id": value["categoryId"]
   };
 }
 

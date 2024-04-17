@@ -24,7 +24,7 @@ export interface UpdatePropertyRequest {
      * @type {string}
      * @memberof UpdatePropertyRequest
      */
-    name?: string;
+    name: string;
     /**
      * Description of the property purpose.
      * @type {string}
@@ -36,13 +36,22 @@ export interface UpdatePropertyRequest {
      * @type {boolean}
      * @memberof UpdatePropertyRequest
      */
-    isPrivate?: boolean;
+    isPrivate: boolean;
+    /**
+     * Which category the property belongs to.
+     * @type {string}
+     * @memberof UpdatePropertyRequest
+     */
+    categoryId: string;
 }
 
 /**
  * Check if a given object implements the UpdatePropertyRequest interface.
  */
 export function instanceOfUpdatePropertyRequest(value: object): boolean {
+    if (!('name' in value)) return false;
+    if (!('isPrivate' in value)) return false;
+    if (!('categoryId' in value)) return false;
     return true;
 }
 
@@ -56,9 +65,10 @@ export function UpdatePropertyRequestFromJSONTyped(json: any, ignoreDiscriminato
     }
     return {
         
-        'name': json['name'] == null ? undefined : json['name'],
+        'name': json['name'],
         'description': json['description'] == null ? undefined : json['description'],
-        'isPrivate': json['is_private'] == null ? undefined : json['is_private'],
+        'isPrivate': json['is_private'],
+        'categoryId': json['category_id'],
     };
 }
 
@@ -71,6 +81,7 @@ export function UpdatePropertyRequestToJSON(value?: UpdatePropertyRequest | null
         'name': value['name'],
         'description': value['description'],
         'is_private': value['isPrivate'],
+        'category_id': value['categoryId'],
     };
 }
 

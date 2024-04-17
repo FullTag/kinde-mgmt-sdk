@@ -4417,7 +4417,7 @@ interface UpdatePropertyRequest {
      * @type {string}
      * @memberof UpdatePropertyRequest
      */
-    name?: string;
+    name: string;
     /**
      * Description of the property purpose.
      * @type {string}
@@ -4429,7 +4429,13 @@ interface UpdatePropertyRequest {
      * @type {boolean}
      * @memberof UpdatePropertyRequest
      */
-    isPrivate?: boolean;
+    isPrivate: boolean;
+    /**
+     * Which category the property belongs to.
+     * @type {string}
+     * @memberof UpdatePropertyRequest
+     */
+    categoryId: string;
 }
 /**
  * Check if a given object implements the UpdatePropertyRequest interface.
