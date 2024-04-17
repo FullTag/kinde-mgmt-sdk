@@ -3408,6 +3408,14 @@ paths:
                   description: >-
                     Whether the property can be included in id and access
                     tokens.
+                category_id:
+                  description: Which category the property belongs to.
+                  type: string
+                  nullable: false
+              required:
+                - name
+                - is_private
+                - category_id
       responses:
         '200':
           description: Property successfully updated.
