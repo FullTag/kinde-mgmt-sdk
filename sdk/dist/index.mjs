@@ -618,6 +618,36 @@ function ConnectedAppsAuthUrlToJSON(value) {
   };
 }
 
+// src/models/Connection.ts
+function instanceOfConnection(value) {
+  return true;
+}
+function ConnectionFromJSON(json) {
+  return ConnectionFromJSONTyped(json, false);
+}
+function ConnectionFromJSONTyped(json, ignoreDiscriminator) {
+  if (json == null) {
+    return json;
+  }
+  return {
+    "id": json["id"] == null ? void 0 : json["id"],
+    "name": json["name"] == null ? void 0 : json["name"],
+    "displayName": json["display_name"] == null ? void 0 : json["display_name"],
+    "strategy": json["strategy"] == null ? void 0 : json["strategy"]
+  };
+}
+function ConnectionToJSON(value) {
+  if (value == null) {
+    return value;
+  }
+  return {
+    "id": value["id"],
+    "name": value["name"],
+    "display_name": value["displayName"],
+    "strategy": value["strategy"]
+  };
+}
+
 // src/models/CreateApplicationRequest.ts
 var CreateApplicationRequestTypeEnum = {
   Reg: "reg",
@@ -788,6 +818,116 @@ function CreateCategoryResponseToJSON(value) {
     "message": value["message"],
     "code": value["code"],
     "category": CreateCategoryResponseCategoryToJSON(value["category"])
+  };
+}
+
+// src/models/CreateConnectionRequest.ts
+var CreateConnectionRequestStrategyEnum = {
+  Oauth2apple: "oauth2:apple",
+  Oauth2azureAd: "oauth2:azure_ad",
+  Oauth2bitbucket: "oauth2:bitbucket",
+  Oauth2discord: "oauth2:discord",
+  Oauth2facebook: "oauth2:facebook",
+  Oauth2github: "oauth2:github",
+  Oauth2gitlab: "oauth2:gitlab",
+  Oauth2google: "oauth2:google",
+  Oauth2linkedin: "oauth2:linkedin",
+  Oauth2microsoft: "oauth2:microsoft",
+  Oauth2patreon: "oauth2:patreon",
+  Oauth2slack: "oauth2:slack",
+  Oauth2stripe: "oauth2:stripe",
+  Oauth2twitch: "oauth2:twitch",
+  Oauth2twitter: "oauth2:twitter",
+  Oauth2xero: "oauth2:xero",
+  Samlcustom: "saml:custom",
+  WsfedazureAd: "wsfed:azure_ad"
+};
+function instanceOfCreateConnectionRequest(value) {
+  if (!("name" in value))
+    return false;
+  if (!("displayName" in value))
+    return false;
+  if (!("strategy" in value))
+    return false;
+  return true;
+}
+function CreateConnectionRequestFromJSON(json) {
+  return CreateConnectionRequestFromJSONTyped(json, false);
+}
+function CreateConnectionRequestFromJSONTyped(json, ignoreDiscriminator) {
+  if (json == null) {
+    return json;
+  }
+  return {
+    "name": json["name"],
+    "displayName": json["display_name"],
+    "strategy": json["strategy"],
+    "enabledApplications": json["enabled_applications"] == null ? void 0 : json["enabled_applications"],
+    "options": json["options"] == null ? void 0 : json["options"]
+  };
+}
+function CreateConnectionRequestToJSON(value) {
+  if (value == null) {
+    return value;
+  }
+  return {
+    "name": value["name"],
+    "display_name": value["displayName"],
+    "strategy": value["strategy"],
+    "enabled_applications": value["enabledApplications"],
+    "options": value["options"]
+  };
+}
+
+// src/models/CreateConnectionResponseConnection.ts
+function instanceOfCreateConnectionResponseConnection(value) {
+  return true;
+}
+function CreateConnectionResponseConnectionFromJSON(json) {
+  return CreateConnectionResponseConnectionFromJSONTyped(json, false);
+}
+function CreateConnectionResponseConnectionFromJSONTyped(json, ignoreDiscriminator) {
+  if (json == null) {
+    return json;
+  }
+  return {
+    "id": json["id"] == null ? void 0 : json["id"]
+  };
+}
+function CreateConnectionResponseConnectionToJSON(value) {
+  if (value == null) {
+    return value;
+  }
+  return {
+    "id": value["id"]
+  };
+}
+
+// src/models/CreateConnectionResponse.ts
+function instanceOfCreateConnectionResponse(value) {
+  return true;
+}
+function CreateConnectionResponseFromJSON(json) {
+  return CreateConnectionResponseFromJSONTyped(json, false);
+}
+function CreateConnectionResponseFromJSONTyped(json, ignoreDiscriminator) {
+  if (json == null) {
+    return json;
+  }
+  return {
+    "message": json["message"] == null ? void 0 : json["message"],
+    "code": json["code"] == null ? void 0 : json["code"],
+    "connection": json["connection"] == null ? void 0 : CreateConnectionResponseConnectionFromJSON(json["connection"])
+  };
+}
+function CreateConnectionResponseToJSON(value) {
+  if (value == null) {
+    return value;
+  }
+  return {
+    "message": value["message"],
+    "code": value["code"],
+    "connection": CreateConnectionResponseConnectionToJSON(value["connection"])
   };
 }
 
@@ -1570,6 +1710,36 @@ function GetCategoriesResponseToJSON(value) {
     "code": value["code"],
     "message": value["message"],
     "categories": value["categories"] == null ? void 0 : value["categories"].map(CategoryToJSON),
+    "has_more": value["hasMore"]
+  };
+}
+
+// src/models/GetConnectionsResponse.ts
+function instanceOfGetConnectionsResponse(value) {
+  return true;
+}
+function GetConnectionsResponseFromJSON(json) {
+  return GetConnectionsResponseFromJSONTyped(json, false);
+}
+function GetConnectionsResponseFromJSONTyped(json, ignoreDiscriminator) {
+  if (json == null) {
+    return json;
+  }
+  return {
+    "code": json["code"] == null ? void 0 : json["code"],
+    "message": json["message"] == null ? void 0 : json["message"],
+    "connections": json["connections"] == null ? void 0 : json["connections"].map(ConnectionFromJSON),
+    "hasMore": json["has_more"] == null ? void 0 : json["has_more"]
+  };
+}
+function GetConnectionsResponseToJSON(value) {
+  if (value == null) {
+    return value;
+  }
+  return {
+    "code": value["code"],
+    "message": value["message"],
+    "connections": value["connections"] == null ? void 0 : value["connections"].map(ConnectionToJSON),
     "has_more": value["hasMore"]
   };
 }
@@ -2765,6 +2935,36 @@ function UpdateCategoryRequestToJSON(value) {
   };
 }
 
+// src/models/UpdateConnectionRequest.ts
+function instanceOfUpdateConnectionRequest(value) {
+  return true;
+}
+function UpdateConnectionRequestFromJSON(json) {
+  return UpdateConnectionRequestFromJSONTyped(json, false);
+}
+function UpdateConnectionRequestFromJSONTyped(json, ignoreDiscriminator) {
+  if (json == null) {
+    return json;
+  }
+  return {
+    "name": json["name"] == null ? void 0 : json["name"],
+    "displayName": json["display_name"] == null ? void 0 : json["display_name"],
+    "enabledApplications": json["enabled_applications"] == null ? void 0 : json["enabled_applications"],
+    "options": json["options"] == null ? void 0 : json["options"]
+  };
+}
+function UpdateConnectionRequestToJSON(value) {
+  if (value == null) {
+    return value;
+  }
+  return {
+    "name": value["name"],
+    "display_name": value["displayName"],
+    "enabled_applications": value["enabledApplications"],
+    "options": value["options"]
+  };
+}
+
 // src/models/UpdateEnvironementFeatureFlagOverrideRequest.ts
 function instanceOfUpdateEnvironementFeatureFlagOverrideRequest(value) {
   if (!("value" in value))
@@ -3656,6 +3856,47 @@ var ApplicationsApi = class extends BaseAPI {
     return await response.value();
   }
   /**
+   * Enable an auth connection for an application.
+   * Enable connection
+   */
+  async enableConnectionRaw(requestParameters, initOverrides) {
+    if (requestParameters["applicationId"] == null) {
+      throw new RequiredError(
+        "applicationId",
+        'Required parameter "applicationId" was null or undefined when calling enableConnection().'
+      );
+    }
+    if (requestParameters["connectionId"] == null) {
+      throw new RequiredError(
+        "connectionId",
+        'Required parameter "connectionId" was null or undefined when calling enableConnection().'
+      );
+    }
+    const queryParameters = {};
+    const headerParameters = {};
+    if (this.configuration && this.configuration.accessToken) {
+      const token = this.configuration.accessToken;
+      const tokenString = await token("kindeBearerAuth", []);
+      if (tokenString) {
+        headerParameters["Authorization"] = `Bearer ${tokenString}`;
+      }
+    }
+    const response = await this.request({
+      path: `/api/v1/applications/{application_id}/connections/{connection_id}`.replace(`{${"application_id"}}`, encodeURIComponent(String(requestParameters["applicationId"]))).replace(`{${"connection_id"}}`, encodeURIComponent(String(requestParameters["connectionId"]))),
+      method: "POST",
+      headers: headerParameters,
+      query: queryParameters
+    }, initOverrides);
+    return new VoidApiResponse(response);
+  }
+  /**
+   * Enable an auth connection for an application.
+   * Enable connection
+   */
+  async enableConnection(requestParameters, initOverrides) {
+    await this.enableConnectionRaw(requestParameters, initOverrides);
+  }
+  /**
    * Gets an application given the application\'s id. 
    * Get Application
    */
@@ -3689,6 +3930,42 @@ var ApplicationsApi = class extends BaseAPI {
    */
   async getApplication(requestParameters, initOverrides) {
     const response = await this.getApplicationRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+  /**
+   * Gets all connections for an application.
+   * Get connections
+   */
+  async getApplicationConnectionsRaw(requestParameters, initOverrides) {
+    if (requestParameters["applicationId"] == null) {
+      throw new RequiredError(
+        "applicationId",
+        'Required parameter "applicationId" was null or undefined when calling getApplicationConnections().'
+      );
+    }
+    const queryParameters = {};
+    const headerParameters = {};
+    if (this.configuration && this.configuration.accessToken) {
+      const token = this.configuration.accessToken;
+      const tokenString = await token("kindeBearerAuth", []);
+      if (tokenString) {
+        headerParameters["Authorization"] = `Bearer ${tokenString}`;
+      }
+    }
+    const response = await this.request({
+      path: `/api/v1/applications/{application_id}/connections`.replace(`{${"application_id"}}`, encodeURIComponent(String(requestParameters["applicationId"]))),
+      method: "GET",
+      headers: headerParameters,
+      query: queryParameters
+    }, initOverrides);
+    return new JSONApiResponse(response, (jsonValue) => GetConnectionsResponseFromJSON(jsonValue));
+  }
+  /**
+   * Gets all connections for an application.
+   * Get connections
+   */
+  async getApplicationConnections(requestParameters, initOverrides) {
+    const response = await this.getApplicationConnectionsRaw(requestParameters, initOverrides);
     return await response.value();
   }
   /**
@@ -3728,6 +4005,48 @@ var ApplicationsApi = class extends BaseAPI {
    */
   async getApplications(requestParameters = {}, initOverrides) {
     const response = await this.getApplicationsRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+  /**
+   * Turn off an auth connection for an application
+   * Remove connection
+   */
+  async removeConnectionRaw(requestParameters, initOverrides) {
+    if (requestParameters["applicationId"] == null) {
+      throw new RequiredError(
+        "applicationId",
+        'Required parameter "applicationId" was null or undefined when calling removeConnection().'
+      );
+    }
+    if (requestParameters["connectionId"] == null) {
+      throw new RequiredError(
+        "connectionId",
+        'Required parameter "connectionId" was null or undefined when calling removeConnection().'
+      );
+    }
+    const queryParameters = {};
+    const headerParameters = {};
+    if (this.configuration && this.configuration.accessToken) {
+      const token = this.configuration.accessToken;
+      const tokenString = await token("kindeBearerAuth", []);
+      if (tokenString) {
+        headerParameters["Authorization"] = `Bearer ${tokenString}`;
+      }
+    }
+    const response = await this.request({
+      path: `/api/v1/applications/{application_id}/connections/{connection_id}`.replace(`{${"application_id"}}`, encodeURIComponent(String(requestParameters["applicationId"]))).replace(`{${"connection_id"}}`, encodeURIComponent(String(requestParameters["connectionId"]))),
+      method: "DELETE",
+      headers: headerParameters,
+      query: queryParameters
+    }, initOverrides);
+    return new JSONApiResponse(response, (jsonValue) => SuccessResponseFromJSON(jsonValue));
+  }
+  /**
+   * Turn off an auth connection for an application
+   * Remove connection
+   */
+  async removeConnection(requestParameters, initOverrides) {
+    const response = await this.removeConnectionRaw(requestParameters, initOverrides);
     return await response.value();
   }
   /**
@@ -4389,6 +4708,167 @@ var ConnectedAppsApi = class extends BaseAPI {
    */
   async revokeConnectedAppToken(requestParameters, initOverrides) {
     const response = await this.revokeConnectedAppTokenRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+};
+
+// src/apis/ConnectionsApi.ts
+var ConnectionsApi = class extends BaseAPI {
+  /**
+   * Create Connection.
+   * Create Connection
+   */
+  async createConnectionRaw(requestParameters, initOverrides) {
+    if (requestParameters["createConnectionRequest"] == null) {
+      throw new RequiredError(
+        "createConnectionRequest",
+        'Required parameter "createConnectionRequest" was null or undefined when calling createConnection().'
+      );
+    }
+    const queryParameters = {};
+    const headerParameters = {};
+    headerParameters["Content-Type"] = "application/json";
+    if (this.configuration && this.configuration.accessToken) {
+      const token = this.configuration.accessToken;
+      const tokenString = await token("kindeBearerAuth", []);
+      if (tokenString) {
+        headerParameters["Authorization"] = `Bearer ${tokenString}`;
+      }
+    }
+    const response = await this.request({
+      path: `/api/v1/connections`,
+      method: "POST",
+      headers: headerParameters,
+      query: queryParameters,
+      body: CreateConnectionRequestToJSON(requestParameters["createConnectionRequest"])
+    }, initOverrides);
+    return new JSONApiResponse(response, (jsonValue) => CreateConnectionResponseFromJSON(jsonValue));
+  }
+  /**
+   * Create Connection.
+   * Create Connection
+   */
+  async createConnection(requestParameters, initOverrides) {
+    const response = await this.createConnectionRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+  /**
+   * Get Connection.
+   * Get Connection
+   */
+  async getConnectionRaw(requestParameters, initOverrides) {
+    if (requestParameters["connectionId"] == null) {
+      throw new RequiredError(
+        "connectionId",
+        'Required parameter "connectionId" was null or undefined when calling getConnection().'
+      );
+    }
+    const queryParameters = {};
+    const headerParameters = {};
+    if (this.configuration && this.configuration.accessToken) {
+      const token = this.configuration.accessToken;
+      const tokenString = await token("kindeBearerAuth", []);
+      if (tokenString) {
+        headerParameters["Authorization"] = `Bearer ${tokenString}`;
+      }
+    }
+    const response = await this.request({
+      path: `/api/v1/connections/{connection_id}`.replace(`{${"connection_id"}}`, encodeURIComponent(String(requestParameters["connectionId"]))),
+      method: "GET",
+      headers: headerParameters,
+      query: queryParameters
+    }, initOverrides);
+    return new JSONApiResponse(response, (jsonValue) => ConnectionFromJSON(jsonValue));
+  }
+  /**
+   * Get Connection.
+   * Get Connection
+   */
+  async getConnection(requestParameters, initOverrides) {
+    const response = await this.getConnectionRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+  /**
+   * Returns a list of Connections 
+   * List Connections
+   */
+  async getConnectionsRaw(requestParameters, initOverrides) {
+    const queryParameters = {};
+    if (requestParameters["pageSize"] != null) {
+      queryParameters["page_size"] = requestParameters["pageSize"];
+    }
+    if (requestParameters["startingAfter"] != null) {
+      queryParameters["starting_after"] = requestParameters["startingAfter"];
+    }
+    if (requestParameters["endingBefore"] != null) {
+      queryParameters["ending_before"] = requestParameters["endingBefore"];
+    }
+    const headerParameters = {};
+    if (this.configuration && this.configuration.accessToken) {
+      const token = this.configuration.accessToken;
+      const tokenString = await token("kindeBearerAuth", []);
+      if (tokenString) {
+        headerParameters["Authorization"] = `Bearer ${tokenString}`;
+      }
+    }
+    const response = await this.request({
+      path: `/api/v1/connections`,
+      method: "GET",
+      headers: headerParameters,
+      query: queryParameters
+    }, initOverrides);
+    return new JSONApiResponse(response, (jsonValue) => GetConnectionsResponseFromJSON(jsonValue));
+  }
+  /**
+   * Returns a list of Connections 
+   * List Connections
+   */
+  async getConnections(requestParameters = {}, initOverrides) {
+    const response = await this.getConnectionsRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+  /**
+   * Update Connection.
+   * Update Connection
+   */
+  async updateConnectionRaw(requestParameters, initOverrides) {
+    if (requestParameters["connectionId"] == null) {
+      throw new RequiredError(
+        "connectionId",
+        'Required parameter "connectionId" was null or undefined when calling updateConnection().'
+      );
+    }
+    if (requestParameters["updateConnectionRequest"] == null) {
+      throw new RequiredError(
+        "updateConnectionRequest",
+        'Required parameter "updateConnectionRequest" was null or undefined when calling updateConnection().'
+      );
+    }
+    const queryParameters = {};
+    const headerParameters = {};
+    headerParameters["Content-Type"] = "application/json";
+    if (this.configuration && this.configuration.accessToken) {
+      const token = this.configuration.accessToken;
+      const tokenString = await token("kindeBearerAuth", []);
+      if (tokenString) {
+        headerParameters["Authorization"] = `Bearer ${tokenString}`;
+      }
+    }
+    const response = await this.request({
+      path: `/api/v1/connections/{connection_id}`.replace(`{${"connection_id"}}`, encodeURIComponent(String(requestParameters["connectionId"]))),
+      method: "PATCH",
+      headers: headerParameters,
+      query: queryParameters,
+      body: UpdateConnectionRequestToJSON(requestParameters["updateConnectionRequest"])
+    }, initOverrides);
+    return new JSONApiResponse(response, (jsonValue) => SuccessResponseFromJSON(jsonValue));
+  }
+  /**
+   * Update Connection.
+   * Update Connection
+   */
+  async updateConnection(requestParameters, initOverrides) {
+    const response = await this.updateConnectionRaw(requestParameters, initOverrides);
     return await response.value();
   }
 };
@@ -7310,6 +7790,10 @@ export {
   ConnectedAppsAuthUrlFromJSON,
   ConnectedAppsAuthUrlFromJSONTyped,
   ConnectedAppsAuthUrlToJSON,
+  ConnectionFromJSON,
+  ConnectionFromJSONTyped,
+  ConnectionToJSON,
+  ConnectionsApi,
   CreateApplicationRequestFromJSON,
   CreateApplicationRequestFromJSONTyped,
   CreateApplicationRequestToJSON,
@@ -7330,6 +7814,16 @@ export {
   CreateCategoryResponseFromJSON,
   CreateCategoryResponseFromJSONTyped,
   CreateCategoryResponseToJSON,
+  CreateConnectionRequestFromJSON,
+  CreateConnectionRequestFromJSONTyped,
+  CreateConnectionRequestStrategyEnum,
+  CreateConnectionRequestToJSON,
+  CreateConnectionResponseConnectionFromJSON,
+  CreateConnectionResponseConnectionFromJSONTyped,
+  CreateConnectionResponseConnectionToJSON,
+  CreateConnectionResponseFromJSON,
+  CreateConnectionResponseFromJSONTyped,
+  CreateConnectionResponseToJSON,
   CreateFeatureFlagRequestAllowOverrideLevelEnum,
   CreateFeatureFlagRequestFromJSON,
   CreateFeatureFlagRequestFromJSONTyped,
@@ -7411,6 +7905,9 @@ export {
   GetCategoriesResponseFromJSON,
   GetCategoriesResponseFromJSONTyped,
   GetCategoriesResponseToJSON,
+  GetConnectionsResponseFromJSON,
+  GetConnectionsResponseFromJSONTyped,
+  GetConnectionsResponseToJSON,
   GetEnvironmentFeatureFlagsResponseFromJSON,
   GetEnvironmentFeatureFlagsResponseFromJSONTyped,
   GetEnvironmentFeatureFlagsResponseToJSON,
@@ -7560,6 +8057,9 @@ export {
   UpdateCategoryRequestFromJSON,
   UpdateCategoryRequestFromJSONTyped,
   UpdateCategoryRequestToJSON,
+  UpdateConnectionRequestFromJSON,
+  UpdateConnectionRequestFromJSONTyped,
+  UpdateConnectionRequestToJSON,
   UpdateEnvironementFeatureFlagOverrideRequestFromJSON,
   UpdateEnvironementFeatureFlagOverrideRequestFromJSONTyped,
   UpdateEnvironementFeatureFlagOverrideRequestToJSON,
@@ -7640,12 +8140,16 @@ export {
   instanceOfCategory,
   instanceOfConnectedAppsAccessToken,
   instanceOfConnectedAppsAuthUrl,
+  instanceOfConnection,
   instanceOfCreateApplicationRequest,
   instanceOfCreateApplicationResponse,
   instanceOfCreateApplicationResponseApplication,
   instanceOfCreateCategoryRequest,
   instanceOfCreateCategoryResponse,
   instanceOfCreateCategoryResponseCategory,
+  instanceOfCreateConnectionRequest,
+  instanceOfCreateConnectionResponse,
+  instanceOfCreateConnectionResponseConnection,
   instanceOfCreateFeatureFlagRequest,
   instanceOfCreateOrganizationRequest,
   instanceOfCreateOrganizationResponse,
@@ -7669,6 +8173,7 @@ export {
   instanceOfGetApplicationResponseApplication,
   instanceOfGetApplicationsResponse,
   instanceOfGetCategoriesResponse,
+  instanceOfGetConnectionsResponse,
   instanceOfGetEnvironmentFeatureFlagsResponse,
   instanceOfGetOrganizationFeatureFlagsResponse,
   instanceOfGetOrganizationFeatureFlagsResponseFeatureFlagsValue,
@@ -7711,6 +8216,7 @@ export {
   instanceOfUpdateAPIApplicationsRequestApplicationsInner,
   instanceOfUpdateApplicationRequest,
   instanceOfUpdateCategoryRequest,
+  instanceOfUpdateConnectionRequest,
   instanceOfUpdateEnvironementFeatureFlagOverrideRequest,
   instanceOfUpdateOrganizationPropertiesRequest,
   instanceOfUpdateOrganizationRequest,

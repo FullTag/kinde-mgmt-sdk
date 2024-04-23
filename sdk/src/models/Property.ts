@@ -33,10 +33,10 @@ export interface Property {
     key?: string;
     /**
      * 
-     * @type {boolean}
+     * @type {string}
      * @memberof Property
      */
-    name?: boolean;
+    name?: string;
     /**
      * 
      * @type {boolean}

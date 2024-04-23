@@ -5,6 +5,7 @@ export * from './ApplicationsApi';
 export * from './BusinessApi';
 export * from './CallbacksApi';
 export * from './ConnectedAppsApi';
+export * from './ConnectionsApi';
 export * from './EnvironmentsApi';
 export * from './FeatureFlagsApi';
 export * from './IndustriesApi';

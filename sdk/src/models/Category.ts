@@ -27,10 +27,10 @@ export interface Category {
     id?: string;
     /**
      * 
-     * @type {boolean}
+     * @type {string}
      * @memberof Category
      */
-    name?: boolean;
+    name?: string;
 }
 
 /**
