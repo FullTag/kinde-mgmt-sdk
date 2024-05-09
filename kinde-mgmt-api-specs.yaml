@@ -3,11 +3,11 @@ info:
   version: '1'
   title: Kinde Management API
   description: Provides endpoints to manage your Kinde Businesses
-  termsOfService: https://kinde.com/docs/important-information/terms-of-service/
+  termsOfService: https://docs.kinde.com/trust-center/agreements/terms-of-service/
   contact:
     name: Kinde Support Team
     email: support@kinde.com
-    url: https://kinde.com/docs/
+    url: https://docs.kinde.com
 servers:
   - url: https://{businessName}.kinde.com
     variables:
