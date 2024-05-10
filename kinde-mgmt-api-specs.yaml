@@ -693,7 +693,7 @@ paths:
             nullable: false
       responses:
         '200':
-          description: Application successfully retrieved.
+          description: Application connections successfully retrieved.
           content:
             application/json:
               schema:
