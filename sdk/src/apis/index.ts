@@ -18,3 +18,4 @@ export * from './RolesApi';
 export * from './SubscribersApi';
 export * from './TimezonesApi';
 export * from './UsersApi';
+export * from './WebhooksApi';

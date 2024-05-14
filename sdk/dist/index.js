@@ -159,11 +159,26 @@ __export(src_exports, {
   CreateUserResponseFromJSON: () => CreateUserResponseFromJSON,
   CreateUserResponseFromJSONTyped: () => CreateUserResponseFromJSONTyped,
   CreateUserResponseToJSON: () => CreateUserResponseToJSON,
+  CreateWebHookRequestFromJSON: () => CreateWebHookRequestFromJSON,
+  CreateWebHookRequestFromJSONTyped: () => CreateWebHookRequestFromJSONTyped,
+  CreateWebHookRequestToJSON: () => CreateWebHookRequestToJSON,
+  CreateWebhookResponseFromJSON: () => CreateWebhookResponseFromJSON,
+  CreateWebhookResponseFromJSONTyped: () => CreateWebhookResponseFromJSONTyped,
+  CreateWebhookResponseToJSON: () => CreateWebhookResponseToJSON,
+  CreateWebhookResponseWebhookFromJSON: () => CreateWebhookResponseWebhookFromJSON,
+  CreateWebhookResponseWebhookFromJSONTyped: () => CreateWebhookResponseWebhookFromJSONTyped,
+  CreateWebhookResponseWebhookToJSON: () => CreateWebhookResponseWebhookToJSON,
   DefaultConfig: () => DefaultConfig,
+  DeleteWebhookResponseFromJSON: () => DeleteWebhookResponseFromJSON,
+  DeleteWebhookResponseFromJSONTyped: () => DeleteWebhookResponseFromJSONTyped,
+  DeleteWebhookResponseToJSON: () => DeleteWebhookResponseToJSON,
   EnvironmentsApi: () => EnvironmentsApi,
   ErrorResponseFromJSON: () => ErrorResponseFromJSON,
   ErrorResponseFromJSONTyped: () => ErrorResponseFromJSONTyped,
   ErrorResponseToJSON: () => ErrorResponseToJSON,
+  EventTypeFromJSON: () => EventTypeFromJSON,
+  EventTypeFromJSONTyped: () => EventTypeFromJSONTyped,
+  EventTypeToJSON: () => EventTypeToJSON,
   FeatureFlagsApi: () => FeatureFlagsApi,
   FetchError: () => FetchError,
   GetApplicationResponseApplicationFromJSON: () => GetApplicationResponseApplicationFromJSON,
@@ -186,6 +201,15 @@ __export(src_exports, {
   GetEnvironmentFeatureFlagsResponseFromJSON: () => GetEnvironmentFeatureFlagsResponseFromJSON,
   GetEnvironmentFeatureFlagsResponseFromJSONTyped: () => GetEnvironmentFeatureFlagsResponseFromJSONTyped,
   GetEnvironmentFeatureFlagsResponseToJSON: () => GetEnvironmentFeatureFlagsResponseToJSON,
+  GetEventResponseEventFromJSON: () => GetEventResponseEventFromJSON,
+  GetEventResponseEventFromJSONTyped: () => GetEventResponseEventFromJSONTyped,
+  GetEventResponseEventToJSON: () => GetEventResponseEventToJSON,
+  GetEventResponseFromJSON: () => GetEventResponseFromJSON,
+  GetEventResponseFromJSONTyped: () => GetEventResponseFromJSONTyped,
+  GetEventResponseToJSON: () => GetEventResponseToJSON,
+  GetEventTypesResponseFromJSON: () => GetEventTypesResponseFromJSON,
+  GetEventTypesResponseFromJSONTyped: () => GetEventTypesResponseFromJSONTyped,
+  GetEventTypesResponseToJSON: () => GetEventTypesResponseToJSON,
   GetOrganizationFeatureFlagsResponseFeatureFlagsValueFromJSON: () => GetOrganizationFeatureFlagsResponseFeatureFlagsValueFromJSON,
   GetOrganizationFeatureFlagsResponseFeatureFlagsValueFromJSONTyped: () => GetOrganizationFeatureFlagsResponseFeatureFlagsValueFromJSONTyped,
   GetOrganizationFeatureFlagsResponseFeatureFlagsValueToJSON: () => GetOrganizationFeatureFlagsResponseFeatureFlagsValueToJSON,
@@ -233,6 +257,9 @@ __export(src_exports, {
   GetSubscribersResponseFromJSONTyped: () => GetSubscribersResponseFromJSONTyped,
   GetSubscribersResponseToJSON: () => GetSubscribersResponseToJSON,
   GetSubscribersSortEnum: () => GetSubscribersSortEnum,
+  GetWebhooksResponseFromJSON: () => GetWebhooksResponseFromJSON,
+  GetWebhooksResponseFromJSONTyped: () => GetWebhooksResponseFromJSONTyped,
+  GetWebhooksResponseToJSON: () => GetWebhooksResponseToJSON,
   IndustriesApi: () => IndustriesApi,
   JSONApiResponse: () => JSONApiResponse,
   LogoutRedirectUrlsFromJSON: () => LogoutRedirectUrlsFromJSON,
@@ -376,6 +403,15 @@ __export(src_exports, {
   UpdateUserResponseFromJSON: () => UpdateUserResponseFromJSON,
   UpdateUserResponseFromJSONTyped: () => UpdateUserResponseFromJSONTyped,
   UpdateUserResponseToJSON: () => UpdateUserResponseToJSON,
+  UpdateWebHookRequestFromJSON: () => UpdateWebHookRequestFromJSON,
+  UpdateWebHookRequestFromJSONTyped: () => UpdateWebHookRequestFromJSONTyped,
+  UpdateWebHookRequestToJSON: () => UpdateWebHookRequestToJSON,
+  UpdateWebhookResponseFromJSON: () => UpdateWebhookResponseFromJSON,
+  UpdateWebhookResponseFromJSONTyped: () => UpdateWebhookResponseFromJSONTyped,
+  UpdateWebhookResponseToJSON: () => UpdateWebhookResponseToJSON,
+  UpdateWebhookResponseWebhookFromJSON: () => UpdateWebhookResponseWebhookFromJSON,
+  UpdateWebhookResponseWebhookFromJSONTyped: () => UpdateWebhookResponseWebhookFromJSONTyped,
+  UpdateWebhookResponseWebhookToJSON: () => UpdateWebhookResponseWebhookToJSON,
   UserFromJSON: () => UserFromJSON,
   UserFromJSONTyped: () => UserFromJSONTyped,
   UserIdentitiesInnerFromJSON: () => UserIdentitiesInnerFromJSON,
@@ -402,6 +438,10 @@ __export(src_exports, {
   UsersResponseUsersInnerFromJSONTyped: () => UsersResponseUsersInnerFromJSONTyped,
   UsersResponseUsersInnerToJSON: () => UsersResponseUsersInnerToJSON,
   VoidApiResponse: () => VoidApiResponse,
+  WebhookFromJSON: () => WebhookFromJSON,
+  WebhookFromJSONTyped: () => WebhookFromJSONTyped,
+  WebhookToJSON: () => WebhookToJSON,
+  WebhooksApi: () => WebhooksApi,
   canConsumeForm: () => canConsumeForm,
   instanceOfAddAPIsRequest: () => instanceOfAddAPIsRequest,
   instanceOfAddOrganizationUsersRequest: () => instanceOfAddOrganizationUsersRequest,
@@ -443,13 +483,21 @@ __export(src_exports, {
   instanceOfCreateUserRequestIdentitiesInnerDetails: () => instanceOfCreateUserRequestIdentitiesInnerDetails,
   instanceOfCreateUserRequestProfile: () => instanceOfCreateUserRequestProfile,
   instanceOfCreateUserResponse: () => instanceOfCreateUserResponse,
+  instanceOfCreateWebHookRequest: () => instanceOfCreateWebHookRequest,
+  instanceOfCreateWebhookResponse: () => instanceOfCreateWebhookResponse,
+  instanceOfCreateWebhookResponseWebhook: () => instanceOfCreateWebhookResponseWebhook,
+  instanceOfDeleteWebhookResponse: () => instanceOfDeleteWebhookResponse,
   instanceOfErrorResponse: () => instanceOfErrorResponse,
+  instanceOfEventType: () => instanceOfEventType,
   instanceOfGetApplicationResponse: () => instanceOfGetApplicationResponse,
   instanceOfGetApplicationResponseApplication: () => instanceOfGetApplicationResponseApplication,
   instanceOfGetApplicationsResponse: () => instanceOfGetApplicationsResponse,
   instanceOfGetCategoriesResponse: () => instanceOfGetCategoriesResponse,
   instanceOfGetConnectionsResponse: () => instanceOfGetConnectionsResponse,
   instanceOfGetEnvironmentFeatureFlagsResponse: () => instanceOfGetEnvironmentFeatureFlagsResponse,
+  instanceOfGetEventResponse: () => instanceOfGetEventResponse,
+  instanceOfGetEventResponseEvent: () => instanceOfGetEventResponseEvent,
+  instanceOfGetEventTypesResponse: () => instanceOfGetEventTypesResponse,
   instanceOfGetOrganizationFeatureFlagsResponse: () => instanceOfGetOrganizationFeatureFlagsResponse,
   instanceOfGetOrganizationFeatureFlagsResponseFeatureFlagsValue: () => instanceOfGetOrganizationFeatureFlagsResponseFeatureFlagsValue,
   instanceOfGetOrganizationUsersResponse: () => instanceOfGetOrganizationUsersResponse,
@@ -463,6 +511,7 @@ __export(src_exports, {
   instanceOfGetRolesResponse: () => instanceOfGetRolesResponse,
   instanceOfGetSubscriberResponse: () => instanceOfGetSubscriberResponse,
   instanceOfGetSubscribersResponse: () => instanceOfGetSubscribersResponse,
+  instanceOfGetWebhooksResponse: () => instanceOfGetWebhooksResponse,
   instanceOfLogoutRedirectUrls: () => instanceOfLogoutRedirectUrls,
   instanceOfModelError: () => instanceOfModelError,
   instanceOfOrganization: () => instanceOfOrganization,
@@ -505,6 +554,9 @@ __export(src_exports, {
   instanceOfUpdateRolesRequest: () => instanceOfUpdateRolesRequest,
   instanceOfUpdateUserRequest: () => instanceOfUpdateUserRequest,
   instanceOfUpdateUserResponse: () => instanceOfUpdateUserResponse,
+  instanceOfUpdateWebHookRequest: () => instanceOfUpdateWebHookRequest,
+  instanceOfUpdateWebhookResponse: () => instanceOfUpdateWebhookResponse,
+  instanceOfUpdateWebhookResponseWebhook: () => instanceOfUpdateWebhookResponseWebhook,
   instanceOfUser: () => instanceOfUser,
   instanceOfUserIdentitiesInner: () => instanceOfUserIdentitiesInner,
   instanceOfUserIdentity: () => instanceOfUserIdentity,
@@ -513,6 +565,7 @@ __export(src_exports, {
   instanceOfUserProfileV2: () => instanceOfUserProfileV2,
   instanceOfUsersResponse: () => instanceOfUsersResponse,
   instanceOfUsersResponseUsersInner: () => instanceOfUsersResponseUsersInner,
+  instanceOfWebhook: () => instanceOfWebhook,
   mapValues: () => mapValues,
   querystring: () => querystring
 });
@@ -2064,6 +2117,122 @@ function CreateUserResponseToJSON(value) {
   };
 }
 
+// src/models/CreateWebHookRequest.ts
+function instanceOfCreateWebHookRequest(value) {
+  if (!("endpoint" in value))
+    return false;
+  if (!("eventTypes" in value))
+    return false;
+  if (!("name" in value))
+    return false;
+  return true;
+}
+function CreateWebHookRequestFromJSON(json) {
+  return CreateWebHookRequestFromJSONTyped(json, false);
+}
+function CreateWebHookRequestFromJSONTyped(json, ignoreDiscriminator) {
+  if (json == null) {
+    return json;
+  }
+  return {
+    "endpoint": json["endpoint"],
+    "eventTypes": json["event_types"],
+    "name": json["name"],
+    "description": json["description"] == null ? void 0 : json["description"]
+  };
+}
+function CreateWebHookRequestToJSON(value) {
+  if (value == null) {
+    return value;
+  }
+  return {
+    "endpoint": value["endpoint"],
+    "event_types": value["eventTypes"],
+    "name": value["name"],
+    "description": value["description"]
+  };
+}
+
+// src/models/CreateWebhookResponseWebhook.ts
+function instanceOfCreateWebhookResponseWebhook(value) {
+  return true;
+}
+function CreateWebhookResponseWebhookFromJSON(json) {
+  return CreateWebhookResponseWebhookFromJSONTyped(json, false);
+}
+function CreateWebhookResponseWebhookFromJSONTyped(json, ignoreDiscriminator) {
+  if (json == null) {
+    return json;
+  }
+  return {
+    "id": json["id"] == null ? void 0 : json["id"],
+    "endpoint": json["endpoint"] == null ? void 0 : json["endpoint"]
+  };
+}
+function CreateWebhookResponseWebhookToJSON(value) {
+  if (value == null) {
+    return value;
+  }
+  return {
+    "id": value["id"],
+    "endpoint": value["endpoint"]
+  };
+}
+
+// src/models/CreateWebhookResponse.ts
+function instanceOfCreateWebhookResponse(value) {
+  return true;
+}
+function CreateWebhookResponseFromJSON(json) {
+  return CreateWebhookResponseFromJSONTyped(json, false);
+}
+function CreateWebhookResponseFromJSONTyped(json, ignoreDiscriminator) {
+  if (json == null) {
+    return json;
+  }
+  return {
+    "code": json["code"] == null ? void 0 : json["code"],
+    "message": json["message"] == null ? void 0 : json["message"],
+    "webhook": json["webhook"] == null ? void 0 : CreateWebhookResponseWebhookFromJSON(json["webhook"])
+  };
+}
+function CreateWebhookResponseToJSON(value) {
+  if (value == null) {
+    return value;
+  }
+  return {
+    "code": value["code"],
+    "message": value["message"],
+    "webhook": CreateWebhookResponseWebhookToJSON(value["webhook"])
+  };
+}
+
+// src/models/DeleteWebhookResponse.ts
+function instanceOfDeleteWebhookResponse(value) {
+  return true;
+}
+function DeleteWebhookResponseFromJSON(json) {
+  return DeleteWebhookResponseFromJSONTyped(json, false);
+}
+function DeleteWebhookResponseFromJSONTyped(json, ignoreDiscriminator) {
+  if (json == null) {
+    return json;
+  }
+  return {
+    "code": json["code"] == null ? void 0 : json["code"],
+    "message": json["message"] == null ? void 0 : json["message"]
+  };
+}
+function DeleteWebhookResponseToJSON(value) {
+  if (value == null) {
+    return value;
+  }
+  return {
+    "code": value["code"],
+    "message": value["message"]
+  };
+}
+
 // src/models/ModelError.ts
 function instanceOfModelError(value) {
   return true;
@@ -2111,6 +2280,38 @@ function ErrorResponseToJSON(value) {
   }
   return {
     "errors": value["errors"] == null ? void 0 : value["errors"].map(ModelErrorToJSON)
+  };
+}
+
+// src/models/EventType.ts
+function instanceOfEventType(value) {
+  return true;
+}
+function EventTypeFromJSON(json) {
+  return EventTypeFromJSONTyped(json, false);
+}
+function EventTypeFromJSONTyped(json, ignoreDiscriminator) {
+  if (json == null) {
+    return json;
+  }
+  return {
+    "id": json["id"] == null ? void 0 : json["id"],
+    "code": json["code"] == null ? void 0 : json["code"],
+    "name": json["name"] == null ? void 0 : json["name"],
+    "origin": json["origin"] == null ? void 0 : json["origin"],
+    "schema": json["schema"] == null ? void 0 : json["schema"]
+  };
+}
+function EventTypeToJSON(value) {
+  if (value == null) {
+    return value;
+  }
+  return {
+    "id": value["id"],
+    "code": value["code"],
+    "name": value["name"],
+    "origin": value["origin"],
+    "schema": value["schema"]
   };
 }
 
@@ -2325,6 +2526,94 @@ function GetEnvironmentFeatureFlagsResponseToJSON(value) {
   };
 }
 
+// src/models/GetEventResponseEvent.ts
+function instanceOfGetEventResponseEvent(value) {
+  return true;
+}
+function GetEventResponseEventFromJSON(json) {
+  return GetEventResponseEventFromJSONTyped(json, false);
+}
+function GetEventResponseEventFromJSONTyped(json, ignoreDiscriminator) {
+  if (json == null) {
+    return json;
+  }
+  return {
+    "type": json["type"] == null ? void 0 : json["type"],
+    "source": json["source"] == null ? void 0 : json["source"],
+    "eventId": json["event_id"] == null ? void 0 : json["event_id"],
+    "timestamp": json["timestamp"] == null ? void 0 : json["timestamp"],
+    "data": json["data"] == null ? void 0 : json["data"]
+  };
+}
+function GetEventResponseEventToJSON(value) {
+  if (value == null) {
+    return value;
+  }
+  return {
+    "type": value["type"],
+    "source": value["source"],
+    "event_id": value["eventId"],
+    "timestamp": value["timestamp"],
+    "data": value["data"]
+  };
+}
+
+// src/models/GetEventResponse.ts
+function instanceOfGetEventResponse(value) {
+  return true;
+}
+function GetEventResponseFromJSON(json) {
+  return GetEventResponseFromJSONTyped(json, false);
+}
+function GetEventResponseFromJSONTyped(json, ignoreDiscriminator) {
+  if (json == null) {
+    return json;
+  }
+  return {
+    "code": json["code"] == null ? void 0 : json["code"],
+    "message": json["message"] == null ? void 0 : json["message"],
+    "event": json["event"] == null ? void 0 : GetEventResponseEventFromJSON(json["event"])
+  };
+}
+function GetEventResponseToJSON(value) {
+  if (value == null) {
+    return value;
+  }
+  return {
+    "code": value["code"],
+    "message": value["message"],
+    "event": GetEventResponseEventToJSON(value["event"])
+  };
+}
+
+// src/models/GetEventTypesResponse.ts
+function instanceOfGetEventTypesResponse(value) {
+  return true;
+}
+function GetEventTypesResponseFromJSON(json) {
+  return GetEventTypesResponseFromJSONTyped(json, false);
+}
+function GetEventTypesResponseFromJSONTyped(json, ignoreDiscriminator) {
+  if (json == null) {
+    return json;
+  }
+  return {
+    "code": json["code"] == null ? void 0 : json["code"],
+    "message": json["message"] == null ? void 0 : json["message"],
+    "eventTypes": json["event_types"] == null ? void 0 : json["event_types"].map(EventTypeFromJSON)
+  };
+}
+function GetEventTypesResponseToJSON(value) {
+  if (value == null) {
+    return value;
+  }
+  return {
+    "code": value["code"],
+    "message": value["message"],
+    "event_types": value["eventTypes"] == null ? void 0 : value["eventTypes"].map(EventTypeToJSON)
+  };
+}
+
 // src/models/GetOrganizationFeatureFlagsResponse.ts
 function instanceOfGetOrganizationFeatureFlagsResponse(value) {
   return true;
@@ -2370,6 +2659,7 @@ function OrganizationUserFromJSONTyped(json, ignoreDiscriminator) {
     "fullName": json["full_name"] == null ? void 0 : json["full_name"],
     "lastName": json["last_name"] == null ? void 0 : json["last_name"],
     "firstName": json["first_name"] == null ? void 0 : json["first_name"],
+    "picture": json["picture"] == null ? void 0 : json["picture"],
     "roles": json["roles"] == null ? void 0 : json["roles"]
   };
 }
@@ -2383,6 +2673,7 @@ function OrganizationUserToJSON(value) {
     "full_name": value["fullName"],
     "last_name": value["lastName"],
     "first_name": value["firstName"],
+    "picture": value["picture"],
     "roles": value["roles"]
   };
 }
@@ -3032,6 +3323,68 @@ function GetSubscribersResponseToJSON(value) {
     "message": value["message"],
     "subscribers": value["subscribers"] == null ? void 0 : value["subscribers"].map(SubscribersSubscriberToJSON),
     "next_token": value["nextToken"]
+  };
+}
+
+// src/models/Webhook.ts
+function instanceOfWebhook(value) {
+  return true;
+}
+function WebhookFromJSON(json) {
+  return WebhookFromJSONTyped(json, false);
+}
+function WebhookFromJSONTyped(json, ignoreDiscriminator) {
+  if (json == null) {
+    return json;
+  }
+  return {
+    "id": json["id"] == null ? void 0 : json["id"],
+    "name": json["name"] == null ? void 0 : json["name"],
+    "endpoint": json["endpoint"] == null ? void 0 : json["endpoint"],
+    "description": json["description"] == null ? void 0 : json["description"],
+    "eventTypes": json["event_types"] == null ? void 0 : json["event_types"],
+    "createdOn": json["created_on"] == null ? void 0 : json["created_on"]
+  };
+}
+function WebhookToJSON(value) {
+  if (value == null) {
+    return value;
+  }
+  return {
+    "id": value["id"],
+    "name": value["name"],
+    "endpoint": value["endpoint"],
+    "description": value["description"],
+    "event_types": value["eventTypes"],
+    "created_on": value["createdOn"]
+  };
+}
+
+// src/models/GetWebhooksResponse.ts
+function instanceOfGetWebhooksResponse(value) {
+  return true;
+}
+function GetWebhooksResponseFromJSON(json) {
+  return GetWebhooksResponseFromJSONTyped(json, false);
+}
+function GetWebhooksResponseFromJSONTyped(json, ignoreDiscriminator) {
+  if (json == null) {
+    return json;
+  }
+  return {
+    "code": json["code"] == null ? void 0 : json["code"],
+    "message": json["message"] == null ? void 0 : json["message"],
+    "webhooks": json["webhooks"] == null ? void 0 : json["webhooks"].map(WebhookFromJSON)
+  };
+}
+function GetWebhooksResponseToJSON(value) {
+  if (value == null) {
+    return value;
+  }
+  return {
+    "code": value["code"],
+    "message": value["message"],
+    "webhooks": value["webhooks"] == null ? void 0 : value["webhooks"].map(WebhookToJSON)
   };
 }
 
@@ -3882,6 +4235,86 @@ function UpdateUserResponseToJSON(value) {
     "is_suspended": value["isSuspended"],
     "is_password_reset_requested": value["isPasswordResetRequested"],
     "picture": value["picture"]
+  };
+}
+
+// src/models/UpdateWebHookRequest.ts
+function instanceOfUpdateWebHookRequest(value) {
+  return true;
+}
+function UpdateWebHookRequestFromJSON(json) {
+  return UpdateWebHookRequestFromJSONTyped(json, false);
+}
+function UpdateWebHookRequestFromJSONTyped(json, ignoreDiscriminator) {
+  if (json == null) {
+    return json;
+  }
+  return {
+    "eventTypes": json["event_types"] == null ? void 0 : json["event_types"],
+    "name": json["name"] == null ? void 0 : json["name"],
+    "description": json["description"] == null ? void 0 : json["description"]
+  };
+}
+function UpdateWebHookRequestToJSON(value) {
+  if (value == null) {
+    return value;
+  }
+  return {
+    "event_types": value["eventTypes"],
+    "name": value["name"],
+    "description": value["description"]
+  };
+}
+
+// src/models/UpdateWebhookResponseWebhook.ts
+function instanceOfUpdateWebhookResponseWebhook(value) {
+  return true;
+}
+function UpdateWebhookResponseWebhookFromJSON(json) {
+  return UpdateWebhookResponseWebhookFromJSONTyped(json, false);
+}
+function UpdateWebhookResponseWebhookFromJSONTyped(json, ignoreDiscriminator) {
+  if (json == null) {
+    return json;
+  }
+  return {
+    "id": json["id"] == null ? void 0 : json["id"]
+  };
+}
+function UpdateWebhookResponseWebhookToJSON(value) {
+  if (value == null) {
+    return value;
+  }
+  return {
+    "id": value["id"]
+  };
+}
+
+// src/models/UpdateWebhookResponse.ts
+function instanceOfUpdateWebhookResponse(value) {
+  return true;
+}
+function UpdateWebhookResponseFromJSON(json) {
+  return UpdateWebhookResponseFromJSONTyped(json, false);
+}
+function UpdateWebhookResponseFromJSONTyped(json, ignoreDiscriminator) {
+  if (json == null) {
+    return json;
+  }
+  return {
+    "message": json["message"] == null ? void 0 : json["message"],
+    "code": json["code"] == null ? void 0 : json["code"],
+    "webhook": json["webhook"] == null ? void 0 : UpdateWebhookResponseWebhookFromJSON(json["webhook"])
+  };
+}
+function UpdateWebhookResponseToJSON(value) {
+  if (value == null) {
+    return value;
+  }
+  return {
+    "message": value["message"],
+    "code": value["code"],
+    "webhook": UpdateWebhookResponseWebhookToJSON(value["webhook"])
   };
 }
 
@@ -8263,6 +8696,218 @@ var UsersApi = class extends BaseAPI {
     return await response.value();
   }
 };
+
+// src/apis/WebhooksApi.ts
+var WebhooksApi = class extends BaseAPI {
+  /**
+   * Create a webhook 
+   * Create a Webhook
+   */
+  async createWebHookRaw(requestParameters, initOverrides) {
+    if (requestParameters["createWebHookRequest"] == null) {
+      throw new RequiredError(
+        "createWebHookRequest",
+        'Required parameter "createWebHookRequest" was null or undefined when calling createWebHook().'
+      );
+    }
+    const queryParameters = {};
+    const headerParameters = {};
+    headerParameters["Content-Type"] = "application/json";
+    if (this.configuration && this.configuration.accessToken) {
+      const token = this.configuration.accessToken;
+      const tokenString = await token("kindeBearerAuth", []);
+      if (tokenString) {
+        headerParameters["Authorization"] = `Bearer ${tokenString}`;
+      }
+    }
+    const response = await this.request({
+      path: `/api/v1/webhooks`,
+      method: "POST",
+      headers: headerParameters,
+      query: queryParameters,
+      body: CreateWebHookRequestToJSON(requestParameters["createWebHookRequest"])
+    }, initOverrides);
+    return new JSONApiResponse(response, (jsonValue) => CreateWebhookResponseFromJSON(jsonValue));
+  }
+  /**
+   * Create a webhook 
+   * Create a Webhook
+   */
+  async createWebHook(requestParameters, initOverrides) {
+    const response = await this.createWebHookRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+  /**
+   * Delete webhook 
+   * Delete Webhook
+   */
+  async deleteWebHookRaw(requestParameters, initOverrides) {
+    if (requestParameters["webhookId"] == null) {
+      throw new RequiredError(
+        "webhookId",
+        'Required parameter "webhookId" was null or undefined when calling deleteWebHook().'
+      );
+    }
+    const queryParameters = {};
+    const headerParameters = {};
+    if (this.configuration && this.configuration.accessToken) {
+      const token = this.configuration.accessToken;
+      const tokenString = await token("kindeBearerAuth", []);
+      if (tokenString) {
+        headerParameters["Authorization"] = `Bearer ${tokenString}`;
+      }
+    }
+    const response = await this.request({
+      path: `/api/v1/webhooks/{webhook_id}`.replace(`{${"webhook_id"}}`, encodeURIComponent(String(requestParameters["webhookId"]))),
+      method: "DELETE",
+      headers: headerParameters,
+      query: queryParameters
+    }, initOverrides);
+    return new JSONApiResponse(response, (jsonValue) => DeleteWebhookResponseFromJSON(jsonValue));
+  }
+  /**
+   * Delete webhook 
+   * Delete Webhook
+   */
+  async deleteWebHook(requestParameters, initOverrides) {
+    const response = await this.deleteWebHookRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+  /**
+   * Returns an event 
+   * Get Event
+   */
+  async getEventRaw(requestParameters, initOverrides) {
+    if (requestParameters["eventId"] == null) {
+      throw new RequiredError(
+        "eventId",
+        'Required parameter "eventId" was null or undefined when calling getEvent().'
+      );
+    }
+    const queryParameters = {};
+    const headerParameters = {};
+    if (this.configuration && this.configuration.accessToken) {
+      const token = this.configuration.accessToken;
+      const tokenString = await token("kindeBearerAuth", []);
+      if (tokenString) {
+        headerParameters["Authorization"] = `Bearer ${tokenString}`;
+      }
+    }
+    const response = await this.request({
+      path: `/api/v1/events/{event_id}`.replace(`{${"event_id"}}`, encodeURIComponent(String(requestParameters["eventId"]))),
+      method: "GET",
+      headers: headerParameters,
+      query: queryParameters
+    }, initOverrides);
+    return new JSONApiResponse(response, (jsonValue) => GetEventResponseFromJSON(jsonValue));
+  }
+  /**
+   * Returns an event 
+   * Get Event
+   */
+  async getEvent(requestParameters, initOverrides) {
+    const response = await this.getEventRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+  /**
+   * Returns a list event type definitions 
+   * List Event Types
+   */
+  async getEventTypesRaw(initOverrides) {
+    const queryParameters = {};
+    const headerParameters = {};
+    if (this.configuration && this.configuration.accessToken) {
+      const token = this.configuration.accessToken;
+      const tokenString = await token("kindeBearerAuth", []);
+      if (tokenString) {
+        headerParameters["Authorization"] = `Bearer ${tokenString}`;
+      }
+    }
+    const response = await this.request({
+      path: `/api/v1/event_types`,
+      method: "GET",
+      headers: headerParameters,
+      query: queryParameters
+    }, initOverrides);
+    return new JSONApiResponse(response, (jsonValue) => GetEventTypesResponseFromJSON(jsonValue));
+  }
+  /**
+   * Returns a list event type definitions 
+   * List Event Types
+   */
+  async getEventTypes(initOverrides) {
+    const response = await this.getEventTypesRaw(initOverrides);
+    return await response.value();
+  }
+  /**
+   * List webhooks 
+   * List Webhooks
+   */
+  async getWebHooksRaw(initOverrides) {
+    const queryParameters = {};
+    const headerParameters = {};
+    if (this.configuration && this.configuration.accessToken) {
+      const token = this.configuration.accessToken;
+      const tokenString = await token("kindeBearerAuth", []);
+      if (tokenString) {
+        headerParameters["Authorization"] = `Bearer ${tokenString}`;
+      }
+    }
+    const response = await this.request({
+      path: `/api/v1/webhooks`,
+      method: "GET",
+      headers: headerParameters,
+      query: queryParameters
+    }, initOverrides);
+    return new JSONApiResponse(response, (jsonValue) => GetWebhooksResponseFromJSON(jsonValue));
+  }
+  /**
+   * List webhooks 
+   * List Webhooks
+   */
+  async getWebHooks(initOverrides) {
+    const response = await this.getWebHooksRaw(initOverrides);
+    return await response.value();
+  }
+  /**
+   * Update a webhook 
+   * Update a Webhook
+   */
+  async updateWebHookRaw(requestParameters, initOverrides) {
+    if (requestParameters["updateWebHookRequest"] == null) {
+      throw new RequiredError(
+        "updateWebHookRequest",
+        'Required parameter "updateWebHookRequest" was null or undefined when calling updateWebHook().'
+      );
+    }
+    const queryParameters = {};
+    const headerParameters = {};
+    headerParameters["Content-Type"] = "application/json";
+    if (this.configuration && this.configuration.accessToken) {
+      const token = this.configuration.accessToken;
+      const tokenString = await token("kindeBearerAuth", []);
+      if (tokenString) {
+        headerParameters["Authorization"] = `Bearer ${tokenString}`;
+      }
+    }
+    const response = await this.request({
+      path: `/api/v1/webhooks`,
+      method: "PATCH",
+      headers: headerParameters,
+      query: queryParameters,
+      body: UpdateWebHookRequestToJSON(requestParameters["updateWebHookRequest"])
+    }, initOverrides);
+    return new JSONApiResponse(response, (jsonValue) => UpdateWebhookResponseFromJSON(jsonValue));
+  }
+  /**
+   * Update a webhook 
+   * Update a Webhook
+   */
+  async updateWebHook(requestParameters, initOverrides) {
+    const response = await this.updateWebHookRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+};
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   APIsApi,
@@ -8405,11 +9050,26 @@ var UsersApi = class extends BaseAPI {
   CreateUserResponseFromJSON,
   CreateUserResponseFromJSONTyped,
   CreateUserResponseToJSON,
+  CreateWebHookRequestFromJSON,
+  CreateWebHookRequestFromJSONTyped,
+  CreateWebHookRequestToJSON,
+  CreateWebhookResponseFromJSON,
+  CreateWebhookResponseFromJSONTyped,
+  CreateWebhookResponseToJSON,
+  CreateWebhookResponseWebhookFromJSON,
+  CreateWebhookResponseWebhookFromJSONTyped,
+  CreateWebhookResponseWebhookToJSON,
   DefaultConfig,
+  DeleteWebhookResponseFromJSON,
+  DeleteWebhookResponseFromJSONTyped,
+  DeleteWebhookResponseToJSON,
   EnvironmentsApi,
   ErrorResponseFromJSON,
   ErrorResponseFromJSONTyped,
   ErrorResponseToJSON,
+  EventTypeFromJSON,
+  EventTypeFromJSONTyped,
+  EventTypeToJSON,
   FeatureFlagsApi,
   FetchError,
   GetApplicationResponseApplicationFromJSON,
@@ -8432,6 +9092,15 @@ var UsersApi = class extends BaseAPI {
   GetEnvironmentFeatureFlagsResponseFromJSON,
   GetEnvironmentFeatureFlagsResponseFromJSONTyped,
   GetEnvironmentFeatureFlagsResponseToJSON,
+  GetEventResponseEventFromJSON,
+  GetEventResponseEventFromJSONTyped,
+  GetEventResponseEventToJSON,
+  GetEventResponseFromJSON,
+  GetEventResponseFromJSONTyped,
+  GetEventResponseToJSON,
+  GetEventTypesResponseFromJSON,
+  GetEventTypesResponseFromJSONTyped,
+  GetEventTypesResponseToJSON,
   GetOrganizationFeatureFlagsResponseFeatureFlagsValueFromJSON,
   GetOrganizationFeatureFlagsResponseFeatureFlagsValueFromJSONTyped,
   GetOrganizationFeatureFlagsResponseFeatureFlagsValueToJSON,
@@ -8479,6 +9148,9 @@ var UsersApi = class extends BaseAPI {
   GetSubscribersResponseFromJSONTyped,
   GetSubscribersResponseToJSON,
   GetSubscribersSortEnum,
+  GetWebhooksResponseFromJSON,
+  GetWebhooksResponseFromJSONTyped,
+  GetWebhooksResponseToJSON,
   IndustriesApi,
   JSONApiResponse,
   LogoutRedirectUrlsFromJSON,
@@ -8622,6 +9294,15 @@ var UsersApi = class extends BaseAPI {
   UpdateUserResponseFromJSON,
   UpdateUserResponseFromJSONTyped,
   UpdateUserResponseToJSON,
+  UpdateWebHookRequestFromJSON,
+  UpdateWebHookRequestFromJSONTyped,
+  UpdateWebHookRequestToJSON,
+  UpdateWebhookResponseFromJSON,
+  UpdateWebhookResponseFromJSONTyped,
+  UpdateWebhookResponseToJSON,
+  UpdateWebhookResponseWebhookFromJSON,
+  UpdateWebhookResponseWebhookFromJSONTyped,
+  UpdateWebhookResponseWebhookToJSON,
   UserFromJSON,
   UserFromJSONTyped,
   UserIdentitiesInnerFromJSON,
@@ -8648,6 +9329,10 @@ var UsersApi = class extends BaseAPI {
   UsersResponseUsersInnerFromJSONTyped,
   UsersResponseUsersInnerToJSON,
   VoidApiResponse,
+  WebhookFromJSON,
+  WebhookFromJSONTyped,
+  WebhookToJSON,
+  WebhooksApi,
   canConsumeForm,
   instanceOfAddAPIsRequest,
   instanceOfAddOrganizationUsersRequest,
@@ -8689,13 +9374,21 @@ var UsersApi = class extends BaseAPI {
   instanceOfCreateUserRequestIdentitiesInnerDetails,
   instanceOfCreateUserRequestProfile,
   instanceOfCreateUserResponse,
+  instanceOfCreateWebHookRequest,
+  instanceOfCreateWebhookResponse,
+  instanceOfCreateWebhookResponseWebhook,
+  instanceOfDeleteWebhookResponse,
   instanceOfErrorResponse,
+  instanceOfEventType,
   instanceOfGetApplicationResponse,
   instanceOfGetApplicationResponseApplication,
   instanceOfGetApplicationsResponse,
   instanceOfGetCategoriesResponse,
   instanceOfGetConnectionsResponse,
   instanceOfGetEnvironmentFeatureFlagsResponse,
+  instanceOfGetEventResponse,
+  instanceOfGetEventResponseEvent,
+  instanceOfGetEventTypesResponse,
   instanceOfGetOrganizationFeatureFlagsResponse,
   instanceOfGetOrganizationFeatureFlagsResponseFeatureFlagsValue,
   instanceOfGetOrganizationUsersResponse,
@@ -8709,6 +9402,7 @@ var UsersApi = class extends BaseAPI {
   instanceOfGetRolesResponse,
   instanceOfGetSubscriberResponse,
   instanceOfGetSubscribersResponse,
+  instanceOfGetWebhooksResponse,
   instanceOfLogoutRedirectUrls,
   instanceOfModelError,
   instanceOfOrganization,
@@ -8751,6 +9445,9 @@ var UsersApi = class extends BaseAPI {
   instanceOfUpdateRolesRequest,
   instanceOfUpdateUserRequest,
   instanceOfUpdateUserResponse,
+  instanceOfUpdateWebHookRequest,
+  instanceOfUpdateWebhookResponse,
+  instanceOfUpdateWebhookResponseWebhook,
   instanceOfUser,
   instanceOfUserIdentitiesInner,
   instanceOfUserIdentity,
@@ -8759,6 +9456,7 @@ var UsersApi = class extends BaseAPI {
   instanceOfUserProfileV2,
   instanceOfUsersResponse,
   instanceOfUsersResponseUsersInner,
+  instanceOfWebhook,
   mapValues,
   querystring
 });

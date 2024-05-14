@@ -51,6 +51,12 @@ export interface OrganizationUser {
     firstName?: string;
     /**
      * 
+     * @type {string}
+     * @memberof OrganizationUser
+     */
+    picture?: string;
+    /**
+     * 
      * @type {Array<string>}
      * @memberof OrganizationUser
      */
@@ -79,6 +85,7 @@ export function OrganizationUserFromJSONTyped(json: any, ignoreDiscriminator: bo
         'fullName': json['full_name'] == null ? undefined : json['full_name'],
         'lastName': json['last_name'] == null ? undefined : json['last_name'],
         'firstName': json['first_name'] == null ? undefined : json['first_name'],
+        'picture': json['picture'] == null ? undefined : json['picture'],
         'roles': json['roles'] == null ? undefined : json['roles'],
     };
 }
@@ -94,6 +101,7 @@ export function OrganizationUserToJSON(value?: OrganizationUser | null): any {
         'full_name': value['fullName'],
         'last_name': value['lastName'],
         'first_name': value['firstName'],
+        'picture': value['picture'],
         'roles': value['roles'],
     };
 }

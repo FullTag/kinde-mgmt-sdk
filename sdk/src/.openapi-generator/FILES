@@ -16,6 +16,7 @@ apis/RolesApi.ts
 apis/SubscribersApi.ts
 apis/TimezonesApi.ts
 apis/UsersApi.ts
+apis/WebhooksApi.ts
 apis/index.ts
 index.ts
 models/AddAPIsRequest.ts
@@ -58,13 +59,21 @@ models/CreateUserRequestIdentitiesInner.ts
 models/CreateUserRequestIdentitiesInnerDetails.ts
 models/CreateUserRequestProfile.ts
 models/CreateUserResponse.ts
+models/CreateWebHookRequest.ts
+models/CreateWebhookResponse.ts
+models/CreateWebhookResponseWebhook.ts
+models/DeleteWebhookResponse.ts
 models/ErrorResponse.ts
+models/EventType.ts
 models/GetApplicationResponse.ts
 models/GetApplicationResponseApplication.ts
 models/GetApplicationsResponse.ts
 models/GetCategoriesResponse.ts
 models/GetConnectionsResponse.ts
 models/GetEnvironmentFeatureFlagsResponse.ts
+models/GetEventResponse.ts
+models/GetEventResponseEvent.ts
+models/GetEventTypesResponse.ts
 models/GetOrganizationFeatureFlagsResponse.ts
 models/GetOrganizationFeatureFlagsResponseFeatureFlagsValue.ts
 models/GetOrganizationUsersResponse.ts
@@ -78,6 +87,7 @@ models/GetRedirectCallbackUrlsResponse.ts
 models/GetRolesResponse.ts
 models/GetSubscriberResponse.ts
 models/GetSubscribersResponse.ts
+models/GetWebhooksResponse.ts
 models/LogoutRedirectUrls.ts
 models/ModelError.ts
 models/Organization.ts
@@ -120,6 +130,9 @@ models/UpdateRolePermissionsResponse.ts
 models/UpdateRolesRequest.ts
 models/UpdateUserRequest.ts
 models/UpdateUserResponse.ts
+models/UpdateWebHookRequest.ts
+models/UpdateWebhookResponse.ts
+models/UpdateWebhookResponseWebhook.ts
 models/User.ts
 models/UserIdentitiesInner.ts
 models/UserIdentity.ts
@@ -128,5 +141,6 @@ models/UserProfile.ts
 models/UserProfileV2.ts
 models/UsersResponse.ts
 models/UsersResponseUsersInner.ts
+models/Webhook.ts
 models/index.ts
 runtime.ts
