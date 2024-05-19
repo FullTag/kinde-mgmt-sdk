@@ -1900,6 +1900,7 @@ interface CreateUserRequestIdentitiesInner {
  */
 declare const CreateUserRequestIdentitiesInnerTypeEnum: {
     readonly Email: "email";
+    readonly Phone: "phone";
     readonly Username: "username";
 };
 type CreateUserRequestIdentitiesInnerTypeEnum = typeof CreateUserRequestIdentitiesInnerTypeEnum[keyof typeof CreateUserRequestIdentitiesInnerTypeEnum];

@@ -1385,6 +1385,7 @@ function CreateUserRequestIdentitiesInnerDetailsToJSON(value) {
 // src/models/CreateUserRequestIdentitiesInner.ts
 var CreateUserRequestIdentitiesInnerTypeEnum = {
   Email: "email",
+  Phone: "phone",
   Username: "username"
 };
 function instanceOfCreateUserRequestIdentitiesInner(value) {

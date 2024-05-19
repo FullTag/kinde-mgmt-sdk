@@ -46,6 +46,7 @@ export interface CreateUserRequestIdentitiesInner {
  */
 export const CreateUserRequestIdentitiesInnerTypeEnum = {
     Email: 'email',
+    Phone: 'phone',
     Username: 'username'
 } as const;
 export type CreateUserRequestIdentitiesInnerTypeEnum = typeof CreateUserRequestIdentitiesInnerTypeEnum[keyof typeof CreateUserRequestIdentitiesInnerTypeEnum];
