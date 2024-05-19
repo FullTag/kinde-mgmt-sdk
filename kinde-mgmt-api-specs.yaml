@@ -4717,6 +4717,7 @@ paths:
                         description: The type of identity to create, for e.g. email.
                         enum:
                           - email
+                          - phone
                           - username
                       details:
                         type: object
