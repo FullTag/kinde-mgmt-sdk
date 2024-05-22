@@ -1841,6 +1841,49 @@ paths:
           description: Request was throttled.
       security:
         - kindeBearerAuth: []
+    delete:
+      tags:
+        - Connections
+      operationId: deleteConnection
+      description: |
+        Delete connection.
+      summary: Delete Connection
+      parameters:
+        - name: connection_id
+          in: path
+          description: The identifier for the connection.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Connection deleted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success_response'
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/success_response'
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_response'
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/error_response'
+        '403':
+          description: Invalid credentials.
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/error_response'
+        '429':
+          description: Request was throttled.
+      security:
+        - kindeBearerAuth: []
   /api/v1/environment/feature_flags:
     delete:
       tags:
