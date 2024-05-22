@@ -43,7 +43,7 @@ export interface UserIdentity {
 /**
  * Check if a given object implements the UserIdentity interface.
  */
-export function instanceOfUserIdentity(value: object): boolean {
+export function instanceOfUserIdentity(value: object): value is UserIdentity {
     return true;
 }
 

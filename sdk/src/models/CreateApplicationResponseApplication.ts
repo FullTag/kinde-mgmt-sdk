@@ -42,7 +42,7 @@ export interface CreateApplicationResponseApplication {
 /**
  * Check if a given object implements the CreateApplicationResponseApplication interface.
  */
-export function instanceOfCreateApplicationResponseApplication(value: object): boolean {
+export function instanceOfCreateApplicationResponseApplication(value: object): value is CreateApplicationResponseApplication {
     return true;
 }
 

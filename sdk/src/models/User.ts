@@ -115,7 +115,7 @@ export interface User {
 /**
  * Check if a given object implements the User interface.
  */
-export function instanceOfUser(value: object): boolean {
+export function instanceOfUser(value: object): value is User {
     return true;
 }
 

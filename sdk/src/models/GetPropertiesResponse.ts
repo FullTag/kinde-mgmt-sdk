@@ -55,7 +55,7 @@ export interface GetPropertiesResponse {
 /**
  * Check if a given object implements the GetPropertiesResponse interface.
  */
-export function instanceOfGetPropertiesResponse(value: object): boolean {
+export function instanceOfGetPropertiesResponse(value: object): value is GetPropertiesResponse {
     return true;
 }
 

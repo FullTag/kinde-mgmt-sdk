@@ -82,11 +82,11 @@ export type CreateFeatureFlagRequestAllowOverrideLevelEnum = typeof CreateFeatur
 /**
  * Check if a given object implements the CreateFeatureFlagRequest interface.
  */
-export function instanceOfCreateFeatureFlagRequest(value: object): boolean {
-    if (!('name' in value)) return false;
-    if (!('key' in value)) return false;
-    if (!('type' in value)) return false;
-    if (!('defaultValue' in value)) return false;
+export function instanceOfCreateFeatureFlagRequest(value: object): value is CreateFeatureFlagRequest {
+    if (!('name' in value) || value['name'] === undefined) return false;
+    if (!('key' in value) || value['key'] === undefined) return false;
+    if (!('type' in value) || value['type'] === undefined) return false;
+    if (!('defaultValue' in value) || value['defaultValue'] === undefined) return false;
     return true;
 }
 

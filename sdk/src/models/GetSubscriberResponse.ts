@@ -49,7 +49,7 @@ export interface GetSubscriberResponse {
 /**
  * Check if a given object implements the GetSubscriberResponse interface.
  */
-export function instanceOfGetSubscriberResponse(value: object): boolean {
+export function instanceOfGetSubscriberResponse(value: object): value is GetSubscriberResponse {
     return true;
 }
 

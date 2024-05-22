@@ -36,7 +36,7 @@ export interface ModelError {
 /**
  * Check if a given object implements the ModelError interface.
  */
-export function instanceOfModelError(value: object): boolean {
+export function instanceOfModelError(value: object): value is ModelError {
     return true;
 }
 

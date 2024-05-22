@@ -30,7 +30,7 @@ export interface CreateOrganizationResponseOrganization {
 /**
  * Check if a given object implements the CreateOrganizationResponseOrganization interface.
  */
-export function instanceOfCreateOrganizationResponseOrganization(value: object): boolean {
+export function instanceOfCreateOrganizationResponseOrganization(value: object): value is CreateOrganizationResponseOrganization {
     return true;
 }
 

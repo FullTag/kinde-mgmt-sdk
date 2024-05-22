@@ -55,7 +55,7 @@ export interface GetConnectionsResponse {
 /**
  * Check if a given object implements the GetConnectionsResponse interface.
  */
-export function instanceOfGetConnectionsResponse(value: object): boolean {
+export function instanceOfGetConnectionsResponse(value: object): value is GetConnectionsResponse {
     return true;
 }
 

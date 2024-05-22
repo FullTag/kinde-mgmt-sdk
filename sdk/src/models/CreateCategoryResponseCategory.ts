@@ -30,7 +30,7 @@ export interface CreateCategoryResponseCategory {
 /**
  * Check if a given object implements the CreateCategoryResponseCategory interface.
  */
-export function instanceOfCreateCategoryResponseCategory(value: object): boolean {
+export function instanceOfCreateCategoryResponseCategory(value: object): value is CreateCategoryResponseCategory {
     return true;
 }
 

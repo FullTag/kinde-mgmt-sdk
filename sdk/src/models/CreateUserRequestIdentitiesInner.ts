@@ -55,7 +55,7 @@ export type CreateUserRequestIdentitiesInnerTypeEnum = typeof CreateUserRequestI
 /**
  * Check if a given object implements the CreateUserRequestIdentitiesInner interface.
  */
-export function instanceOfCreateUserRequestIdentitiesInner(value: object): boolean {
+export function instanceOfCreateUserRequestIdentitiesInner(value: object): value is CreateUserRequestIdentitiesInner {
     return true;
 }
 

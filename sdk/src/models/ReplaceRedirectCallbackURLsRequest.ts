@@ -30,7 +30,7 @@ export interface ReplaceRedirectCallbackURLsRequest {
 /**
  * Check if a given object implements the ReplaceRedirectCallbackURLsRequest interface.
  */
-export function instanceOfReplaceRedirectCallbackURLsRequest(value: object): boolean {
+export function instanceOfReplaceRedirectCallbackURLsRequest(value: object): value is ReplaceRedirectCallbackURLsRequest {
     return true;
 }
 

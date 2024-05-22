@@ -48,7 +48,7 @@ export type GetOrganizationFeatureFlagsResponseFeatureFlagsValueTypeEnum = typeo
 /**
  * Check if a given object implements the GetOrganizationFeatureFlagsResponseFeatureFlagsValue interface.
  */
-export function instanceOfGetOrganizationFeatureFlagsResponseFeatureFlagsValue(value: object): boolean {
+export function instanceOfGetOrganizationFeatureFlagsResponseFeatureFlagsValue(value: object): value is GetOrganizationFeatureFlagsResponseFeatureFlagsValue {
     return true;
 }
 

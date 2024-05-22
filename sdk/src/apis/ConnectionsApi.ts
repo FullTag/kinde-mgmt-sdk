@@ -44,6 +44,10 @@ export interface CreateConnectionOperationRequest {
     createConnectionRequest: CreateConnectionRequest;
 }
 
+export interface DeleteConnectionRequest {
+    connectionId: string;
+}
+
 export interface GetConnectionRequest {
     connectionId: string;
 }
@@ -107,6 +111,49 @@ export class ConnectionsApi extends runtime.BaseAPI {
      */
     async createConnection(requestParameters: CreateConnectionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateConnectionResponse> {
         const response = await this.createConnectionRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Delete connection. 
+     * Delete Connection
+     */
+    async deleteConnectionRaw(requestParameters: DeleteConnectionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SuccessResponse>> {
+        if (requestParameters['connectionId'] == null) {
+            throw new runtime.RequiredError(
+                'connectionId',
+                'Required parameter "connectionId" was null or undefined when calling deleteConnection().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.accessToken) {
+            const token = this.configuration.accessToken;
+            const tokenString = await token("kindeBearerAuth", []);
+
+            if (tokenString) {
+                headerParameters["Authorization"] = `Bearer ${tokenString}`;
+            }
+        }
+        const response = await this.request({
+            path: `/api/v1/connections/{connection_id}`.replace(`{${"connection_id"}}`, encodeURIComponent(String(requestParameters['connectionId']))),
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => SuccessResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Delete connection. 
+     * Delete Connection
+     */
+    async deleteConnection(requestParameters: DeleteConnectionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SuccessResponse> {
+        const response = await this.deleteConnectionRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

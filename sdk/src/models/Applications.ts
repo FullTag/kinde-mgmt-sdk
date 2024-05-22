@@ -42,7 +42,7 @@ export interface Applications {
 /**
  * Check if a given object implements the Applications interface.
  */
-export function instanceOfApplications(value: object): boolean {
+export function instanceOfApplications(value: object): value is Applications {
     return true;
 }
 

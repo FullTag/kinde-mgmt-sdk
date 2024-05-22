@@ -48,7 +48,7 @@ export interface UpdateUserRequest {
 /**
  * Check if a given object implements the UpdateUserRequest interface.
  */
-export function instanceOfUpdateUserRequest(value: object): boolean {
+export function instanceOfUpdateUserRequest(value: object): value is UpdateUserRequest {
     return true;
 }
 

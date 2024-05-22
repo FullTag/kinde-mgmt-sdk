@@ -42,7 +42,7 @@ export interface CreateUserRequestIdentitiesInnerDetails {
 /**
  * Check if a given object implements the CreateUserRequestIdentitiesInnerDetails interface.
  */
-export function instanceOfCreateUserRequestIdentitiesInnerDetails(value: object): boolean {
+export function instanceOfCreateUserRequestIdentitiesInnerDetails(value: object): value is CreateUserRequestIdentitiesInnerDetails {
     return true;
 }
 

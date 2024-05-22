@@ -48,7 +48,7 @@ export interface UpdateConnectionRequest {
 /**
  * Check if a given object implements the UpdateConnectionRequest interface.
  */
-export function instanceOfUpdateConnectionRequest(value: object): boolean {
+export function instanceOfUpdateConnectionRequest(value: object): value is UpdateConnectionRequest {
     return true;
 }
 

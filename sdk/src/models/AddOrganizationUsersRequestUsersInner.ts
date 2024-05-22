@@ -42,7 +42,7 @@ export interface AddOrganizationUsersRequestUsersInner {
 /**
  * Check if a given object implements the AddOrganizationUsersRequestUsersInner interface.
  */
-export function instanceOfAddOrganizationUsersRequestUsersInner(value: object): boolean {
+export function instanceOfAddOrganizationUsersRequestUsersInner(value: object): value is AddOrganizationUsersRequestUsersInner {
     return true;
 }
 

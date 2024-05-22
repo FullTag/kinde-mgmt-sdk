@@ -48,7 +48,7 @@ export interface ApiApplicationsInner {
 /**
  * Check if a given object implements the ApiApplicationsInner interface.
  */
-export function instanceOfApiApplicationsInner(value: object): boolean {
+export function instanceOfApiApplicationsInner(value: object): value is ApiApplicationsInner {
     return true;
 }
 

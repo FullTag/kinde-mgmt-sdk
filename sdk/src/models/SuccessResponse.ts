@@ -36,7 +36,7 @@ export interface SuccessResponse {
 /**
  * Check if a given object implements the SuccessResponse interface.
  */
-export function instanceOfSuccessResponse(value: object): boolean {
+export function instanceOfSuccessResponse(value: object): value is SuccessResponse {
     return true;
 }
 

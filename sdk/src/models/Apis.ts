@@ -48,7 +48,7 @@ export interface Apis {
 /**
  * Check if a given object implements the Apis interface.
  */
-export function instanceOfApis(value: object): boolean {
+export function instanceOfApis(value: object): value is Apis {
     return true;
 }
 

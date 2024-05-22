@@ -54,7 +54,7 @@ export interface TokenIntrospect {
 /**
  * Check if a given object implements the TokenIntrospect interface.
  */
-export function instanceOfTokenIntrospect(value: object): boolean {
+export function instanceOfTokenIntrospect(value: object): value is TokenIntrospect {
     return true;
 }
 

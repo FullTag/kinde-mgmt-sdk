@@ -66,7 +66,7 @@ export interface OrganizationUser {
 /**
  * Check if a given object implements the OrganizationUser interface.
  */
-export function instanceOfOrganizationUser(value: object): boolean {
+export function instanceOfOrganizationUser(value: object): value is OrganizationUser {
     return true;
 }
 

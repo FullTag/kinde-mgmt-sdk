@@ -30,8 +30,8 @@ export interface UpdateEnvironementFeatureFlagOverrideRequest {
 /**
  * Check if a given object implements the UpdateEnvironementFeatureFlagOverrideRequest interface.
  */
-export function instanceOfUpdateEnvironementFeatureFlagOverrideRequest(value: object): boolean {
-    if (!('value' in value)) return false;
+export function instanceOfUpdateEnvironementFeatureFlagOverrideRequest(value: object): value is UpdateEnvironementFeatureFlagOverrideRequest {
+    if (!('value' in value) || value['value'] === undefined) return false;
     return true;
 }
 

@@ -36,7 +36,7 @@ export interface UserIdentitiesInner {
 /**
  * Check if a given object implements the UserIdentitiesInner interface.
  */
-export function instanceOfUserIdentitiesInner(value: object): boolean {
+export function instanceOfUserIdentitiesInner(value: object): value is UserIdentitiesInner {
     return true;
 }
 

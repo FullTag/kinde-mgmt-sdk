@@ -47,9 +47,9 @@ export type CreateCategoryRequestContextEnum = typeof CreateCategoryRequestConte
 /**
  * Check if a given object implements the CreateCategoryRequest interface.
  */
-export function instanceOfCreateCategoryRequest(value: object): boolean {
-    if (!('name' in value)) return false;
-    if (!('context' in value)) return false;
+export function instanceOfCreateCategoryRequest(value: object): value is CreateCategoryRequest {
+    if (!('name' in value) || value['name'] === undefined) return false;
+    if (!('context' in value) || value['context'] === undefined) return false;
     return true;
 }
 

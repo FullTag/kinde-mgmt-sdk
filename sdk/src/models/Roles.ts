@@ -48,7 +48,7 @@ export interface Roles {
 /**
  * Check if a given object implements the Roles interface.
  */
-export function instanceOfRoles(value: object): boolean {
+export function instanceOfRoles(value: object): value is Roles {
     return true;
 }
 

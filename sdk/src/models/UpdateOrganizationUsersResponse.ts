@@ -48,7 +48,7 @@ export interface UpdateOrganizationUsersResponse {
 /**
  * Check if a given object implements the UpdateOrganizationUsersResponse interface.
  */
-export function instanceOfUpdateOrganizationUsersResponse(value: object): boolean {
+export function instanceOfUpdateOrganizationUsersResponse(value: object): value is UpdateOrganizationUsersResponse {
     return true;
 }
 

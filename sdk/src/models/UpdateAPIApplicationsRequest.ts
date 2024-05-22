@@ -37,8 +37,8 @@ export interface UpdateAPIApplicationsRequest {
 /**
  * Check if a given object implements the UpdateAPIApplicationsRequest interface.
  */
-export function instanceOfUpdateAPIApplicationsRequest(value: object): boolean {
-    if (!('applications' in value)) return false;
+export function instanceOfUpdateAPIApplicationsRequest(value: object): value is UpdateAPIApplicationsRequest {
+    if (!('applications' in value) || value['applications'] === undefined) return false;
     return true;
 }
 

@@ -48,7 +48,7 @@ export interface Connection {
 /**
  * Check if a given object implements the Connection interface.
  */
-export function instanceOfConnection(value: object): boolean {
+export function instanceOfConnection(value: object): value is Connection {
     return true;
 }
 

@@ -54,7 +54,7 @@ export interface PropertyValue {
 /**
  * Check if a given object implements the PropertyValue interface.
  */
-export function instanceOfPropertyValue(value: object): boolean {
+export function instanceOfPropertyValue(value: object): value is PropertyValue {
     return true;
 }
 

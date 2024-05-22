@@ -30,7 +30,7 @@ export interface ReplaceLogoutRedirectURLsRequest {
 /**
  * Check if a given object implements the ReplaceLogoutRedirectURLsRequest interface.
  */
-export function instanceOfReplaceLogoutRedirectURLsRequest(value: object): boolean {
+export function instanceOfReplaceLogoutRedirectURLsRequest(value: object): value is ReplaceLogoutRedirectURLsRequest {
     return true;
 }
 

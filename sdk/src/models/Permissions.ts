@@ -48,7 +48,7 @@ export interface Permissions {
 /**
  * Check if a given object implements the Permissions interface.
  */
-export function instanceOfPermissions(value: object): boolean {
+export function instanceOfPermissions(value: object): value is Permissions {
     return true;
 }
 

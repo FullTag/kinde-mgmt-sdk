@@ -30,7 +30,7 @@ export interface CreatePropertyResponseProperty {
 /**
  * Check if a given object implements the CreatePropertyResponseProperty interface.
  */
-export function instanceOfCreatePropertyResponseProperty(value: object): boolean {
+export function instanceOfCreatePropertyResponseProperty(value: object): value is CreatePropertyResponseProperty {
     return true;
 }
 

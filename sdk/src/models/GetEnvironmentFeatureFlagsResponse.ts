@@ -55,7 +55,7 @@ export interface GetEnvironmentFeatureFlagsResponse {
 /**
  * Check if a given object implements the GetEnvironmentFeatureFlagsResponse interface.
  */
-export function instanceOfGetEnvironmentFeatureFlagsResponse(value: object): boolean {
+export function instanceOfGetEnvironmentFeatureFlagsResponse(value: object): value is GetEnvironmentFeatureFlagsResponse {
     return true;
 }
 

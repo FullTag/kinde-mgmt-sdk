@@ -48,7 +48,7 @@ export interface Subscriber {
 /**
  * Check if a given object implements the Subscriber interface.
  */
-export function instanceOfSubscriber(value: object): boolean {
+export function instanceOfSubscriber(value: object): value is Subscriber {
     return true;
 }
 

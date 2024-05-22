@@ -30,7 +30,7 @@ export interface RedirectCallbackUrls {
 /**
  * Check if a given object implements the RedirectCallbackUrls interface.
  */
-export function instanceOfRedirectCallbackUrls(value: object): boolean {
+export function instanceOfRedirectCallbackUrls(value: object): value is RedirectCallbackUrls {
     return true;
 }
 

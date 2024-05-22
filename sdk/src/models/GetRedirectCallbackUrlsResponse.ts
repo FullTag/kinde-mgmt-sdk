@@ -37,7 +37,7 @@ export interface GetRedirectCallbackUrlsResponse {
 /**
  * Check if a given object implements the GetRedirectCallbackUrlsResponse interface.
  */
-export function instanceOfGetRedirectCallbackUrlsResponse(value: object): boolean {
+export function instanceOfGetRedirectCallbackUrlsResponse(value: object): value is GetRedirectCallbackUrlsResponse {
     return true;
 }
 

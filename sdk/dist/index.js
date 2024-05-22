@@ -859,9 +859,9 @@ var TextApiResponse = class {
 
 // src/models/AddAPIsRequest.ts
 function instanceOfAddAPIsRequest(value) {
-  if (!("name" in value))
+  if (!("name" in value) || value["name"] === void 0)
     return false;
-  if (!("audience" in value))
+  if (!("audience" in value) || value["audience"] === void 0)
     return false;
   return true;
 }
@@ -1314,9 +1314,9 @@ var CreateCategoryRequestContextEnum = {
   Usr: "usr"
 };
 function instanceOfCreateCategoryRequest(value) {
-  if (!("name" in value))
+  if (!("name" in value) || value["name"] === void 0)
     return false;
-  if (!("context" in value))
+  if (!("context" in value) || value["context"] === void 0)
     return false;
   return true;
 }
@@ -1416,11 +1416,11 @@ var CreateConnectionRequestStrategyEnum = {
   WsfedazureAd: "wsfed:azure_ad"
 };
 function instanceOfCreateConnectionRequest(value) {
-  if (!("name" in value))
+  if (!("name" in value) || value["name"] === void 0)
     return false;
-  if (!("displayName" in value))
+  if (!("displayName" in value) || value["displayName"] === void 0)
     return false;
-  if (!("strategy" in value))
+  if (!("strategy" in value) || value["strategy"] === void 0)
     return false;
   return true;
 }
@@ -1516,13 +1516,13 @@ var CreateFeatureFlagRequestAllowOverrideLevelEnum = {
   Usr: "usr"
 };
 function instanceOfCreateFeatureFlagRequest(value) {
-  if (!("name" in value))
+  if (!("name" in value) || value["name"] === void 0)
     return false;
-  if (!("key" in value))
+  if (!("key" in value) || value["key"] === void 0)
     return false;
-  if (!("type" in value))
+  if (!("type" in value) || value["type"] === void 0)
     return false;
-  if (!("defaultValue" in value))
+  if (!("defaultValue" in value) || value["defaultValue"] === void 0)
     return false;
   return true;
 }
@@ -1563,7 +1563,7 @@ var CreateOrganizationRequestFeatureFlagsEnum = {
   Bool: "bool"
 };
 function instanceOfCreateOrganizationRequest(value) {
-  if (!("name" in value))
+  if (!("name" in value) || value["name"] === void 0)
     return false;
   return true;
 }
@@ -1751,17 +1751,17 @@ var CreatePropertyRequestContextEnum = {
   Usr: "usr"
 };
 function instanceOfCreatePropertyRequest(value) {
-  if (!("name" in value))
+  if (!("name" in value) || value["name"] === void 0)
     return false;
-  if (!("key" in value))
+  if (!("key" in value) || value["key"] === void 0)
     return false;
-  if (!("type" in value))
+  if (!("type" in value) || value["type"] === void 0)
     return false;
-  if (!("context" in value))
+  if (!("context" in value) || value["context"] === void 0)
     return false;
-  if (!("isPrivate" in value))
+  if (!("isPrivate" in value) || value["isPrivate"] === void 0)
     return false;
-  if (!("categoryId" in value))
+  if (!("categoryId" in value) || value["categoryId"] === void 0)
     return false;
   return true;
 }
@@ -2120,11 +2120,11 @@ function CreateUserResponseToJSON(value) {
 
 // src/models/CreateWebHookRequest.ts
 function instanceOfCreateWebHookRequest(value) {
-  if (!("endpoint" in value))
+  if (!("endpoint" in value) || value["endpoint"] === void 0)
     return false;
-  if (!("eventTypes" in value))
+  if (!("eventTypes" in value) || value["eventTypes"] === void 0)
     return false;
-  if (!("name" in value))
+  if (!("name" in value) || value["name"] === void 0)
     return false;
   return true;
 }
@@ -3585,7 +3585,7 @@ var SetUserPasswordRequestSaltPositionEnum = {
   Suffix: "suffix"
 };
 function instanceOfSetUserPasswordRequest(value) {
-  if (!("hashedPassword" in value))
+  if (!("hashedPassword" in value) || value["hashedPassword"] === void 0)
     return false;
   return true;
 }
@@ -3703,7 +3703,7 @@ function TokenIntrospectToJSON(value) {
 
 // src/models/UpdateAPIApplicationsRequestApplicationsInner.ts
 function instanceOfUpdateAPIApplicationsRequestApplicationsInner(value) {
-  if (!("id" in value))
+  if (!("id" in value) || value["id"] === void 0)
     return false;
   return true;
 }
@@ -3731,7 +3731,7 @@ function UpdateAPIApplicationsRequestApplicationsInnerToJSON(value) {
 
 // src/models/UpdateAPIApplicationsRequest.ts
 function instanceOfUpdateAPIApplicationsRequest(value) {
-  if (!("applications" in value))
+  if (!("applications" in value) || value["applications"] === void 0)
     return false;
   return true;
 }
@@ -3841,7 +3841,7 @@ function UpdateConnectionRequestToJSON(value) {
 
 // src/models/UpdateEnvironementFeatureFlagOverrideRequest.ts
 function instanceOfUpdateEnvironementFeatureFlagOverrideRequest(value) {
-  if (!("value" in value))
+  if (!("value" in value) || value["value"] === void 0)
     return false;
   return true;
 }
@@ -3867,7 +3867,7 @@ function UpdateEnvironementFeatureFlagOverrideRequestToJSON(value) {
 
 // src/models/UpdateOrganizationPropertiesRequest.ts
 function instanceOfUpdateOrganizationPropertiesRequest(value) {
-  if (!("properties" in value))
+  if (!("properties" in value) || value["properties"] === void 0)
     return false;
   return true;
 }
@@ -4025,11 +4025,11 @@ function UpdateOrganizationUsersResponseToJSON(value) {
 
 // src/models/UpdatePropertyRequest.ts
 function instanceOfUpdatePropertyRequest(value) {
-  if (!("name" in value))
+  if (!("name" in value) || value["name"] === void 0)
     return false;
-  if (!("isPrivate" in value))
+  if (!("isPrivate" in value) || value["isPrivate"] === void 0)
     return false;
-  if (!("categoryId" in value))
+  if (!("categoryId" in value) || value["categoryId"] === void 0)
     return false;
   return true;
 }
@@ -4141,9 +4141,9 @@ function UpdateRolePermissionsResponseToJSON(value) {
 
 // src/models/UpdateRolesRequest.ts
 function instanceOfUpdateRolesRequest(value) {
-  if (!("name" in value))
+  if (!("name" in value) || value["name"] === void 0)
     return false;
-  if (!("key" in value))
+  if (!("key" in value) || value["key"] === void 0)
     return false;
   return true;
 }
@@ -5704,6 +5704,42 @@ var ConnectionsApi = class extends BaseAPI {
    */
   async createConnection(requestParameters, initOverrides) {
     const response = await this.createConnectionRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+  /**
+   * Delete connection. 
+   * Delete Connection
+   */
+  async deleteConnectionRaw(requestParameters, initOverrides) {
+    if (requestParameters["connectionId"] == null) {
+      throw new RequiredError(
+        "connectionId",
+        'Required parameter "connectionId" was null or undefined when calling deleteConnection().'
+      );
+    }
+    const queryParameters = {};
+    const headerParameters = {};
+    if (this.configuration && this.configuration.accessToken) {
+      const token = this.configuration.accessToken;
+      const tokenString = await token("kindeBearerAuth", []);
+      if (tokenString) {
+        headerParameters["Authorization"] = `Bearer ${tokenString}`;
+      }
+    }
+    const response = await this.request({
+      path: `/api/v1/connections/{connection_id}`.replace(`{${"connection_id"}}`, encodeURIComponent(String(requestParameters["connectionId"]))),
+      method: "DELETE",
+      headers: headerParameters,
+      query: queryParameters
+    }, initOverrides);
+    return new JSONApiResponse(response, (jsonValue) => SuccessResponseFromJSON(jsonValue));
+  }
+  /**
+   * Delete connection. 
+   * Delete Connection
+   */
+  async deleteConnection(requestParameters, initOverrides) {
+    const response = await this.deleteConnectionRaw(requestParameters, initOverrides);
     return await response.value();
   }
   /**

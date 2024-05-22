@@ -37,7 +37,7 @@ export interface UpdateRolePermissionsRequest {
 /**
  * Check if a given object implements the UpdateRolePermissionsRequest interface.
  */
-export function instanceOfUpdateRolePermissionsRequest(value: object): boolean {
+export function instanceOfUpdateRolePermissionsRequest(value: object): value is UpdateRolePermissionsRequest {
     return true;
 }
 

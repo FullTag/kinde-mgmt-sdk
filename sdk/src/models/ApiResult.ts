@@ -30,7 +30,7 @@ export interface ApiResult {
 /**
  * Check if a given object implements the ApiResult interface.
  */
-export function instanceOfApiResult(value: object): boolean {
+export function instanceOfApiResult(value: object): value is ApiResult {
     return true;
 }
 

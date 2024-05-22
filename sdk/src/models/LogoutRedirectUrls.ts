@@ -30,7 +30,7 @@ export interface LogoutRedirectUrls {
 /**
  * Check if a given object implements the LogoutRedirectUrls interface.
  */
-export function instanceOfLogoutRedirectUrls(value: object): boolean {
+export function instanceOfLogoutRedirectUrls(value: object): value is LogoutRedirectUrls {
     return true;
 }
 

@@ -30,7 +30,7 @@ export interface CreateOrganizationUserPermissionRequest {
 /**
  * Check if a given object implements the CreateOrganizationUserPermissionRequest interface.
  */
-export function instanceOfCreateOrganizationUserPermissionRequest(value: object): boolean {
+export function instanceOfCreateOrganizationUserPermissionRequest(value: object): value is CreateOrganizationUserPermissionRequest {
     return true;
 }
 

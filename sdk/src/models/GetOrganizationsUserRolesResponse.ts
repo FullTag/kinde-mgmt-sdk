@@ -55,7 +55,7 @@ export interface GetOrganizationsUserRolesResponse {
 /**
  * Check if a given object implements the GetOrganizationsUserRolesResponse interface.
  */
-export function instanceOfGetOrganizationsUserRolesResponse(value: object): boolean {
+export function instanceOfGetOrganizationsUserRolesResponse(value: object): value is GetOrganizationsUserRolesResponse {
     return true;
 }
 

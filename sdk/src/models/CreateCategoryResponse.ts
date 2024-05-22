@@ -49,7 +49,7 @@ export interface CreateCategoryResponse {
 /**
  * Check if a given object implements the CreateCategoryResponse interface.
  */
-export function instanceOfCreateCategoryResponse(value: object): boolean {
+export function instanceOfCreateCategoryResponse(value: object): value is CreateCategoryResponse {
     return true;
 }
 

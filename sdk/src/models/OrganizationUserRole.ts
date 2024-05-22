@@ -42,7 +42,7 @@ export interface OrganizationUserRole {
 /**
  * Check if a given object implements the OrganizationUserRole interface.
  */
-export function instanceOfOrganizationUserRole(value: object): boolean {
+export function instanceOfOrganizationUserRole(value: object): value is OrganizationUserRole {
     return true;
 }
 

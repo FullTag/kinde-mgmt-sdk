@@ -49,7 +49,7 @@ export interface CreateUserResponse {
 /**
  * Check if a given object implements the CreateUserResponse interface.
  */
-export function instanceOfCreateUserResponse(value: object): boolean {
+export function instanceOfCreateUserResponse(value: object): value is CreateUserResponse {
     return true;
 }
 

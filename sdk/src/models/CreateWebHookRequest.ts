@@ -48,10 +48,10 @@ export interface CreateWebHookRequest {
 /**
  * Check if a given object implements the CreateWebHookRequest interface.
  */
-export function instanceOfCreateWebHookRequest(value: object): boolean {
-    if (!('endpoint' in value)) return false;
-    if (!('eventTypes' in value)) return false;
-    if (!('name' in value)) return false;
+export function instanceOfCreateWebHookRequest(value: object): value is CreateWebHookRequest {
+    if (!('endpoint' in value) || value['endpoint'] === undefined) return false;
+    if (!('eventTypes' in value) || value['eventTypes'] === undefined) return false;
+    if (!('name' in value) || value['name'] === undefined) return false;
     return true;
 }
 

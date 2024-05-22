@@ -102,7 +102,7 @@ export interface UpdateOrganizationRequest {
 /**
  * Check if a given object implements the UpdateOrganizationRequest interface.
  */
-export function instanceOfUpdateOrganizationRequest(value: object): boolean {
+export function instanceOfUpdateOrganizationRequest(value: object): value is UpdateOrganizationRequest {
     return true;
 }
 

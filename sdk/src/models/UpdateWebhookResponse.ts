@@ -49,7 +49,7 @@ export interface UpdateWebhookResponse {
 /**
  * Check if a given object implements the UpdateWebhookResponse interface.
  */
-export function instanceOfUpdateWebhookResponse(value: object): boolean {
+export function instanceOfUpdateWebhookResponse(value: object): value is UpdateWebhookResponse {
     return true;
 }
 

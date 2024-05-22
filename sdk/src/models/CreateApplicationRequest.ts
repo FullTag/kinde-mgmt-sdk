@@ -48,7 +48,7 @@ export type CreateApplicationRequestTypeEnum = typeof CreateApplicationRequestTy
 /**
  * Check if a given object implements the CreateApplicationRequest interface.
  */
-export function instanceOfCreateApplicationRequest(value: object): boolean {
+export function instanceOfCreateApplicationRequest(value: object): value is CreateApplicationRequest {
     return true;
 }
 

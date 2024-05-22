@@ -49,7 +49,7 @@ export interface GetOrganizationsUserPermissionsResponse {
 /**
  * Check if a given object implements the GetOrganizationsUserPermissionsResponse interface.
  */
-export function instanceOfGetOrganizationsUserPermissionsResponse(value: object): boolean {
+export function instanceOfGetOrganizationsUserPermissionsResponse(value: object): value is GetOrganizationsUserPermissionsResponse {
     return true;
 }
 

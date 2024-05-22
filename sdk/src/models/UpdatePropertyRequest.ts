@@ -48,10 +48,10 @@ export interface UpdatePropertyRequest {
 /**
  * Check if a given object implements the UpdatePropertyRequest interface.
  */
-export function instanceOfUpdatePropertyRequest(value: object): boolean {
-    if (!('name' in value)) return false;
-    if (!('isPrivate' in value)) return false;
-    if (!('categoryId' in value)) return false;
+export function instanceOfUpdatePropertyRequest(value: object): value is UpdatePropertyRequest {
+    if (!('name' in value) || value['name'] === undefined) return false;
+    if (!('isPrivate' in value) || value['isPrivate'] === undefined) return false;
+    if (!('categoryId' in value) || value['categoryId'] === undefined) return false;
     return true;
 }
 

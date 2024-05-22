@@ -30,7 +30,7 @@ export interface CreateOrganizationUserRoleRequest {
 /**
  * Check if a given object implements the CreateOrganizationUserRoleRequest interface.
  */
-export function instanceOfCreateOrganizationUserRoleRequest(value: object): boolean {
+export function instanceOfCreateOrganizationUserRoleRequest(value: object): value is CreateOrganizationUserRoleRequest {
     return true;
 }
 

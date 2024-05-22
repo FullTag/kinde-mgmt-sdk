@@ -49,7 +49,7 @@ export interface GetOrganizationFeatureFlagsResponse {
 /**
  * Check if a given object implements the GetOrganizationFeatureFlagsResponse interface.
  */
-export function instanceOfGetOrganizationFeatureFlagsResponse(value: object): boolean {
+export function instanceOfGetOrganizationFeatureFlagsResponse(value: object): value is GetOrganizationFeatureFlagsResponse {
     return true;
 }
 

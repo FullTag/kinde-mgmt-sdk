@@ -55,7 +55,7 @@ export interface GetApplicationsResponse {
 /**
  * Check if a given object implements the GetApplicationsResponse interface.
  */
-export function instanceOfGetApplicationsResponse(value: object): boolean {
+export function instanceOfGetApplicationsResponse(value: object): value is GetApplicationsResponse {
     return true;
 }
 

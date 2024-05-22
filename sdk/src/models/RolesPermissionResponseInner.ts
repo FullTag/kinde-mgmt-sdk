@@ -48,7 +48,7 @@ export interface RolesPermissionResponseInner {
 /**
  * Check if a given object implements the RolesPermissionResponseInner interface.
  */
-export function instanceOfRolesPermissionResponseInner(value: object): boolean {
+export function instanceOfRolesPermissionResponseInner(value: object): value is RolesPermissionResponseInner {
     return true;
 }
 

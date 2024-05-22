@@ -37,7 +37,7 @@ export interface CreateSubscriberSuccessResponse {
 /**
  * Check if a given object implements the CreateSubscriberSuccessResponse interface.
  */
-export function instanceOfCreateSubscriberSuccessResponse(value: object): boolean {
+export function instanceOfCreateSubscriberSuccessResponse(value: object): value is CreateSubscriberSuccessResponse {
     return true;
 }
 

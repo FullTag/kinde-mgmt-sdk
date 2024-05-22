@@ -36,9 +36,9 @@ export interface AddAPIsRequest {
 /**
  * Check if a given object implements the AddAPIsRequest interface.
  */
-export function instanceOfAddAPIsRequest(value: object): boolean {
-    if (!('name' in value)) return false;
-    if (!('audience' in value)) return false;
+export function instanceOfAddAPIsRequest(value: object): value is AddAPIsRequest {
+    if (!('name' in value) || value['name'] === undefined) return false;
+    if (!('audience' in value) || value['audience'] === undefined) return false;
     return true;
 }
 

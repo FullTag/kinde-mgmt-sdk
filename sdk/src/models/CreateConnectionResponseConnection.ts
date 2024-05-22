@@ -30,7 +30,7 @@ export interface CreateConnectionResponseConnection {
 /**
  * Check if a given object implements the CreateConnectionResponseConnection interface.
  */
-export function instanceOfCreateConnectionResponseConnection(value: object): boolean {
+export function instanceOfCreateConnectionResponseConnection(value: object): value is CreateConnectionResponseConnection {
     return true;
 }
 

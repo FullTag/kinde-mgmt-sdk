@@ -48,7 +48,7 @@ export interface CreateRoleRequest {
 /**
  * Check if a given object implements the CreateRoleRequest interface.
  */
-export function instanceOfCreateRoleRequest(value: object): boolean {
+export function instanceOfCreateRoleRequest(value: object): value is CreateRoleRequest {
     return true;
 }
 

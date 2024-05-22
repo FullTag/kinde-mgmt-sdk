@@ -36,8 +36,8 @@ export interface UpdateAPIApplicationsRequestApplicationsInner {
 /**
  * Check if a given object implements the UpdateAPIApplicationsRequestApplicationsInner interface.
  */
-export function instanceOfUpdateAPIApplicationsRequestApplicationsInner(value: object): boolean {
-    if (!('id' in value)) return false;
+export function instanceOfUpdateAPIApplicationsRequestApplicationsInner(value: object): value is UpdateAPIApplicationsRequestApplicationsInner {
+    if (!('id' in value) || value['id'] === undefined) return false;
     return true;
 }
 

@@ -48,7 +48,7 @@ export interface UpdateOrganizationUsersRequestUsersInner {
 /**
  * Check if a given object implements the UpdateOrganizationUsersRequestUsersInner interface.
  */
-export function instanceOfUpdateOrganizationUsersRequestUsersInner(value: object): boolean {
+export function instanceOfUpdateOrganizationUsersRequestUsersInner(value: object): value is UpdateOrganizationUsersRequestUsersInner {
     return true;
 }
 

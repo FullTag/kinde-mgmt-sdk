@@ -213,7 +213,7 @@ interface AddAPIsRequest {
 /**
  * Check if a given object implements the AddAPIsRequest interface.
  */
-declare function instanceOfAddAPIsRequest(value: object): boolean;
+declare function instanceOfAddAPIsRequest(value: object): value is AddAPIsRequest;
 declare function AddAPIsRequestFromJSON(json: any): AddAPIsRequest;
 declare function AddAPIsRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): AddAPIsRequest;
 declare function AddAPIsRequestToJSON(value?: AddAPIsRequest | null): any;
@@ -257,7 +257,7 @@ interface AddOrganizationUsersRequestUsersInner {
 /**
  * Check if a given object implements the AddOrganizationUsersRequestUsersInner interface.
  */
-declare function instanceOfAddOrganizationUsersRequestUsersInner(value: object): boolean;
+declare function instanceOfAddOrganizationUsersRequestUsersInner(value: object): value is AddOrganizationUsersRequestUsersInner;
 declare function AddOrganizationUsersRequestUsersInnerFromJSON(json: any): AddOrganizationUsersRequestUsersInner;
 declare function AddOrganizationUsersRequestUsersInnerFromJSONTyped(json: any, ignoreDiscriminator: boolean): AddOrganizationUsersRequestUsersInner;
 declare function AddOrganizationUsersRequestUsersInnerToJSON(value?: AddOrganizationUsersRequestUsersInner | null): any;
@@ -290,7 +290,7 @@ interface AddOrganizationUsersRequest {
 /**
  * Check if a given object implements the AddOrganizationUsersRequest interface.
  */
-declare function instanceOfAddOrganizationUsersRequest(value: object): boolean;
+declare function instanceOfAddOrganizationUsersRequest(value: object): value is AddOrganizationUsersRequest;
 declare function AddOrganizationUsersRequestFromJSON(json: any): AddOrganizationUsersRequest;
 declare function AddOrganizationUsersRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): AddOrganizationUsersRequest;
 declare function AddOrganizationUsersRequestToJSON(value?: AddOrganizationUsersRequest | null): any;
@@ -334,7 +334,7 @@ interface AddOrganizationUsersResponse {
 /**
  * Check if a given object implements the AddOrganizationUsersResponse interface.
  */
-declare function instanceOfAddOrganizationUsersResponse(value: object): boolean;
+declare function instanceOfAddOrganizationUsersResponse(value: object): value is AddOrganizationUsersResponse;
 declare function AddOrganizationUsersResponseFromJSON(json: any): AddOrganizationUsersResponse;
 declare function AddOrganizationUsersResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): AddOrganizationUsersResponse;
 declare function AddOrganizationUsersResponseToJSON(value?: AddOrganizationUsersResponse | null): any;
@@ -384,7 +384,7 @@ interface ApiApplicationsInner {
 /**
  * Check if a given object implements the ApiApplicationsInner interface.
  */
-declare function instanceOfApiApplicationsInner(value: object): boolean;
+declare function instanceOfApiApplicationsInner(value: object): value is ApiApplicationsInner;
 declare function ApiApplicationsInnerFromJSON(json: any): ApiApplicationsInner;
 declare function ApiApplicationsInnerFromJSONTyped(json: any, ignoreDiscriminator: boolean): ApiApplicationsInner;
 declare function ApiApplicationsInnerToJSON(value?: ApiApplicationsInner | null): any;
@@ -447,7 +447,7 @@ interface Api {
 /**
  * Check if a given object implements the Api interface.
  */
-declare function instanceOfApi(value: object): boolean;
+declare function instanceOfApi(value: object): value is Api;
 declare function ApiFromJSON(json: any): Api;
 declare function ApiFromJSONTyped(json: any, ignoreDiscriminator: boolean): Api;
 declare function ApiToJSON(value?: Api | null): any;
@@ -479,7 +479,7 @@ interface ApiResult {
 /**
  * Check if a given object implements the ApiResult interface.
  */
-declare function instanceOfApiResult(value: object): boolean;
+declare function instanceOfApiResult(value: object): value is ApiResult;
 declare function ApiResultFromJSON(json: any): ApiResult;
 declare function ApiResultFromJSONTyped(json: any, ignoreDiscriminator: boolean): ApiResult;
 declare function ApiResultToJSON(value?: ApiResult | null): any;
@@ -529,7 +529,7 @@ interface Apis {
 /**
  * Check if a given object implements the Apis interface.
  */
-declare function instanceOfApis(value: object): boolean;
+declare function instanceOfApis(value: object): value is Apis;
 declare function ApisFromJSON(json: any): Apis;
 declare function ApisFromJSONTyped(json: any, ignoreDiscriminator: boolean): Apis;
 declare function ApisToJSON(value?: Apis | null): any;
@@ -573,7 +573,7 @@ interface Applications {
 /**
  * Check if a given object implements the Applications interface.
  */
-declare function instanceOfApplications(value: object): boolean;
+declare function instanceOfApplications(value: object): value is Applications;
 declare function ApplicationsFromJSON(json: any): Applications;
 declare function ApplicationsFromJSONTyped(json: any, ignoreDiscriminator: boolean): Applications;
 declare function ApplicationsToJSON(value?: Applications | null): any;
@@ -611,7 +611,7 @@ interface Category {
 /**
  * Check if a given object implements the Category interface.
  */
-declare function instanceOfCategory(value: object): boolean;
+declare function instanceOfCategory(value: object): value is Category;
 declare function CategoryFromJSON(json: any): Category;
 declare function CategoryFromJSONTyped(json: any, ignoreDiscriminator: boolean): Category;
 declare function CategoryToJSON(value?: Category | null): any;
@@ -649,7 +649,7 @@ interface ConnectedAppsAccessToken {
 /**
  * Check if a given object implements the ConnectedAppsAccessToken interface.
  */
-declare function instanceOfConnectedAppsAccessToken(value: object): boolean;
+declare function instanceOfConnectedAppsAccessToken(value: object): value is ConnectedAppsAccessToken;
 declare function ConnectedAppsAccessTokenFromJSON(json: any): ConnectedAppsAccessToken;
 declare function ConnectedAppsAccessTokenFromJSONTyped(json: any, ignoreDiscriminator: boolean): ConnectedAppsAccessToken;
 declare function ConnectedAppsAccessTokenToJSON(value?: ConnectedAppsAccessToken | null): any;
@@ -687,7 +687,7 @@ interface ConnectedAppsAuthUrl {
 /**
  * Check if a given object implements the ConnectedAppsAuthUrl interface.
  */
-declare function instanceOfConnectedAppsAuthUrl(value: object): boolean;
+declare function instanceOfConnectedAppsAuthUrl(value: object): value is ConnectedAppsAuthUrl;
 declare function ConnectedAppsAuthUrlFromJSON(json: any): ConnectedAppsAuthUrl;
 declare function ConnectedAppsAuthUrlFromJSONTyped(json: any, ignoreDiscriminator: boolean): ConnectedAppsAuthUrl;
 declare function ConnectedAppsAuthUrlToJSON(value?: ConnectedAppsAuthUrl | null): any;
@@ -737,7 +737,7 @@ interface Connection {
 /**
  * Check if a given object implements the Connection interface.
  */
-declare function instanceOfConnection(value: object): boolean;
+declare function instanceOfConnection(value: object): value is Connection;
 declare function ConnectionFromJSON(json: any): Connection;
 declare function ConnectionFromJSONTyped(json: any, ignoreDiscriminator: boolean): Connection;
 declare function ConnectionToJSON(value?: Connection | null): any;
@@ -784,7 +784,7 @@ type CreateApplicationRequestTypeEnum = typeof CreateApplicationRequestTypeEnum[
 /**
  * Check if a given object implements the CreateApplicationRequest interface.
  */
-declare function instanceOfCreateApplicationRequest(value: object): boolean;
+declare function instanceOfCreateApplicationRequest(value: object): value is CreateApplicationRequest;
 declare function CreateApplicationRequestFromJSON(json: any): CreateApplicationRequest;
 declare function CreateApplicationRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): CreateApplicationRequest;
 declare function CreateApplicationRequestToJSON(value?: CreateApplicationRequest | null): any;
@@ -828,7 +828,7 @@ interface CreateApplicationResponseApplication {
 /**
  * Check if a given object implements the CreateApplicationResponseApplication interface.
  */
-declare function instanceOfCreateApplicationResponseApplication(value: object): boolean;
+declare function instanceOfCreateApplicationResponseApplication(value: object): value is CreateApplicationResponseApplication;
 declare function CreateApplicationResponseApplicationFromJSON(json: any): CreateApplicationResponseApplication;
 declare function CreateApplicationResponseApplicationFromJSONTyped(json: any, ignoreDiscriminator: boolean): CreateApplicationResponseApplication;
 declare function CreateApplicationResponseApplicationToJSON(value?: CreateApplicationResponseApplication | null): any;
@@ -873,7 +873,7 @@ interface CreateApplicationResponse {
 /**
  * Check if a given object implements the CreateApplicationResponse interface.
  */
-declare function instanceOfCreateApplicationResponse(value: object): boolean;
+declare function instanceOfCreateApplicationResponse(value: object): value is CreateApplicationResponse;
 declare function CreateApplicationResponseFromJSON(json: any): CreateApplicationResponse;
 declare function CreateApplicationResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): CreateApplicationResponse;
 declare function CreateApplicationResponseToJSON(value?: CreateApplicationResponse | null): any;
@@ -919,7 +919,7 @@ type CreateCategoryRequestContextEnum = typeof CreateCategoryRequestContextEnum[
 /**
  * Check if a given object implements the CreateCategoryRequest interface.
  */
-declare function instanceOfCreateCategoryRequest(value: object): boolean;
+declare function instanceOfCreateCategoryRequest(value: object): value is CreateCategoryRequest;
 declare function CreateCategoryRequestFromJSON(json: any): CreateCategoryRequest;
 declare function CreateCategoryRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): CreateCategoryRequest;
 declare function CreateCategoryRequestToJSON(value?: CreateCategoryRequest | null): any;
@@ -951,7 +951,7 @@ interface CreateCategoryResponseCategory {
 /**
  * Check if a given object implements the CreateCategoryResponseCategory interface.
  */
-declare function instanceOfCreateCategoryResponseCategory(value: object): boolean;
+declare function instanceOfCreateCategoryResponseCategory(value: object): value is CreateCategoryResponseCategory;
 declare function CreateCategoryResponseCategoryFromJSON(json: any): CreateCategoryResponseCategory;
 declare function CreateCategoryResponseCategoryFromJSONTyped(json: any, ignoreDiscriminator: boolean): CreateCategoryResponseCategory;
 declare function CreateCategoryResponseCategoryToJSON(value?: CreateCategoryResponseCategory | null): any;
@@ -996,7 +996,7 @@ interface CreateCategoryResponse {
 /**
  * Check if a given object implements the CreateCategoryResponse interface.
  */
-declare function instanceOfCreateCategoryResponse(value: object): boolean;
+declare function instanceOfCreateCategoryResponse(value: object): value is CreateCategoryResponse;
 declare function CreateCategoryResponseFromJSON(json: any): CreateCategoryResponse;
 declare function CreateCategoryResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): CreateCategoryResponse;
 declare function CreateCategoryResponseToJSON(value?: CreateCategoryResponse | null): any;
@@ -1076,7 +1076,7 @@ type CreateConnectionRequestStrategyEnum = typeof CreateConnectionRequestStrateg
 /**
  * Check if a given object implements the CreateConnectionRequest interface.
  */
-declare function instanceOfCreateConnectionRequest(value: object): boolean;
+declare function instanceOfCreateConnectionRequest(value: object): value is CreateConnectionRequest;
 declare function CreateConnectionRequestFromJSON(json: any): CreateConnectionRequest;
 declare function CreateConnectionRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): CreateConnectionRequest;
 declare function CreateConnectionRequestToJSON(value?: CreateConnectionRequest | null): any;
@@ -1108,7 +1108,7 @@ interface CreateConnectionResponseConnection {
 /**
  * Check if a given object implements the CreateConnectionResponseConnection interface.
  */
-declare function instanceOfCreateConnectionResponseConnection(value: object): boolean;
+declare function instanceOfCreateConnectionResponseConnection(value: object): value is CreateConnectionResponseConnection;
 declare function CreateConnectionResponseConnectionFromJSON(json: any): CreateConnectionResponseConnection;
 declare function CreateConnectionResponseConnectionFromJSONTyped(json: any, ignoreDiscriminator: boolean): CreateConnectionResponseConnection;
 declare function CreateConnectionResponseConnectionToJSON(value?: CreateConnectionResponseConnection | null): any;
@@ -1153,7 +1153,7 @@ interface CreateConnectionResponse {
 /**
  * Check if a given object implements the CreateConnectionResponse interface.
  */
-declare function instanceOfCreateConnectionResponse(value: object): boolean;
+declare function instanceOfCreateConnectionResponse(value: object): value is CreateConnectionResponse;
 declare function CreateConnectionResponseFromJSON(json: any): CreateConnectionResponse;
 declare function CreateConnectionResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): CreateConnectionResponse;
 declare function CreateConnectionResponseToJSON(value?: CreateConnectionResponse | null): any;
@@ -1233,7 +1233,7 @@ type CreateFeatureFlagRequestAllowOverrideLevelEnum = typeof CreateFeatureFlagRe
 /**
  * Check if a given object implements the CreateFeatureFlagRequest interface.
  */
-declare function instanceOfCreateFeatureFlagRequest(value: object): boolean;
+declare function instanceOfCreateFeatureFlagRequest(value: object): value is CreateFeatureFlagRequest;
 declare function CreateFeatureFlagRequestFromJSON(json: any): CreateFeatureFlagRequest;
 declare function CreateFeatureFlagRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): CreateFeatureFlagRequest;
 declare function CreateFeatureFlagRequestToJSON(value?: CreateFeatureFlagRequest | null): any;
@@ -1354,7 +1354,7 @@ type CreateOrganizationRequestFeatureFlagsEnum = typeof CreateOrganizationReques
 /**
  * Check if a given object implements the CreateOrganizationRequest interface.
  */
-declare function instanceOfCreateOrganizationRequest(value: object): boolean;
+declare function instanceOfCreateOrganizationRequest(value: object): value is CreateOrganizationRequest;
 declare function CreateOrganizationRequestFromJSON(json: any): CreateOrganizationRequest;
 declare function CreateOrganizationRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): CreateOrganizationRequest;
 declare function CreateOrganizationRequestToJSON(value?: CreateOrganizationRequest | null): any;
@@ -1386,7 +1386,7 @@ interface CreateOrganizationResponseOrganization {
 /**
  * Check if a given object implements the CreateOrganizationResponseOrganization interface.
  */
-declare function instanceOfCreateOrganizationResponseOrganization(value: object): boolean;
+declare function instanceOfCreateOrganizationResponseOrganization(value: object): value is CreateOrganizationResponseOrganization;
 declare function CreateOrganizationResponseOrganizationFromJSON(json: any): CreateOrganizationResponseOrganization;
 declare function CreateOrganizationResponseOrganizationFromJSONTyped(json: any, ignoreDiscriminator: boolean): CreateOrganizationResponseOrganization;
 declare function CreateOrganizationResponseOrganizationToJSON(value?: CreateOrganizationResponseOrganization | null): any;
@@ -1431,7 +1431,7 @@ interface CreateOrganizationResponse {
 /**
  * Check if a given object implements the CreateOrganizationResponse interface.
  */
-declare function instanceOfCreateOrganizationResponse(value: object): boolean;
+declare function instanceOfCreateOrganizationResponse(value: object): value is CreateOrganizationResponse;
 declare function CreateOrganizationResponseFromJSON(json: any): CreateOrganizationResponse;
 declare function CreateOrganizationResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): CreateOrganizationResponse;
 declare function CreateOrganizationResponseToJSON(value?: CreateOrganizationResponse | null): any;
@@ -1463,7 +1463,7 @@ interface CreateOrganizationUserPermissionRequest {
 /**
  * Check if a given object implements the CreateOrganizationUserPermissionRequest interface.
  */
-declare function instanceOfCreateOrganizationUserPermissionRequest(value: object): boolean;
+declare function instanceOfCreateOrganizationUserPermissionRequest(value: object): value is CreateOrganizationUserPermissionRequest;
 declare function CreateOrganizationUserPermissionRequestFromJSON(json: any): CreateOrganizationUserPermissionRequest;
 declare function CreateOrganizationUserPermissionRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): CreateOrganizationUserPermissionRequest;
 declare function CreateOrganizationUserPermissionRequestToJSON(value?: CreateOrganizationUserPermissionRequest | null): any;
@@ -1495,7 +1495,7 @@ interface CreateOrganizationUserRoleRequest {
 /**
  * Check if a given object implements the CreateOrganizationUserRoleRequest interface.
  */
-declare function instanceOfCreateOrganizationUserRoleRequest(value: object): boolean;
+declare function instanceOfCreateOrganizationUserRoleRequest(value: object): value is CreateOrganizationUserRoleRequest;
 declare function CreateOrganizationUserRoleRequestFromJSON(json: any): CreateOrganizationUserRoleRequest;
 declare function CreateOrganizationUserRoleRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): CreateOrganizationUserRoleRequest;
 declare function CreateOrganizationUserRoleRequestToJSON(value?: CreateOrganizationUserRoleRequest | null): any;
@@ -1539,7 +1539,7 @@ interface CreatePermissionRequest {
 /**
  * Check if a given object implements the CreatePermissionRequest interface.
  */
-declare function instanceOfCreatePermissionRequest(value: object): boolean;
+declare function instanceOfCreatePermissionRequest(value: object): value is CreatePermissionRequest;
 declare function CreatePermissionRequestFromJSON(json: any): CreatePermissionRequest;
 declare function CreatePermissionRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): CreatePermissionRequest;
 declare function CreatePermissionRequestToJSON(value?: CreatePermissionRequest | null): any;
@@ -1623,7 +1623,7 @@ type CreatePropertyRequestContextEnum = typeof CreatePropertyRequestContextEnum[
 /**
  * Check if a given object implements the CreatePropertyRequest interface.
  */
-declare function instanceOfCreatePropertyRequest(value: object): boolean;
+declare function instanceOfCreatePropertyRequest(value: object): value is CreatePropertyRequest;
 declare function CreatePropertyRequestFromJSON(json: any): CreatePropertyRequest;
 declare function CreatePropertyRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): CreatePropertyRequest;
 declare function CreatePropertyRequestToJSON(value?: CreatePropertyRequest | null): any;
@@ -1655,7 +1655,7 @@ interface CreatePropertyResponseProperty {
 /**
  * Check if a given object implements the CreatePropertyResponseProperty interface.
  */
-declare function instanceOfCreatePropertyResponseProperty(value: object): boolean;
+declare function instanceOfCreatePropertyResponseProperty(value: object): value is CreatePropertyResponseProperty;
 declare function CreatePropertyResponsePropertyFromJSON(json: any): CreatePropertyResponseProperty;
 declare function CreatePropertyResponsePropertyFromJSONTyped(json: any, ignoreDiscriminator: boolean): CreatePropertyResponseProperty;
 declare function CreatePropertyResponsePropertyToJSON(value?: CreatePropertyResponseProperty | null): any;
@@ -1700,7 +1700,7 @@ interface CreatePropertyResponse {
 /**
  * Check if a given object implements the CreatePropertyResponse interface.
  */
-declare function instanceOfCreatePropertyResponse(value: object): boolean;
+declare function instanceOfCreatePropertyResponse(value: object): value is CreatePropertyResponse;
 declare function CreatePropertyResponseFromJSON(json: any): CreatePropertyResponse;
 declare function CreatePropertyResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): CreatePropertyResponse;
 declare function CreatePropertyResponseToJSON(value?: CreatePropertyResponse | null): any;
@@ -1750,7 +1750,7 @@ interface CreateRoleRequest {
 /**
  * Check if a given object implements the CreateRoleRequest interface.
  */
-declare function instanceOfCreateRoleRequest(value: object): boolean;
+declare function instanceOfCreateRoleRequest(value: object): value is CreateRoleRequest;
 declare function CreateRoleRequestFromJSON(json: any): CreateRoleRequest;
 declare function CreateRoleRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): CreateRoleRequest;
 declare function CreateRoleRequestToJSON(value?: CreateRoleRequest | null): any;
@@ -1782,7 +1782,7 @@ interface CreateSubscriberSuccessResponseSubscriber {
 /**
  * Check if a given object implements the CreateSubscriberSuccessResponseSubscriber interface.
  */
-declare function instanceOfCreateSubscriberSuccessResponseSubscriber(value: object): boolean;
+declare function instanceOfCreateSubscriberSuccessResponseSubscriber(value: object): value is CreateSubscriberSuccessResponseSubscriber;
 declare function CreateSubscriberSuccessResponseSubscriberFromJSON(json: any): CreateSubscriberSuccessResponseSubscriber;
 declare function CreateSubscriberSuccessResponseSubscriberFromJSONTyped(json: any, ignoreDiscriminator: boolean): CreateSubscriberSuccessResponseSubscriber;
 declare function CreateSubscriberSuccessResponseSubscriberToJSON(value?: CreateSubscriberSuccessResponseSubscriber | null): any;
@@ -1815,7 +1815,7 @@ interface CreateSubscriberSuccessResponse {
 /**
  * Check if a given object implements the CreateSubscriberSuccessResponse interface.
  */
-declare function instanceOfCreateSubscriberSuccessResponse(value: object): boolean;
+declare function instanceOfCreateSubscriberSuccessResponse(value: object): value is CreateSubscriberSuccessResponse;
 declare function CreateSubscriberSuccessResponseFromJSON(json: any): CreateSubscriberSuccessResponse;
 declare function CreateSubscriberSuccessResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): CreateSubscriberSuccessResponse;
 declare function CreateSubscriberSuccessResponseToJSON(value?: CreateSubscriberSuccessResponse | null): any;
@@ -1859,7 +1859,7 @@ interface CreateUserRequestIdentitiesInnerDetails {
 /**
  * Check if a given object implements the CreateUserRequestIdentitiesInnerDetails interface.
  */
-declare function instanceOfCreateUserRequestIdentitiesInnerDetails(value: object): boolean;
+declare function instanceOfCreateUserRequestIdentitiesInnerDetails(value: object): value is CreateUserRequestIdentitiesInnerDetails;
 declare function CreateUserRequestIdentitiesInnerDetailsFromJSON(json: any): CreateUserRequestIdentitiesInnerDetails;
 declare function CreateUserRequestIdentitiesInnerDetailsFromJSONTyped(json: any, ignoreDiscriminator: boolean): CreateUserRequestIdentitiesInnerDetails;
 declare function CreateUserRequestIdentitiesInnerDetailsToJSON(value?: CreateUserRequestIdentitiesInnerDetails | null): any;
@@ -1907,7 +1907,7 @@ type CreateUserRequestIdentitiesInnerTypeEnum = typeof CreateUserRequestIdentiti
 /**
  * Check if a given object implements the CreateUserRequestIdentitiesInner interface.
  */
-declare function instanceOfCreateUserRequestIdentitiesInner(value: object): boolean;
+declare function instanceOfCreateUserRequestIdentitiesInner(value: object): value is CreateUserRequestIdentitiesInner;
 declare function CreateUserRequestIdentitiesInnerFromJSON(json: any): CreateUserRequestIdentitiesInner;
 declare function CreateUserRequestIdentitiesInnerFromJSONTyped(json: any, ignoreDiscriminator: boolean): CreateUserRequestIdentitiesInner;
 declare function CreateUserRequestIdentitiesInnerToJSON(value?: CreateUserRequestIdentitiesInner | null): any;
@@ -1945,7 +1945,7 @@ interface CreateUserRequestProfile {
 /**
  * Check if a given object implements the CreateUserRequestProfile interface.
  */
-declare function instanceOfCreateUserRequestProfile(value: object): boolean;
+declare function instanceOfCreateUserRequestProfile(value: object): value is CreateUserRequestProfile;
 declare function CreateUserRequestProfileFromJSON(json: any): CreateUserRequestProfile;
 declare function CreateUserRequestProfileFromJSONTyped(json: any, ignoreDiscriminator: boolean): CreateUserRequestProfile;
 declare function CreateUserRequestProfileToJSON(value?: CreateUserRequestProfile | null): any;
@@ -1990,7 +1990,7 @@ interface CreateUserRequest {
 /**
  * Check if a given object implements the CreateUserRequest interface.
  */
-declare function instanceOfCreateUserRequest(value: object): boolean;
+declare function instanceOfCreateUserRequest(value: object): value is CreateUserRequest;
 declare function CreateUserRequestFromJSON(json: any): CreateUserRequest;
 declare function CreateUserRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): CreateUserRequest;
 declare function CreateUserRequestToJSON(value?: CreateUserRequest | null): any;
@@ -2022,7 +2022,7 @@ interface UserIdentityResult {
 /**
  * Check if a given object implements the UserIdentityResult interface.
  */
-declare function instanceOfUserIdentityResult(value: object): boolean;
+declare function instanceOfUserIdentityResult(value: object): value is UserIdentityResult;
 declare function UserIdentityResultFromJSON(json: any): UserIdentityResult;
 declare function UserIdentityResultFromJSONTyped(json: any, ignoreDiscriminator: boolean): UserIdentityResult;
 declare function UserIdentityResultToJSON(value?: UserIdentityResult | null): any;
@@ -2061,7 +2061,7 @@ interface UserIdentity {
 /**
  * Check if a given object implements the UserIdentity interface.
  */
-declare function instanceOfUserIdentity(value: object): boolean;
+declare function instanceOfUserIdentity(value: object): value is UserIdentity;
 declare function UserIdentityFromJSON(json: any): UserIdentity;
 declare function UserIdentityFromJSONTyped(json: any, ignoreDiscriminator: boolean): UserIdentity;
 declare function UserIdentityToJSON(value?: UserIdentity | null): any;
@@ -2106,7 +2106,7 @@ interface CreateUserResponse {
 /**
  * Check if a given object implements the CreateUserResponse interface.
  */
-declare function instanceOfCreateUserResponse(value: object): boolean;
+declare function instanceOfCreateUserResponse(value: object): value is CreateUserResponse;
 declare function CreateUserResponseFromJSON(json: any): CreateUserResponse;
 declare function CreateUserResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): CreateUserResponse;
 declare function CreateUserResponseToJSON(value?: CreateUserResponse | null): any;
@@ -2156,7 +2156,7 @@ interface CreateWebHookRequest {
 /**
  * Check if a given object implements the CreateWebHookRequest interface.
  */
-declare function instanceOfCreateWebHookRequest(value: object): boolean;
+declare function instanceOfCreateWebHookRequest(value: object): value is CreateWebHookRequest;
 declare function CreateWebHookRequestFromJSON(json: any): CreateWebHookRequest;
 declare function CreateWebHookRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): CreateWebHookRequest;
 declare function CreateWebHookRequestToJSON(value?: CreateWebHookRequest | null): any;
@@ -2194,7 +2194,7 @@ interface CreateWebhookResponseWebhook {
 /**
  * Check if a given object implements the CreateWebhookResponseWebhook interface.
  */
-declare function instanceOfCreateWebhookResponseWebhook(value: object): boolean;
+declare function instanceOfCreateWebhookResponseWebhook(value: object): value is CreateWebhookResponseWebhook;
 declare function CreateWebhookResponseWebhookFromJSON(json: any): CreateWebhookResponseWebhook;
 declare function CreateWebhookResponseWebhookFromJSONTyped(json: any, ignoreDiscriminator: boolean): CreateWebhookResponseWebhook;
 declare function CreateWebhookResponseWebhookToJSON(value?: CreateWebhookResponseWebhook | null): any;
@@ -2239,7 +2239,7 @@ interface CreateWebhookResponse {
 /**
  * Check if a given object implements the CreateWebhookResponse interface.
  */
-declare function instanceOfCreateWebhookResponse(value: object): boolean;
+declare function instanceOfCreateWebhookResponse(value: object): value is CreateWebhookResponse;
 declare function CreateWebhookResponseFromJSON(json: any): CreateWebhookResponse;
 declare function CreateWebhookResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): CreateWebhookResponse;
 declare function CreateWebhookResponseToJSON(value?: CreateWebhookResponse | null): any;
@@ -2277,7 +2277,7 @@ interface DeleteWebhookResponse {
 /**
  * Check if a given object implements the DeleteWebhookResponse interface.
  */
-declare function instanceOfDeleteWebhookResponse(value: object): boolean;
+declare function instanceOfDeleteWebhookResponse(value: object): value is DeleteWebhookResponse;
 declare function DeleteWebhookResponseFromJSON(json: any): DeleteWebhookResponse;
 declare function DeleteWebhookResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): DeleteWebhookResponse;
 declare function DeleteWebhookResponseToJSON(value?: DeleteWebhookResponse | null): any;
@@ -2315,7 +2315,7 @@ interface ModelError {
 /**
  * Check if a given object implements the ModelError interface.
  */
-declare function instanceOfModelError(value: object): boolean;
+declare function instanceOfModelError(value: object): value is ModelError;
 declare function ModelErrorFromJSON(json: any): ModelError;
 declare function ModelErrorFromJSONTyped(json: any, ignoreDiscriminator: boolean): ModelError;
 declare function ModelErrorToJSON(value?: ModelError | null): any;
@@ -2348,7 +2348,7 @@ interface ErrorResponse {
 /**
  * Check if a given object implements the ErrorResponse interface.
  */
-declare function instanceOfErrorResponse(value: object): boolean;
+declare function instanceOfErrorResponse(value: object): value is ErrorResponse;
 declare function ErrorResponseFromJSON(json: any): ErrorResponse;
 declare function ErrorResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): ErrorResponse;
 declare function ErrorResponseToJSON(value?: ErrorResponse | null): any;
@@ -2404,7 +2404,7 @@ interface EventType {
 /**
  * Check if a given object implements the EventType interface.
  */
-declare function instanceOfEventType(value: object): boolean;
+declare function instanceOfEventType(value: object): value is EventType;
 declare function EventTypeFromJSON(json: any): EventType;
 declare function EventTypeFromJSONTyped(json: any, ignoreDiscriminator: boolean): EventType;
 declare function EventTypeToJSON(value?: EventType | null): any;
@@ -2460,7 +2460,7 @@ interface GetApplicationResponseApplication {
 /**
  * Check if a given object implements the GetApplicationResponseApplication interface.
  */
-declare function instanceOfGetApplicationResponseApplication(value: object): boolean;
+declare function instanceOfGetApplicationResponseApplication(value: object): value is GetApplicationResponseApplication;
 declare function GetApplicationResponseApplicationFromJSON(json: any): GetApplicationResponseApplication;
 declare function GetApplicationResponseApplicationFromJSONTyped(json: any, ignoreDiscriminator: boolean): GetApplicationResponseApplication;
 declare function GetApplicationResponseApplicationToJSON(value?: GetApplicationResponseApplication | null): any;
@@ -2505,7 +2505,7 @@ interface GetApplicationResponse {
 /**
  * Check if a given object implements the GetApplicationResponse interface.
  */
-declare function instanceOfGetApplicationResponse(value: object): boolean;
+declare function instanceOfGetApplicationResponse(value: object): value is GetApplicationResponse;
 declare function GetApplicationResponseFromJSON(json: any): GetApplicationResponse;
 declare function GetApplicationResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): GetApplicationResponse;
 declare function GetApplicationResponseToJSON(value?: GetApplicationResponse | null): any;
@@ -2556,7 +2556,7 @@ interface GetApplicationsResponse {
 /**
  * Check if a given object implements the GetApplicationsResponse interface.
  */
-declare function instanceOfGetApplicationsResponse(value: object): boolean;
+declare function instanceOfGetApplicationsResponse(value: object): value is GetApplicationsResponse;
 declare function GetApplicationsResponseFromJSON(json: any): GetApplicationsResponse;
 declare function GetApplicationsResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): GetApplicationsResponse;
 declare function GetApplicationsResponseToJSON(value?: GetApplicationsResponse | null): any;
@@ -2607,7 +2607,7 @@ interface GetCategoriesResponse {
 /**
  * Check if a given object implements the GetCategoriesResponse interface.
  */
-declare function instanceOfGetCategoriesResponse(value: object): boolean;
+declare function instanceOfGetCategoriesResponse(value: object): value is GetCategoriesResponse;
 declare function GetCategoriesResponseFromJSON(json: any): GetCategoriesResponse;
 declare function GetCategoriesResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): GetCategoriesResponse;
 declare function GetCategoriesResponseToJSON(value?: GetCategoriesResponse | null): any;
@@ -2658,7 +2658,7 @@ interface GetConnectionsResponse {
 /**
  * Check if a given object implements the GetConnectionsResponse interface.
  */
-declare function instanceOfGetConnectionsResponse(value: object): boolean;
+declare function instanceOfGetConnectionsResponse(value: object): value is GetConnectionsResponse;
 declare function GetConnectionsResponseFromJSON(json: any): GetConnectionsResponse;
 declare function GetConnectionsResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): GetConnectionsResponse;
 declare function GetConnectionsResponseToJSON(value?: GetConnectionsResponse | null): any;
@@ -2705,7 +2705,7 @@ type GetOrganizationFeatureFlagsResponseFeatureFlagsValueTypeEnum = typeof GetOr
 /**
  * Check if a given object implements the GetOrganizationFeatureFlagsResponseFeatureFlagsValue interface.
  */
-declare function instanceOfGetOrganizationFeatureFlagsResponseFeatureFlagsValue(value: object): boolean;
+declare function instanceOfGetOrganizationFeatureFlagsResponseFeatureFlagsValue(value: object): value is GetOrganizationFeatureFlagsResponseFeatureFlagsValue;
 declare function GetOrganizationFeatureFlagsResponseFeatureFlagsValueFromJSON(json: any): GetOrganizationFeatureFlagsResponseFeatureFlagsValue;
 declare function GetOrganizationFeatureFlagsResponseFeatureFlagsValueFromJSONTyped(json: any, ignoreDiscriminator: boolean): GetOrganizationFeatureFlagsResponseFeatureFlagsValue;
 declare function GetOrganizationFeatureFlagsResponseFeatureFlagsValueToJSON(value?: GetOrganizationFeatureFlagsResponseFeatureFlagsValue | null): any;
@@ -2758,7 +2758,7 @@ interface GetEnvironmentFeatureFlagsResponse {
 /**
  * Check if a given object implements the GetEnvironmentFeatureFlagsResponse interface.
  */
-declare function instanceOfGetEnvironmentFeatureFlagsResponse(value: object): boolean;
+declare function instanceOfGetEnvironmentFeatureFlagsResponse(value: object): value is GetEnvironmentFeatureFlagsResponse;
 declare function GetEnvironmentFeatureFlagsResponseFromJSON(json: any): GetEnvironmentFeatureFlagsResponse;
 declare function GetEnvironmentFeatureFlagsResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): GetEnvironmentFeatureFlagsResponse;
 declare function GetEnvironmentFeatureFlagsResponseToJSON(value?: GetEnvironmentFeatureFlagsResponse | null): any;
@@ -2814,7 +2814,7 @@ interface GetEventResponseEvent {
 /**
  * Check if a given object implements the GetEventResponseEvent interface.
  */
-declare function instanceOfGetEventResponseEvent(value: object): boolean;
+declare function instanceOfGetEventResponseEvent(value: object): value is GetEventResponseEvent;
 declare function GetEventResponseEventFromJSON(json: any): GetEventResponseEvent;
 declare function GetEventResponseEventFromJSONTyped(json: any, ignoreDiscriminator: boolean): GetEventResponseEvent;
 declare function GetEventResponseEventToJSON(value?: GetEventResponseEvent | null): any;
@@ -2859,7 +2859,7 @@ interface GetEventResponse {
 /**
  * Check if a given object implements the GetEventResponse interface.
  */
-declare function instanceOfGetEventResponse(value: object): boolean;
+declare function instanceOfGetEventResponse(value: object): value is GetEventResponse;
 declare function GetEventResponseFromJSON(json: any): GetEventResponse;
 declare function GetEventResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): GetEventResponse;
 declare function GetEventResponseToJSON(value?: GetEventResponse | null): any;
@@ -2904,7 +2904,7 @@ interface GetEventTypesResponse {
 /**
  * Check if a given object implements the GetEventTypesResponse interface.
  */
-declare function instanceOfGetEventTypesResponse(value: object): boolean;
+declare function instanceOfGetEventTypesResponse(value: object): value is GetEventTypesResponse;
 declare function GetEventTypesResponseFromJSON(json: any): GetEventTypesResponse;
 declare function GetEventTypesResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): GetEventTypesResponse;
 declare function GetEventTypesResponseToJSON(value?: GetEventTypesResponse | null): any;
@@ -2951,7 +2951,7 @@ interface GetOrganizationFeatureFlagsResponse {
 /**
  * Check if a given object implements the GetOrganizationFeatureFlagsResponse interface.
  */
-declare function instanceOfGetOrganizationFeatureFlagsResponse(value: object): boolean;
+declare function instanceOfGetOrganizationFeatureFlagsResponse(value: object): value is GetOrganizationFeatureFlagsResponse;
 declare function GetOrganizationFeatureFlagsResponseFromJSON(json: any): GetOrganizationFeatureFlagsResponse;
 declare function GetOrganizationFeatureFlagsResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): GetOrganizationFeatureFlagsResponse;
 declare function GetOrganizationFeatureFlagsResponseToJSON(value?: GetOrganizationFeatureFlagsResponse | null): any;
@@ -3019,7 +3019,7 @@ interface OrganizationUser {
 /**
  * Check if a given object implements the OrganizationUser interface.
  */
-declare function instanceOfOrganizationUser(value: object): boolean;
+declare function instanceOfOrganizationUser(value: object): value is OrganizationUser;
 declare function OrganizationUserFromJSON(json: any): OrganizationUser;
 declare function OrganizationUserFromJSONTyped(json: any, ignoreDiscriminator: boolean): OrganizationUser;
 declare function OrganizationUserToJSON(value?: OrganizationUser | null): any;
@@ -3070,7 +3070,7 @@ interface GetOrganizationUsersResponse {
 /**
  * Check if a given object implements the GetOrganizationUsersResponse interface.
  */
-declare function instanceOfGetOrganizationUsersResponse(value: object): boolean;
+declare function instanceOfGetOrganizationUsersResponse(value: object): value is GetOrganizationUsersResponse;
 declare function GetOrganizationUsersResponseFromJSON(json: any): GetOrganizationUsersResponse;
 declare function GetOrganizationUsersResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): GetOrganizationUsersResponse;
 declare function GetOrganizationUsersResponseToJSON(value?: GetOrganizationUsersResponse | null): any;
@@ -3120,7 +3120,7 @@ interface Organization {
 /**
  * Check if a given object implements the Organization interface.
  */
-declare function instanceOfOrganization(value: object): boolean;
+declare function instanceOfOrganization(value: object): value is Organization;
 declare function OrganizationFromJSON(json: any): Organization;
 declare function OrganizationFromJSONTyped(json: any, ignoreDiscriminator: boolean): Organization;
 declare function OrganizationToJSON(value?: Organization | null): any;
@@ -3171,7 +3171,7 @@ interface GetOrganizationsResponse {
 /**
  * Check if a given object implements the GetOrganizationsResponse interface.
  */
-declare function instanceOfGetOrganizationsResponse(value: object): boolean;
+declare function instanceOfGetOrganizationsResponse(value: object): value is GetOrganizationsResponse;
 declare function GetOrganizationsResponseFromJSON(json: any): GetOrganizationsResponse;
 declare function GetOrganizationsResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): GetOrganizationsResponse;
 declare function GetOrganizationsResponseToJSON(value?: GetOrganizationsResponse | null): any;
@@ -3209,7 +3209,7 @@ interface OrganizationUserPermissionRolesInner {
 /**
  * Check if a given object implements the OrganizationUserPermissionRolesInner interface.
  */
-declare function instanceOfOrganizationUserPermissionRolesInner(value: object): boolean;
+declare function instanceOfOrganizationUserPermissionRolesInner(value: object): value is OrganizationUserPermissionRolesInner;
 declare function OrganizationUserPermissionRolesInnerFromJSON(json: any): OrganizationUserPermissionRolesInner;
 declare function OrganizationUserPermissionRolesInnerFromJSONTyped(json: any, ignoreDiscriminator: boolean): OrganizationUserPermissionRolesInner;
 declare function OrganizationUserPermissionRolesInnerToJSON(value?: OrganizationUserPermissionRolesInner | null): any;
@@ -3266,7 +3266,7 @@ interface OrganizationUserPermission {
 /**
  * Check if a given object implements the OrganizationUserPermission interface.
  */
-declare function instanceOfOrganizationUserPermission(value: object): boolean;
+declare function instanceOfOrganizationUserPermission(value: object): value is OrganizationUserPermission;
 declare function OrganizationUserPermissionFromJSON(json: any): OrganizationUserPermission;
 declare function OrganizationUserPermissionFromJSONTyped(json: any, ignoreDiscriminator: boolean): OrganizationUserPermission;
 declare function OrganizationUserPermissionToJSON(value?: OrganizationUserPermission | null): any;
@@ -3311,7 +3311,7 @@ interface GetOrganizationsUserPermissionsResponse {
 /**
  * Check if a given object implements the GetOrganizationsUserPermissionsResponse interface.
  */
-declare function instanceOfGetOrganizationsUserPermissionsResponse(value: object): boolean;
+declare function instanceOfGetOrganizationsUserPermissionsResponse(value: object): value is GetOrganizationsUserPermissionsResponse;
 declare function GetOrganizationsUserPermissionsResponseFromJSON(json: any): GetOrganizationsUserPermissionsResponse;
 declare function GetOrganizationsUserPermissionsResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): GetOrganizationsUserPermissionsResponse;
 declare function GetOrganizationsUserPermissionsResponseToJSON(value?: GetOrganizationsUserPermissionsResponse | null): any;
@@ -3355,7 +3355,7 @@ interface OrganizationUserRole {
 /**
  * Check if a given object implements the OrganizationUserRole interface.
  */
-declare function instanceOfOrganizationUserRole(value: object): boolean;
+declare function instanceOfOrganizationUserRole(value: object): value is OrganizationUserRole;
 declare function OrganizationUserRoleFromJSON(json: any): OrganizationUserRole;
 declare function OrganizationUserRoleFromJSONTyped(json: any, ignoreDiscriminator: boolean): OrganizationUserRole;
 declare function OrganizationUserRoleToJSON(value?: OrganizationUserRole | null): any;
@@ -3406,7 +3406,7 @@ interface GetOrganizationsUserRolesResponse {
 /**
  * Check if a given object implements the GetOrganizationsUserRolesResponse interface.
  */
-declare function instanceOfGetOrganizationsUserRolesResponse(value: object): boolean;
+declare function instanceOfGetOrganizationsUserRolesResponse(value: object): value is GetOrganizationsUserRolesResponse;
 declare function GetOrganizationsUserRolesResponseFromJSON(json: any): GetOrganizationsUserRolesResponse;
 declare function GetOrganizationsUserRolesResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): GetOrganizationsUserRolesResponse;
 declare function GetOrganizationsUserRolesResponseToJSON(value?: GetOrganizationsUserRolesResponse | null): any;
@@ -3456,7 +3456,7 @@ interface Permissions {
 /**
  * Check if a given object implements the Permissions interface.
  */
-declare function instanceOfPermissions(value: object): boolean;
+declare function instanceOfPermissions(value: object): value is Permissions;
 declare function PermissionsFromJSON(json: any): Permissions;
 declare function PermissionsFromJSONTyped(json: any, ignoreDiscriminator: boolean): Permissions;
 declare function PermissionsToJSON(value?: Permissions | null): any;
@@ -3507,7 +3507,7 @@ interface GetPermissionsResponse {
 /**
  * Check if a given object implements the GetPermissionsResponse interface.
  */
-declare function instanceOfGetPermissionsResponse(value: object): boolean;
+declare function instanceOfGetPermissionsResponse(value: object): value is GetPermissionsResponse;
 declare function GetPermissionsResponseFromJSON(json: any): GetPermissionsResponse;
 declare function GetPermissionsResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): GetPermissionsResponse;
 declare function GetPermissionsResponseToJSON(value?: GetPermissionsResponse | null): any;
@@ -3569,7 +3569,7 @@ interface Property {
 /**
  * Check if a given object implements the Property interface.
  */
-declare function instanceOfProperty(value: object): boolean;
+declare function instanceOfProperty(value: object): value is Property;
 declare function PropertyFromJSON(json: any): Property;
 declare function PropertyFromJSONTyped(json: any, ignoreDiscriminator: boolean): Property;
 declare function PropertyToJSON(value?: Property | null): any;
@@ -3620,7 +3620,7 @@ interface GetPropertiesResponse {
 /**
  * Check if a given object implements the GetPropertiesResponse interface.
  */
-declare function instanceOfGetPropertiesResponse(value: object): boolean;
+declare function instanceOfGetPropertiesResponse(value: object): value is GetPropertiesResponse;
 declare function GetPropertiesResponseFromJSON(json: any): GetPropertiesResponse;
 declare function GetPropertiesResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): GetPropertiesResponse;
 declare function GetPropertiesResponseToJSON(value?: GetPropertiesResponse | null): any;
@@ -3676,7 +3676,7 @@ interface PropertyValue {
 /**
  * Check if a given object implements the PropertyValue interface.
  */
-declare function instanceOfPropertyValue(value: object): boolean;
+declare function instanceOfPropertyValue(value: object): value is PropertyValue;
 declare function PropertyValueFromJSON(json: any): PropertyValue;
 declare function PropertyValueFromJSONTyped(json: any, ignoreDiscriminator: boolean): PropertyValue;
 declare function PropertyValueToJSON(value?: PropertyValue | null): any;
@@ -3727,7 +3727,7 @@ interface GetPropertyValuesResponse {
 /**
  * Check if a given object implements the GetPropertyValuesResponse interface.
  */
-declare function instanceOfGetPropertyValuesResponse(value: object): boolean;
+declare function instanceOfGetPropertyValuesResponse(value: object): value is GetPropertyValuesResponse;
 declare function GetPropertyValuesResponseFromJSON(json: any): GetPropertyValuesResponse;
 declare function GetPropertyValuesResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): GetPropertyValuesResponse;
 declare function GetPropertyValuesResponseToJSON(value?: GetPropertyValuesResponse | null): any;
@@ -3759,7 +3759,7 @@ interface RedirectCallbackUrls {
 /**
  * Check if a given object implements the RedirectCallbackUrls interface.
  */
-declare function instanceOfRedirectCallbackUrls(value: object): boolean;
+declare function instanceOfRedirectCallbackUrls(value: object): value is RedirectCallbackUrls;
 declare function RedirectCallbackUrlsFromJSON(json: any): RedirectCallbackUrls;
 declare function RedirectCallbackUrlsFromJSONTyped(json: any, ignoreDiscriminator: boolean): RedirectCallbackUrls;
 declare function RedirectCallbackUrlsToJSON(value?: RedirectCallbackUrls | null): any;
@@ -3792,7 +3792,7 @@ interface GetRedirectCallbackUrlsResponse {
 /**
  * Check if a given object implements the GetRedirectCallbackUrlsResponse interface.
  */
-declare function instanceOfGetRedirectCallbackUrlsResponse(value: object): boolean;
+declare function instanceOfGetRedirectCallbackUrlsResponse(value: object): value is GetRedirectCallbackUrlsResponse;
 declare function GetRedirectCallbackUrlsResponseFromJSON(json: any): GetRedirectCallbackUrlsResponse;
 declare function GetRedirectCallbackUrlsResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): GetRedirectCallbackUrlsResponse;
 declare function GetRedirectCallbackUrlsResponseToJSON(value?: GetRedirectCallbackUrlsResponse | null): any;
@@ -3842,7 +3842,7 @@ interface Roles {
 /**
  * Check if a given object implements the Roles interface.
  */
-declare function instanceOfRoles(value: object): boolean;
+declare function instanceOfRoles(value: object): value is Roles;
 declare function RolesFromJSON(json: any): Roles;
 declare function RolesFromJSONTyped(json: any, ignoreDiscriminator: boolean): Roles;
 declare function RolesToJSON(value?: Roles | null): any;
@@ -3893,7 +3893,7 @@ interface GetRolesResponse {
 /**
  * Check if a given object implements the GetRolesResponse interface.
  */
-declare function instanceOfGetRolesResponse(value: object): boolean;
+declare function instanceOfGetRolesResponse(value: object): value is GetRolesResponse;
 declare function GetRolesResponseFromJSON(json: any): GetRolesResponse;
 declare function GetRolesResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): GetRolesResponse;
 declare function GetRolesResponseToJSON(value?: GetRolesResponse | null): any;
@@ -3943,7 +3943,7 @@ interface Subscriber {
 /**
  * Check if a given object implements the Subscriber interface.
  */
-declare function instanceOfSubscriber(value: object): boolean;
+declare function instanceOfSubscriber(value: object): value is Subscriber;
 declare function SubscriberFromJSON(json: any): Subscriber;
 declare function SubscriberFromJSONTyped(json: any, ignoreDiscriminator: boolean): Subscriber;
 declare function SubscriberToJSON(value?: Subscriber | null): any;
@@ -3988,7 +3988,7 @@ interface GetSubscriberResponse {
 /**
  * Check if a given object implements the GetSubscriberResponse interface.
  */
-declare function instanceOfGetSubscriberResponse(value: object): boolean;
+declare function instanceOfGetSubscriberResponse(value: object): value is GetSubscriberResponse;
 declare function GetSubscriberResponseFromJSON(json: any): GetSubscriberResponse;
 declare function GetSubscriberResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): GetSubscriberResponse;
 declare function GetSubscriberResponseToJSON(value?: GetSubscriberResponse | null): any;
@@ -4044,7 +4044,7 @@ interface SubscribersSubscriber {
 /**
  * Check if a given object implements the SubscribersSubscriber interface.
  */
-declare function instanceOfSubscribersSubscriber(value: object): boolean;
+declare function instanceOfSubscribersSubscriber(value: object): value is SubscribersSubscriber;
 declare function SubscribersSubscriberFromJSON(json: any): SubscribersSubscriber;
 declare function SubscribersSubscriberFromJSONTyped(json: any, ignoreDiscriminator: boolean): SubscribersSubscriber;
 declare function SubscribersSubscriberToJSON(value?: SubscribersSubscriber | null): any;
@@ -4095,7 +4095,7 @@ interface GetSubscribersResponse {
 /**
  * Check if a given object implements the GetSubscribersResponse interface.
  */
-declare function instanceOfGetSubscribersResponse(value: object): boolean;
+declare function instanceOfGetSubscribersResponse(value: object): value is GetSubscribersResponse;
 declare function GetSubscribersResponseFromJSON(json: any): GetSubscribersResponse;
 declare function GetSubscribersResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): GetSubscribersResponse;
 declare function GetSubscribersResponseToJSON(value?: GetSubscribersResponse | null): any;
@@ -4157,7 +4157,7 @@ interface Webhook {
 /**
  * Check if a given object implements the Webhook interface.
  */
-declare function instanceOfWebhook(value: object): boolean;
+declare function instanceOfWebhook(value: object): value is Webhook;
 declare function WebhookFromJSON(json: any): Webhook;
 declare function WebhookFromJSONTyped(json: any, ignoreDiscriminator: boolean): Webhook;
 declare function WebhookToJSON(value?: Webhook | null): any;
@@ -4202,7 +4202,7 @@ interface GetWebhooksResponse {
 /**
  * Check if a given object implements the GetWebhooksResponse interface.
  */
-declare function instanceOfGetWebhooksResponse(value: object): boolean;
+declare function instanceOfGetWebhooksResponse(value: object): value is GetWebhooksResponse;
 declare function GetWebhooksResponseFromJSON(json: any): GetWebhooksResponse;
 declare function GetWebhooksResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): GetWebhooksResponse;
 declare function GetWebhooksResponseToJSON(value?: GetWebhooksResponse | null): any;
@@ -4234,7 +4234,7 @@ interface LogoutRedirectUrls {
 /**
  * Check if a given object implements the LogoutRedirectUrls interface.
  */
-declare function instanceOfLogoutRedirectUrls(value: object): boolean;
+declare function instanceOfLogoutRedirectUrls(value: object): value is LogoutRedirectUrls;
 declare function LogoutRedirectUrlsFromJSON(json: any): LogoutRedirectUrls;
 declare function LogoutRedirectUrlsFromJSONTyped(json: any, ignoreDiscriminator: boolean): LogoutRedirectUrls;
 declare function LogoutRedirectUrlsToJSON(value?: LogoutRedirectUrls | null): any;
@@ -4266,7 +4266,7 @@ interface OrganizationUserRolePermissionsPermissions {
 /**
  * Check if a given object implements the OrganizationUserRolePermissionsPermissions interface.
  */
-declare function instanceOfOrganizationUserRolePermissionsPermissions(value: object): boolean;
+declare function instanceOfOrganizationUserRolePermissionsPermissions(value: object): value is OrganizationUserRolePermissionsPermissions;
 declare function OrganizationUserRolePermissionsPermissionsFromJSON(json: any): OrganizationUserRolePermissionsPermissions;
 declare function OrganizationUserRolePermissionsPermissionsFromJSONTyped(json: any, ignoreDiscriminator: boolean): OrganizationUserRolePermissionsPermissions;
 declare function OrganizationUserRolePermissionsPermissionsToJSON(value?: OrganizationUserRolePermissionsPermissions | null): any;
@@ -4311,7 +4311,7 @@ interface OrganizationUserRolePermissions {
 /**
  * Check if a given object implements the OrganizationUserRolePermissions interface.
  */
-declare function instanceOfOrganizationUserRolePermissions(value: object): boolean;
+declare function instanceOfOrganizationUserRolePermissions(value: object): value is OrganizationUserRolePermissions;
 declare function OrganizationUserRolePermissionsFromJSON(json: any): OrganizationUserRolePermissions;
 declare function OrganizationUserRolePermissionsFromJSONTyped(json: any, ignoreDiscriminator: boolean): OrganizationUserRolePermissions;
 declare function OrganizationUserRolePermissionsToJSON(value?: OrganizationUserRolePermissions | null): any;
@@ -4343,7 +4343,7 @@ interface ReplaceLogoutRedirectURLsRequest {
 /**
  * Check if a given object implements the ReplaceLogoutRedirectURLsRequest interface.
  */
-declare function instanceOfReplaceLogoutRedirectURLsRequest(value: object): boolean;
+declare function instanceOfReplaceLogoutRedirectURLsRequest(value: object): value is ReplaceLogoutRedirectURLsRequest;
 declare function ReplaceLogoutRedirectURLsRequestFromJSON(json: any): ReplaceLogoutRedirectURLsRequest;
 declare function ReplaceLogoutRedirectURLsRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): ReplaceLogoutRedirectURLsRequest;
 declare function ReplaceLogoutRedirectURLsRequestToJSON(value?: ReplaceLogoutRedirectURLsRequest | null): any;
@@ -4375,7 +4375,7 @@ interface ReplaceRedirectCallbackURLsRequest {
 /**
  * Check if a given object implements the ReplaceRedirectCallbackURLsRequest interface.
  */
-declare function instanceOfReplaceRedirectCallbackURLsRequest(value: object): boolean;
+declare function instanceOfReplaceRedirectCallbackURLsRequest(value: object): value is ReplaceRedirectCallbackURLsRequest;
 declare function ReplaceRedirectCallbackURLsRequestFromJSON(json: any): ReplaceRedirectCallbackURLsRequest;
 declare function ReplaceRedirectCallbackURLsRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): ReplaceRedirectCallbackURLsRequest;
 declare function ReplaceRedirectCallbackURLsRequestToJSON(value?: ReplaceRedirectCallbackURLsRequest | null): any;
@@ -4425,7 +4425,7 @@ interface Role {
 /**
  * Check if a given object implements the Role interface.
  */
-declare function instanceOfRole(value: object): boolean;
+declare function instanceOfRole(value: object): value is Role;
 declare function RoleFromJSON(json: any): Role;
 declare function RoleFromJSONTyped(json: any, ignoreDiscriminator: boolean): Role;
 declare function RoleToJSON(value?: Role | null): any;
@@ -4475,7 +4475,7 @@ interface RolesPermissionResponseInner {
 /**
  * Check if a given object implements the RolesPermissionResponseInner interface.
  */
-declare function instanceOfRolesPermissionResponseInner(value: object): boolean;
+declare function instanceOfRolesPermissionResponseInner(value: object): value is RolesPermissionResponseInner;
 declare function RolesPermissionResponseInnerFromJSON(json: any): RolesPermissionResponseInner;
 declare function RolesPermissionResponseInnerFromJSONTyped(json: any, ignoreDiscriminator: boolean): RolesPermissionResponseInner;
 declare function RolesPermissionResponseInnerToJSON(value?: RolesPermissionResponseInner | null): any;
@@ -4549,7 +4549,7 @@ type SetUserPasswordRequestSaltPositionEnum = typeof SetUserPasswordRequestSaltP
 /**
  * Check if a given object implements the SetUserPasswordRequest interface.
  */
-declare function instanceOfSetUserPasswordRequest(value: object): boolean;
+declare function instanceOfSetUserPasswordRequest(value: object): value is SetUserPasswordRequest;
 declare function SetUserPasswordRequestFromJSON(json: any): SetUserPasswordRequest;
 declare function SetUserPasswordRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): SetUserPasswordRequest;
 declare function SetUserPasswordRequestToJSON(value?: SetUserPasswordRequest | null): any;
@@ -4587,7 +4587,7 @@ interface SuccessResponse {
 /**
  * Check if a given object implements the SuccessResponse interface.
  */
-declare function instanceOfSuccessResponse(value: object): boolean;
+declare function instanceOfSuccessResponse(value: object): value is SuccessResponse;
 declare function SuccessResponseFromJSON(json: any): SuccessResponse;
 declare function SuccessResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): SuccessResponse;
 declare function SuccessResponseToJSON(value?: SuccessResponse | null): any;
@@ -4625,7 +4625,7 @@ interface TokenErrorResponse {
 /**
  * Check if a given object implements the TokenErrorResponse interface.
  */
-declare function instanceOfTokenErrorResponse(value: object): boolean;
+declare function instanceOfTokenErrorResponse(value: object): value is TokenErrorResponse;
 declare function TokenErrorResponseFromJSON(json: any): TokenErrorResponse;
 declare function TokenErrorResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): TokenErrorResponse;
 declare function TokenErrorResponseToJSON(value?: TokenErrorResponse | null): any;
@@ -4681,7 +4681,7 @@ interface TokenIntrospect {
 /**
  * Check if a given object implements the TokenIntrospect interface.
  */
-declare function instanceOfTokenIntrospect(value: object): boolean;
+declare function instanceOfTokenIntrospect(value: object): value is TokenIntrospect;
 declare function TokenIntrospectFromJSON(json: any): TokenIntrospect;
 declare function TokenIntrospectFromJSONTyped(json: any, ignoreDiscriminator: boolean): TokenIntrospect;
 declare function TokenIntrospectToJSON(value?: TokenIntrospect | null): any;
@@ -4719,7 +4719,7 @@ interface UpdateAPIApplicationsRequestApplicationsInner {
 /**
  * Check if a given object implements the UpdateAPIApplicationsRequestApplicationsInner interface.
  */
-declare function instanceOfUpdateAPIApplicationsRequestApplicationsInner(value: object): boolean;
+declare function instanceOfUpdateAPIApplicationsRequestApplicationsInner(value: object): value is UpdateAPIApplicationsRequestApplicationsInner;
 declare function UpdateAPIApplicationsRequestApplicationsInnerFromJSON(json: any): UpdateAPIApplicationsRequestApplicationsInner;
 declare function UpdateAPIApplicationsRequestApplicationsInnerFromJSONTyped(json: any, ignoreDiscriminator: boolean): UpdateAPIApplicationsRequestApplicationsInner;
 declare function UpdateAPIApplicationsRequestApplicationsInnerToJSON(value?: UpdateAPIApplicationsRequestApplicationsInner | null): any;
@@ -4752,7 +4752,7 @@ interface UpdateAPIApplicationsRequest {
 /**
  * Check if a given object implements the UpdateAPIApplicationsRequest interface.
  */
-declare function instanceOfUpdateAPIApplicationsRequest(value: object): boolean;
+declare function instanceOfUpdateAPIApplicationsRequest(value: object): value is UpdateAPIApplicationsRequest;
 declare function UpdateAPIApplicationsRequestFromJSON(json: any): UpdateAPIApplicationsRequest;
 declare function UpdateAPIApplicationsRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): UpdateAPIApplicationsRequest;
 declare function UpdateAPIApplicationsRequestToJSON(value?: UpdateAPIApplicationsRequest | null): any;
@@ -4802,7 +4802,7 @@ interface UpdateApplicationRequest {
 /**
  * Check if a given object implements the UpdateApplicationRequest interface.
  */
-declare function instanceOfUpdateApplicationRequest(value: object): boolean;
+declare function instanceOfUpdateApplicationRequest(value: object): value is UpdateApplicationRequest;
 declare function UpdateApplicationRequestFromJSON(json: any): UpdateApplicationRequest;
 declare function UpdateApplicationRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): UpdateApplicationRequest;
 declare function UpdateApplicationRequestToJSON(value?: UpdateApplicationRequest | null): any;
@@ -4834,7 +4834,7 @@ interface UpdateCategoryRequest {
 /**
  * Check if a given object implements the UpdateCategoryRequest interface.
  */
-declare function instanceOfUpdateCategoryRequest(value: object): boolean;
+declare function instanceOfUpdateCategoryRequest(value: object): value is UpdateCategoryRequest;
 declare function UpdateCategoryRequestFromJSON(json: any): UpdateCategoryRequest;
 declare function UpdateCategoryRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): UpdateCategoryRequest;
 declare function UpdateCategoryRequestToJSON(value?: UpdateCategoryRequest | null): any;
@@ -4884,7 +4884,7 @@ interface UpdateConnectionRequest {
 /**
  * Check if a given object implements the UpdateConnectionRequest interface.
  */
-declare function instanceOfUpdateConnectionRequest(value: object): boolean;
+declare function instanceOfUpdateConnectionRequest(value: object): value is UpdateConnectionRequest;
 declare function UpdateConnectionRequestFromJSON(json: any): UpdateConnectionRequest;
 declare function UpdateConnectionRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): UpdateConnectionRequest;
 declare function UpdateConnectionRequestToJSON(value?: UpdateConnectionRequest | null): any;
@@ -4916,7 +4916,7 @@ interface UpdateEnvironementFeatureFlagOverrideRequest {
 /**
  * Check if a given object implements the UpdateEnvironementFeatureFlagOverrideRequest interface.
  */
-declare function instanceOfUpdateEnvironementFeatureFlagOverrideRequest(value: object): boolean;
+declare function instanceOfUpdateEnvironementFeatureFlagOverrideRequest(value: object): value is UpdateEnvironementFeatureFlagOverrideRequest;
 declare function UpdateEnvironementFeatureFlagOverrideRequestFromJSON(json: any): UpdateEnvironementFeatureFlagOverrideRequest;
 declare function UpdateEnvironementFeatureFlagOverrideRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): UpdateEnvironementFeatureFlagOverrideRequest;
 declare function UpdateEnvironementFeatureFlagOverrideRequestToJSON(value?: UpdateEnvironementFeatureFlagOverrideRequest | null): any;
@@ -4948,7 +4948,7 @@ interface UpdateOrganizationPropertiesRequest {
 /**
  * Check if a given object implements the UpdateOrganizationPropertiesRequest interface.
  */
-declare function instanceOfUpdateOrganizationPropertiesRequest(value: object): boolean;
+declare function instanceOfUpdateOrganizationPropertiesRequest(value: object): value is UpdateOrganizationPropertiesRequest;
 declare function UpdateOrganizationPropertiesRequestFromJSON(json: any): UpdateOrganizationPropertiesRequest;
 declare function UpdateOrganizationPropertiesRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): UpdateOrganizationPropertiesRequest;
 declare function UpdateOrganizationPropertiesRequestToJSON(value?: UpdateOrganizationPropertiesRequest | null): any;
@@ -5052,7 +5052,7 @@ interface UpdateOrganizationRequest {
 /**
  * Check if a given object implements the UpdateOrganizationRequest interface.
  */
-declare function instanceOfUpdateOrganizationRequest(value: object): boolean;
+declare function instanceOfUpdateOrganizationRequest(value: object): value is UpdateOrganizationRequest;
 declare function UpdateOrganizationRequestFromJSON(json: any): UpdateOrganizationRequest;
 declare function UpdateOrganizationRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): UpdateOrganizationRequest;
 declare function UpdateOrganizationRequestToJSON(value?: UpdateOrganizationRequest | null): any;
@@ -5102,7 +5102,7 @@ interface UpdateOrganizationUsersRequestUsersInner {
 /**
  * Check if a given object implements the UpdateOrganizationUsersRequestUsersInner interface.
  */
-declare function instanceOfUpdateOrganizationUsersRequestUsersInner(value: object): boolean;
+declare function instanceOfUpdateOrganizationUsersRequestUsersInner(value: object): value is UpdateOrganizationUsersRequestUsersInner;
 declare function UpdateOrganizationUsersRequestUsersInnerFromJSON(json: any): UpdateOrganizationUsersRequestUsersInner;
 declare function UpdateOrganizationUsersRequestUsersInnerFromJSONTyped(json: any, ignoreDiscriminator: boolean): UpdateOrganizationUsersRequestUsersInner;
 declare function UpdateOrganizationUsersRequestUsersInnerToJSON(value?: UpdateOrganizationUsersRequestUsersInner | null): any;
@@ -5135,7 +5135,7 @@ interface UpdateOrganizationUsersRequest {
 /**
  * Check if a given object implements the UpdateOrganizationUsersRequest interface.
  */
-declare function instanceOfUpdateOrganizationUsersRequest(value: object): boolean;
+declare function instanceOfUpdateOrganizationUsersRequest(value: object): value is UpdateOrganizationUsersRequest;
 declare function UpdateOrganizationUsersRequestFromJSON(json: any): UpdateOrganizationUsersRequest;
 declare function UpdateOrganizationUsersRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): UpdateOrganizationUsersRequest;
 declare function UpdateOrganizationUsersRequestToJSON(value?: UpdateOrganizationUsersRequest | null): any;
@@ -5185,7 +5185,7 @@ interface UpdateOrganizationUsersResponse {
 /**
  * Check if a given object implements the UpdateOrganizationUsersResponse interface.
  */
-declare function instanceOfUpdateOrganizationUsersResponse(value: object): boolean;
+declare function instanceOfUpdateOrganizationUsersResponse(value: object): value is UpdateOrganizationUsersResponse;
 declare function UpdateOrganizationUsersResponseFromJSON(json: any): UpdateOrganizationUsersResponse;
 declare function UpdateOrganizationUsersResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): UpdateOrganizationUsersResponse;
 declare function UpdateOrganizationUsersResponseToJSON(value?: UpdateOrganizationUsersResponse | null): any;
@@ -5235,7 +5235,7 @@ interface UpdatePropertyRequest {
 /**
  * Check if a given object implements the UpdatePropertyRequest interface.
  */
-declare function instanceOfUpdatePropertyRequest(value: object): boolean;
+declare function instanceOfUpdatePropertyRequest(value: object): value is UpdatePropertyRequest;
 declare function UpdatePropertyRequestFromJSON(json: any): UpdatePropertyRequest;
 declare function UpdatePropertyRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): UpdatePropertyRequest;
 declare function UpdatePropertyRequestToJSON(value?: UpdatePropertyRequest | null): any;
@@ -5273,7 +5273,7 @@ interface UpdateRolePermissionsRequestPermissionsInner {
 /**
  * Check if a given object implements the UpdateRolePermissionsRequestPermissionsInner interface.
  */
-declare function instanceOfUpdateRolePermissionsRequestPermissionsInner(value: object): boolean;
+declare function instanceOfUpdateRolePermissionsRequestPermissionsInner(value: object): value is UpdateRolePermissionsRequestPermissionsInner;
 declare function UpdateRolePermissionsRequestPermissionsInnerFromJSON(json: any): UpdateRolePermissionsRequestPermissionsInner;
 declare function UpdateRolePermissionsRequestPermissionsInnerFromJSONTyped(json: any, ignoreDiscriminator: boolean): UpdateRolePermissionsRequestPermissionsInner;
 declare function UpdateRolePermissionsRequestPermissionsInnerToJSON(value?: UpdateRolePermissionsRequestPermissionsInner | null): any;
@@ -5306,7 +5306,7 @@ interface UpdateRolePermissionsRequest {
 /**
  * Check if a given object implements the UpdateRolePermissionsRequest interface.
  */
-declare function instanceOfUpdateRolePermissionsRequest(value: object): boolean;
+declare function instanceOfUpdateRolePermissionsRequest(value: object): value is UpdateRolePermissionsRequest;
 declare function UpdateRolePermissionsRequestFromJSON(json: any): UpdateRolePermissionsRequest;
 declare function UpdateRolePermissionsRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): UpdateRolePermissionsRequest;
 declare function UpdateRolePermissionsRequestToJSON(value?: UpdateRolePermissionsRequest | null): any;
@@ -5356,7 +5356,7 @@ interface UpdateRolePermissionsResponse {
 /**
  * Check if a given object implements the UpdateRolePermissionsResponse interface.
  */
-declare function instanceOfUpdateRolePermissionsResponse(value: object): boolean;
+declare function instanceOfUpdateRolePermissionsResponse(value: object): value is UpdateRolePermissionsResponse;
 declare function UpdateRolePermissionsResponseFromJSON(json: any): UpdateRolePermissionsResponse;
 declare function UpdateRolePermissionsResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): UpdateRolePermissionsResponse;
 declare function UpdateRolePermissionsResponseToJSON(value?: UpdateRolePermissionsResponse | null): any;
@@ -5406,7 +5406,7 @@ interface UpdateRolesRequest {
 /**
  * Check if a given object implements the UpdateRolesRequest interface.
  */
-declare function instanceOfUpdateRolesRequest(value: object): boolean;
+declare function instanceOfUpdateRolesRequest(value: object): value is UpdateRolesRequest;
 declare function UpdateRolesRequestFromJSON(json: any): UpdateRolesRequest;
 declare function UpdateRolesRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): UpdateRolesRequest;
 declare function UpdateRolesRequestToJSON(value?: UpdateRolesRequest | null): any;
@@ -5456,7 +5456,7 @@ interface UpdateUserRequest {
 /**
  * Check if a given object implements the UpdateUserRequest interface.
  */
-declare function instanceOfUpdateUserRequest(value: object): boolean;
+declare function instanceOfUpdateUserRequest(value: object): value is UpdateUserRequest;
 declare function UpdateUserRequestFromJSON(json: any): UpdateUserRequest;
 declare function UpdateUserRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): UpdateUserRequest;
 declare function UpdateUserRequestToJSON(value?: UpdateUserRequest | null): any;
@@ -5524,7 +5524,7 @@ interface UpdateUserResponse {
 /**
  * Check if a given object implements the UpdateUserResponse interface.
  */
-declare function instanceOfUpdateUserResponse(value: object): boolean;
+declare function instanceOfUpdateUserResponse(value: object): value is UpdateUserResponse;
 declare function UpdateUserResponseFromJSON(json: any): UpdateUserResponse;
 declare function UpdateUserResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): UpdateUserResponse;
 declare function UpdateUserResponseToJSON(value?: UpdateUserResponse | null): any;
@@ -5568,7 +5568,7 @@ interface UpdateWebHookRequest {
 /**
  * Check if a given object implements the UpdateWebHookRequest interface.
  */
-declare function instanceOfUpdateWebHookRequest(value: object): boolean;
+declare function instanceOfUpdateWebHookRequest(value: object): value is UpdateWebHookRequest;
 declare function UpdateWebHookRequestFromJSON(json: any): UpdateWebHookRequest;
 declare function UpdateWebHookRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): UpdateWebHookRequest;
 declare function UpdateWebHookRequestToJSON(value?: UpdateWebHookRequest | null): any;
@@ -5600,7 +5600,7 @@ interface UpdateWebhookResponseWebhook {
 /**
  * Check if a given object implements the UpdateWebhookResponseWebhook interface.
  */
-declare function instanceOfUpdateWebhookResponseWebhook(value: object): boolean;
+declare function instanceOfUpdateWebhookResponseWebhook(value: object): value is UpdateWebhookResponseWebhook;
 declare function UpdateWebhookResponseWebhookFromJSON(json: any): UpdateWebhookResponseWebhook;
 declare function UpdateWebhookResponseWebhookFromJSONTyped(json: any, ignoreDiscriminator: boolean): UpdateWebhookResponseWebhook;
 declare function UpdateWebhookResponseWebhookToJSON(value?: UpdateWebhookResponseWebhook | null): any;
@@ -5645,7 +5645,7 @@ interface UpdateWebhookResponse {
 /**
  * Check if a given object implements the UpdateWebhookResponse interface.
  */
-declare function instanceOfUpdateWebhookResponse(value: object): boolean;
+declare function instanceOfUpdateWebhookResponse(value: object): value is UpdateWebhookResponse;
 declare function UpdateWebhookResponseFromJSON(json: any): UpdateWebhookResponse;
 declare function UpdateWebhookResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): UpdateWebhookResponse;
 declare function UpdateWebhookResponseToJSON(value?: UpdateWebhookResponse | null): any;
@@ -5683,7 +5683,7 @@ interface UserIdentitiesInner {
 /**
  * Check if a given object implements the UserIdentitiesInner interface.
  */
-declare function instanceOfUserIdentitiesInner(value: object): boolean;
+declare function instanceOfUserIdentitiesInner(value: object): value is UserIdentitiesInner;
 declare function UserIdentitiesInnerFromJSON(json: any): UserIdentitiesInner;
 declare function UserIdentitiesInnerFromJSONTyped(json: any, ignoreDiscriminator: boolean): UserIdentitiesInner;
 declare function UserIdentitiesInnerToJSON(value?: UserIdentitiesInner | null): any;
@@ -5794,7 +5794,7 @@ interface User {
 /**
  * Check if a given object implements the User interface.
  */
-declare function instanceOfUser(value: object): boolean;
+declare function instanceOfUser(value: object): value is User;
 declare function UserFromJSON(json: any): User;
 declare function UserFromJSONTyped(json: any, ignoreDiscriminator: boolean): User;
 declare function UserToJSON(value?: User | null): any;
@@ -5862,7 +5862,7 @@ interface UserProfile {
 /**
  * Check if a given object implements the UserProfile interface.
  */
-declare function instanceOfUserProfile(value: object): boolean;
+declare function instanceOfUserProfile(value: object): value is UserProfile;
 declare function UserProfileFromJSON(json: any): UserProfile;
 declare function UserProfileFromJSONTyped(json: any, ignoreDiscriminator: boolean): UserProfile;
 declare function UserProfileToJSON(value?: UserProfile | null): any;
@@ -5942,7 +5942,7 @@ interface UserProfileV2 {
 /**
  * Check if a given object implements the UserProfileV2 interface.
  */
-declare function instanceOfUserProfileV2(value: object): boolean;
+declare function instanceOfUserProfileV2(value: object): value is UserProfileV2;
 declare function UserProfileV2FromJSON(json: any): UserProfileV2;
 declare function UserProfileV2FromJSONTyped(json: any, ignoreDiscriminator: boolean): UserProfileV2;
 declare function UserProfileV2ToJSON(value?: UserProfileV2 | null): any;
@@ -6053,7 +6053,7 @@ interface UsersResponseUsersInner {
 /**
  * Check if a given object implements the UsersResponseUsersInner interface.
  */
-declare function instanceOfUsersResponseUsersInner(value: object): boolean;
+declare function instanceOfUsersResponseUsersInner(value: object): value is UsersResponseUsersInner;
 declare function UsersResponseUsersInnerFromJSON(json: any): UsersResponseUsersInner;
 declare function UsersResponseUsersInnerFromJSONTyped(json: any, ignoreDiscriminator: boolean): UsersResponseUsersInner;
 declare function UsersResponseUsersInnerToJSON(value?: UsersResponseUsersInner | null): any;
@@ -6104,7 +6104,7 @@ interface UsersResponse {
 /**
  * Check if a given object implements the UsersResponse interface.
  */
-declare function instanceOfUsersResponse(value: object): boolean;
+declare function instanceOfUsersResponse(value: object): value is UsersResponse;
 declare function UsersResponseFromJSON(json: any): UsersResponse;
 declare function UsersResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): UsersResponse;
 declare function UsersResponseToJSON(value?: UsersResponse | null): any;
@@ -6588,6 +6588,9 @@ declare class ConnectedAppsApi extends BaseAPI {
 interface CreateConnectionOperationRequest {
     createConnectionRequest: CreateConnectionRequest;
 }
+interface DeleteConnectionRequest {
+    connectionId: string;
+}
 interface GetConnectionRequest {
     connectionId: string;
 }
@@ -6614,6 +6617,16 @@ declare class ConnectionsApi extends BaseAPI {
      * Create Connection
      */
     createConnection(requestParameters: CreateConnectionOperationRequest, initOverrides?: RequestInit | InitOverrideFunction): Promise<CreateConnectionResponse>;
+    /**
+     * Delete connection.
+     * Delete Connection
+     */
+    deleteConnectionRaw(requestParameters: DeleteConnectionRequest, initOverrides?: RequestInit | InitOverrideFunction): Promise<ApiResponse<SuccessResponse>>;
+    /**
+     * Delete connection.
+     * Delete Connection
+     */
+    deleteConnection(requestParameters: DeleteConnectionRequest, initOverrides?: RequestInit | InitOverrideFunction): Promise<SuccessResponse>;
     /**
      * Get Connection.
      * Get Connection
@@ -7979,4 +7992,4 @@ declare class WebhooksApi extends BaseAPI {
     updateWebHook(requestParameters: UpdateWebHookOperationRequest, initOverrides?: RequestInit | InitOverrideFunction): Promise<UpdateWebhookResponse>;
 }
 
-export { APIsApi, type AddAPIsOperationRequest, type AddAPIsRequest, AddAPIsRequestFromJSON, AddAPIsRequestFromJSONTyped, AddAPIsRequestToJSON, type AddLogoutRedirectURLsRequest, type AddOrganizationUsersOperationRequest, type AddOrganizationUsersRequest, AddOrganizationUsersRequestFromJSON, AddOrganizationUsersRequestFromJSONTyped, AddOrganizationUsersRequestToJSON, type AddOrganizationUsersRequestUsersInner, AddOrganizationUsersRequestUsersInnerFromJSON, AddOrganizationUsersRequestUsersInnerFromJSONTyped, AddOrganizationUsersRequestUsersInnerToJSON, type AddOrganizationUsersResponse, AddOrganizationUsersResponseFromJSON, AddOrganizationUsersResponseFromJSONTyped, AddOrganizationUsersResponseToJSON, type AddRedirectCallbackURLsRequest, type Api, type ApiApplicationsInner, ApiApplicationsInnerFromJSON, ApiApplicationsInnerFromJSONTyped, ApiApplicationsInnerToJSON, ApiFromJSON, ApiFromJSONTyped, type ApiResponse, type ApiResult, ApiResultFromJSON, ApiResultFromJSONTyped, ApiResultToJSON, ApiToJSON, type Apis, ApisFromJSON, ApisFromJSONTyped, ApisToJSON, type Applications, ApplicationsApi, ApplicationsFromJSON, ApplicationsFromJSONTyped, ApplicationsToJSON, BASE_PATH, BaseAPI, BlobApiResponse, BusinessApi, COLLECTION_FORMATS, CallbacksApi, type Category, CategoryFromJSON, CategoryFromJSONTyped, CategoryToJSON, Configuration, type ConfigurationParameters, type ConnectedAppsAccessToken, ConnectedAppsAccessTokenFromJSON, ConnectedAppsAccessTokenFromJSONTyped, ConnectedAppsAccessTokenToJSON, ConnectedAppsApi, type ConnectedAppsAuthUrl, ConnectedAppsAuthUrlFromJSON, ConnectedAppsAuthUrlFromJSONTyped, ConnectedAppsAuthUrlToJSON, type Connection, ConnectionFromJSON, ConnectionFromJSONTyped, ConnectionToJSON, ConnectionsApi, type Consume, type CreateApplicationOperationRequest, type CreateApplicationRequest, CreateApplicationRequestFromJSON, CreateApplicationRequestFromJSONTyped, CreateApplicationRequestToJSON, CreateApplicationRequestTypeEnum, type CreateApplicationResponse, type CreateApplicationResponseApplication, CreateApplicationResponseApplicationFromJSON, CreateApplicationResponseApplicationFromJSONTyped, CreateApplicationResponseApplicationToJSON, CreateApplicationResponseFromJSON, CreateApplicationResponseFromJSONTyped, CreateApplicationResponseToJSON, type CreateCategoryOperationRequest, type CreateCategoryRequest, CreateCategoryRequestContextEnum, CreateCategoryRequestFromJSON, CreateCategoryRequestFromJSONTyped, CreateCategoryRequestToJSON, type CreateCategoryResponse, type CreateCategoryResponseCategory, CreateCategoryResponseCategoryFromJSON, CreateCategoryResponseCategoryFromJSONTyped, CreateCategoryResponseCategoryToJSON, CreateCategoryResponseFromJSON, CreateCategoryResponseFromJSONTyped, CreateCategoryResponseToJSON, type CreateConnectionOperationRequest, type CreateConnectionRequest, CreateConnectionRequestFromJSON, CreateConnectionRequestFromJSONTyped, CreateConnectionRequestStrategyEnum, CreateConnectionRequestToJSON, type CreateConnectionResponse, type CreateConnectionResponseConnection, CreateConnectionResponseConnectionFromJSON, CreateConnectionResponseConnectionFromJSONTyped, CreateConnectionResponseConnectionToJSON, CreateConnectionResponseFromJSON, CreateConnectionResponseFromJSONTyped, CreateConnectionResponseToJSON, type CreateFeatureFlagOperationRequest, type CreateFeatureFlagRequest, CreateFeatureFlagRequestAllowOverrideLevelEnum, CreateFeatureFlagRequestFromJSON, CreateFeatureFlagRequestFromJSONTyped, CreateFeatureFlagRequestToJSON, CreateFeatureFlagRequestTypeEnum, type CreateOrganizationOperationRequest, type CreateOrganizationRequest, CreateOrganizationRequestFeatureFlagsEnum, CreateOrganizationRequestFromJSON, CreateOrganizationRequestFromJSONTyped, CreateOrganizationRequestToJSON, type CreateOrganizationResponse, CreateOrganizationResponseFromJSON, CreateOrganizationResponseFromJSONTyped, type CreateOrganizationResponseOrganization, CreateOrganizationResponseOrganizationFromJSON, CreateOrganizationResponseOrganizationFromJSONTyped, CreateOrganizationResponseOrganizationToJSON, CreateOrganizationResponseToJSON, type CreateOrganizationUserPermissionOperationRequest, type CreateOrganizationUserPermissionRequest, CreateOrganizationUserPermissionRequestFromJSON, CreateOrganizationUserPermissionRequestFromJSONTyped, CreateOrganizationUserPermissionRequestToJSON, type CreateOrganizationUserRoleOperationRequest, type CreateOrganizationUserRoleRequest, CreateOrganizationUserRoleRequestFromJSON, CreateOrganizationUserRoleRequestFromJSONTyped, CreateOrganizationUserRoleRequestToJSON, type CreatePermissionOperationRequest, type CreatePermissionRequest, CreatePermissionRequestFromJSON, CreatePermissionRequestFromJSONTyped, CreatePermissionRequestToJSON, type CreatePropertyOperationRequest, type CreatePropertyRequest, CreatePropertyRequestContextEnum, CreatePropertyRequestFromJSON, CreatePropertyRequestFromJSONTyped, CreatePropertyRequestToJSON, CreatePropertyRequestTypeEnum, type CreatePropertyResponse, CreatePropertyResponseFromJSON, CreatePropertyResponseFromJSONTyped, type CreatePropertyResponseProperty, CreatePropertyResponsePropertyFromJSON, CreatePropertyResponsePropertyFromJSONTyped, CreatePropertyResponsePropertyToJSON, CreatePropertyResponseToJSON, type CreateRoleOperationRequest, type CreateRoleRequest, CreateRoleRequestFromJSON, CreateRoleRequestFromJSONTyped, CreateRoleRequestToJSON, type CreateSubscriberRequest, type CreateSubscriberSuccessResponse, CreateSubscriberSuccessResponseFromJSON, CreateSubscriberSuccessResponseFromJSONTyped, type CreateSubscriberSuccessResponseSubscriber, CreateSubscriberSuccessResponseSubscriberFromJSON, CreateSubscriberSuccessResponseSubscriberFromJSONTyped, CreateSubscriberSuccessResponseSubscriberToJSON, CreateSubscriberSuccessResponseToJSON, type CreateUserOperationRequest, type CreateUserRequest, CreateUserRequestFromJSON, CreateUserRequestFromJSONTyped, type CreateUserRequestIdentitiesInner, type CreateUserRequestIdentitiesInnerDetails, CreateUserRequestIdentitiesInnerDetailsFromJSON, CreateUserRequestIdentitiesInnerDetailsFromJSONTyped, CreateUserRequestIdentitiesInnerDetailsToJSON, CreateUserRequestIdentitiesInnerFromJSON, CreateUserRequestIdentitiesInnerFromJSONTyped, CreateUserRequestIdentitiesInnerToJSON, CreateUserRequestIdentitiesInnerTypeEnum, type CreateUserRequestProfile, CreateUserRequestProfileFromJSON, CreateUserRequestProfileFromJSONTyped, CreateUserRequestProfileToJSON, CreateUserRequestToJSON, type CreateUserResponse, CreateUserResponseFromJSON, CreateUserResponseFromJSONTyped, CreateUserResponseToJSON, type CreateWebHookOperationRequest, type CreateWebHookRequest, CreateWebHookRequestFromJSON, CreateWebHookRequestFromJSONTyped, CreateWebHookRequestToJSON, type CreateWebhookResponse, CreateWebhookResponseFromJSON, CreateWebhookResponseFromJSONTyped, CreateWebhookResponseToJSON, type CreateWebhookResponseWebhook, CreateWebhookResponseWebhookFromJSON, CreateWebhookResponseWebhookFromJSONTyped, CreateWebhookResponseWebhookToJSON, DefaultConfig, type DeleteAPIRequest, type DeleteApplicationRequest, type DeleteCallbackURLsRequest, type DeleteEnvironementFeatureFlagOverrideRequest, type DeleteFeatureFlagRequest, type DeleteLogoutURLsRequest, type DeleteOrganizationFeatureFlagOverrideRequest, type DeleteOrganizationFeatureFlagOverridesRequest, type DeleteOrganizationHandleRequest, type DeleteOrganizationRequest, type DeleteOrganizationUserPermissionRequest, type DeleteOrganizationUserRoleRequest, type DeletePermissionRequest, type DeleteRoleRequest, type DeleteUserRequest, type DeleteWebHookRequest, type DeleteWebhookResponse, DeleteWebhookResponseFromJSON, DeleteWebhookResponseFromJSONTyped, DeleteWebhookResponseToJSON, type EnableConnectionRequest, EnvironmentsApi, type ErrorContext, type ErrorResponse, ErrorResponseFromJSON, ErrorResponseFromJSONTyped, ErrorResponseToJSON, type EventType, EventTypeFromJSON, EventTypeFromJSONTyped, EventTypeToJSON, FeatureFlagsApi, type FetchAPI, FetchError, type FetchParams, type GetAPIRequest, type GetApplicationConnectionsRequest, type GetApplicationRequest, type GetApplicationResponse, type GetApplicationResponseApplication, GetApplicationResponseApplicationFromJSON, GetApplicationResponseApplicationFromJSONTyped, GetApplicationResponseApplicationToJSON, GetApplicationResponseFromJSON, GetApplicationResponseFromJSONTyped, GetApplicationResponseToJSON, type GetApplicationsRequest, type GetApplicationsResponse, GetApplicationsResponseFromJSON, GetApplicationsResponseFromJSONTyped, GetApplicationsResponseToJSON, GetApplicationsSortEnum, type GetBusinessRequest, type GetCallbackURLsRequest, GetCategoriesContextEnum, type GetCategoriesRequest, type GetCategoriesResponse, GetCategoriesResponseFromJSON, GetCategoriesResponseFromJSONTyped, GetCategoriesResponseToJSON, type GetConnectedAppAuthUrlRequest, type GetConnectedAppTokenRequest, type GetConnectionRequest, type GetConnectionsRequest, type GetConnectionsResponse, GetConnectionsResponseFromJSON, GetConnectionsResponseFromJSONTyped, GetConnectionsResponseToJSON, type GetEnvironmentFeatureFlagsResponse, GetEnvironmentFeatureFlagsResponseFromJSON, GetEnvironmentFeatureFlagsResponseFromJSONTyped, GetEnvironmentFeatureFlagsResponseToJSON, type GetEventRequest, type GetEventResponse, type GetEventResponseEvent, GetEventResponseEventFromJSON, GetEventResponseEventFromJSONTyped, GetEventResponseEventToJSON, GetEventResponseFromJSON, GetEventResponseFromJSONTyped, GetEventResponseToJSON, type GetEventTypesResponse, GetEventTypesResponseFromJSON, GetEventTypesResponseFromJSONTyped, GetEventTypesResponseToJSON, type GetIndustriesRequest, type GetLogoutURLsRequest, type GetOrganizationFeatureFlagsRequest, type GetOrganizationFeatureFlagsResponse, type GetOrganizationFeatureFlagsResponseFeatureFlagsValue, GetOrganizationFeatureFlagsResponseFeatureFlagsValueFromJSON, GetOrganizationFeatureFlagsResponseFeatureFlagsValueFromJSONTyped, GetOrganizationFeatureFlagsResponseFeatureFlagsValueToJSON, GetOrganizationFeatureFlagsResponseFeatureFlagsValueTypeEnum, GetOrganizationFeatureFlagsResponseFromJSON, GetOrganizationFeatureFlagsResponseFromJSONTyped, GetOrganizationFeatureFlagsResponseToJSON, type GetOrganizationPropertyValuesRequest, type GetOrganizationRequest, type GetOrganizationUserPermissionsRequest, type GetOrganizationUserRolesRequest, type GetOrganizationUsersRequest, type GetOrganizationUsersResponse, GetOrganizationUsersResponseFromJSON, GetOrganizationUsersResponseFromJSONTyped, GetOrganizationUsersResponseToJSON, GetOrganizationUsersSortEnum, type GetOrganizationsRequest, type GetOrganizationsResponse, GetOrganizationsResponseFromJSON, GetOrganizationsResponseFromJSONTyped, GetOrganizationsResponseToJSON, GetOrganizationsSortEnum, type GetOrganizationsUserPermissionsResponse, GetOrganizationsUserPermissionsResponseFromJSON, GetOrganizationsUserPermissionsResponseFromJSONTyped, GetOrganizationsUserPermissionsResponseToJSON, type GetOrganizationsUserRolesResponse, GetOrganizationsUserRolesResponseFromJSON, GetOrganizationsUserRolesResponseFromJSONTyped, GetOrganizationsUserRolesResponseToJSON, type GetPermissionsRequest, type GetPermissionsResponse, GetPermissionsResponseFromJSON, GetPermissionsResponseFromJSONTyped, GetPermissionsResponseToJSON, GetPermissionsSortEnum, GetPropertiesContextEnum, type GetPropertiesRequest, type GetPropertiesResponse, GetPropertiesResponseFromJSON, GetPropertiesResponseFromJSONTyped, GetPropertiesResponseToJSON, type GetPropertyValuesResponse, GetPropertyValuesResponseFromJSON, GetPropertyValuesResponseFromJSONTyped, GetPropertyValuesResponseToJSON, type GetRedirectCallbackUrlsResponse, GetRedirectCallbackUrlsResponseFromJSON, GetRedirectCallbackUrlsResponseFromJSONTyped, GetRedirectCallbackUrlsResponseToJSON, type GetRolePermissionRequest, GetRolePermissionSortEnum, type GetRolesRequest, type GetRolesResponse, GetRolesResponseFromJSON, GetRolesResponseFromJSONTyped, GetRolesResponseToJSON, GetRolesSortEnum, type GetSubscriberRequest, type GetSubscriberResponse, GetSubscriberResponseFromJSON, GetSubscriberResponseFromJSONTyped, GetSubscriberResponseToJSON, type GetSubscribersRequest, type GetSubscribersResponse, GetSubscribersResponseFromJSON, GetSubscribersResponseFromJSONTyped, GetSubscribersResponseToJSON, GetSubscribersSortEnum, type GetTimezonesRequest, type GetUserDataRequest, type GetUserPropertyValuesRequest, type GetUsersRequest, type GetWebhooksResponse, GetWebhooksResponseFromJSON, GetWebhooksResponseFromJSONTyped, GetWebhooksResponseToJSON, type HTTPBody, type HTTPHeaders, type HTTPMethod, type HTTPQuery, type HTTPRequestInit, IndustriesApi, type InitOverrideFunction, JSONApiResponse, type Json, type LogoutRedirectUrls, LogoutRedirectUrlsFromJSON, LogoutRedirectUrlsFromJSONTyped, LogoutRedirectUrlsToJSON, type Middleware, type ModelError, ModelErrorFromJSON, ModelErrorFromJSONTyped, ModelErrorToJSON, type ModelPropertyNaming, OAuthApi, type Organization, OrganizationFromJSON, OrganizationFromJSONTyped, OrganizationToJSON, type OrganizationUser, OrganizationUserFromJSON, OrganizationUserFromJSONTyped, type OrganizationUserPermission, OrganizationUserPermissionFromJSON, OrganizationUserPermissionFromJSONTyped, type OrganizationUserPermissionRolesInner, OrganizationUserPermissionRolesInnerFromJSON, OrganizationUserPermissionRolesInnerFromJSONTyped, OrganizationUserPermissionRolesInnerToJSON, OrganizationUserPermissionToJSON, type OrganizationUserRole, OrganizationUserRoleFromJSON, OrganizationUserRoleFromJSONTyped, type OrganizationUserRolePermissions, OrganizationUserRolePermissionsFromJSON, OrganizationUserRolePermissionsFromJSONTyped, type OrganizationUserRolePermissionsPermissions, OrganizationUserRolePermissionsPermissionsFromJSON, OrganizationUserRolePermissionsPermissionsFromJSONTyped, OrganizationUserRolePermissionsPermissionsToJSON, OrganizationUserRolePermissionsToJSON, OrganizationUserRoleToJSON, OrganizationUserToJSON, OrganizationsApi, type Permissions, PermissionsApi, PermissionsFromJSON, PermissionsFromJSONTyped, PermissionsToJSON, PropertiesApi, type Property, PropertyCategoriesApi, PropertyFromJSON, PropertyFromJSONTyped, PropertyToJSON, type PropertyValue, PropertyValueFromJSON, PropertyValueFromJSONTyped, PropertyValueToJSON, type RedirectCallbackUrls, RedirectCallbackUrlsFromJSON, RedirectCallbackUrlsFromJSONTyped, RedirectCallbackUrlsToJSON, type RefreshUserClaimsRequest, type RemoveConnectionRequest, type RemoveOrganizationUserRequest, type RemoveRolePermissionRequest, type ReplaceLogoutRedirectURLsOperationRequest, type ReplaceLogoutRedirectURLsRequest, ReplaceLogoutRedirectURLsRequestFromJSON, ReplaceLogoutRedirectURLsRequestFromJSONTyped, ReplaceLogoutRedirectURLsRequestToJSON, type ReplaceRedirectCallbackURLsOperationRequest, type ReplaceRedirectCallbackURLsRequest, ReplaceRedirectCallbackURLsRequestFromJSON, ReplaceRedirectCallbackURLsRequestFromJSONTyped, ReplaceRedirectCallbackURLsRequestToJSON, type RequestContext, type RequestOpts, RequiredError, type ResponseContext, ResponseError, type ResponseTransformer, type RevokeConnectedAppTokenRequest, type Role, RoleFromJSON, RoleFromJSONTyped, RoleToJSON, type Roles, RolesApi, RolesFromJSON, RolesFromJSONTyped, type RolesPermissionResponseInner, RolesPermissionResponseInnerFromJSON, RolesPermissionResponseInnerFromJSONTyped, RolesPermissionResponseInnerToJSON, RolesToJSON, type SetUserPasswordOperationRequest, type SetUserPasswordRequest, SetUserPasswordRequestFromJSON, SetUserPasswordRequestFromJSONTyped, SetUserPasswordRequestHashingMethodEnum, SetUserPasswordRequestSaltPositionEnum, SetUserPasswordRequestToJSON, type Subscriber, SubscriberFromJSON, SubscriberFromJSONTyped, SubscriberToJSON, SubscribersApi, type SubscribersSubscriber, SubscribersSubscriberFromJSON, SubscribersSubscriberFromJSONTyped, SubscribersSubscriberToJSON, type SuccessResponse, SuccessResponseFromJSON, SuccessResponseFromJSONTyped, SuccessResponseToJSON, TextApiResponse, TimezonesApi, type TokenErrorResponse, TokenErrorResponseFromJSON, TokenErrorResponseFromJSONTyped, TokenErrorResponseToJSON, type TokenIntrospect, TokenIntrospectFromJSON, TokenIntrospectFromJSONTyped, TokenIntrospectToJSON, type TokenIntrospectionRequest, type TokenRevocationRequest, type UpdateAPIApplicationsOperationRequest, type UpdateAPIApplicationsRequest, type UpdateAPIApplicationsRequestApplicationsInner, UpdateAPIApplicationsRequestApplicationsInnerFromJSON, UpdateAPIApplicationsRequestApplicationsInnerFromJSONTyped, UpdateAPIApplicationsRequestApplicationsInnerToJSON, UpdateAPIApplicationsRequestFromJSON, UpdateAPIApplicationsRequestFromJSONTyped, UpdateAPIApplicationsRequestToJSON, type UpdateApplicationOperationRequest, type UpdateApplicationRequest, UpdateApplicationRequestFromJSON, UpdateApplicationRequestFromJSONTyped, UpdateApplicationRequestToJSON, type UpdateBusinessRequest, type UpdateCategoryOperationRequest, type UpdateCategoryRequest, UpdateCategoryRequestFromJSON, UpdateCategoryRequestFromJSONTyped, UpdateCategoryRequestToJSON, type UpdateConnectionOperationRequest, type UpdateConnectionRequest, UpdateConnectionRequestFromJSON, UpdateConnectionRequestFromJSONTyped, UpdateConnectionRequestToJSON, type UpdateEnvironementFeatureFlagOverrideOperationRequest, type UpdateEnvironementFeatureFlagOverrideRequest, UpdateEnvironementFeatureFlagOverrideRequestFromJSON, UpdateEnvironementFeatureFlagOverrideRequestFromJSONTyped, UpdateEnvironementFeatureFlagOverrideRequestToJSON, UpdateFeatureFlagAllowOverrideLevelEnum, type UpdateFeatureFlagRequest, UpdateFeatureFlagTypeEnum, type UpdateOrganizationFeatureFlagOverrideRequest, type UpdateOrganizationOperationRequest, type UpdateOrganizationPropertiesOperationRequest, type UpdateOrganizationPropertiesRequest, UpdateOrganizationPropertiesRequestFromJSON, UpdateOrganizationPropertiesRequestFromJSONTyped, UpdateOrganizationPropertiesRequestToJSON, type UpdateOrganizationPropertyRequest, type UpdateOrganizationRequest, UpdateOrganizationRequestFromJSON, UpdateOrganizationRequestFromJSONTyped, UpdateOrganizationRequestToJSON, type UpdateOrganizationUsersOperationRequest, type UpdateOrganizationUsersRequest, UpdateOrganizationUsersRequestFromJSON, UpdateOrganizationUsersRequestFromJSONTyped, UpdateOrganizationUsersRequestToJSON, type UpdateOrganizationUsersRequestUsersInner, UpdateOrganizationUsersRequestUsersInnerFromJSON, UpdateOrganizationUsersRequestUsersInnerFromJSONTyped, UpdateOrganizationUsersRequestUsersInnerToJSON, type UpdateOrganizationUsersResponse, UpdateOrganizationUsersResponseFromJSON, UpdateOrganizationUsersResponseFromJSONTyped, UpdateOrganizationUsersResponseToJSON, type UpdatePermissionsRequest, type UpdatePropertyOperationRequest, type UpdatePropertyRequest, UpdatePropertyRequestFromJSON, UpdatePropertyRequestFromJSONTyped, UpdatePropertyRequestToJSON, type UpdateRolePermissionsOperationRequest, type UpdateRolePermissionsRequest, UpdateRolePermissionsRequestFromJSON, UpdateRolePermissionsRequestFromJSONTyped, type UpdateRolePermissionsRequestPermissionsInner, UpdateRolePermissionsRequestPermissionsInnerFromJSON, UpdateRolePermissionsRequestPermissionsInnerFromJSONTyped, UpdateRolePermissionsRequestPermissionsInnerToJSON, UpdateRolePermissionsRequestToJSON, type UpdateRolePermissionsResponse, UpdateRolePermissionsResponseFromJSON, UpdateRolePermissionsResponseFromJSONTyped, UpdateRolePermissionsResponseToJSON, type UpdateRolesOperationRequest, type UpdateRolesRequest, UpdateRolesRequestFromJSON, UpdateRolesRequestFromJSONTyped, UpdateRolesRequestToJSON, type UpdateUserFeatureFlagOverrideRequest, type UpdateUserOperationRequest, type UpdateUserPropertiesRequest, type UpdateUserPropertyRequest, type UpdateUserRequest, UpdateUserRequestFromJSON, UpdateUserRequestFromJSONTyped, UpdateUserRequestToJSON, type UpdateUserResponse, UpdateUserResponseFromJSON, UpdateUserResponseFromJSONTyped, UpdateUserResponseToJSON, type UpdateWebHookOperationRequest, type UpdateWebHookRequest, UpdateWebHookRequestFromJSON, UpdateWebHookRequestFromJSONTyped, UpdateWebHookRequestToJSON, type UpdateWebhookResponse, UpdateWebhookResponseFromJSON, UpdateWebhookResponseFromJSONTyped, UpdateWebhookResponseToJSON, type UpdateWebhookResponseWebhook, UpdateWebhookResponseWebhookFromJSON, UpdateWebhookResponseWebhookFromJSONTyped, UpdateWebhookResponseWebhookToJSON, type User, UserFromJSON, UserFromJSONTyped, type UserIdentitiesInner, UserIdentitiesInnerFromJSON, UserIdentitiesInnerFromJSONTyped, UserIdentitiesInnerToJSON, type UserIdentity, UserIdentityFromJSON, UserIdentityFromJSONTyped, type UserIdentityResult, UserIdentityResultFromJSON, UserIdentityResultFromJSONTyped, UserIdentityResultToJSON, UserIdentityToJSON, type UserProfile, UserProfileFromJSON, UserProfileFromJSONTyped, UserProfileToJSON, type UserProfileV2, UserProfileV2FromJSON, UserProfileV2FromJSONTyped, UserProfileV2ToJSON, UserToJSON, UsersApi, type UsersResponse, UsersResponseFromJSON, UsersResponseFromJSONTyped, UsersResponseToJSON, type UsersResponseUsersInner, UsersResponseUsersInnerFromJSON, UsersResponseUsersInnerFromJSONTyped, UsersResponseUsersInnerToJSON, VoidApiResponse, type Webhook, WebhookFromJSON, WebhookFromJSONTyped, WebhookToJSON, WebhooksApi, canConsumeForm, instanceOfAddAPIsRequest, instanceOfAddOrganizationUsersRequest, instanceOfAddOrganizationUsersRequestUsersInner, instanceOfAddOrganizationUsersResponse, instanceOfApi, instanceOfApiApplicationsInner, instanceOfApiResult, instanceOfApis, instanceOfApplications, instanceOfCategory, instanceOfConnectedAppsAccessToken, instanceOfConnectedAppsAuthUrl, instanceOfConnection, instanceOfCreateApplicationRequest, instanceOfCreateApplicationResponse, instanceOfCreateApplicationResponseApplication, instanceOfCreateCategoryRequest, instanceOfCreateCategoryResponse, instanceOfCreateCategoryResponseCategory, instanceOfCreateConnectionRequest, instanceOfCreateConnectionResponse, instanceOfCreateConnectionResponseConnection, instanceOfCreateFeatureFlagRequest, instanceOfCreateOrganizationRequest, instanceOfCreateOrganizationResponse, instanceOfCreateOrganizationResponseOrganization, instanceOfCreateOrganizationUserPermissionRequest, instanceOfCreateOrganizationUserRoleRequest, instanceOfCreatePermissionRequest, instanceOfCreatePropertyRequest, instanceOfCreatePropertyResponse, instanceOfCreatePropertyResponseProperty, instanceOfCreateRoleRequest, instanceOfCreateSubscriberSuccessResponse, instanceOfCreateSubscriberSuccessResponseSubscriber, instanceOfCreateUserRequest, instanceOfCreateUserRequestIdentitiesInner, instanceOfCreateUserRequestIdentitiesInnerDetails, instanceOfCreateUserRequestProfile, instanceOfCreateUserResponse, instanceOfCreateWebHookRequest, instanceOfCreateWebhookResponse, instanceOfCreateWebhookResponseWebhook, instanceOfDeleteWebhookResponse, instanceOfErrorResponse, instanceOfEventType, instanceOfGetApplicationResponse, instanceOfGetApplicationResponseApplication, instanceOfGetApplicationsResponse, instanceOfGetCategoriesResponse, instanceOfGetConnectionsResponse, instanceOfGetEnvironmentFeatureFlagsResponse, instanceOfGetEventResponse, instanceOfGetEventResponseEvent, instanceOfGetEventTypesResponse, instanceOfGetOrganizationFeatureFlagsResponse, instanceOfGetOrganizationFeatureFlagsResponseFeatureFlagsValue, instanceOfGetOrganizationUsersResponse, instanceOfGetOrganizationsResponse, instanceOfGetOrganizationsUserPermissionsResponse, instanceOfGetOrganizationsUserRolesResponse, instanceOfGetPermissionsResponse, instanceOfGetPropertiesResponse, instanceOfGetPropertyValuesResponse, instanceOfGetRedirectCallbackUrlsResponse, instanceOfGetRolesResponse, instanceOfGetSubscriberResponse, instanceOfGetSubscribersResponse, instanceOfGetWebhooksResponse, instanceOfLogoutRedirectUrls, instanceOfModelError, instanceOfOrganization, instanceOfOrganizationUser, instanceOfOrganizationUserPermission, instanceOfOrganizationUserPermissionRolesInner, instanceOfOrganizationUserRole, instanceOfOrganizationUserRolePermissions, instanceOfOrganizationUserRolePermissionsPermissions, instanceOfPermissions, instanceOfProperty, instanceOfPropertyValue, instanceOfRedirectCallbackUrls, instanceOfReplaceLogoutRedirectURLsRequest, instanceOfReplaceRedirectCallbackURLsRequest, instanceOfRole, instanceOfRoles, instanceOfRolesPermissionResponseInner, instanceOfSetUserPasswordRequest, instanceOfSubscriber, instanceOfSubscribersSubscriber, instanceOfSuccessResponse, instanceOfTokenErrorResponse, instanceOfTokenIntrospect, instanceOfUpdateAPIApplicationsRequest, instanceOfUpdateAPIApplicationsRequestApplicationsInner, instanceOfUpdateApplicationRequest, instanceOfUpdateCategoryRequest, instanceOfUpdateConnectionRequest, instanceOfUpdateEnvironementFeatureFlagOverrideRequest, instanceOfUpdateOrganizationPropertiesRequest, instanceOfUpdateOrganizationRequest, instanceOfUpdateOrganizationUsersRequest, instanceOfUpdateOrganizationUsersRequestUsersInner, instanceOfUpdateOrganizationUsersResponse, instanceOfUpdatePropertyRequest, instanceOfUpdateRolePermissionsRequest, instanceOfUpdateRolePermissionsRequestPermissionsInner, instanceOfUpdateRolePermissionsResponse, instanceOfUpdateRolesRequest, instanceOfUpdateUserRequest, instanceOfUpdateUserResponse, instanceOfUpdateWebHookRequest, instanceOfUpdateWebhookResponse, instanceOfUpdateWebhookResponseWebhook, instanceOfUser, instanceOfUserIdentitiesInner, instanceOfUserIdentity, instanceOfUserIdentityResult, instanceOfUserProfile, instanceOfUserProfileV2, instanceOfUsersResponse, instanceOfUsersResponseUsersInner, instanceOfWebhook, mapValues, querystring };
+export { APIsApi, type AddAPIsOperationRequest, type AddAPIsRequest, AddAPIsRequestFromJSON, AddAPIsRequestFromJSONTyped, AddAPIsRequestToJSON, type AddLogoutRedirectURLsRequest, type AddOrganizationUsersOperationRequest, type AddOrganizationUsersRequest, AddOrganizationUsersRequestFromJSON, AddOrganizationUsersRequestFromJSONTyped, AddOrganizationUsersRequestToJSON, type AddOrganizationUsersRequestUsersInner, AddOrganizationUsersRequestUsersInnerFromJSON, AddOrganizationUsersRequestUsersInnerFromJSONTyped, AddOrganizationUsersRequestUsersInnerToJSON, type AddOrganizationUsersResponse, AddOrganizationUsersResponseFromJSON, AddOrganizationUsersResponseFromJSONTyped, AddOrganizationUsersResponseToJSON, type AddRedirectCallbackURLsRequest, type Api, type ApiApplicationsInner, ApiApplicationsInnerFromJSON, ApiApplicationsInnerFromJSONTyped, ApiApplicationsInnerToJSON, ApiFromJSON, ApiFromJSONTyped, type ApiResponse, type ApiResult, ApiResultFromJSON, ApiResultFromJSONTyped, ApiResultToJSON, ApiToJSON, type Apis, ApisFromJSON, ApisFromJSONTyped, ApisToJSON, type Applications, ApplicationsApi, ApplicationsFromJSON, ApplicationsFromJSONTyped, ApplicationsToJSON, BASE_PATH, BaseAPI, BlobApiResponse, BusinessApi, COLLECTION_FORMATS, CallbacksApi, type Category, CategoryFromJSON, CategoryFromJSONTyped, CategoryToJSON, Configuration, type ConfigurationParameters, type ConnectedAppsAccessToken, ConnectedAppsAccessTokenFromJSON, ConnectedAppsAccessTokenFromJSONTyped, ConnectedAppsAccessTokenToJSON, ConnectedAppsApi, type ConnectedAppsAuthUrl, ConnectedAppsAuthUrlFromJSON, ConnectedAppsAuthUrlFromJSONTyped, ConnectedAppsAuthUrlToJSON, type Connection, ConnectionFromJSON, ConnectionFromJSONTyped, ConnectionToJSON, ConnectionsApi, type Consume, type CreateApplicationOperationRequest, type CreateApplicationRequest, CreateApplicationRequestFromJSON, CreateApplicationRequestFromJSONTyped, CreateApplicationRequestToJSON, CreateApplicationRequestTypeEnum, type CreateApplicationResponse, type CreateApplicationResponseApplication, CreateApplicationResponseApplicationFromJSON, CreateApplicationResponseApplicationFromJSONTyped, CreateApplicationResponseApplicationToJSON, CreateApplicationResponseFromJSON, CreateApplicationResponseFromJSONTyped, CreateApplicationResponseToJSON, type CreateCategoryOperationRequest, type CreateCategoryRequest, CreateCategoryRequestContextEnum, CreateCategoryRequestFromJSON, CreateCategoryRequestFromJSONTyped, CreateCategoryRequestToJSON, type CreateCategoryResponse, type CreateCategoryResponseCategory, CreateCategoryResponseCategoryFromJSON, CreateCategoryResponseCategoryFromJSONTyped, CreateCategoryResponseCategoryToJSON, CreateCategoryResponseFromJSON, CreateCategoryResponseFromJSONTyped, CreateCategoryResponseToJSON, type CreateConnectionOperationRequest, type CreateConnectionRequest, CreateConnectionRequestFromJSON, CreateConnectionRequestFromJSONTyped, CreateConnectionRequestStrategyEnum, CreateConnectionRequestToJSON, type CreateConnectionResponse, type CreateConnectionResponseConnection, CreateConnectionResponseConnectionFromJSON, CreateConnectionResponseConnectionFromJSONTyped, CreateConnectionResponseConnectionToJSON, CreateConnectionResponseFromJSON, CreateConnectionResponseFromJSONTyped, CreateConnectionResponseToJSON, type CreateFeatureFlagOperationRequest, type CreateFeatureFlagRequest, CreateFeatureFlagRequestAllowOverrideLevelEnum, CreateFeatureFlagRequestFromJSON, CreateFeatureFlagRequestFromJSONTyped, CreateFeatureFlagRequestToJSON, CreateFeatureFlagRequestTypeEnum, type CreateOrganizationOperationRequest, type CreateOrganizationRequest, CreateOrganizationRequestFeatureFlagsEnum, CreateOrganizationRequestFromJSON, CreateOrganizationRequestFromJSONTyped, CreateOrganizationRequestToJSON, type CreateOrganizationResponse, CreateOrganizationResponseFromJSON, CreateOrganizationResponseFromJSONTyped, type CreateOrganizationResponseOrganization, CreateOrganizationResponseOrganizationFromJSON, CreateOrganizationResponseOrganizationFromJSONTyped, CreateOrganizationResponseOrganizationToJSON, CreateOrganizationResponseToJSON, type CreateOrganizationUserPermissionOperationRequest, type CreateOrganizationUserPermissionRequest, CreateOrganizationUserPermissionRequestFromJSON, CreateOrganizationUserPermissionRequestFromJSONTyped, CreateOrganizationUserPermissionRequestToJSON, type CreateOrganizationUserRoleOperationRequest, type CreateOrganizationUserRoleRequest, CreateOrganizationUserRoleRequestFromJSON, CreateOrganizationUserRoleRequestFromJSONTyped, CreateOrganizationUserRoleRequestToJSON, type CreatePermissionOperationRequest, type CreatePermissionRequest, CreatePermissionRequestFromJSON, CreatePermissionRequestFromJSONTyped, CreatePermissionRequestToJSON, type CreatePropertyOperationRequest, type CreatePropertyRequest, CreatePropertyRequestContextEnum, CreatePropertyRequestFromJSON, CreatePropertyRequestFromJSONTyped, CreatePropertyRequestToJSON, CreatePropertyRequestTypeEnum, type CreatePropertyResponse, CreatePropertyResponseFromJSON, CreatePropertyResponseFromJSONTyped, type CreatePropertyResponseProperty, CreatePropertyResponsePropertyFromJSON, CreatePropertyResponsePropertyFromJSONTyped, CreatePropertyResponsePropertyToJSON, CreatePropertyResponseToJSON, type CreateRoleOperationRequest, type CreateRoleRequest, CreateRoleRequestFromJSON, CreateRoleRequestFromJSONTyped, CreateRoleRequestToJSON, type CreateSubscriberRequest, type CreateSubscriberSuccessResponse, CreateSubscriberSuccessResponseFromJSON, CreateSubscriberSuccessResponseFromJSONTyped, type CreateSubscriberSuccessResponseSubscriber, CreateSubscriberSuccessResponseSubscriberFromJSON, CreateSubscriberSuccessResponseSubscriberFromJSONTyped, CreateSubscriberSuccessResponseSubscriberToJSON, CreateSubscriberSuccessResponseToJSON, type CreateUserOperationRequest, type CreateUserRequest, CreateUserRequestFromJSON, CreateUserRequestFromJSONTyped, type CreateUserRequestIdentitiesInner, type CreateUserRequestIdentitiesInnerDetails, CreateUserRequestIdentitiesInnerDetailsFromJSON, CreateUserRequestIdentitiesInnerDetailsFromJSONTyped, CreateUserRequestIdentitiesInnerDetailsToJSON, CreateUserRequestIdentitiesInnerFromJSON, CreateUserRequestIdentitiesInnerFromJSONTyped, CreateUserRequestIdentitiesInnerToJSON, CreateUserRequestIdentitiesInnerTypeEnum, type CreateUserRequestProfile, CreateUserRequestProfileFromJSON, CreateUserRequestProfileFromJSONTyped, CreateUserRequestProfileToJSON, CreateUserRequestToJSON, type CreateUserResponse, CreateUserResponseFromJSON, CreateUserResponseFromJSONTyped, CreateUserResponseToJSON, type CreateWebHookOperationRequest, type CreateWebHookRequest, CreateWebHookRequestFromJSON, CreateWebHookRequestFromJSONTyped, CreateWebHookRequestToJSON, type CreateWebhookResponse, CreateWebhookResponseFromJSON, CreateWebhookResponseFromJSONTyped, CreateWebhookResponseToJSON, type CreateWebhookResponseWebhook, CreateWebhookResponseWebhookFromJSON, CreateWebhookResponseWebhookFromJSONTyped, CreateWebhookResponseWebhookToJSON, DefaultConfig, type DeleteAPIRequest, type DeleteApplicationRequest, type DeleteCallbackURLsRequest, type DeleteConnectionRequest, type DeleteEnvironementFeatureFlagOverrideRequest, type DeleteFeatureFlagRequest, type DeleteLogoutURLsRequest, type DeleteOrganizationFeatureFlagOverrideRequest, type DeleteOrganizationFeatureFlagOverridesRequest, type DeleteOrganizationHandleRequest, type DeleteOrganizationRequest, type DeleteOrganizationUserPermissionRequest, type DeleteOrganizationUserRoleRequest, type DeletePermissionRequest, type DeleteRoleRequest, type DeleteUserRequest, type DeleteWebHookRequest, type DeleteWebhookResponse, DeleteWebhookResponseFromJSON, DeleteWebhookResponseFromJSONTyped, DeleteWebhookResponseToJSON, type EnableConnectionRequest, EnvironmentsApi, type ErrorContext, type ErrorResponse, ErrorResponseFromJSON, ErrorResponseFromJSONTyped, ErrorResponseToJSON, type EventType, EventTypeFromJSON, EventTypeFromJSONTyped, EventTypeToJSON, FeatureFlagsApi, type FetchAPI, FetchError, type FetchParams, type GetAPIRequest, type GetApplicationConnectionsRequest, type GetApplicationRequest, type GetApplicationResponse, type GetApplicationResponseApplication, GetApplicationResponseApplicationFromJSON, GetApplicationResponseApplicationFromJSONTyped, GetApplicationResponseApplicationToJSON, GetApplicationResponseFromJSON, GetApplicationResponseFromJSONTyped, GetApplicationResponseToJSON, type GetApplicationsRequest, type GetApplicationsResponse, GetApplicationsResponseFromJSON, GetApplicationsResponseFromJSONTyped, GetApplicationsResponseToJSON, GetApplicationsSortEnum, type GetBusinessRequest, type GetCallbackURLsRequest, GetCategoriesContextEnum, type GetCategoriesRequest, type GetCategoriesResponse, GetCategoriesResponseFromJSON, GetCategoriesResponseFromJSONTyped, GetCategoriesResponseToJSON, type GetConnectedAppAuthUrlRequest, type GetConnectedAppTokenRequest, type GetConnectionRequest, type GetConnectionsRequest, type GetConnectionsResponse, GetConnectionsResponseFromJSON, GetConnectionsResponseFromJSONTyped, GetConnectionsResponseToJSON, type GetEnvironmentFeatureFlagsResponse, GetEnvironmentFeatureFlagsResponseFromJSON, GetEnvironmentFeatureFlagsResponseFromJSONTyped, GetEnvironmentFeatureFlagsResponseToJSON, type GetEventRequest, type GetEventResponse, type GetEventResponseEvent, GetEventResponseEventFromJSON, GetEventResponseEventFromJSONTyped, GetEventResponseEventToJSON, GetEventResponseFromJSON, GetEventResponseFromJSONTyped, GetEventResponseToJSON, type GetEventTypesResponse, GetEventTypesResponseFromJSON, GetEventTypesResponseFromJSONTyped, GetEventTypesResponseToJSON, type GetIndustriesRequest, type GetLogoutURLsRequest, type GetOrganizationFeatureFlagsRequest, type GetOrganizationFeatureFlagsResponse, type GetOrganizationFeatureFlagsResponseFeatureFlagsValue, GetOrganizationFeatureFlagsResponseFeatureFlagsValueFromJSON, GetOrganizationFeatureFlagsResponseFeatureFlagsValueFromJSONTyped, GetOrganizationFeatureFlagsResponseFeatureFlagsValueToJSON, GetOrganizationFeatureFlagsResponseFeatureFlagsValueTypeEnum, GetOrganizationFeatureFlagsResponseFromJSON, GetOrganizationFeatureFlagsResponseFromJSONTyped, GetOrganizationFeatureFlagsResponseToJSON, type GetOrganizationPropertyValuesRequest, type GetOrganizationRequest, type GetOrganizationUserPermissionsRequest, type GetOrganizationUserRolesRequest, type GetOrganizationUsersRequest, type GetOrganizationUsersResponse, GetOrganizationUsersResponseFromJSON, GetOrganizationUsersResponseFromJSONTyped, GetOrganizationUsersResponseToJSON, GetOrganizationUsersSortEnum, type GetOrganizationsRequest, type GetOrganizationsResponse, GetOrganizationsResponseFromJSON, GetOrganizationsResponseFromJSONTyped, GetOrganizationsResponseToJSON, GetOrganizationsSortEnum, type GetOrganizationsUserPermissionsResponse, GetOrganizationsUserPermissionsResponseFromJSON, GetOrganizationsUserPermissionsResponseFromJSONTyped, GetOrganizationsUserPermissionsResponseToJSON, type GetOrganizationsUserRolesResponse, GetOrganizationsUserRolesResponseFromJSON, GetOrganizationsUserRolesResponseFromJSONTyped, GetOrganizationsUserRolesResponseToJSON, type GetPermissionsRequest, type GetPermissionsResponse, GetPermissionsResponseFromJSON, GetPermissionsResponseFromJSONTyped, GetPermissionsResponseToJSON, GetPermissionsSortEnum, GetPropertiesContextEnum, type GetPropertiesRequest, type GetPropertiesResponse, GetPropertiesResponseFromJSON, GetPropertiesResponseFromJSONTyped, GetPropertiesResponseToJSON, type GetPropertyValuesResponse, GetPropertyValuesResponseFromJSON, GetPropertyValuesResponseFromJSONTyped, GetPropertyValuesResponseToJSON, type GetRedirectCallbackUrlsResponse, GetRedirectCallbackUrlsResponseFromJSON, GetRedirectCallbackUrlsResponseFromJSONTyped, GetRedirectCallbackUrlsResponseToJSON, type GetRolePermissionRequest, GetRolePermissionSortEnum, type GetRolesRequest, type GetRolesResponse, GetRolesResponseFromJSON, GetRolesResponseFromJSONTyped, GetRolesResponseToJSON, GetRolesSortEnum, type GetSubscriberRequest, type GetSubscriberResponse, GetSubscriberResponseFromJSON, GetSubscriberResponseFromJSONTyped, GetSubscriberResponseToJSON, type GetSubscribersRequest, type GetSubscribersResponse, GetSubscribersResponseFromJSON, GetSubscribersResponseFromJSONTyped, GetSubscribersResponseToJSON, GetSubscribersSortEnum, type GetTimezonesRequest, type GetUserDataRequest, type GetUserPropertyValuesRequest, type GetUsersRequest, type GetWebhooksResponse, GetWebhooksResponseFromJSON, GetWebhooksResponseFromJSONTyped, GetWebhooksResponseToJSON, type HTTPBody, type HTTPHeaders, type HTTPMethod, type HTTPQuery, type HTTPRequestInit, IndustriesApi, type InitOverrideFunction, JSONApiResponse, type Json, type LogoutRedirectUrls, LogoutRedirectUrlsFromJSON, LogoutRedirectUrlsFromJSONTyped, LogoutRedirectUrlsToJSON, type Middleware, type ModelError, ModelErrorFromJSON, ModelErrorFromJSONTyped, ModelErrorToJSON, type ModelPropertyNaming, OAuthApi, type Organization, OrganizationFromJSON, OrganizationFromJSONTyped, OrganizationToJSON, type OrganizationUser, OrganizationUserFromJSON, OrganizationUserFromJSONTyped, type OrganizationUserPermission, OrganizationUserPermissionFromJSON, OrganizationUserPermissionFromJSONTyped, type OrganizationUserPermissionRolesInner, OrganizationUserPermissionRolesInnerFromJSON, OrganizationUserPermissionRolesInnerFromJSONTyped, OrganizationUserPermissionRolesInnerToJSON, OrganizationUserPermissionToJSON, type OrganizationUserRole, OrganizationUserRoleFromJSON, OrganizationUserRoleFromJSONTyped, type OrganizationUserRolePermissions, OrganizationUserRolePermissionsFromJSON, OrganizationUserRolePermissionsFromJSONTyped, type OrganizationUserRolePermissionsPermissions, OrganizationUserRolePermissionsPermissionsFromJSON, OrganizationUserRolePermissionsPermissionsFromJSONTyped, OrganizationUserRolePermissionsPermissionsToJSON, OrganizationUserRolePermissionsToJSON, OrganizationUserRoleToJSON, OrganizationUserToJSON, OrganizationsApi, type Permissions, PermissionsApi, PermissionsFromJSON, PermissionsFromJSONTyped, PermissionsToJSON, PropertiesApi, type Property, PropertyCategoriesApi, PropertyFromJSON, PropertyFromJSONTyped, PropertyToJSON, type PropertyValue, PropertyValueFromJSON, PropertyValueFromJSONTyped, PropertyValueToJSON, type RedirectCallbackUrls, RedirectCallbackUrlsFromJSON, RedirectCallbackUrlsFromJSONTyped, RedirectCallbackUrlsToJSON, type RefreshUserClaimsRequest, type RemoveConnectionRequest, type RemoveOrganizationUserRequest, type RemoveRolePermissionRequest, type ReplaceLogoutRedirectURLsOperationRequest, type ReplaceLogoutRedirectURLsRequest, ReplaceLogoutRedirectURLsRequestFromJSON, ReplaceLogoutRedirectURLsRequestFromJSONTyped, ReplaceLogoutRedirectURLsRequestToJSON, type ReplaceRedirectCallbackURLsOperationRequest, type ReplaceRedirectCallbackURLsRequest, ReplaceRedirectCallbackURLsRequestFromJSON, ReplaceRedirectCallbackURLsRequestFromJSONTyped, ReplaceRedirectCallbackURLsRequestToJSON, type RequestContext, type RequestOpts, RequiredError, type ResponseContext, ResponseError, type ResponseTransformer, type RevokeConnectedAppTokenRequest, type Role, RoleFromJSON, RoleFromJSONTyped, RoleToJSON, type Roles, RolesApi, RolesFromJSON, RolesFromJSONTyped, type RolesPermissionResponseInner, RolesPermissionResponseInnerFromJSON, RolesPermissionResponseInnerFromJSONTyped, RolesPermissionResponseInnerToJSON, RolesToJSON, type SetUserPasswordOperationRequest, type SetUserPasswordRequest, SetUserPasswordRequestFromJSON, SetUserPasswordRequestFromJSONTyped, SetUserPasswordRequestHashingMethodEnum, SetUserPasswordRequestSaltPositionEnum, SetUserPasswordRequestToJSON, type Subscriber, SubscriberFromJSON, SubscriberFromJSONTyped, SubscriberToJSON, SubscribersApi, type SubscribersSubscriber, SubscribersSubscriberFromJSON, SubscribersSubscriberFromJSONTyped, SubscribersSubscriberToJSON, type SuccessResponse, SuccessResponseFromJSON, SuccessResponseFromJSONTyped, SuccessResponseToJSON, TextApiResponse, TimezonesApi, type TokenErrorResponse, TokenErrorResponseFromJSON, TokenErrorResponseFromJSONTyped, TokenErrorResponseToJSON, type TokenIntrospect, TokenIntrospectFromJSON, TokenIntrospectFromJSONTyped, TokenIntrospectToJSON, type TokenIntrospectionRequest, type TokenRevocationRequest, type UpdateAPIApplicationsOperationRequest, type UpdateAPIApplicationsRequest, type UpdateAPIApplicationsRequestApplicationsInner, UpdateAPIApplicationsRequestApplicationsInnerFromJSON, UpdateAPIApplicationsRequestApplicationsInnerFromJSONTyped, UpdateAPIApplicationsRequestApplicationsInnerToJSON, UpdateAPIApplicationsRequestFromJSON, UpdateAPIApplicationsRequestFromJSONTyped, UpdateAPIApplicationsRequestToJSON, type UpdateApplicationOperationRequest, type UpdateApplicationRequest, UpdateApplicationRequestFromJSON, UpdateApplicationRequestFromJSONTyped, UpdateApplicationRequestToJSON, type UpdateBusinessRequest, type UpdateCategoryOperationRequest, type UpdateCategoryRequest, UpdateCategoryRequestFromJSON, UpdateCategoryRequestFromJSONTyped, UpdateCategoryRequestToJSON, type UpdateConnectionOperationRequest, type UpdateConnectionRequest, UpdateConnectionRequestFromJSON, UpdateConnectionRequestFromJSONTyped, UpdateConnectionRequestToJSON, type UpdateEnvironementFeatureFlagOverrideOperationRequest, type UpdateEnvironementFeatureFlagOverrideRequest, UpdateEnvironementFeatureFlagOverrideRequestFromJSON, UpdateEnvironementFeatureFlagOverrideRequestFromJSONTyped, UpdateEnvironementFeatureFlagOverrideRequestToJSON, UpdateFeatureFlagAllowOverrideLevelEnum, type UpdateFeatureFlagRequest, UpdateFeatureFlagTypeEnum, type UpdateOrganizationFeatureFlagOverrideRequest, type UpdateOrganizationOperationRequest, type UpdateOrganizationPropertiesOperationRequest, type UpdateOrganizationPropertiesRequest, UpdateOrganizationPropertiesRequestFromJSON, UpdateOrganizationPropertiesRequestFromJSONTyped, UpdateOrganizationPropertiesRequestToJSON, type UpdateOrganizationPropertyRequest, type UpdateOrganizationRequest, UpdateOrganizationRequestFromJSON, UpdateOrganizationRequestFromJSONTyped, UpdateOrganizationRequestToJSON, type UpdateOrganizationUsersOperationRequest, type UpdateOrganizationUsersRequest, UpdateOrganizationUsersRequestFromJSON, UpdateOrganizationUsersRequestFromJSONTyped, UpdateOrganizationUsersRequestToJSON, type UpdateOrganizationUsersRequestUsersInner, UpdateOrganizationUsersRequestUsersInnerFromJSON, UpdateOrganizationUsersRequestUsersInnerFromJSONTyped, UpdateOrganizationUsersRequestUsersInnerToJSON, type UpdateOrganizationUsersResponse, UpdateOrganizationUsersResponseFromJSON, UpdateOrganizationUsersResponseFromJSONTyped, UpdateOrganizationUsersResponseToJSON, type UpdatePermissionsRequest, type UpdatePropertyOperationRequest, type UpdatePropertyRequest, UpdatePropertyRequestFromJSON, UpdatePropertyRequestFromJSONTyped, UpdatePropertyRequestToJSON, type UpdateRolePermissionsOperationRequest, type UpdateRolePermissionsRequest, UpdateRolePermissionsRequestFromJSON, UpdateRolePermissionsRequestFromJSONTyped, type UpdateRolePermissionsRequestPermissionsInner, UpdateRolePermissionsRequestPermissionsInnerFromJSON, UpdateRolePermissionsRequestPermissionsInnerFromJSONTyped, UpdateRolePermissionsRequestPermissionsInnerToJSON, UpdateRolePermissionsRequestToJSON, type UpdateRolePermissionsResponse, UpdateRolePermissionsResponseFromJSON, UpdateRolePermissionsResponseFromJSONTyped, UpdateRolePermissionsResponseToJSON, type UpdateRolesOperationRequest, type UpdateRolesRequest, UpdateRolesRequestFromJSON, UpdateRolesRequestFromJSONTyped, UpdateRolesRequestToJSON, type UpdateUserFeatureFlagOverrideRequest, type UpdateUserOperationRequest, type UpdateUserPropertiesRequest, type UpdateUserPropertyRequest, type UpdateUserRequest, UpdateUserRequestFromJSON, UpdateUserRequestFromJSONTyped, UpdateUserRequestToJSON, type UpdateUserResponse, UpdateUserResponseFromJSON, UpdateUserResponseFromJSONTyped, UpdateUserResponseToJSON, type UpdateWebHookOperationRequest, type UpdateWebHookRequest, UpdateWebHookRequestFromJSON, UpdateWebHookRequestFromJSONTyped, UpdateWebHookRequestToJSON, type UpdateWebhookResponse, UpdateWebhookResponseFromJSON, UpdateWebhookResponseFromJSONTyped, UpdateWebhookResponseToJSON, type UpdateWebhookResponseWebhook, UpdateWebhookResponseWebhookFromJSON, UpdateWebhookResponseWebhookFromJSONTyped, UpdateWebhookResponseWebhookToJSON, type User, UserFromJSON, UserFromJSONTyped, type UserIdentitiesInner, UserIdentitiesInnerFromJSON, UserIdentitiesInnerFromJSONTyped, UserIdentitiesInnerToJSON, type UserIdentity, UserIdentityFromJSON, UserIdentityFromJSONTyped, type UserIdentityResult, UserIdentityResultFromJSON, UserIdentityResultFromJSONTyped, UserIdentityResultToJSON, UserIdentityToJSON, type UserProfile, UserProfileFromJSON, UserProfileFromJSONTyped, UserProfileToJSON, type UserProfileV2, UserProfileV2FromJSON, UserProfileV2FromJSONTyped, UserProfileV2ToJSON, UserToJSON, UsersApi, type UsersResponse, UsersResponseFromJSON, UsersResponseFromJSONTyped, UsersResponseToJSON, type UsersResponseUsersInner, UsersResponseUsersInnerFromJSON, UsersResponseUsersInnerFromJSONTyped, UsersResponseUsersInnerToJSON, VoidApiResponse, type Webhook, WebhookFromJSON, WebhookFromJSONTyped, WebhookToJSON, WebhooksApi, canConsumeForm, instanceOfAddAPIsRequest, instanceOfAddOrganizationUsersRequest, instanceOfAddOrganizationUsersRequestUsersInner, instanceOfAddOrganizationUsersResponse, instanceOfApi, instanceOfApiApplicationsInner, instanceOfApiResult, instanceOfApis, instanceOfApplications, instanceOfCategory, instanceOfConnectedAppsAccessToken, instanceOfConnectedAppsAuthUrl, instanceOfConnection, instanceOfCreateApplicationRequest, instanceOfCreateApplicationResponse, instanceOfCreateApplicationResponseApplication, instanceOfCreateCategoryRequest, instanceOfCreateCategoryResponse, instanceOfCreateCategoryResponseCategory, instanceOfCreateConnectionRequest, instanceOfCreateConnectionResponse, instanceOfCreateConnectionResponseConnection, instanceOfCreateFeatureFlagRequest, instanceOfCreateOrganizationRequest, instanceOfCreateOrganizationResponse, instanceOfCreateOrganizationResponseOrganization, instanceOfCreateOrganizationUserPermissionRequest, instanceOfCreateOrganizationUserRoleRequest, instanceOfCreatePermissionRequest, instanceOfCreatePropertyRequest, instanceOfCreatePropertyResponse, instanceOfCreatePropertyResponseProperty, instanceOfCreateRoleRequest, instanceOfCreateSubscriberSuccessResponse, instanceOfCreateSubscriberSuccessResponseSubscriber, instanceOfCreateUserRequest, instanceOfCreateUserRequestIdentitiesInner, instanceOfCreateUserRequestIdentitiesInnerDetails, instanceOfCreateUserRequestProfile, instanceOfCreateUserResponse, instanceOfCreateWebHookRequest, instanceOfCreateWebhookResponse, instanceOfCreateWebhookResponseWebhook, instanceOfDeleteWebhookResponse, instanceOfErrorResponse, instanceOfEventType, instanceOfGetApplicationResponse, instanceOfGetApplicationResponseApplication, instanceOfGetApplicationsResponse, instanceOfGetCategoriesResponse, instanceOfGetConnectionsResponse, instanceOfGetEnvironmentFeatureFlagsResponse, instanceOfGetEventResponse, instanceOfGetEventResponseEvent, instanceOfGetEventTypesResponse, instanceOfGetOrganizationFeatureFlagsResponse, instanceOfGetOrganizationFeatureFlagsResponseFeatureFlagsValue, instanceOfGetOrganizationUsersResponse, instanceOfGetOrganizationsResponse, instanceOfGetOrganizationsUserPermissionsResponse, instanceOfGetOrganizationsUserRolesResponse, instanceOfGetPermissionsResponse, instanceOfGetPropertiesResponse, instanceOfGetPropertyValuesResponse, instanceOfGetRedirectCallbackUrlsResponse, instanceOfGetRolesResponse, instanceOfGetSubscriberResponse, instanceOfGetSubscribersResponse, instanceOfGetWebhooksResponse, instanceOfLogoutRedirectUrls, instanceOfModelError, instanceOfOrganization, instanceOfOrganizationUser, instanceOfOrganizationUserPermission, instanceOfOrganizationUserPermissionRolesInner, instanceOfOrganizationUserRole, instanceOfOrganizationUserRolePermissions, instanceOfOrganizationUserRolePermissionsPermissions, instanceOfPermissions, instanceOfProperty, instanceOfPropertyValue, instanceOfRedirectCallbackUrls, instanceOfReplaceLogoutRedirectURLsRequest, instanceOfReplaceRedirectCallbackURLsRequest, instanceOfRole, instanceOfRoles, instanceOfRolesPermissionResponseInner, instanceOfSetUserPasswordRequest, instanceOfSubscriber, instanceOfSubscribersSubscriber, instanceOfSuccessResponse, instanceOfTokenErrorResponse, instanceOfTokenIntrospect, instanceOfUpdateAPIApplicationsRequest, instanceOfUpdateAPIApplicationsRequestApplicationsInner, instanceOfUpdateApplicationRequest, instanceOfUpdateCategoryRequest, instanceOfUpdateConnectionRequest, instanceOfUpdateEnvironementFeatureFlagOverrideRequest, instanceOfUpdateOrganizationPropertiesRequest, instanceOfUpdateOrganizationRequest, instanceOfUpdateOrganizationUsersRequest, instanceOfUpdateOrganizationUsersRequestUsersInner, instanceOfUpdateOrganizationUsersResponse, instanceOfUpdatePropertyRequest, instanceOfUpdateRolePermissionsRequest, instanceOfUpdateRolePermissionsRequestPermissionsInner, instanceOfUpdateRolePermissionsResponse, instanceOfUpdateRolesRequest, instanceOfUpdateUserRequest, instanceOfUpdateUserResponse, instanceOfUpdateWebHookRequest, instanceOfUpdateWebhookResponse, instanceOfUpdateWebhookResponseWebhook, instanceOfUser, instanceOfUserIdentitiesInner, instanceOfUserIdentity, instanceOfUserIdentityResult, instanceOfUserProfile, instanceOfUserProfileV2, instanceOfUsersResponse, instanceOfUsersResponseUsersInner, instanceOfWebhook, mapValues, querystring };

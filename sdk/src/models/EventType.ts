@@ -54,7 +54,7 @@ export interface EventType {
 /**
  * Check if a given object implements the EventType interface.
  */
-export function instanceOfEventType(value: object): boolean {
+export function instanceOfEventType(value: object): value is EventType {
     return true;
 }
 

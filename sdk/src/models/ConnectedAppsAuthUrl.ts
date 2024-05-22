@@ -36,7 +36,7 @@ export interface ConnectedAppsAuthUrl {
 /**
  * Check if a given object implements the ConnectedAppsAuthUrl interface.
  */
-export function instanceOfConnectedAppsAuthUrl(value: object): boolean {
+export function instanceOfConnectedAppsAuthUrl(value: object): value is ConnectedAppsAuthUrl {
     return true;
 }
 

@@ -60,7 +60,7 @@ export interface Webhook {
 /**
  * Check if a given object implements the Webhook interface.
  */
-export function instanceOfWebhook(value: object): boolean {
+export function instanceOfWebhook(value: object): value is Webhook {
     return true;
 }
 

@@ -48,7 +48,7 @@ export interface UpdateApplicationRequest {
 /**
  * Check if a given object implements the UpdateApplicationRequest interface.
  */
-export function instanceOfUpdateApplicationRequest(value: object): boolean {
+export function instanceOfUpdateApplicationRequest(value: object): value is UpdateApplicationRequest {
     return true;
 }
 

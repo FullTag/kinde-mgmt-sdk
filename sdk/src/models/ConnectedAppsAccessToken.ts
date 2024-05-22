@@ -36,7 +36,7 @@ export interface ConnectedAppsAccessToken {
 /**
  * Check if a given object implements the ConnectedAppsAccessToken interface.
  */
-export function instanceOfConnectedAppsAccessToken(value: object): boolean {
+export function instanceOfConnectedAppsAccessToken(value: object): value is ConnectedAppsAccessToken {
     return true;
 }
 

@@ -120,8 +120,8 @@ export type CreateOrganizationRequestFeatureFlagsEnum = typeof CreateOrganizatio
 /**
  * Check if a given object implements the CreateOrganizationRequest interface.
  */
-export function instanceOfCreateOrganizationRequest(value: object): boolean {
-    if (!('name' in value)) return false;
+export function instanceOfCreateOrganizationRequest(value: object): value is CreateOrganizationRequest {
+    if (!('name' in value) || value['name'] === undefined) return false;
     return true;
 }
 

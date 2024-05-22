@@ -36,7 +36,7 @@ export interface DeleteWebhookResponse {
 /**
  * Check if a given object implements the DeleteWebhookResponse interface.
  */
-export function instanceOfDeleteWebhookResponse(value: object): boolean {
+export function instanceOfDeleteWebhookResponse(value: object): value is DeleteWebhookResponse {
     return true;
 }
 

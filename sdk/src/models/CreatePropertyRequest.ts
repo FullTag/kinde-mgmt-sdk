@@ -86,13 +86,13 @@ export type CreatePropertyRequestContextEnum = typeof CreatePropertyRequestConte
 /**
  * Check if a given object implements the CreatePropertyRequest interface.
  */
-export function instanceOfCreatePropertyRequest(value: object): boolean {
-    if (!('name' in value)) return false;
-    if (!('key' in value)) return false;
-    if (!('type' in value)) return false;
-    if (!('context' in value)) return false;
-    if (!('isPrivate' in value)) return false;
-    if (!('categoryId' in value)) return false;
+export function instanceOfCreatePropertyRequest(value: object): value is CreatePropertyRequest {
+    if (!('name' in value) || value['name'] === undefined) return false;
+    if (!('key' in value) || value['key'] === undefined) return false;
+    if (!('type' in value) || value['type'] === undefined) return false;
+    if (!('context' in value) || value['context'] === undefined) return false;
+    if (!('isPrivate' in value) || value['isPrivate'] === undefined) return false;
+    if (!('categoryId' in value) || value['categoryId'] === undefined) return false;
     return true;
 }
 

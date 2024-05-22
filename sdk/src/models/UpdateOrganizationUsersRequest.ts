@@ -37,7 +37,7 @@ export interface UpdateOrganizationUsersRequest {
 /**
  * Check if a given object implements the UpdateOrganizationUsersRequest interface.
  */
-export function instanceOfUpdateOrganizationUsersRequest(value: object): boolean {
+export function instanceOfUpdateOrganizationUsersRequest(value: object): value is UpdateOrganizationUsersRequest {
     return true;
 }
 

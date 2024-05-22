@@ -30,7 +30,7 @@ export interface UpdateCategoryRequest {
 /**
  * Check if a given object implements the UpdateCategoryRequest interface.
  */
-export function instanceOfUpdateCategoryRequest(value: object): boolean {
+export function instanceOfUpdateCategoryRequest(value: object): value is UpdateCategoryRequest {
     return true;
 }
 

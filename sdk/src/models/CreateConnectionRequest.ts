@@ -81,10 +81,10 @@ export type CreateConnectionRequestStrategyEnum = typeof CreateConnectionRequest
 /**
  * Check if a given object implements the CreateConnectionRequest interface.
  */
-export function instanceOfCreateConnectionRequest(value: object): boolean {
-    if (!('name' in value)) return false;
-    if (!('displayName' in value)) return false;
-    if (!('strategy' in value)) return false;
+export function instanceOfCreateConnectionRequest(value: object): value is CreateConnectionRequest {
+    if (!('name' in value) || value['name'] === undefined) return false;
+    if (!('displayName' in value) || value['displayName'] === undefined) return false;
+    if (!('strategy' in value) || value['strategy'] === undefined) return false;
     return true;
 }
 

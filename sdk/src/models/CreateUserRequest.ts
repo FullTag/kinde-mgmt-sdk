@@ -55,7 +55,7 @@ export interface CreateUserRequest {
 /**
  * Check if a given object implements the CreateUserRequest interface.
  */
-export function instanceOfCreateUserRequest(value: object): boolean {
+export function instanceOfCreateUserRequest(value: object): value is CreateUserRequest {
     return true;
 }
 

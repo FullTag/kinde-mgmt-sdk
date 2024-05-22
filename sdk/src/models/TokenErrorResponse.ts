@@ -36,7 +36,7 @@ export interface TokenErrorResponse {
 /**
  * Check if a given object implements the TokenErrorResponse interface.
  */
-export function instanceOfTokenErrorResponse(value: object): boolean {
+export function instanceOfTokenErrorResponse(value: object): value is TokenErrorResponse {
     return true;
 }
 

@@ -76,8 +76,8 @@ export type SetUserPasswordRequestSaltPositionEnum = typeof SetUserPasswordReque
 /**
  * Check if a given object implements the SetUserPasswordRequest interface.
  */
-export function instanceOfSetUserPasswordRequest(value: object): boolean {
-    if (!('hashedPassword' in value)) return false;
+export function instanceOfSetUserPasswordRequest(value: object): value is SetUserPasswordRequest {
+    if (!('hashedPassword' in value) || value['hashedPassword'] === undefined) return false;
     return true;
 }
 

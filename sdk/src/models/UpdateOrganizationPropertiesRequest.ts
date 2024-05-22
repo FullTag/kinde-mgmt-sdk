@@ -30,8 +30,8 @@ export interface UpdateOrganizationPropertiesRequest {
 /**
  * Check if a given object implements the UpdateOrganizationPropertiesRequest interface.
  */
-export function instanceOfUpdateOrganizationPropertiesRequest(value: object): boolean {
-    if (!('properties' in value)) return false;
+export function instanceOfUpdateOrganizationPropertiesRequest(value: object): value is UpdateOrganizationPropertiesRequest {
+    if (!('properties' in value) || value['properties'] === undefined) return false;
     return true;
 }
 

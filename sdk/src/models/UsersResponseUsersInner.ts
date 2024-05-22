@@ -115,7 +115,7 @@ export interface UsersResponseUsersInner {
 /**
  * Check if a given object implements the UsersResponseUsersInner interface.
  */
-export function instanceOfUsersResponseUsersInner(value: object): boolean {
+export function instanceOfUsersResponseUsersInner(value: object): value is UsersResponseUsersInner {
     return true;
 }
 

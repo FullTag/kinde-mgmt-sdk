@@ -48,7 +48,7 @@ export interface Organization {
 /**
  * Check if a given object implements the Organization interface.
  */
-export function instanceOfOrganization(value: object): boolean {
+export function instanceOfOrganization(value: object): value is Organization {
     return true;
 }
 

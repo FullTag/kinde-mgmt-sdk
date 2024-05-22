@@ -78,7 +78,7 @@ export interface UserProfileV2 {
 /**
  * Check if a given object implements the UserProfileV2 interface.
  */
-export function instanceOfUserProfileV2(value: object): boolean {
+export function instanceOfUserProfileV2(value: object): value is UserProfileV2 {
     return true;
 }
 

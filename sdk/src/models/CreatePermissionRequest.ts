@@ -42,7 +42,7 @@ export interface CreatePermissionRequest {
 /**
  * Check if a given object implements the CreatePermissionRequest interface.
  */
-export function instanceOfCreatePermissionRequest(value: object): boolean {
+export function instanceOfCreatePermissionRequest(value: object): value is CreatePermissionRequest {
     return true;
 }
 

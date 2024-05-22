@@ -37,7 +37,7 @@ export interface AddOrganizationUsersRequest {
 /**
  * Check if a given object implements the AddOrganizationUsersRequest interface.
  */
-export function instanceOfAddOrganizationUsersRequest(value: object): boolean {
+export function instanceOfAddOrganizationUsersRequest(value: object): value is AddOrganizationUsersRequest {
     return true;
 }
 
