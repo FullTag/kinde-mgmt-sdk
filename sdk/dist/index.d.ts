@@ -7254,6 +7254,8 @@ declare const GetOrganizationUsersSortEnum: {
     readonly NameDesc: "name_desc";
     readonly EmailAsc: "email_asc";
     readonly EmailDesc: "email_desc";
+    readonly IdAsc: "id_asc";
+    readonly IdDesc: "id_desc";
 };
 type GetOrganizationUsersSortEnum = typeof GetOrganizationUsersSortEnum[keyof typeof GetOrganizationUsersSortEnum];
 /**

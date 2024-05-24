@@ -1379,7 +1379,9 @@ export const GetOrganizationUsersSortEnum = {
     NameAsc: 'name_asc',
     NameDesc: 'name_desc',
     EmailAsc: 'email_asc',
-    EmailDesc: 'email_desc'
+    EmailDesc: 'email_desc',
+    IdAsc: 'id_asc',
+    IdDesc: 'id_desc'
 } as const;
 export type GetOrganizationUsersSortEnum = typeof GetOrganizationUsersSortEnum[keyof typeof GetOrganizationUsersSortEnum];
 /**
