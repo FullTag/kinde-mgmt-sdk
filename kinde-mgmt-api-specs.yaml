@@ -2561,6 +2561,8 @@ paths:
               - name_desc
               - email_asc
               - email_desc
+              - id_asc
+              - id_desc
         - name: page_size
           in: query
           description: Number of results per page. Defaults to 10 if parameter not sent.
