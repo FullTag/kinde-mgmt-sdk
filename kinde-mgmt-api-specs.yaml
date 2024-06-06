@@ -3862,6 +3862,44 @@ paths:
           description: Request was throttled.
       security:
         - kindeBearerAuth: []
+    delete:
+      tags:
+        - Properties
+      operationId: DeleteProperty
+      description: Delete property.
+      summary: Delete Property
+      parameters:
+        - name: property_id
+          in: path
+          description: The unique identifier for the property.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Property successfully deleted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success_response'
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/success_response'
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_response'
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/error_response'
+        '403':
+          description: Invalid credentials.
+        '429':
+          description: Request was throttled.
+      security:
+        - kindeBearerAuth: []
   /api/v1/property_categories:
     get:
       tags:
