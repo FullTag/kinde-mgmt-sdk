@@ -7565,6 +7565,42 @@ var PropertiesApi = class extends BaseAPI {
     return await response.value();
   }
   /**
+   * Delete property.
+   * Delete Property
+   */
+  async deletePropertyRaw(requestParameters, initOverrides) {
+    if (requestParameters["propertyId"] == null) {
+      throw new RequiredError(
+        "propertyId",
+        'Required parameter "propertyId" was null or undefined when calling deleteProperty().'
+      );
+    }
+    const queryParameters = {};
+    const headerParameters = {};
+    if (this.configuration && this.configuration.accessToken) {
+      const token = this.configuration.accessToken;
+      const tokenString = await token("kindeBearerAuth", []);
+      if (tokenString) {
+        headerParameters["Authorization"] = `Bearer ${tokenString}`;
+      }
+    }
+    const response = await this.request({
+      path: `/api/v1/properties/{property_id}`.replace(`{${"property_id"}}`, encodeURIComponent(String(requestParameters["propertyId"]))),
+      method: "DELETE",
+      headers: headerParameters,
+      query: queryParameters
+    }, initOverrides);
+    return new JSONApiResponse(response, (jsonValue) => SuccessResponseFromJSON(jsonValue));
+  }
+  /**
+   * Delete property.
+   * Delete Property
+   */
+  async deleteProperty(requestParameters, initOverrides) {
+    const response = await this.deletePropertyRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+  /**
    * Returns a list of properties 
    * List properties
    */

@@ -41,6 +41,10 @@ export interface CreatePropertyOperationRequest {
     createPropertyRequest: CreatePropertyRequest;
 }
 
+export interface DeletePropertyRequest {
+    propertyId: string;
+}
+
 export interface GetPropertiesRequest {
     pageSize?: number;
     startingAfter?: string;
@@ -101,6 +105,49 @@ export class PropertiesApi extends runtime.BaseAPI {
      */
     async createProperty(requestParameters: CreatePropertyOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreatePropertyResponse> {
         const response = await this.createPropertyRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Delete property.
+     * Delete Property
+     */
+    async deletePropertyRaw(requestParameters: DeletePropertyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SuccessResponse>> {
+        if (requestParameters['propertyId'] == null) {
+            throw new runtime.RequiredError(
+                'propertyId',
+                'Required parameter "propertyId" was null or undefined when calling deleteProperty().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.accessToken) {
+            const token = this.configuration.accessToken;
+            const tokenString = await token("kindeBearerAuth", []);
+
+            if (tokenString) {
+                headerParameters["Authorization"] = `Bearer ${tokenString}`;
+            }
+        }
+        const response = await this.request({
+            path: `/api/v1/properties/{property_id}`.replace(`{${"property_id"}}`, encodeURIComponent(String(requestParameters['propertyId']))),
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => SuccessResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Delete property.
+     * Delete Property
+     */
+    async deleteProperty(requestParameters: DeletePropertyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SuccessResponse> {
+        const response = await this.deletePropertyRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
