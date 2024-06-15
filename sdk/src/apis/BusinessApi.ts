@@ -29,24 +29,24 @@ export interface GetBusinessRequest {
     code: string;
     name: string;
     email: string;
-    phone?: string;
+    phone?: string | null;
     industry?: string;
     timezone?: string;
-    privacyUrl?: string;
-    termsUrl?: string;
+    privacyUrl?: string | null;
+    termsUrl?: string | null;
 }
 
 export interface UpdateBusinessRequest {
     businessName: string;
     primaryEmail: string;
-    primaryPhone?: string;
+    primaryPhone?: string | null;
     industryKey?: string;
     timezoneId?: string;
-    privacyUrl?: string;
-    termsUrl?: string;
-    isShowKindeBranding?: string;
-    isClickWrap?: boolean;
-    partnerCode?: string;
+    privacyUrl?: string | null;
+    termsUrl?: string | null;
+    isShowKindeBranding?: string | null;
+    isClickWrap?: boolean | null;
+    partnerCode?: string | null;
 }
 
 /**

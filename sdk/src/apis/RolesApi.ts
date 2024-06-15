@@ -54,14 +54,14 @@ export interface DeleteRoleRequest {
 export interface GetRolePermissionRequest {
     roleId: string;
     sort?: GetRolePermissionSortEnum;
-    pageSize?: number;
-    nextToken?: string;
+    pageSize?: number | null;
+    nextToken?: string | null;
 }
 
 export interface GetRolesRequest {
     sort?: GetRolesSortEnum;
-    pageSize?: number;
-    nextToken?: string;
+    pageSize?: number | null;
+    nextToken?: string | null;
 }
 
 export interface RemoveRolePermissionRequest {

@@ -46,9 +46,9 @@ export interface DeletePropertyRequest {
 }
 
 export interface GetPropertiesRequest {
-    pageSize?: number;
-    startingAfter?: string;
-    endingBefore?: string;
+    pageSize?: number | null;
+    startingAfter?: string | null;
+    endingBefore?: string | null;
     context?: GetPropertiesContextEnum;
 }
 

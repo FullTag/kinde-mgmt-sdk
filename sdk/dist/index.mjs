@@ -7897,6 +7897,9 @@ var UsersApi = class extends BaseAPI {
     if (requestParameters["email"] != null) {
       queryParameters["email"] = requestParameters["email"];
     }
+    if (requestParameters["username"] != null) {
+      queryParameters["username"] = requestParameters["username"];
+    }
     if (requestParameters["expand"] != null) {
       queryParameters["expand"] = requestParameters["expand"];
     }

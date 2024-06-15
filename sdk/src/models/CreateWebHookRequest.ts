@@ -42,7 +42,7 @@ export interface CreateWebHookRequest {
      * @type {string}
      * @memberof CreateWebHookRequest
      */
-    description?: string;
+    description?: string | null;
 }
 
 /**

@@ -41,8 +41,8 @@ export interface DeletePermissionRequest {
 
 export interface GetPermissionsRequest {
     sort?: GetPermissionsSortEnum;
-    pageSize?: number;
-    nextToken?: string;
+    pageSize?: number | null;
+    nextToken?: string | null;
 }
 
 export interface UpdatePermissionsRequest {

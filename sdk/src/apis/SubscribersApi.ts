@@ -43,8 +43,8 @@ export interface GetSubscriberRequest {
 
 export interface GetSubscribersRequest {
     sort?: GetSubscribersSortEnum;
-    pageSize?: number;
-    nextToken?: string;
+    pageSize?: number | null;
+    nextToken?: string | null;
 }
 
 /**

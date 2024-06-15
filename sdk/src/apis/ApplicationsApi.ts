@@ -66,8 +66,8 @@ export interface GetApplicationConnectionsRequest {
 
 export interface GetApplicationsRequest {
     sort?: GetApplicationsSortEnum;
-    pageSize?: number;
-    nextToken?: string;
+    pageSize?: number | null;
+    nextToken?: string | null;
 }
 
 export interface RemoveConnectionRequest {

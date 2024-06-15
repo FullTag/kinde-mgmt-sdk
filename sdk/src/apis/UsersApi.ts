@@ -63,7 +63,7 @@ export interface DeleteUserRequest {
 
 export interface GetUserDataRequest {
     id: string;
-    expand?: string;
+    expand?: string | null;
 }
 
 export interface GetUserPropertyValuesRequest {
@@ -71,11 +71,12 @@ export interface GetUserPropertyValuesRequest {
 }
 
 export interface GetUsersRequest {
-    pageSize?: number;
-    userId?: string;
-    nextToken?: string;
-    email?: string;
-    expand?: string;
+    pageSize?: number | null;
+    userId?: string | null;
+    nextToken?: string | null;
+    email?: string | null;
+    username?: string | null;
+    expand?: string | null;
 }
 
 export interface RefreshUserClaimsRequest {
@@ -319,6 +320,10 @@ export class UsersApi extends runtime.BaseAPI {
 
         if (requestParameters['email'] != null) {
             queryParameters['email'] = requestParameters['email'];
+        }
+
+        if (requestParameters['username'] != null) {
+            queryParameters['username'] = requestParameters['username'];
         }
 
         if (requestParameters['expand'] != null) {

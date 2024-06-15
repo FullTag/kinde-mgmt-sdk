@@ -2151,7 +2151,7 @@ interface CreateWebHookRequest {
      * @type {string}
      * @memberof CreateWebHookRequest
      */
-    description?: string;
+    description?: string | null;
 }
 /**
  * Check if a given object implements the CreateWebHookRequest interface.
@@ -5563,7 +5563,7 @@ interface UpdateWebHookRequest {
      * @type {string}
      * @memberof UpdateWebHookRequest
      */
-    description?: string;
+    description?: string | null;
 }
 /**
  * Check if a given object implements the UpdateWebHookRequest interface.
@@ -5759,25 +5759,25 @@ interface User {
      * @type {number}
      * @memberof User
      */
-    totalSignIns?: number;
+    totalSignIns?: number | null;
     /**
      * Number of consecutive failed user sign ins.
      * @type {number}
      * @memberof User
      */
-    failedSignIns?: number;
+    failedSignIns?: number | null;
     /**
      * Last sign in date in ISO 8601 format.
      * @type {string}
      * @memberof User
      */
-    lastSignedIn?: string;
+    lastSignedIn?: string | null;
     /**
      * Date of user creation in ISO 8601 format.
      * @type {string}
      * @memberof User
      */
-    createdOn?: string;
+    createdOn?: string | null;
     /**
      * Array of organizations a user belongs to.
      * @type {Array<string>}
@@ -5839,7 +5839,7 @@ interface UserProfile {
      * @type {string}
      * @memberof UserProfile
      */
-    providedId?: string;
+    providedId?: string | null;
     /**
      * User's last name.
      * @type {string}
@@ -5901,7 +5901,7 @@ interface UserProfileV2 {
      * @type {string}
      * @memberof UserProfileV2
      */
-    providedId?: string;
+    providedId?: string | null;
     /**
      * Users's first and last name separated by a space.
      * @type {string}
@@ -6018,25 +6018,25 @@ interface UsersResponseUsersInner {
      * @type {number}
      * @memberof UsersResponseUsersInner
      */
-    totalSignIns?: number;
+    totalSignIns?: number | null;
     /**
      * Number of consecutive failed user sign ins.
      * @type {number}
      * @memberof UsersResponseUsersInner
      */
-    failedSignIns?: number;
+    failedSignIns?: number | null;
     /**
      * Last sign in date in ISO 8601 format.
      * @type {string}
      * @memberof UsersResponseUsersInner
      */
-    lastSignedIn?: string;
+    lastSignedIn?: string | null;
     /**
      * Date of user creation in ISO 8601 format.
      * @type {string}
      * @memberof UsersResponseUsersInner
      */
-    createdOn?: string;
+    createdOn?: string | null;
     /**
      * Array of organizations a user belongs to.
      * @type {Array<string>}
@@ -6220,8 +6220,8 @@ interface GetApplicationConnectionsRequest {
 }
 interface GetApplicationsRequest {
     sort?: GetApplicationsSortEnum;
-    pageSize?: number;
-    nextToken?: string;
+    pageSize?: number | null;
+    nextToken?: string | null;
 }
 interface RemoveConnectionRequest {
     applicationId: string;
@@ -6341,23 +6341,23 @@ interface GetBusinessRequest {
     code: string;
     name: string;
     email: string;
-    phone?: string;
+    phone?: string | null;
     industry?: string;
     timezone?: string;
-    privacyUrl?: string;
-    termsUrl?: string;
+    privacyUrl?: string | null;
+    termsUrl?: string | null;
 }
 interface UpdateBusinessRequest {
     businessName: string;
     primaryEmail: string;
-    primaryPhone?: string;
+    primaryPhone?: string | null;
     industryKey?: string;
     timezoneId?: string;
-    privacyUrl?: string;
-    termsUrl?: string;
-    isShowKindeBranding?: string;
-    isClickWrap?: boolean;
-    partnerCode?: string;
+    privacyUrl?: string | null;
+    termsUrl?: string | null;
+    isShowKindeBranding?: string | null;
+    isClickWrap?: boolean | null;
+    partnerCode?: string | null;
 }
 /**
  *
@@ -6595,9 +6595,9 @@ interface GetConnectionRequest {
     connectionId: string;
 }
 interface GetConnectionsRequest {
-    pageSize?: number;
-    startingAfter?: string;
-    endingBefore?: string;
+    pageSize?: number | null;
+    startingAfter?: string | null;
+    endingBefore?: string | null;
 }
 interface UpdateConnectionOperationRequest {
     connectionId: string;
@@ -6966,7 +6966,7 @@ interface GetOrganizationPropertyValuesRequest {
 interface GetOrganizationUserPermissionsRequest {
     orgCode: string;
     userId: string;
-    expand?: string;
+    expand?: string | null;
 }
 interface GetOrganizationUserRolesRequest {
     orgCode: string;
@@ -6975,15 +6975,15 @@ interface GetOrganizationUserRolesRequest {
 interface GetOrganizationUsersRequest {
     orgCode: string;
     sort?: GetOrganizationUsersSortEnum;
-    pageSize?: number;
-    nextToken?: string;
+    pageSize?: number | null;
+    nextToken?: string | null;
     permissions?: string;
     roles?: string;
 }
 interface GetOrganizationsRequest {
     sort?: GetOrganizationsSortEnum;
-    pageSize?: number;
-    nextToken?: string;
+    pageSize?: number | null;
+    nextToken?: string | null;
 }
 interface RemoveOrganizationUserRequest {
     orgCode: string;
@@ -7289,8 +7289,8 @@ interface DeletePermissionRequest {
 }
 interface GetPermissionsRequest {
     sort?: GetPermissionsSortEnum;
-    pageSize?: number;
-    nextToken?: string;
+    pageSize?: number | null;
+    nextToken?: string | null;
 }
 interface UpdatePermissionsRequest {
     permissionId: number;
@@ -7371,9 +7371,9 @@ interface DeletePropertyRequest {
     propertyId: string;
 }
 interface GetPropertiesRequest {
-    pageSize?: number;
-    startingAfter?: string;
-    endingBefore?: string;
+    pageSize?: number | null;
+    startingAfter?: string | null;
+    endingBefore?: string | null;
     context?: GetPropertiesContextEnum;
 }
 interface UpdatePropertyOperationRequest {
@@ -7450,9 +7450,9 @@ interface CreateCategoryOperationRequest {
     createCategoryRequest: CreateCategoryRequest;
 }
 interface GetCategoriesRequest {
-    pageSize?: number;
-    startingAfter?: string;
-    endingBefore?: string;
+    pageSize?: number | null;
+    startingAfter?: string | null;
+    endingBefore?: string | null;
     context?: GetCategoriesContextEnum;
 }
 interface UpdateCategoryOperationRequest {
@@ -7524,13 +7524,13 @@ interface DeleteRoleRequest {
 interface GetRolePermissionRequest {
     roleId: string;
     sort?: GetRolePermissionSortEnum;
-    pageSize?: number;
-    nextToken?: string;
+    pageSize?: number | null;
+    nextToken?: string | null;
 }
 interface GetRolesRequest {
     sort?: GetRolesSortEnum;
-    pageSize?: number;
-    nextToken?: string;
+    pageSize?: number | null;
+    nextToken?: string | null;
 }
 interface RemoveRolePermissionRequest {
     roleId: string;
@@ -7662,8 +7662,8 @@ interface GetSubscriberRequest {
 }
 interface GetSubscribersRequest {
     sort?: GetSubscribersSortEnum;
-    pageSize?: number;
-    nextToken?: string;
+    pageSize?: number | null;
+    nextToken?: string | null;
 }
 /**
  *
@@ -7764,17 +7764,18 @@ interface DeleteUserRequest {
 }
 interface GetUserDataRequest {
     id: string;
-    expand?: string;
+    expand?: string | null;
 }
 interface GetUserPropertyValuesRequest {
     userId: string;
 }
 interface GetUsersRequest {
-    pageSize?: number;
-    userId?: string;
-    nextToken?: string;
-    email?: string;
-    expand?: string;
+    pageSize?: number | null;
+    userId?: string | null;
+    nextToken?: string | null;
+    email?: string | null;
+    username?: string | null;
+    expand?: string | null;
 }
 interface RefreshUserClaimsRequest {
     userId: string;

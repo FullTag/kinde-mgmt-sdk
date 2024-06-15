@@ -42,7 +42,7 @@ export interface UserProfile {
      * @type {string}
      * @memberof UserProfile
      */
-    providedId?: string;
+    providedId?: string | null;
     /**
      * User's last name.
      * @type {string}

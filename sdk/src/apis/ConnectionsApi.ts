@@ -53,9 +53,9 @@ export interface GetConnectionRequest {
 }
 
 export interface GetConnectionsRequest {
-    pageSize?: number;
-    startingAfter?: string;
-    endingBefore?: string;
+    pageSize?: number | null;
+    startingAfter?: string | null;
+    endingBefore?: string | null;
 }
 
 export interface UpdateConnectionOperationRequest {

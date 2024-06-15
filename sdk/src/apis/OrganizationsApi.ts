@@ -141,7 +141,7 @@ export interface GetOrganizationPropertyValuesRequest {
 export interface GetOrganizationUserPermissionsRequest {
     orgCode: string;
     userId: string;
-    expand?: string;
+    expand?: string | null;
 }
 
 export interface GetOrganizationUserRolesRequest {
@@ -152,16 +152,16 @@ export interface GetOrganizationUserRolesRequest {
 export interface GetOrganizationUsersRequest {
     orgCode: string;
     sort?: GetOrganizationUsersSortEnum;
-    pageSize?: number;
-    nextToken?: string;
+    pageSize?: number | null;
+    nextToken?: string | null;
     permissions?: string;
     roles?: string;
 }
 
 export interface GetOrganizationsRequest {
     sort?: GetOrganizationsSortEnum;
-    pageSize?: number;
-    nextToken?: string;
+    pageSize?: number | null;
+    nextToken?: string | null;
 }
 
 export interface RemoveOrganizationUserRequest {

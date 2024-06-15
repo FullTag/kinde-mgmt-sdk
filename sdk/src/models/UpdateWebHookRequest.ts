@@ -36,7 +36,7 @@ export interface UpdateWebHookRequest {
      * @type {string}
      * @memberof UpdateWebHookRequest
      */
-    description?: string;
+    description?: string | null;
 }
 
 /**

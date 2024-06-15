@@ -79,25 +79,25 @@ export interface UsersResponseUsersInner {
      * @type {number}
      * @memberof UsersResponseUsersInner
      */
-    totalSignIns?: number;
+    totalSignIns?: number | null;
     /**
      * Number of consecutive failed user sign ins.
      * @type {number}
      * @memberof UsersResponseUsersInner
      */
-    failedSignIns?: number;
+    failedSignIns?: number | null;
     /**
      * Last sign in date in ISO 8601 format.
      * @type {string}
      * @memberof UsersResponseUsersInner
      */
-    lastSignedIn?: string;
+    lastSignedIn?: string | null;
     /**
      * Date of user creation in ISO 8601 format.
      * @type {string}
      * @memberof UsersResponseUsersInner
      */
-    createdOn?: string;
+    createdOn?: string | null;
     /**
      * Array of organizations a user belongs to.
      * @type {Array<string>}

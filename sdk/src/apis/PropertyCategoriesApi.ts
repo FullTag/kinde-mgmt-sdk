@@ -42,9 +42,9 @@ export interface CreateCategoryOperationRequest {
 }
 
 export interface GetCategoriesRequest {
-    pageSize?: number;
-    startingAfter?: string;
-    endingBefore?: string;
+    pageSize?: number | null;
+    startingAfter?: string | null;
+    endingBefore?: string | null;
     context?: GetCategoriesContextEnum;
 }
 
