@@ -4633,6 +4633,14 @@ paths:
           schema:
             type: string
             nullable: true
+        - name: username
+          in: query
+          description: >-
+            Filter the results by username. The query string should be comma
+            separated and url encoded.
+          schema:
+            type: string
+            nullable: true
         - name: expand
           in: query
           description: >-
