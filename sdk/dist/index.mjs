@@ -983,6 +983,58 @@ function CreateFeatureFlagRequestToJSON(value) {
   };
 }
 
+// src/models/CreateIdentityResponseIdentity.ts
+function instanceOfCreateIdentityResponseIdentity(value) {
+  return true;
+}
+function CreateIdentityResponseIdentityFromJSON(json) {
+  return CreateIdentityResponseIdentityFromJSONTyped(json, false);
+}
+function CreateIdentityResponseIdentityFromJSONTyped(json, ignoreDiscriminator) {
+  if (json == null) {
+    return json;
+  }
+  return {
+    "id": json["id"] == null ? void 0 : json["id"]
+  };
+}
+function CreateIdentityResponseIdentityToJSON(value) {
+  if (value == null) {
+    return value;
+  }
+  return {
+    "id": value["id"]
+  };
+}
+
+// src/models/CreateIdentityResponse.ts
+function instanceOfCreateIdentityResponse(value) {
+  return true;
+}
+function CreateIdentityResponseFromJSON(json) {
+  return CreateIdentityResponseFromJSONTyped(json, false);
+}
+function CreateIdentityResponseFromJSONTyped(json, ignoreDiscriminator) {
+  if (json == null) {
+    return json;
+  }
+  return {
+    "message": json["message"] == null ? void 0 : json["message"],
+    "code": json["code"] == null ? void 0 : json["code"],
+    "identity": json["identity"] == null ? void 0 : CreateIdentityResponseIdentityFromJSON(json["identity"])
+  };
+}
+function CreateIdentityResponseToJSON(value) {
+  if (value == null) {
+    return value;
+  }
+  return {
+    "message": value["message"],
+    "code": value["code"],
+    "identity": CreateIdentityResponseIdentityToJSON(value["identity"])
+  };
+}
+
 // src/models/CreateOrganizationRequest.ts
 var CreateOrganizationRequestFeatureFlagsEnum = {
   Str: "str",
@@ -1351,6 +1403,36 @@ function CreateSubscriberSuccessResponseToJSON(value) {
   }
   return {
     "subscriber": CreateSubscriberSuccessResponseSubscriberToJSON(value["subscriber"])
+  };
+}
+
+// src/models/CreateUserIdentityRequest.ts
+var CreateUserIdentityRequestTypeEnum = {
+  Email: "email",
+  Username: "username"
+};
+function instanceOfCreateUserIdentityRequest(value) {
+  return true;
+}
+function CreateUserIdentityRequestFromJSON(json) {
+  return CreateUserIdentityRequestFromJSONTyped(json, false);
+}
+function CreateUserIdentityRequestFromJSONTyped(json, ignoreDiscriminator) {
+  if (json == null) {
+    return json;
+  }
+  return {
+    "value": json["value"] == null ? void 0 : json["value"],
+    "type": json["type"] == null ? void 0 : json["type"]
+  };
+}
+function CreateUserIdentityRequestToJSON(value) {
+  if (value == null) {
+    return value;
+  }
+  return {
+    "value": value["value"],
+    "type": value["type"]
   };
 }
 
@@ -2039,6 +2121,72 @@ function GetEventTypesResponseToJSON(value) {
     "code": value["code"],
     "message": value["message"],
     "event_types": value["eventTypes"] == null ? void 0 : value["eventTypes"].map(EventTypeToJSON)
+  };
+}
+
+// src/models/Identity.ts
+function instanceOfIdentity(value) {
+  return true;
+}
+function IdentityFromJSON(json) {
+  return IdentityFromJSONTyped(json, false);
+}
+function IdentityFromJSONTyped(json, ignoreDiscriminator) {
+  if (json == null) {
+    return json;
+  }
+  return {
+    "id": json["id"] == null ? void 0 : json["id"],
+    "type": json["type"] == null ? void 0 : json["type"],
+    "isConfirmed": json["is_confirmed"] == null ? void 0 : json["is_confirmed"],
+    "createdOn": json["created_on"] == null ? void 0 : json["created_on"],
+    "lastLoginOn": json["last_login_on"] == null ? void 0 : json["last_login_on"],
+    "totalLogins": json["total_logins"] == null ? void 0 : json["total_logins"],
+    "name": json["name"] == null ? void 0 : json["name"]
+  };
+}
+function IdentityToJSON(value) {
+  if (value == null) {
+    return value;
+  }
+  return {
+    "id": value["id"],
+    "type": value["type"],
+    "is_confirmed": value["isConfirmed"],
+    "created_on": value["createdOn"],
+    "last_login_on": value["lastLoginOn"],
+    "total_logins": value["totalLogins"],
+    "name": value["name"]
+  };
+}
+
+// src/models/GetIdentitiesResponse.ts
+function instanceOfGetIdentitiesResponse(value) {
+  return true;
+}
+function GetIdentitiesResponseFromJSON(json) {
+  return GetIdentitiesResponseFromJSONTyped(json, false);
+}
+function GetIdentitiesResponseFromJSONTyped(json, ignoreDiscriminator) {
+  if (json == null) {
+    return json;
+  }
+  return {
+    "code": json["code"] == null ? void 0 : json["code"],
+    "message": json["message"] == null ? void 0 : json["message"],
+    "properties": json["properties"] == null ? void 0 : json["properties"].map(IdentityFromJSON),
+    "hasMore": json["has_more"] == null ? void 0 : json["has_more"]
+  };
+}
+function GetIdentitiesResponseToJSON(value) {
+  if (value == null) {
+    return value;
+  }
+  return {
+    "code": value["code"],
+    "message": value["message"],
+    "properties": value["properties"] == null ? void 0 : value["properties"].map(IdentityToJSON),
+    "has_more": value["hasMore"]
   };
 }
 
@@ -3289,6 +3437,30 @@ function UpdateEnvironementFeatureFlagOverrideRequestToJSON(value) {
   }
   return {
     "value": value["value"]
+  };
+}
+
+// src/models/UpdateIdentityRequest.ts
+function instanceOfUpdateIdentityRequest(value) {
+  return true;
+}
+function UpdateIdentityRequestFromJSON(json) {
+  return UpdateIdentityRequestFromJSONTyped(json, false);
+}
+function UpdateIdentityRequestFromJSONTyped(json, ignoreDiscriminator) {
+  if (json == null) {
+    return json;
+  }
+  return {
+    "isPrimary": json["is_primary"] == null ? void 0 : json["is_primary"]
+  };
+}
+function UpdateIdentityRequestToJSON(value) {
+  if (value == null) {
+    return value;
+  }
+  return {
+    "is_primary": value["isPrimary"]
   };
 }
 
@@ -5602,6 +5774,126 @@ var UpdateFeatureFlagAllowOverrideLevelEnum = {
   Org: "org"
 };
 
+// src/apis/IdentitiesApi.ts
+var IdentitiesApi = class extends BaseAPI {
+  /**
+   * Delete identity by ID.
+   * Delete identity
+   */
+  async deleteIdentityRaw(requestParameters, initOverrides) {
+    if (requestParameters["identityId"] == null) {
+      throw new RequiredError(
+        "identityId",
+        'Required parameter "identityId" was null or undefined when calling deleteIdentity().'
+      );
+    }
+    const queryParameters = {};
+    const headerParameters = {};
+    if (this.configuration && this.configuration.accessToken) {
+      const token = this.configuration.accessToken;
+      const tokenString = await token("kindeBearerAuth", []);
+      if (tokenString) {
+        headerParameters["Authorization"] = `Bearer ${tokenString}`;
+      }
+    }
+    const response = await this.request({
+      path: `/api/v1/identities/{identity_id}`.replace(`{${"identity_id"}}`, encodeURIComponent(String(requestParameters["identityId"]))),
+      method: "DELETE",
+      headers: headerParameters,
+      query: queryParameters
+    }, initOverrides);
+    return new JSONApiResponse(response, (jsonValue) => SuccessResponseFromJSON(jsonValue));
+  }
+  /**
+   * Delete identity by ID.
+   * Delete identity
+   */
+  async deleteIdentity(requestParameters, initOverrides) {
+    const response = await this.deleteIdentityRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+  /**
+   * Returns an identity by ID 
+   * Get identity
+   */
+  async getIdentityRaw(requestParameters, initOverrides) {
+    if (requestParameters["identityId"] == null) {
+      throw new RequiredError(
+        "identityId",
+        'Required parameter "identityId" was null or undefined when calling getIdentity().'
+      );
+    }
+    const queryParameters = {};
+    const headerParameters = {};
+    if (this.configuration && this.configuration.accessToken) {
+      const token = this.configuration.accessToken;
+      const tokenString = await token("kindeBearerAuth", []);
+      if (tokenString) {
+        headerParameters["Authorization"] = `Bearer ${tokenString}`;
+      }
+    }
+    const response = await this.request({
+      path: `/api/v1/identities/{identity_id}`.replace(`{${"identity_id"}}`, encodeURIComponent(String(requestParameters["identityId"]))),
+      method: "GET",
+      headers: headerParameters,
+      query: queryParameters
+    }, initOverrides);
+    return new JSONApiResponse(response, (jsonValue) => IdentityFromJSON(jsonValue));
+  }
+  /**
+   * Returns an identity by ID 
+   * Get identity
+   */
+  async getIdentity(requestParameters, initOverrides) {
+    const response = await this.getIdentityRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+  /**
+   * Update identity by ID.
+   * Update identity
+   */
+  async updateIdentityRaw(requestParameters, initOverrides) {
+    if (requestParameters["identityId"] == null) {
+      throw new RequiredError(
+        "identityId",
+        'Required parameter "identityId" was null or undefined when calling updateIdentity().'
+      );
+    }
+    if (requestParameters["updateIdentityRequest"] == null) {
+      throw new RequiredError(
+        "updateIdentityRequest",
+        'Required parameter "updateIdentityRequest" was null or undefined when calling updateIdentity().'
+      );
+    }
+    const queryParameters = {};
+    const headerParameters = {};
+    headerParameters["Content-Type"] = "application/json";
+    if (this.configuration && this.configuration.accessToken) {
+      const token = this.configuration.accessToken;
+      const tokenString = await token("kindeBearerAuth", []);
+      if (tokenString) {
+        headerParameters["Authorization"] = `Bearer ${tokenString}`;
+      }
+    }
+    const response = await this.request({
+      path: `/api/v1/identities/{identity_id}`.replace(`{${"identity_id"}}`, encodeURIComponent(String(requestParameters["identityId"]))),
+      method: "PATCH",
+      headers: headerParameters,
+      query: queryParameters,
+      body: UpdateIdentityRequestToJSON(requestParameters["updateIdentityRequest"])
+    }, initOverrides);
+    return new JSONApiResponse(response, (jsonValue) => SuccessResponseFromJSON(jsonValue));
+  }
+  /**
+   * Update identity by ID.
+   * Update identity
+   */
+  async updateIdentity(requestParameters, initOverrides) {
+    const response = await this.updateIdentityRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+};
+
 // src/apis/IndustriesApi.ts
 var IndustriesApi = class extends BaseAPI {
   /**
@@ -7760,6 +8052,44 @@ var UsersApi = class extends BaseAPI {
     return await response.value();
   }
   /**
+   * Creates an identity for a user. 
+   * Create identity
+   */
+  async createUserIdentityRaw(requestParameters, initOverrides) {
+    if (requestParameters["userId"] == null) {
+      throw new RequiredError(
+        "userId",
+        'Required parameter "userId" was null or undefined when calling createUserIdentity().'
+      );
+    }
+    const queryParameters = {};
+    const headerParameters = {};
+    headerParameters["Content-Type"] = "application/json";
+    if (this.configuration && this.configuration.accessToken) {
+      const token = this.configuration.accessToken;
+      const tokenString = await token("kindeBearerAuth", []);
+      if (tokenString) {
+        headerParameters["Authorization"] = `Bearer ${tokenString}`;
+      }
+    }
+    const response = await this.request({
+      path: `/api/v1/users/{user_id}/identities`.replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters["userId"]))),
+      method: "POST",
+      headers: headerParameters,
+      query: queryParameters,
+      body: CreateUserIdentityRequestToJSON(requestParameters["createUserIdentityRequest"])
+    }, initOverrides);
+    return new JSONApiResponse(response, (jsonValue) => CreateIdentityResponseFromJSON(jsonValue));
+  }
+  /**
+   * Creates an identity for a user. 
+   * Create identity
+   */
+  async createUserIdentity(requestParameters, initOverrides) {
+    const response = await this.createUserIdentityRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+  /**
    * Delete a user record. 
    * Delete User
    */
@@ -7841,6 +8171,42 @@ var UsersApi = class extends BaseAPI {
    */
   async getUserData(requestParameters, initOverrides) {
     const response = await this.getUserDataRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+  /**
+   * Gets a list of identities for an user by ID. 
+   * Get identities
+   */
+  async getUserIdentitiesRaw(requestParameters, initOverrides) {
+    if (requestParameters["userId"] == null) {
+      throw new RequiredError(
+        "userId",
+        'Required parameter "userId" was null or undefined when calling getUserIdentities().'
+      );
+    }
+    const queryParameters = {};
+    const headerParameters = {};
+    if (this.configuration && this.configuration.accessToken) {
+      const token = this.configuration.accessToken;
+      const tokenString = await token("kindeBearerAuth", []);
+      if (tokenString) {
+        headerParameters["Authorization"] = `Bearer ${tokenString}`;
+      }
+    }
+    const response = await this.request({
+      path: `/api/v1/users/{user_id}/identities`.replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters["userId"]))),
+      method: "GET",
+      headers: headerParameters,
+      query: queryParameters
+    }, initOverrides);
+    return new JSONApiResponse(response, (jsonValue) => GetIdentitiesResponseFromJSON(jsonValue));
+  }
+  /**
+   * Gets a list of identities for an user by ID. 
+   * Get identities
+   */
+  async getUserIdentities(requestParameters, initOverrides) {
+    const response = await this.getUserIdentitiesRaw(requestParameters, initOverrides);
     return await response.value();
   }
   /**
@@ -8499,6 +8865,12 @@ export {
   CreateFeatureFlagRequestFromJSONTyped,
   CreateFeatureFlagRequestToJSON,
   CreateFeatureFlagRequestTypeEnum,
+  CreateIdentityResponseFromJSON,
+  CreateIdentityResponseFromJSONTyped,
+  CreateIdentityResponseIdentityFromJSON,
+  CreateIdentityResponseIdentityFromJSONTyped,
+  CreateIdentityResponseIdentityToJSON,
+  CreateIdentityResponseToJSON,
   CreateOrganizationRequestFeatureFlagsEnum,
   CreateOrganizationRequestFromJSON,
   CreateOrganizationRequestFromJSONTyped,
@@ -8538,6 +8910,10 @@ export {
   CreateSubscriberSuccessResponseSubscriberFromJSONTyped,
   CreateSubscriberSuccessResponseSubscriberToJSON,
   CreateSubscriberSuccessResponseToJSON,
+  CreateUserIdentityRequestFromJSON,
+  CreateUserIdentityRequestFromJSONTyped,
+  CreateUserIdentityRequestToJSON,
+  CreateUserIdentityRequestTypeEnum,
   CreateUserRequestFromJSON,
   CreateUserRequestFromJSONTyped,
   CreateUserRequestIdentitiesInnerDetailsFromJSON,
@@ -8605,6 +8981,9 @@ export {
   GetEventTypesResponseFromJSON,
   GetEventTypesResponseFromJSONTyped,
   GetEventTypesResponseToJSON,
+  GetIdentitiesResponseFromJSON,
+  GetIdentitiesResponseFromJSONTyped,
+  GetIdentitiesResponseToJSON,
   GetOrganizationFeatureFlagsResponseFeatureFlagsValueFromJSON,
   GetOrganizationFeatureFlagsResponseFeatureFlagsValueFromJSONTyped,
   GetOrganizationFeatureFlagsResponseFeatureFlagsValueToJSON,
@@ -8655,6 +9034,10 @@ export {
   GetWebhooksResponseFromJSON,
   GetWebhooksResponseFromJSONTyped,
   GetWebhooksResponseToJSON,
+  IdentitiesApi,
+  IdentityFromJSON,
+  IdentityFromJSONTyped,
+  IdentityToJSON,
   IndustriesApi,
   JSONApiResponse,
   LogoutRedirectUrlsFromJSON,
@@ -8762,6 +9145,9 @@ export {
   UpdateEnvironementFeatureFlagOverrideRequestToJSON,
   UpdateFeatureFlagAllowOverrideLevelEnum,
   UpdateFeatureFlagTypeEnum,
+  UpdateIdentityRequestFromJSON,
+  UpdateIdentityRequestFromJSONTyped,
+  UpdateIdentityRequestToJSON,
   UpdateOrganizationPropertiesRequestFromJSON,
   UpdateOrganizationPropertiesRequestFromJSONTyped,
   UpdateOrganizationPropertiesRequestToJSON,
@@ -8861,6 +9247,8 @@ export {
   instanceOfCreateConnectionResponse,
   instanceOfCreateConnectionResponseConnection,
   instanceOfCreateFeatureFlagRequest,
+  instanceOfCreateIdentityResponse,
+  instanceOfCreateIdentityResponseIdentity,
   instanceOfCreateOrganizationRequest,
   instanceOfCreateOrganizationResponse,
   instanceOfCreateOrganizationResponseOrganization,
@@ -8873,6 +9261,7 @@ export {
   instanceOfCreateRoleRequest,
   instanceOfCreateSubscriberSuccessResponse,
   instanceOfCreateSubscriberSuccessResponseSubscriber,
+  instanceOfCreateUserIdentityRequest,
   instanceOfCreateUserRequest,
   instanceOfCreateUserRequestIdentitiesInner,
   instanceOfCreateUserRequestIdentitiesInnerDetails,
@@ -8893,6 +9282,7 @@ export {
   instanceOfGetEventResponse,
   instanceOfGetEventResponseEvent,
   instanceOfGetEventTypesResponse,
+  instanceOfGetIdentitiesResponse,
   instanceOfGetOrganizationFeatureFlagsResponse,
   instanceOfGetOrganizationFeatureFlagsResponseFeatureFlagsValue,
   instanceOfGetOrganizationUsersResponse,
@@ -8907,6 +9297,7 @@ export {
   instanceOfGetSubscriberResponse,
   instanceOfGetSubscribersResponse,
   instanceOfGetWebhooksResponse,
+  instanceOfIdentity,
   instanceOfLogoutRedirectUrls,
   instanceOfModelError,
   instanceOfOrganization,
@@ -8937,6 +9328,7 @@ export {
   instanceOfUpdateCategoryRequest,
   instanceOfUpdateConnectionRequest,
   instanceOfUpdateEnvironementFeatureFlagOverrideRequest,
+  instanceOfUpdateIdentityRequest,
   instanceOfUpdateOrganizationPropertiesRequest,
   instanceOfUpdateOrganizationRequest,
   instanceOfUpdateOrganizationUsersRequest,

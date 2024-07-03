@@ -15,9 +15,12 @@
 
 import * as runtime from '../runtime';
 import type {
+  CreateIdentityResponse,
+  CreateUserIdentityRequest,
   CreateUserRequest,
   CreateUserResponse,
   ErrorResponse,
+  GetIdentitiesResponse,
   GetPropertyValuesResponse,
   SetUserPasswordRequest,
   SuccessResponse,
@@ -28,12 +31,18 @@ import type {
   UsersResponse,
 } from '../models/index';
 import {
+    CreateIdentityResponseFromJSON,
+    CreateIdentityResponseToJSON,
+    CreateUserIdentityRequestFromJSON,
+    CreateUserIdentityRequestToJSON,
     CreateUserRequestFromJSON,
     CreateUserRequestToJSON,
     CreateUserResponseFromJSON,
     CreateUserResponseToJSON,
     ErrorResponseFromJSON,
     ErrorResponseToJSON,
+    GetIdentitiesResponseFromJSON,
+    GetIdentitiesResponseToJSON,
     GetPropertyValuesResponseFromJSON,
     GetPropertyValuesResponseToJSON,
     SetUserPasswordRequestFromJSON,
@@ -56,6 +65,11 @@ export interface CreateUserOperationRequest {
     createUserRequest?: CreateUserRequest;
 }
 
+export interface CreateUserIdentityOperationRequest {
+    userId: string;
+    createUserIdentityRequest?: CreateUserIdentityRequest;
+}
+
 export interface DeleteUserRequest {
     id: string;
     isDeleteProfile?: boolean;
@@ -64,6 +78,10 @@ export interface DeleteUserRequest {
 export interface GetUserDataRequest {
     id: string;
     expand?: string | null;
+}
+
+export interface GetUserIdentitiesRequest {
+    userId: string;
 }
 
 export interface GetUserPropertyValuesRequest {
@@ -151,6 +169,52 @@ export class UsersApi extends runtime.BaseAPI {
      */
     async createUser(requestParameters: CreateUserOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateUserResponse> {
         const response = await this.createUserRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates an identity for a user. 
+     * Create identity
+     */
+    async createUserIdentityRaw(requestParameters: CreateUserIdentityOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateIdentityResponse>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling createUserIdentity().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.accessToken) {
+            const token = this.configuration.accessToken;
+            const tokenString = await token("kindeBearerAuth", []);
+
+            if (tokenString) {
+                headerParameters["Authorization"] = `Bearer ${tokenString}`;
+            }
+        }
+        const response = await this.request({
+            path: `/api/v1/users/{user_id}/identities`.replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters['userId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: CreateUserIdentityRequestToJSON(requestParameters['createUserIdentityRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CreateIdentityResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Creates an identity for a user. 
+     * Create identity
+     */
+    async createUserIdentity(requestParameters: CreateUserIdentityOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateIdentityResponse> {
+        const response = await this.createUserIdentityRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -253,6 +317,49 @@ export class UsersApi extends runtime.BaseAPI {
      */
     async getUserData(requestParameters: GetUserDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<User> {
         const response = await this.getUserDataRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Gets a list of identities for an user by ID. 
+     * Get identities
+     */
+    async getUserIdentitiesRaw(requestParameters: GetUserIdentitiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetIdentitiesResponse>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling getUserIdentities().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.accessToken) {
+            const token = this.configuration.accessToken;
+            const tokenString = await token("kindeBearerAuth", []);
+
+            if (tokenString) {
+                headerParameters["Authorization"] = `Bearer ${tokenString}`;
+            }
+        }
+        const response = await this.request({
+            path: `/api/v1/users/{user_id}/identities`.replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters['userId']))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetIdentitiesResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Gets a list of identities for an user by ID. 
+     * Get identities
+     */
+    async getUserIdentities(requestParameters: GetUserIdentitiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetIdentitiesResponse> {
+        const response = await this.getUserIdentitiesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

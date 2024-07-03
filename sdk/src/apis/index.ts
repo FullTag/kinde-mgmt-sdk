@@ -8,6 +8,7 @@ export * from './ConnectedAppsApi';
 export * from './ConnectionsApi';
 export * from './EnvironmentsApi';
 export * from './FeatureFlagsApi';
+export * from './IdentitiesApi';
 export * from './IndustriesApi';
 export * from './OAuthApi';
 export * from './OrganizationsApi';

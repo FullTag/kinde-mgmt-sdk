@@ -6,6 +6,7 @@ apis/ConnectedAppsApi.ts
 apis/ConnectionsApi.ts
 apis/EnvironmentsApi.ts
 apis/FeatureFlagsApi.ts
+apis/IdentitiesApi.ts
 apis/IndustriesApi.ts
 apis/OAuthApi.ts
 apis/OrganizationsApi.ts
@@ -42,6 +43,8 @@ models/CreateConnectionRequest.ts
 models/CreateConnectionResponse.ts
 models/CreateConnectionResponseConnection.ts
 models/CreateFeatureFlagRequest.ts
+models/CreateIdentityResponse.ts
+models/CreateIdentityResponseIdentity.ts
 models/CreateOrganizationRequest.ts
 models/CreateOrganizationResponse.ts
 models/CreateOrganizationResponseOrganization.ts
@@ -54,6 +57,7 @@ models/CreatePropertyResponseProperty.ts
 models/CreateRoleRequest.ts
 models/CreateSubscriberSuccessResponse.ts
 models/CreateSubscriberSuccessResponseSubscriber.ts
+models/CreateUserIdentityRequest.ts
 models/CreateUserRequest.ts
 models/CreateUserRequestIdentitiesInner.ts
 models/CreateUserRequestIdentitiesInnerDetails.ts
@@ -74,6 +78,7 @@ models/GetEnvironmentFeatureFlagsResponse.ts
 models/GetEventResponse.ts
 models/GetEventResponseEvent.ts
 models/GetEventTypesResponse.ts
+models/GetIdentitiesResponse.ts
 models/GetOrganizationFeatureFlagsResponse.ts
 models/GetOrganizationFeatureFlagsResponseFeatureFlagsValue.ts
 models/GetOrganizationUsersResponse.ts
@@ -88,6 +93,7 @@ models/GetRolesResponse.ts
 models/GetSubscriberResponse.ts
 models/GetSubscribersResponse.ts
 models/GetWebhooksResponse.ts
+models/Identity.ts
 models/LogoutRedirectUrls.ts
 models/ModelError.ts
 models/Organization.ts
@@ -118,6 +124,7 @@ models/UpdateApplicationRequest.ts
 models/UpdateCategoryRequest.ts
 models/UpdateConnectionRequest.ts
 models/UpdateEnvironementFeatureFlagOverrideRequest.ts
+models/UpdateIdentityRequest.ts
 models/UpdateOrganizationPropertiesRequest.ts
 models/UpdateOrganizationRequest.ts
 models/UpdateOrganizationUsersRequest.ts
