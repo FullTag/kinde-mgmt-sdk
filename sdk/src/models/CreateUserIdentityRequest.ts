@@ -31,6 +31,12 @@ export interface CreateUserIdentityRequest {
      * @memberof CreateUserIdentityRequest
      */
     type?: CreateUserIdentityRequestTypeEnum;
+    /**
+     * The country code for the phone number, only required when identity type is 'phone'.
+     * @type {string}
+     * @memberof CreateUserIdentityRequest
+     */
+    phoneCountryId?: string;
 }
 
 
@@ -39,7 +45,8 @@ export interface CreateUserIdentityRequest {
  */
 export const CreateUserIdentityRequestTypeEnum = {
     Email: 'email',
-    Username: 'username'
+    Username: 'username',
+    Phone: 'phone'
 } as const;
 export type CreateUserIdentityRequestTypeEnum = typeof CreateUserIdentityRequestTypeEnum[keyof typeof CreateUserIdentityRequestTypeEnum];
 
@@ -63,6 +70,7 @@ export function CreateUserIdentityRequestFromJSONTyped(json: any, ignoreDiscrimi
         
         'value': json['value'] == null ? undefined : json['value'],
         'type': json['type'] == null ? undefined : json['type'],
+        'phoneCountryId': json['phone_country_id'] == null ? undefined : json['phone_country_id'],
     };
 }
 
@@ -74,6 +82,7 @@ export function CreateUserIdentityRequestToJSON(value?: CreateUserIdentityReques
         
         'value': value['value'],
         'type': value['type'],
+        'phone_country_id': value['phoneCountryId'],
     };
 }
 

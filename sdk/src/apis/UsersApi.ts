@@ -95,6 +95,7 @@ export interface GetUsersRequest {
     email?: string | null;
     username?: string | null;
     expand?: string | null;
+    hasOrganization?: boolean | null;
 }
 
 export interface RefreshUserClaimsRequest {
@@ -435,6 +436,10 @@ export class UsersApi extends runtime.BaseAPI {
 
         if (requestParameters['expand'] != null) {
             queryParameters['expand'] = requestParameters['expand'];
+        }
+
+        if (requestParameters['hasOrganization'] != null) {
+            queryParameters['has_organization'] = requestParameters['hasOrganization'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};

@@ -1409,7 +1409,8 @@ function CreateSubscriberSuccessResponseToJSON(value) {
 // src/models/CreateUserIdentityRequest.ts
 var CreateUserIdentityRequestTypeEnum = {
   Email: "email",
-  Username: "username"
+  Username: "username",
+  Phone: "phone"
 };
 function instanceOfCreateUserIdentityRequest(value) {
   return true;
@@ -1423,7 +1424,8 @@ function CreateUserIdentityRequestFromJSONTyped(json, ignoreDiscriminator) {
   }
   return {
     "value": json["value"] == null ? void 0 : json["value"],
-    "type": json["type"] == null ? void 0 : json["type"]
+    "type": json["type"] == null ? void 0 : json["type"],
+    "phoneCountryId": json["phone_country_id"] == null ? void 0 : json["phone_country_id"]
   };
 }
 function CreateUserIdentityRequestToJSON(value) {
@@ -1432,7 +1434,8 @@ function CreateUserIdentityRequestToJSON(value) {
   }
   return {
     "value": value["value"],
-    "type": value["type"]
+    "type": value["type"],
+    "phone_country_id": value["phoneCountryId"]
   };
 }
 
@@ -8268,6 +8271,9 @@ var UsersApi = class extends BaseAPI {
     }
     if (requestParameters["expand"] != null) {
       queryParameters["expand"] = requestParameters["expand"];
+    }
+    if (requestParameters["hasOrganization"] != null) {
+      queryParameters["has_organization"] = requestParameters["hasOrganization"];
     }
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {

@@ -1926,6 +1926,12 @@ interface CreateUserIdentityRequest {
      * @memberof CreateUserIdentityRequest
      */
     type?: CreateUserIdentityRequestTypeEnum;
+    /**
+     * The country code for the phone number, only required when identity type is 'phone'.
+     * @type {string}
+     * @memberof CreateUserIdentityRequest
+     */
+    phoneCountryId?: string;
 }
 /**
  * @export
@@ -1933,6 +1939,7 @@ interface CreateUserIdentityRequest {
 declare const CreateUserIdentityRequestTypeEnum: {
     readonly Email: "email";
     readonly Username: "username";
+    readonly Phone: "phone";
 };
 type CreateUserIdentityRequestTypeEnum = typeof CreateUserIdentityRequestTypeEnum[keyof typeof CreateUserIdentityRequestTypeEnum];
 /**
@@ -8115,6 +8122,7 @@ interface GetUsersRequest {
     email?: string | null;
     username?: string | null;
     expand?: string | null;
+    hasOrganization?: boolean | null;
 }
 interface RefreshUserClaimsRequest {
     userId: string;
