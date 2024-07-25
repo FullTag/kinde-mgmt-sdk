@@ -1507,7 +1507,7 @@ paths:
       parameters:
         - name: session_id
           in: query
-          description: The unique sesssion id reprensenting the login session of a user.
+          description: The unique sesssion id representing the login session of a user.
           schema:
             type: string
             nullable: false
@@ -1556,7 +1556,7 @@ paths:
       parameters:
         - name: session_id
           in: query
-          description: The unique sesssion id reprensenting the login session of a user.
+          description: The unique sesssion id representing the login session of a user.
           schema:
             type: string
             nullable: false
@@ -4787,6 +4787,15 @@ paths:
           schema:
             type: string
             nullable: true
+        - name: has_organization
+          in: query
+          description: >-
+            Filter the results by if the user has at least one organization
+            assigned.
+          required: false
+          schema:
+            type: boolean
+            nullable: true
       responses:
         '200':
           description: Users successfully retrieved.
@@ -5441,6 +5450,12 @@ paths:
                   enum:
                     - email
                     - username
+                    - phone
+                phone_country_id:
+                  type: string
+                  description: >-
+                    The country code for the phone number, only required when
+                    identity type is 'phone'.
       responses:
         '200':
           description: Identity successfully created.
