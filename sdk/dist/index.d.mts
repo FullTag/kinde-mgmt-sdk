@@ -2586,6 +2586,18 @@ interface GetApplicationResponseApplication {
      * @memberof GetApplicationResponseApplication
      */
     clientSecret?: string;
+    /**
+     * The default login route for resolving session issues.
+     * @type {string}
+     * @memberof GetApplicationResponseApplication
+     */
+    loginUri?: string;
+    /**
+     * The homepage link to your application.
+     * @type {string}
+     * @memberof GetApplicationResponseApplication
+     */
+    homepageUri?: string;
 }
 /**
  * Check if a given object implements the GetApplicationResponseApplication interface.
@@ -3365,6 +3377,42 @@ interface Organization {
      * @memberof Organization
      */
     externalId?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof Organization
+     */
+    logo?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof Organization
+     */
+    linkColor?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof Organization
+     */
+    buttonColor?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof Organization
+     */
+    backgroundColor?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof Organization
+     */
+    buttonTextColor?: string;
+    /**
+     *
+     * @type {boolean}
+     * @memberof Organization
+     */
+    isAllowRegistrations?: boolean;
 }
 /**
  * Check if a given object implements the Organization interface.
@@ -5047,6 +5095,18 @@ interface UpdateApplicationRequest {
      * @memberof UpdateApplicationRequest
      */
     redirectUris?: Array<string>;
+    /**
+     * The default login route for resolving session issues.
+     * @type {string}
+     * @memberof UpdateApplicationRequest
+     */
+    loginUri?: string;
+    /**
+     * The homepage link to your application.
+     * @type {string}
+     * @memberof UpdateApplicationRequest
+     */
+    homepageUri?: string;
 }
 /**
  * Check if a given object implements the UpdateApplicationRequest interface.
@@ -6184,7 +6244,7 @@ interface UserProfileV2 {
      */
     providedId?: string | null;
     /**
-     * Users's first and last name separated by a space.
+     * User's first and last name separated by a space.
      * @type {string}
      * @memberof UserProfileV2
      */

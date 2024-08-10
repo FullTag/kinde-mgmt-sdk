@@ -49,6 +49,18 @@ export interface GetApplicationResponseApplication {
      * @memberof GetApplicationResponseApplication
      */
     clientSecret?: string;
+    /**
+     * The default login route for resolving session issues.
+     * @type {string}
+     * @memberof GetApplicationResponseApplication
+     */
+    loginUri?: string;
+    /**
+     * The homepage link to your application.
+     * @type {string}
+     * @memberof GetApplicationResponseApplication
+     */
+    homepageUri?: string;
 }
 
 /**
@@ -73,6 +85,8 @@ export function GetApplicationResponseApplicationFromJSONTyped(json: any, ignore
         'type': json['type'] == null ? undefined : json['type'],
         'clientId': json['client_id'] == null ? undefined : json['client_id'],
         'clientSecret': json['client_secret'] == null ? undefined : json['client_secret'],
+        'loginUri': json['login_uri'] == null ? undefined : json['login_uri'],
+        'homepageUri': json['homepage_uri'] == null ? undefined : json['homepage_uri'],
     };
 }
 
@@ -87,6 +101,8 @@ export function GetApplicationResponseApplicationToJSON(value?: GetApplicationRe
         'type': value['type'],
         'client_id': value['clientId'],
         'client_secret': value['clientSecret'],
+        'login_uri': value['loginUri'],
+        'homepage_uri': value['homepageUri'],
     };
 }
 

@@ -43,6 +43,18 @@ export interface UpdateApplicationRequest {
      * @memberof UpdateApplicationRequest
      */
     redirectUris?: Array<string>;
+    /**
+     * The default login route for resolving session issues.
+     * @type {string}
+     * @memberof UpdateApplicationRequest
+     */
+    loginUri?: string;
+    /**
+     * The homepage link to your application.
+     * @type {string}
+     * @memberof UpdateApplicationRequest
+     */
+    homepageUri?: string;
 }
 
 /**
@@ -66,6 +78,8 @@ export function UpdateApplicationRequestFromJSONTyped(json: any, ignoreDiscrimin
         'languageKey': json['language_key'] == null ? undefined : json['language_key'],
         'logoutUris': json['logout_uris'] == null ? undefined : json['logout_uris'],
         'redirectUris': json['redirect_uris'] == null ? undefined : json['redirect_uris'],
+        'loginUri': json['login_uri'] == null ? undefined : json['login_uri'],
+        'homepageUri': json['homepage_uri'] == null ? undefined : json['homepage_uri'],
     };
 }
 
@@ -79,6 +93,8 @@ export function UpdateApplicationRequestToJSON(value?: UpdateApplicationRequest 
         'language_key': value['languageKey'],
         'logout_uris': value['logoutUris'],
         'redirect_uris': value['redirectUris'],
+        'login_uri': value['loginUri'],
+        'homepage_uri': value['homepageUri'],
     };
 }
 

@@ -43,6 +43,42 @@ export interface Organization {
      * @memberof Organization
      */
     externalId?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Organization
+     */
+    logo?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Organization
+     */
+    linkColor?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Organization
+     */
+    buttonColor?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Organization
+     */
+    backgroundColor?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Organization
+     */
+    buttonTextColor?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof Organization
+     */
+    isAllowRegistrations?: boolean;
 }
 
 /**
@@ -66,6 +102,12 @@ export function OrganizationFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'name': json['name'] == null ? undefined : json['name'],
         'isDefault': json['is_default'] == null ? undefined : json['is_default'],
         'externalId': json['external_id'] == null ? undefined : json['external_id'],
+        'logo': json['logo'] == null ? undefined : json['logo'],
+        'linkColor': json['link_color'] == null ? undefined : json['link_color'],
+        'buttonColor': json['button_color'] == null ? undefined : json['button_color'],
+        'backgroundColor': json['background_color'] == null ? undefined : json['background_color'],
+        'buttonTextColor': json['button_text_color'] == null ? undefined : json['button_text_color'],
+        'isAllowRegistrations': json['is_allow_registrations'] == null ? undefined : json['is_allow_registrations'],
     };
 }
 
@@ -79,6 +121,12 @@ export function OrganizationToJSON(value?: Organization | null): any {
         'name': value['name'],
         'is_default': value['isDefault'],
         'external_id': value['externalId'],
+        'logo': value['logo'],
+        'link_color': value['linkColor'],
+        'button_color': value['buttonColor'],
+        'background_color': value['backgroundColor'],
+        'button_text_color': value['buttonTextColor'],
+        'is_allow_registrations': value['isAllowRegistrations'],
     };
 }
 

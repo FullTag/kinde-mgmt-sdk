@@ -2443,7 +2443,9 @@ function GetApplicationResponseApplicationFromJSONTyped(json, ignoreDiscriminato
     "name": json["name"] == null ? void 0 : json["name"],
     "type": json["type"] == null ? void 0 : json["type"],
     "clientId": json["client_id"] == null ? void 0 : json["client_id"],
-    "clientSecret": json["client_secret"] == null ? void 0 : json["client_secret"]
+    "clientSecret": json["client_secret"] == null ? void 0 : json["client_secret"],
+    "loginUri": json["login_uri"] == null ? void 0 : json["login_uri"],
+    "homepageUri": json["homepage_uri"] == null ? void 0 : json["homepage_uri"]
   };
 }
 function GetApplicationResponseApplicationToJSON(value) {
@@ -2455,7 +2457,9 @@ function GetApplicationResponseApplicationToJSON(value) {
     "name": value["name"],
     "type": value["type"],
     "client_id": value["clientId"],
-    "client_secret": value["clientSecret"]
+    "client_secret": value["clientSecret"],
+    "login_uri": value["loginUri"],
+    "homepage_uri": value["homepageUri"]
   };
 }
 
@@ -2901,7 +2905,13 @@ function OrganizationFromJSONTyped(json, ignoreDiscriminator) {
     "code": json["code"] == null ? void 0 : json["code"],
     "name": json["name"] == null ? void 0 : json["name"],
     "isDefault": json["is_default"] == null ? void 0 : json["is_default"],
-    "externalId": json["external_id"] == null ? void 0 : json["external_id"]
+    "externalId": json["external_id"] == null ? void 0 : json["external_id"],
+    "logo": json["logo"] == null ? void 0 : json["logo"],
+    "linkColor": json["link_color"] == null ? void 0 : json["link_color"],
+    "buttonColor": json["button_color"] == null ? void 0 : json["button_color"],
+    "backgroundColor": json["background_color"] == null ? void 0 : json["background_color"],
+    "buttonTextColor": json["button_text_color"] == null ? void 0 : json["button_text_color"],
+    "isAllowRegistrations": json["is_allow_registrations"] == null ? void 0 : json["is_allow_registrations"]
   };
 }
 function OrganizationToJSON(value) {
@@ -2912,7 +2922,13 @@ function OrganizationToJSON(value) {
     "code": value["code"],
     "name": value["name"],
     "is_default": value["isDefault"],
-    "external_id": value["externalId"]
+    "external_id": value["externalId"],
+    "logo": value["logo"],
+    "link_color": value["linkColor"],
+    "button_color": value["buttonColor"],
+    "background_color": value["backgroundColor"],
+    "button_text_color": value["buttonTextColor"],
+    "is_allow_registrations": value["isAllowRegistrations"]
   };
 }
 
@@ -3947,7 +3963,9 @@ function UpdateApplicationRequestFromJSONTyped(json, ignoreDiscriminator) {
     "name": json["name"] == null ? void 0 : json["name"],
     "languageKey": json["language_key"] == null ? void 0 : json["language_key"],
     "logoutUris": json["logout_uris"] == null ? void 0 : json["logout_uris"],
-    "redirectUris": json["redirect_uris"] == null ? void 0 : json["redirect_uris"]
+    "redirectUris": json["redirect_uris"] == null ? void 0 : json["redirect_uris"],
+    "loginUri": json["login_uri"] == null ? void 0 : json["login_uri"],
+    "homepageUri": json["homepage_uri"] == null ? void 0 : json["homepage_uri"]
   };
 }
 function UpdateApplicationRequestToJSON(value) {
@@ -3958,7 +3976,9 @@ function UpdateApplicationRequestToJSON(value) {
     "name": value["name"],
     "language_key": value["languageKey"],
     "logout_uris": value["logoutUris"],
-    "redirect_uris": value["redirectUris"]
+    "redirect_uris": value["redirectUris"],
+    "login_uri": value["loginUri"],
+    "homepage_uri": value["homepageUri"]
   };
 }
 

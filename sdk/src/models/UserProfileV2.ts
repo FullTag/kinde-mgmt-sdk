@@ -38,7 +38,7 @@ export interface UserProfileV2 {
      */
     providedId?: string | null;
     /**
-     * Users's first and last name separated by a space.
+     * User's first and last name separated by a space.
      * @type {string}
      * @memberof UserProfileV2
      */
