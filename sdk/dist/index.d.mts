@@ -1940,6 +1940,7 @@ declare const CreateUserIdentityRequestTypeEnum: {
     readonly Email: "email";
     readonly Username: "username";
     readonly Phone: "phone";
+    readonly Enterprise: "enterprise";
 };
 type CreateUserIdentityRequestTypeEnum = typeof CreateUserIdentityRequestTypeEnum[keyof typeof CreateUserIdentityRequestTypeEnum];
 /**

@@ -46,7 +46,8 @@ export interface CreateUserIdentityRequest {
 export const CreateUserIdentityRequestTypeEnum = {
     Email: 'email',
     Username: 'username',
-    Phone: 'phone'
+    Phone: 'phone',
+    Enterprise: 'enterprise'
 } as const;
 export type CreateUserIdentityRequestTypeEnum = typeof CreateUserIdentityRequestTypeEnum[keyof typeof CreateUserIdentityRequestTypeEnum];
 

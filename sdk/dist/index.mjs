@@ -1410,7 +1410,8 @@ function CreateSubscriberSuccessResponseToJSON(value) {
 var CreateUserIdentityRequestTypeEnum = {
   Email: "email",
   Username: "username",
-  Phone: "phone"
+  Phone: "phone",
+  Enterprise: "enterprise"
 };
 function instanceOfCreateUserIdentityRequest(value) {
   return true;
