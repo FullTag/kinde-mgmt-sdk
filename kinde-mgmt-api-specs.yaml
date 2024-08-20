@@ -5457,6 +5457,7 @@ paths:
                     - email
                     - username
                     - phone
+                    - enterprise
                 phone_country_id:
                   type: string
                   description: >-
