@@ -62,13 +62,10 @@ export class EnvironmentsApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["delete:environment_feature_flags"]);
         }
+
         const response = await this.request({
             path: `/api/v1/environment/feature_flags/{feature_flag_key}`.replace(`{${"feature_flag_key"}}`, encodeURIComponent(String(requestParameters['featureFlagKey']))),
             method: 'DELETE',
@@ -98,13 +95,10 @@ export class EnvironmentsApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["delete:environment_feature_flags"]);
         }
+
         const response = await this.request({
             path: `/api/v1/environment/feature_flags`,
             method: 'DELETE',
@@ -134,13 +128,10 @@ export class EnvironmentsApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:environment_feature_flags"]);
         }
+
         const response = await this.request({
             path: `/api/v1/environment/feature_flags`,
             method: 'GET',
@@ -186,13 +177,10 @@ export class EnvironmentsApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["update:environment_feature_flags"]);
         }
+
         const response = await this.request({
             path: `/api/v1/environment/feature_flags/{feature_flag_key}`.replace(`{${"feature_flag_key"}}`, encodeURIComponent(String(requestParameters['featureFlagKey']))),
             method: 'PATCH',

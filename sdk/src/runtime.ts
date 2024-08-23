@@ -13,7 +13,7 @@
  */
 
 
-export const BASE_PATH = "https://app.kinde.com".replace(/\/+$/, "");
+export const BASE_PATH = "https://.kinde.com".replace(/\/+$/, "");
 
 export interface ConfigurationParameters {
     basePath?: string; // override base path

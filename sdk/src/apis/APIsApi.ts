@@ -78,13 +78,10 @@ export class APIsApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["create:apis"]);
         }
+
         const response = await this.request({
             path: `/api/v1/apis`,
             method: 'POST',
@@ -122,13 +119,10 @@ export class APIsApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["delete:apis"]);
         }
+
         const response = await this.request({
             path: `/api/v1/apis/{api_id}`.replace(`{${"api_id"}}`, encodeURIComponent(String(requestParameters['apiId']))),
             method: 'DELETE',
@@ -165,13 +159,10 @@ export class APIsApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:apis"]);
         }
+
         const response = await this.request({
             path: `/api/v1/apis/{api_id}`.replace(`{${"api_id"}}`, encodeURIComponent(String(requestParameters['apiId']))),
             method: 'GET',
@@ -201,13 +192,10 @@ export class APIsApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:apis"]);
         }
+
         const response = await this.request({
             path: `/api/v1/apis`,
             method: 'GET',
@@ -253,13 +241,10 @@ export class APIsApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["update:apis"]);
         }
+
         const response = await this.request({
             path: `/api/v1/apis/{api_id}/applications`.replace(`{${"api_id"}}`, encodeURIComponent(String(requestParameters['apiId']))),
             method: 'PATCH',

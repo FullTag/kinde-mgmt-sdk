@@ -117,13 +117,10 @@ export class BusinessApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", []);
         }
+
         const response = await this.request({
             path: `/api/v1/business`,
             method: 'GET',
@@ -207,13 +204,10 @@ export class BusinessApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["update:businesses"]);
         }
+
         const response = await this.request({
             path: `/api/v1/business`,
             method: 'PATCH',

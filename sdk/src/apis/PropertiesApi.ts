@@ -81,13 +81,10 @@ export class PropertiesApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["create:properties"]);
         }
+
         const response = await this.request({
             path: `/api/v1/properties`,
             method: 'POST',
@@ -125,13 +122,10 @@ export class PropertiesApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["delete:properties"]);
         }
+
         const response = await this.request({
             path: `/api/v1/properties/{property_id}`.replace(`{${"property_id"}}`, encodeURIComponent(String(requestParameters['propertyId']))),
             method: 'DELETE',
@@ -177,13 +171,10 @@ export class PropertiesApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:properties"]);
         }
+
         const response = await this.request({
             path: `/api/v1/properties`,
             method: 'GET',
@@ -229,13 +220,10 @@ export class PropertiesApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["update:properties"]);
         }
+
         const response = await this.request({
             path: `/api/v1/properties/{property_id}`.replace(`{${"property_id"}}`, encodeURIComponent(String(requestParameters['propertyId']))),
             method: 'PUT',

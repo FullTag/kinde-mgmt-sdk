@@ -220,13 +220,10 @@ export class OrganizationsApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["create:organization_users"]);
         }
+
         const response = await this.request({
             path: `/api/v1/organizations/{org_code}/users`.replace(`{${"org_code"}}`, encodeURIComponent(String(requestParameters['orgCode']))),
             method: 'POST',
@@ -273,13 +270,10 @@ export class OrganizationsApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["create:organizations"]);
         }
+
         const response = await this.request({
             path: `/api/v1/organization`,
             method: 'POST',
@@ -333,13 +327,10 @@ export class OrganizationsApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["create:organization_user_permissions"]);
         }
+
         const response = await this.request({
             path: `/api/v1/organizations/{org_code}/users/{user_id}/permissions`.replace(`{${"org_code"}}`, encodeURIComponent(String(requestParameters['orgCode']))).replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters['userId']))),
             method: 'POST',
@@ -393,13 +384,10 @@ export class OrganizationsApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["create:organization_user_roles"]);
         }
+
         const response = await this.request({
             path: `/api/v1/organizations/{org_code}/users/{user_id}/roles`.replace(`{${"org_code"}}`, encodeURIComponent(String(requestParameters['orgCode']))).replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters['userId']))),
             method: 'POST',
@@ -437,13 +425,10 @@ export class OrganizationsApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["delete:organizations"]);
         }
+
         const response = await this.request({
             path: `/api/v1/organization/{org_code}`.replace(`{${"org_code"}}`, encodeURIComponent(String(requestParameters['orgCode']))),
             method: 'DELETE',
@@ -486,13 +471,10 @@ export class OrganizationsApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["delete:organization_feature_flags"]);
         }
+
         const response = await this.request({
             path: `/api/v1/organizations/{org_code}/feature_flags/{feature_flag_key}`.replace(`{${"org_code"}}`, encodeURIComponent(String(requestParameters['orgCode']))).replace(`{${"feature_flag_key"}}`, encodeURIComponent(String(requestParameters['featureFlagKey']))),
             method: 'DELETE',
@@ -529,13 +511,10 @@ export class OrganizationsApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["delete:organization_feature_flags"]);
         }
+
         const response = await this.request({
             path: `/api/v1/organizations/{org_code}/feature_flags`.replace(`{${"org_code"}}`, encodeURIComponent(String(requestParameters['orgCode']))),
             method: 'DELETE',
@@ -572,13 +551,10 @@ export class OrganizationsApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["delete:organization_handles"]);
         }
+
         const response = await this.request({
             path: `/api/v1/organization/{org_code}/handle`.replace(`{${"org_code"}}`, encodeURIComponent(String(requestParameters['orgCode']))),
             method: 'DELETE',
@@ -629,13 +605,10 @@ export class OrganizationsApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["delete:organization_user_permissions"]);
         }
+
         const response = await this.request({
             path: `/api/v1/organizations/{org_code}/users/{user_id}/permissions/{permission_id}`.replace(`{${"org_code"}}`, encodeURIComponent(String(requestParameters['orgCode']))).replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters['userId']))).replace(`{${"permission_id"}}`, encodeURIComponent(String(requestParameters['permissionId']))),
             method: 'DELETE',
@@ -686,13 +659,10 @@ export class OrganizationsApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["delete:organization_user_roles"]);
         }
+
         const response = await this.request({
             path: `/api/v1/organizations/{org_code}/users/{user_id}/roles/{role_id}`.replace(`{${"org_code"}}`, encodeURIComponent(String(requestParameters['orgCode']))).replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters['userId']))).replace(`{${"role_id"}}`, encodeURIComponent(String(requestParameters['roleId']))),
             method: 'DELETE',
@@ -726,13 +696,10 @@ export class OrganizationsApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:organizations"]);
         }
+
         const response = await this.request({
             path: `/api/v1/organization`,
             method: 'GET',
@@ -769,13 +736,10 @@ export class OrganizationsApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:organization_feature_flags"]);
         }
+
         const response = await this.request({
             path: `/api/v1/organizations/{org_code}/feature_flags`.replace(`{${"org_code"}}`, encodeURIComponent(String(requestParameters['orgCode']))),
             method: 'GET',
@@ -812,13 +776,10 @@ export class OrganizationsApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:organization_properties"]);
         }
+
         const response = await this.request({
             path: `/api/v1/organizations/{org_code}/properties`.replace(`{${"org_code"}}`, encodeURIComponent(String(requestParameters['orgCode']))),
             method: 'GET',
@@ -866,13 +827,10 @@ export class OrganizationsApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:organization_user_permissions"]);
         }
+
         const response = await this.request({
             path: `/api/v1/organizations/{org_code}/users/{user_id}/permissions`.replace(`{${"org_code"}}`, encodeURIComponent(String(requestParameters['orgCode']))).replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters['userId']))),
             method: 'GET',
@@ -916,13 +874,10 @@ export class OrganizationsApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:organization_user_roles"]);
         }
+
         const response = await this.request({
             path: `/api/v1/organizations/{org_code}/users/{user_id}/roles`.replace(`{${"org_code"}}`, encodeURIComponent(String(requestParameters['orgCode']))).replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters['userId']))),
             method: 'GET',
@@ -979,13 +934,10 @@ export class OrganizationsApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:organization_users"]);
         }
+
         const response = await this.request({
             path: `/api/v1/organizations/{org_code}/users`.replace(`{${"org_code"}}`, encodeURIComponent(String(requestParameters['orgCode']))),
             method: 'GET',
@@ -1027,13 +979,10 @@ export class OrganizationsApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:organizations"]);
         }
+
         const response = await this.request({
             path: `/api/v1/organizations`,
             method: 'GET',
@@ -1077,13 +1026,10 @@ export class OrganizationsApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["delete:organization_users"]);
         }
+
         const response = await this.request({
             path: `/api/v1/organizations/{org_code}/users/{user_id}`.replace(`{${"org_code"}}`, encodeURIComponent(String(requestParameters['orgCode']))).replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters['userId']))),
             method: 'DELETE',
@@ -1122,13 +1068,10 @@ export class OrganizationsApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["update:organizations"]);
         }
+
         const response = await this.request({
             path: `/api/v1/organization/{org_code}`.replace(`{${"org_code"}}`, encodeURIComponent(String(requestParameters['orgCode']))),
             method: 'PATCH',
@@ -1184,13 +1127,10 @@ export class OrganizationsApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["update:organization_feature_flags"]);
         }
+
         const response = await this.request({
             path: `/api/v1/organizations/{org_code}/feature_flags/{feature_flag_key}`.replace(`{${"org_code"}}`, encodeURIComponent(String(requestParameters['orgCode']))).replace(`{${"feature_flag_key"}}`, encodeURIComponent(String(requestParameters['featureFlagKey']))),
             method: 'PATCH',
@@ -1236,13 +1176,10 @@ export class OrganizationsApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["update:organization_properties"]);
         }
+
         const response = await this.request({
             path: `/api/v1/organizations/{org_code}/properties`.replace(`{${"org_code"}}`, encodeURIComponent(String(requestParameters['orgCode']))),
             method: 'PATCH',
@@ -1298,13 +1235,10 @@ export class OrganizationsApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["update:organization_properties"]);
         }
+
         const response = await this.request({
             path: `/api/v1/organizations/{org_code}/properties/{property_key}`.replace(`{${"org_code"}}`, encodeURIComponent(String(requestParameters['orgCode']))).replace(`{${"property_key"}}`, encodeURIComponent(String(requestParameters['propertyKey']))),
             method: 'PUT',
@@ -1343,13 +1277,10 @@ export class OrganizationsApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["update:organization_users"]);
         }
+
         const response = await this.request({
             path: `/api/v1/organizations/{org_code}/users`.replace(`{${"org_code"}}`, encodeURIComponent(String(requestParameters['orgCode']))),
             method: 'PATCH',

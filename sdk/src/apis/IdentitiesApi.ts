@@ -66,13 +66,10 @@ export class IdentitiesApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["delete:identities"]);
         }
+
         const response = await this.request({
             path: `/api/v1/identities/{identity_id}`.replace(`{${"identity_id"}}`, encodeURIComponent(String(requestParameters['identityId']))),
             method: 'DELETE',
@@ -109,13 +106,10 @@ export class IdentitiesApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:identities"]);
         }
+
         const response = await this.request({
             path: `/api/v1/identities/{identity_id}`.replace(`{${"identity_id"}}`, encodeURIComponent(String(requestParameters['identityId']))),
             method: 'GET',
@@ -161,13 +155,10 @@ export class IdentitiesApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["update:identities"]);
         }
+
         const response = await this.request({
             path: `/api/v1/identities/{identity_id}`.replace(`{${"identity_id"}}`, encodeURIComponent(String(requestParameters['identityId']))),
             method: 'PATCH',

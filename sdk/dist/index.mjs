@@ -1,5 +1,5 @@
 // src/runtime.ts
-var BASE_PATH = "https://app.kinde.com".replace(/\/+$/, "");
+var BASE_PATH = "https://.kinde.com".replace(/\/+$/, "");
 var Configuration = class {
   constructor(configuration = {}) {
     this.configuration = configuration;
@@ -4191,11 +4191,7 @@ var APIsApi = class extends BaseAPI {
     const headerParameters = {};
     headerParameters["Content-Type"] = "application/json";
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["create:apis"]);
     }
     const response = await this.request({
       path: `/api/v1/apis`,
@@ -4228,11 +4224,7 @@ var APIsApi = class extends BaseAPI {
     const queryParameters = {};
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["delete:apis"]);
     }
     const response = await this.request({
       path: `/api/v1/apis/{api_id}`.replace(`{${"api_id"}}`, encodeURIComponent(String(requestParameters["apiId"]))),
@@ -4264,11 +4256,7 @@ var APIsApi = class extends BaseAPI {
     const queryParameters = {};
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:apis"]);
     }
     const response = await this.request({
       path: `/api/v1/apis/{api_id}`.replace(`{${"api_id"}}`, encodeURIComponent(String(requestParameters["apiId"]))),
@@ -4294,11 +4282,7 @@ var APIsApi = class extends BaseAPI {
     const queryParameters = {};
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:apis"]);
     }
     const response = await this.request({
       path: `/api/v1/apis`,
@@ -4337,11 +4321,7 @@ var APIsApi = class extends BaseAPI {
     const headerParameters = {};
     headerParameters["Content-Type"] = "application/json";
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["update:apis"]);
     }
     const response = await this.request({
       path: `/api/v1/apis/{api_id}/applications`.replace(`{${"api_id"}}`, encodeURIComponent(String(requestParameters["apiId"]))),
@@ -4373,11 +4353,7 @@ var ApplicationsApi = class extends BaseAPI {
     const headerParameters = {};
     headerParameters["Content-Type"] = "application/json";
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["create:applications"]);
     }
     const response = await this.request({
       path: `/api/v1/applications`,
@@ -4410,11 +4386,7 @@ var ApplicationsApi = class extends BaseAPI {
     const queryParameters = {};
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["delete:applications"]);
     }
     const response = await this.request({
       path: `/api/v1/applications/{application_id}`.replace(`{${"application_id"}}`, encodeURIComponent(String(requestParameters["applicationId"]))),
@@ -4452,11 +4424,7 @@ var ApplicationsApi = class extends BaseAPI {
     const queryParameters = {};
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["create:application_connections"]);
     }
     const response = await this.request({
       path: `/api/v1/applications/{application_id}/connections/{connection_id}`.replace(`{${"application_id"}}`, encodeURIComponent(String(requestParameters["applicationId"]))).replace(`{${"connection_id"}}`, encodeURIComponent(String(requestParameters["connectionId"]))),
@@ -4487,11 +4455,7 @@ var ApplicationsApi = class extends BaseAPI {
     const queryParameters = {};
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:applications"]);
     }
     const response = await this.request({
       path: `/api/v1/applications/{application_id}`.replace(`{${"application_id"}}`, encodeURIComponent(String(requestParameters["applicationId"]))),
@@ -4523,11 +4487,7 @@ var ApplicationsApi = class extends BaseAPI {
     const queryParameters = {};
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:application_connections"]);
     }
     const response = await this.request({
       path: `/api/v1/applications/{application_id}/connections`.replace(`{${"application_id"}}`, encodeURIComponent(String(requestParameters["applicationId"]))),
@@ -4562,11 +4522,7 @@ var ApplicationsApi = class extends BaseAPI {
     }
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:applications"]);
     }
     const response = await this.request({
       path: `/api/v1/applications`,
@@ -4604,11 +4560,7 @@ var ApplicationsApi = class extends BaseAPI {
     const queryParameters = {};
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["delete:application_connections"]);
     }
     const response = await this.request({
       path: `/api/v1/applications/{application_id}/connections/{connection_id}`.replace(`{${"application_id"}}`, encodeURIComponent(String(requestParameters["applicationId"]))).replace(`{${"connection_id"}}`, encodeURIComponent(String(requestParameters["connectionId"]))),
@@ -4641,11 +4593,7 @@ var ApplicationsApi = class extends BaseAPI {
     const headerParameters = {};
     headerParameters["Content-Type"] = "application/json";
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["update:applications"]);
     }
     const response = await this.request({
       path: `/api/v1/applications/{application_id}`.replace(`{${"application_id"}}`, encodeURIComponent(String(requestParameters["applicationId"]))),
@@ -4721,11 +4669,7 @@ var BusinessApi = class extends BaseAPI {
     }
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", []);
     }
     const response = await this.request({
       path: `/api/v1/business`,
@@ -4793,11 +4737,7 @@ var BusinessApi = class extends BaseAPI {
     }
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["update:businesses"]);
     }
     const response = await this.request({
       path: `/api/v1/business`,
@@ -4840,11 +4780,7 @@ var CallbacksApi = class extends BaseAPI {
     const headerParameters = {};
     headerParameters["Content-Type"] = "application/json";
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["create:application_logout_uris"]);
     }
     const response = await this.request({
       path: `/api/v1/applications/{app_id}/auth_logout_urls`.replace(`{${"app_id"}}`, encodeURIComponent(String(requestParameters["appId"]))),
@@ -4884,11 +4820,7 @@ var CallbacksApi = class extends BaseAPI {
     const headerParameters = {};
     headerParameters["Content-Type"] = "application/json";
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["create:application_redirect_uris"]);
     }
     const response = await this.request({
       path: `/api/v1/applications/{app_id}/auth_redirect_urls`.replace(`{${"app_id"}}`, encodeURIComponent(String(requestParameters["appId"]))),
@@ -4930,11 +4862,7 @@ var CallbacksApi = class extends BaseAPI {
     }
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["delete:application_redirect_uris"]);
     }
     const response = await this.request({
       path: `/api/v1/applications/{app_id}/auth_redirect_urls`.replace(`{${"app_id"}}`, encodeURIComponent(String(requestParameters["appId"]))),
@@ -4975,11 +4903,7 @@ var CallbacksApi = class extends BaseAPI {
     }
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["delete:application_logout_uris"]);
     }
     const response = await this.request({
       path: `/api/v1/applications/{app_id}/auth_logout_urls`.replace(`{${"app_id"}}`, encodeURIComponent(String(requestParameters["appId"]))),
@@ -5011,11 +4935,7 @@ var CallbacksApi = class extends BaseAPI {
     const queryParameters = {};
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:applications_redirect_uris"]);
     }
     const response = await this.request({
       path: `/api/v1/applications/{app_id}/auth_redirect_urls`.replace(`{${"app_id"}}`, encodeURIComponent(String(requestParameters["appId"]))),
@@ -5047,11 +4967,7 @@ var CallbacksApi = class extends BaseAPI {
     const queryParameters = {};
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:application_logout_uris"]);
     }
     const response = await this.request({
       path: `/api/v1/applications/{app_id}/auth_logout_urls`.replace(`{${"app_id"}}`, encodeURIComponent(String(requestParameters["appId"]))),
@@ -5090,11 +5006,7 @@ var CallbacksApi = class extends BaseAPI {
     const headerParameters = {};
     headerParameters["Content-Type"] = "application/json";
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["update:application_logout_uris"]);
     }
     const response = await this.request({
       path: `/api/v1/applications/{app_id}/auth_logout_urls`.replace(`{${"app_id"}}`, encodeURIComponent(String(requestParameters["appId"]))),
@@ -5134,11 +5046,7 @@ var CallbacksApi = class extends BaseAPI {
     const headerParameters = {};
     headerParameters["Content-Type"] = "application/json";
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["update:application_redirect_uris"]);
     }
     const response = await this.request({
       path: `/api/v1/applications/{app_id}/auth_redirect_urls`.replace(`{${"app_id"}}`, encodeURIComponent(String(requestParameters["appId"]))),
@@ -5187,11 +5095,7 @@ var ConnectedAppsApi = class extends BaseAPI {
     }
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:connected_apps"]);
     }
     const response = await this.request({
       path: `/api/v1/connected_apps/auth_url`,
@@ -5226,11 +5130,7 @@ var ConnectedAppsApi = class extends BaseAPI {
     }
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:connected_apps"]);
     }
     const response = await this.request({
       path: `/api/v1/connected_apps/token`,
@@ -5265,11 +5165,7 @@ var ConnectedAppsApi = class extends BaseAPI {
     }
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["create:connected_apps"]);
     }
     const response = await this.request({
       path: `/api/v1/connected_apps/revoke`,
@@ -5306,11 +5202,7 @@ var ConnectionsApi = class extends BaseAPI {
     const headerParameters = {};
     headerParameters["Content-Type"] = "application/json";
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["create:connections"]);
     }
     const response = await this.request({
       path: `/api/v1/connections`,
@@ -5343,11 +5235,7 @@ var ConnectionsApi = class extends BaseAPI {
     const queryParameters = {};
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["delete:connections"]);
     }
     const response = await this.request({
       path: `/api/v1/connections/{connection_id}`.replace(`{${"connection_id"}}`, encodeURIComponent(String(requestParameters["connectionId"]))),
@@ -5379,11 +5267,7 @@ var ConnectionsApi = class extends BaseAPI {
     const queryParameters = {};
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:connections"]);
     }
     const response = await this.request({
       path: `/api/v1/connections/{connection_id}`.replace(`{${"connection_id"}}`, encodeURIComponent(String(requestParameters["connectionId"]))),
@@ -5418,11 +5302,7 @@ var ConnectionsApi = class extends BaseAPI {
     }
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:connections"]);
     }
     const response = await this.request({
       path: `/api/v1/connections`,
@@ -5461,11 +5341,7 @@ var ConnectionsApi = class extends BaseAPI {
     const headerParameters = {};
     headerParameters["Content-Type"] = "application/json";
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["update:connections"]);
     }
     const response = await this.request({
       path: `/api/v1/connections/{connection_id}`.replace(`{${"connection_id"}}`, encodeURIComponent(String(requestParameters["connectionId"]))),
@@ -5502,11 +5378,7 @@ var EnvironmentsApi = class extends BaseAPI {
     const queryParameters = {};
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["delete:environment_feature_flags"]);
     }
     const response = await this.request({
       path: `/api/v1/environment/feature_flags/{feature_flag_key}`.replace(`{${"feature_flag_key"}}`, encodeURIComponent(String(requestParameters["featureFlagKey"]))),
@@ -5532,11 +5404,7 @@ var EnvironmentsApi = class extends BaseAPI {
     const queryParameters = {};
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["delete:environment_feature_flags"]);
     }
     const response = await this.request({
       path: `/api/v1/environment/feature_flags`,
@@ -5562,11 +5430,7 @@ var EnvironmentsApi = class extends BaseAPI {
     const queryParameters = {};
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:environment_feature_flags"]);
     }
     const response = await this.request({
       path: `/api/v1/environment/feature_flags`,
@@ -5605,11 +5469,7 @@ var EnvironmentsApi = class extends BaseAPI {
     const headerParameters = {};
     headerParameters["Content-Type"] = "application/json";
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["update:environment_feature_flags"]);
     }
     const response = await this.request({
       path: `/api/v1/environment/feature_flags/{feature_flag_key}`.replace(`{${"feature_flag_key"}}`, encodeURIComponent(String(requestParameters["featureFlagKey"]))),
@@ -5647,11 +5507,7 @@ var FeatureFlagsApi = class extends BaseAPI {
     const headerParameters = {};
     headerParameters["Content-Type"] = "application/json";
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["create:feature_flags"]);
     }
     const response = await this.request({
       path: `/api/v1/feature_flags`,
@@ -5684,11 +5540,7 @@ var FeatureFlagsApi = class extends BaseAPI {
     const queryParameters = {};
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["delete:feature_flags"]);
     }
     const response = await this.request({
       path: `/api/v1/feature_flags/{feature_flag_key}`.replace(`{${"feature_flag_key"}}`, encodeURIComponent(String(requestParameters["featureFlagKey"]))),
@@ -5765,11 +5617,7 @@ var FeatureFlagsApi = class extends BaseAPI {
     }
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["update:feature_flags"]);
     }
     const response = await this.request({
       path: `/api/v1/feature_flags/{feature_flag_key}`.replace(`{${"feature_flag_key"}}`, encodeURIComponent(String(requestParameters["featureFlagKey"]))),
@@ -5814,11 +5662,7 @@ var IdentitiesApi = class extends BaseAPI {
     const queryParameters = {};
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["delete:identities"]);
     }
     const response = await this.request({
       path: `/api/v1/identities/{identity_id}`.replace(`{${"identity_id"}}`, encodeURIComponent(String(requestParameters["identityId"]))),
@@ -5850,11 +5694,7 @@ var IdentitiesApi = class extends BaseAPI {
     const queryParameters = {};
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:identities"]);
     }
     const response = await this.request({
       path: `/api/v1/identities/{identity_id}`.replace(`{${"identity_id"}}`, encodeURIComponent(String(requestParameters["identityId"]))),
@@ -5893,11 +5733,7 @@ var IdentitiesApi = class extends BaseAPI {
     const headerParameters = {};
     headerParameters["Content-Type"] = "application/json";
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["update:identities"]);
     }
     const response = await this.request({
       path: `/api/v1/identities/{identity_id}`.replace(`{${"identity_id"}}`, encodeURIComponent(String(requestParameters["identityId"]))),
@@ -5934,11 +5770,7 @@ var IndustriesApi = class extends BaseAPI {
     }
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:industries"]);
     }
     const response = await this.request({
       path: `/api/v1/industries`,
@@ -6137,11 +5969,7 @@ var OrganizationsApi = class extends BaseAPI {
     const headerParameters = {};
     headerParameters["Content-Type"] = "application/json";
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["create:organization_users"]);
     }
     const response = await this.request({
       path: `/api/v1/organizations/{org_code}/users`.replace(`{${"org_code"}}`, encodeURIComponent(String(requestParameters["orgCode"]))),
@@ -6182,11 +6010,7 @@ var OrganizationsApi = class extends BaseAPI {
     const headerParameters = {};
     headerParameters["Content-Type"] = "application/json";
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["create:organizations"]);
     }
     const response = await this.request({
       path: `/api/v1/organization`,
@@ -6232,11 +6056,7 @@ var OrganizationsApi = class extends BaseAPI {
     const headerParameters = {};
     headerParameters["Content-Type"] = "application/json";
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["create:organization_user_permissions"]);
     }
     const response = await this.request({
       path: `/api/v1/organizations/{org_code}/users/{user_id}/permissions`.replace(`{${"org_code"}}`, encodeURIComponent(String(requestParameters["orgCode"]))).replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters["userId"]))),
@@ -6282,11 +6102,7 @@ var OrganizationsApi = class extends BaseAPI {
     const headerParameters = {};
     headerParameters["Content-Type"] = "application/json";
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["create:organization_user_roles"]);
     }
     const response = await this.request({
       path: `/api/v1/organizations/{org_code}/users/{user_id}/roles`.replace(`{${"org_code"}}`, encodeURIComponent(String(requestParameters["orgCode"]))).replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters["userId"]))),
@@ -6319,11 +6135,7 @@ var OrganizationsApi = class extends BaseAPI {
     const queryParameters = {};
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["delete:organizations"]);
     }
     const response = await this.request({
       path: `/api/v1/organization/{org_code}`.replace(`{${"org_code"}}`, encodeURIComponent(String(requestParameters["orgCode"]))),
@@ -6360,11 +6172,7 @@ var OrganizationsApi = class extends BaseAPI {
     const queryParameters = {};
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["delete:organization_feature_flags"]);
     }
     const response = await this.request({
       path: `/api/v1/organizations/{org_code}/feature_flags/{feature_flag_key}`.replace(`{${"org_code"}}`, encodeURIComponent(String(requestParameters["orgCode"]))).replace(`{${"feature_flag_key"}}`, encodeURIComponent(String(requestParameters["featureFlagKey"]))),
@@ -6396,11 +6204,7 @@ var OrganizationsApi = class extends BaseAPI {
     const queryParameters = {};
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["delete:organization_feature_flags"]);
     }
     const response = await this.request({
       path: `/api/v1/organizations/{org_code}/feature_flags`.replace(`{${"org_code"}}`, encodeURIComponent(String(requestParameters["orgCode"]))),
@@ -6432,11 +6236,7 @@ var OrganizationsApi = class extends BaseAPI {
     const queryParameters = {};
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["delete:organization_handles"]);
     }
     const response = await this.request({
       path: `/api/v1/organization/{org_code}/handle`.replace(`{${"org_code"}}`, encodeURIComponent(String(requestParameters["orgCode"]))),
@@ -6480,11 +6280,7 @@ var OrganizationsApi = class extends BaseAPI {
     const queryParameters = {};
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["delete:organization_user_permissions"]);
     }
     const response = await this.request({
       path: `/api/v1/organizations/{org_code}/users/{user_id}/permissions/{permission_id}`.replace(`{${"org_code"}}`, encodeURIComponent(String(requestParameters["orgCode"]))).replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters["userId"]))).replace(`{${"permission_id"}}`, encodeURIComponent(String(requestParameters["permissionId"]))),
@@ -6528,11 +6324,7 @@ var OrganizationsApi = class extends BaseAPI {
     const queryParameters = {};
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["delete:organization_user_roles"]);
     }
     const response = await this.request({
       path: `/api/v1/organizations/{org_code}/users/{user_id}/roles/{role_id}`.replace(`{${"org_code"}}`, encodeURIComponent(String(requestParameters["orgCode"]))).replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters["userId"]))).replace(`{${"role_id"}}`, encodeURIComponent(String(requestParameters["roleId"]))),
@@ -6561,11 +6353,7 @@ var OrganizationsApi = class extends BaseAPI {
     }
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:organizations"]);
     }
     const response = await this.request({
       path: `/api/v1/organization`,
@@ -6597,11 +6385,7 @@ var OrganizationsApi = class extends BaseAPI {
     const queryParameters = {};
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:organization_feature_flags"]);
     }
     const response = await this.request({
       path: `/api/v1/organizations/{org_code}/feature_flags`.replace(`{${"org_code"}}`, encodeURIComponent(String(requestParameters["orgCode"]))),
@@ -6633,11 +6417,7 @@ var OrganizationsApi = class extends BaseAPI {
     const queryParameters = {};
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:organization_properties"]);
     }
     const response = await this.request({
       path: `/api/v1/organizations/{org_code}/properties`.replace(`{${"org_code"}}`, encodeURIComponent(String(requestParameters["orgCode"]))),
@@ -6678,11 +6458,7 @@ var OrganizationsApi = class extends BaseAPI {
     }
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:organization_user_permissions"]);
     }
     const response = await this.request({
       path: `/api/v1/organizations/{org_code}/users/{user_id}/permissions`.replace(`{${"org_code"}}`, encodeURIComponent(String(requestParameters["orgCode"]))).replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters["userId"]))),
@@ -6720,11 +6496,7 @@ var OrganizationsApi = class extends BaseAPI {
     const queryParameters = {};
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:organization_user_roles"]);
     }
     const response = await this.request({
       path: `/api/v1/organizations/{org_code}/users/{user_id}/roles`.replace(`{${"org_code"}}`, encodeURIComponent(String(requestParameters["orgCode"]))).replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters["userId"]))),
@@ -6771,11 +6543,7 @@ var OrganizationsApi = class extends BaseAPI {
     }
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:organization_users"]);
     }
     const response = await this.request({
       path: `/api/v1/organizations/{org_code}/users`.replace(`{${"org_code"}}`, encodeURIComponent(String(requestParameters["orgCode"]))),
@@ -6810,11 +6578,7 @@ var OrganizationsApi = class extends BaseAPI {
     }
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:organizations"]);
     }
     const response = await this.request({
       path: `/api/v1/organizations`,
@@ -6852,11 +6616,7 @@ var OrganizationsApi = class extends BaseAPI {
     const queryParameters = {};
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["delete:organization_users"]);
     }
     const response = await this.request({
       path: `/api/v1/organizations/{org_code}/users/{user_id}`.replace(`{${"org_code"}}`, encodeURIComponent(String(requestParameters["orgCode"]))).replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters["userId"]))),
@@ -6889,11 +6649,7 @@ var OrganizationsApi = class extends BaseAPI {
     const headerParameters = {};
     headerParameters["Content-Type"] = "application/json";
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["update:organizations"]);
     }
     const response = await this.request({
       path: `/api/v1/organization/{org_code}`.replace(`{${"org_code"}}`, encodeURIComponent(String(requestParameters["orgCode"]))),
@@ -6941,11 +6697,7 @@ var OrganizationsApi = class extends BaseAPI {
     }
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["update:organization_feature_flags"]);
     }
     const response = await this.request({
       path: `/api/v1/organizations/{org_code}/feature_flags/{feature_flag_key}`.replace(`{${"org_code"}}`, encodeURIComponent(String(requestParameters["orgCode"]))).replace(`{${"feature_flag_key"}}`, encodeURIComponent(String(requestParameters["featureFlagKey"]))),
@@ -6984,11 +6736,7 @@ var OrganizationsApi = class extends BaseAPI {
     const headerParameters = {};
     headerParameters["Content-Type"] = "application/json";
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["update:organization_properties"]);
     }
     const response = await this.request({
       path: `/api/v1/organizations/{org_code}/properties`.replace(`{${"org_code"}}`, encodeURIComponent(String(requestParameters["orgCode"]))),
@@ -7036,11 +6784,7 @@ var OrganizationsApi = class extends BaseAPI {
     }
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["update:organization_properties"]);
     }
     const response = await this.request({
       path: `/api/v1/organizations/{org_code}/properties/{property_key}`.replace(`{${"org_code"}}`, encodeURIComponent(String(requestParameters["orgCode"]))).replace(`{${"property_key"}}`, encodeURIComponent(String(requestParameters["propertyKey"]))),
@@ -7073,11 +6817,7 @@ var OrganizationsApi = class extends BaseAPI {
     const headerParameters = {};
     headerParameters["Content-Type"] = "application/json";
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["update:organization_users"]);
     }
     const response = await this.request({
       path: `/api/v1/organizations/{org_code}/users`.replace(`{${"org_code"}}`, encodeURIComponent(String(requestParameters["orgCode"]))),
@@ -7123,11 +6863,7 @@ var PermissionsApi = class extends BaseAPI {
     const headerParameters = {};
     headerParameters["Content-Type"] = "application/json";
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["create:permissions"]);
     }
     const response = await this.request({
       path: `/api/v1/permissions`,
@@ -7160,11 +6896,7 @@ var PermissionsApi = class extends BaseAPI {
     const queryParameters = {};
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["delete:permissions"]);
     }
     const response = await this.request({
       path: `/api/v1/permissions/{permission_id}`.replace(`{${"permission_id"}}`, encodeURIComponent(String(requestParameters["permissionId"]))),
@@ -7199,11 +6931,7 @@ var PermissionsApi = class extends BaseAPI {
     }
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:permissions"]);
     }
     const response = await this.request({
       path: `/api/v1/permissions`,
@@ -7236,11 +6964,7 @@ var PermissionsApi = class extends BaseAPI {
     const headerParameters = {};
     headerParameters["Content-Type"] = "application/json";
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["update:permissions"]);
     }
     const response = await this.request({
       path: `/api/v1/permissions/{permission_id}`.replace(`{${"permission_id"}}`, encodeURIComponent(String(requestParameters["permissionId"]))),
@@ -7284,11 +7008,7 @@ var PropertiesApi = class extends BaseAPI {
     const headerParameters = {};
     headerParameters["Content-Type"] = "application/json";
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["create:properties"]);
     }
     const response = await this.request({
       path: `/api/v1/properties`,
@@ -7321,11 +7041,7 @@ var PropertiesApi = class extends BaseAPI {
     const queryParameters = {};
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["delete:properties"]);
     }
     const response = await this.request({
       path: `/api/v1/properties/{property_id}`.replace(`{${"property_id"}}`, encodeURIComponent(String(requestParameters["propertyId"]))),
@@ -7363,11 +7079,7 @@ var PropertiesApi = class extends BaseAPI {
     }
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:properties"]);
     }
     const response = await this.request({
       path: `/api/v1/properties`,
@@ -7406,11 +7118,7 @@ var PropertiesApi = class extends BaseAPI {
     const headerParameters = {};
     headerParameters["Content-Type"] = "application/json";
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["update:properties"]);
     }
     const response = await this.request({
       path: `/api/v1/properties/{property_id}`.replace(`{${"property_id"}}`, encodeURIComponent(String(requestParameters["propertyId"]))),
@@ -7452,11 +7160,7 @@ var PropertyCategoriesApi = class extends BaseAPI {
     const headerParameters = {};
     headerParameters["Content-Type"] = "application/json";
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["create:property_categories"]);
     }
     const response = await this.request({
       path: `/api/v1/property_categories`,
@@ -7495,11 +7199,7 @@ var PropertyCategoriesApi = class extends BaseAPI {
     }
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:property_categories"]);
     }
     const response = await this.request({
       path: `/api/v1/property_categories`,
@@ -7538,11 +7238,7 @@ var PropertyCategoriesApi = class extends BaseAPI {
     const headerParameters = {};
     headerParameters["Content-Type"] = "application/json";
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["update:property_categories"]);
     }
     const response = await this.request({
       path: `/api/v1/property_categories/{category_id}`.replace(`{${"category_id"}}`, encodeURIComponent(String(requestParameters["categoryId"]))),
@@ -7578,11 +7274,7 @@ var RolesApi = class extends BaseAPI {
     const headerParameters = {};
     headerParameters["Content-Type"] = "application/json";
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["create:roles"]);
     }
     const response = await this.request({
       path: `/api/v1/roles`,
@@ -7615,11 +7307,7 @@ var RolesApi = class extends BaseAPI {
     const queryParameters = {};
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["delete:roles"]);
     }
     const response = await this.request({
       path: `/api/v1/roles/{role_id}`.replace(`{${"role_id"}}`, encodeURIComponent(String(requestParameters["roleId"]))),
@@ -7660,11 +7348,7 @@ var RolesApi = class extends BaseAPI {
     }
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:role_permissions"]);
     }
     const response = await this.request({
       path: `/api/v1/roles/{role_id}/permissions`.replace(`{${"role_id"}}`, encodeURIComponent(String(requestParameters["roleId"]))),
@@ -7699,11 +7383,7 @@ var RolesApi = class extends BaseAPI {
     }
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:roles"]);
     }
     const response = await this.request({
       path: `/api/v1/roles`,
@@ -7741,11 +7421,7 @@ var RolesApi = class extends BaseAPI {
     const queryParameters = {};
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["delete:role_permissions"]);
     }
     const response = await this.request({
       path: `/api/v1/roles/{role_id}/permissions/{permission_id}`.replace(`{${"role_id"}}`, encodeURIComponent(String(requestParameters["roleId"]))).replace(`{${"permission_id"}}`, encodeURIComponent(String(requestParameters["permissionId"]))),
@@ -7784,11 +7460,7 @@ var RolesApi = class extends BaseAPI {
     const headerParameters = {};
     headerParameters["Content-Type"] = "application/json";
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["update:role_permissions"]);
     }
     const response = await this.request({
       path: `/api/v1/roles/{role_id}/permissions`.replace(`{${"role_id"}}`, encodeURIComponent(String(requestParameters["roleId"]))),
@@ -7822,11 +7494,7 @@ var RolesApi = class extends BaseAPI {
     const headerParameters = {};
     headerParameters["Content-Type"] = "application/json";
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["update:roles"]);
     }
     const response = await this.request({
       path: `/api/v1/roles/{role_id}`.replace(`{${"role_id"}}`, encodeURIComponent(String(requestParameters["roleId"]))),
@@ -7896,11 +7564,7 @@ var SubscribersApi = class extends BaseAPI {
     }
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["create:subscribers"]);
     }
     const response = await this.request({
       path: `/api/v1/subscribers`,
@@ -7932,11 +7596,7 @@ var SubscribersApi = class extends BaseAPI {
     const queryParameters = {};
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:subscribers"]);
     }
     const response = await this.request({
       path: `/api/v1/subscribers/{subscriber_id}`.replace(`{${"subscriber_id"}}`, encodeURIComponent(String(requestParameters["subscriberId"]))),
@@ -7971,11 +7631,7 @@ var SubscribersApi = class extends BaseAPI {
     }
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:subscribers"]);
     }
     const response = await this.request({
       path: `/api/v1/subscribers`,
@@ -8017,11 +7673,7 @@ var TimezonesApi = class extends BaseAPI {
     }
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:timezones"]);
     }
     const response = await this.request({
       path: `/api/v1/timezones`,
@@ -8052,11 +7704,7 @@ var UsersApi = class extends BaseAPI {
     const headerParameters = {};
     headerParameters["Content-Type"] = "application/json";
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["create:users"]);
     }
     const response = await this.request({
       path: `/api/v1/user`,
@@ -8090,11 +7738,7 @@ var UsersApi = class extends BaseAPI {
     const headerParameters = {};
     headerParameters["Content-Type"] = "application/json";
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["create:user_identities"]);
     }
     const response = await this.request({
       path: `/api/v1/users/{user_id}/identities`.replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters["userId"]))),
@@ -8133,11 +7777,7 @@ var UsersApi = class extends BaseAPI {
     }
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["delete:users"]);
     }
     const response = await this.request({
       path: `/api/v1/user`,
@@ -8175,11 +7815,7 @@ var UsersApi = class extends BaseAPI {
     }
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:users"]);
     }
     const response = await this.request({
       path: `/api/v1/user`,
@@ -8211,11 +7847,7 @@ var UsersApi = class extends BaseAPI {
     const queryParameters = {};
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:user_identities"]);
     }
     const response = await this.request({
       path: `/api/v1/users/{user_id}/identities`.replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters["userId"]))),
@@ -8247,11 +7879,7 @@ var UsersApi = class extends BaseAPI {
     const queryParameters = {};
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:user_properties"]);
     }
     const response = await this.request({
       path: `/api/v1/users/{user_id}/properties`.replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters["userId"]))),
@@ -8298,11 +7926,7 @@ var UsersApi = class extends BaseAPI {
     }
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:users"]);
     }
     const response = await this.request({
       path: `/api/v1/users`,
@@ -8334,11 +7958,7 @@ var UsersApi = class extends BaseAPI {
     const queryParameters = {};
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["update:user_refresh_claims"]);
     }
     const response = await this.request({
       path: `/api/v1/users/{user_id}/refresh_claims`.replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters["userId"]))),
@@ -8377,11 +7997,7 @@ var UsersApi = class extends BaseAPI {
     const headerParameters = {};
     headerParameters["Content-Type"] = "application/json";
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["update:user_passwords"]);
     }
     const response = await this.request({
       path: `/api/v1/users/{user_id}/password`.replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters["userId"]))),
@@ -8424,11 +8040,7 @@ var UsersApi = class extends BaseAPI {
     const headerParameters = {};
     headerParameters["Content-Type"] = "application/json";
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["update:users"]);
     }
     const response = await this.request({
       path: `/api/v1/user`,
@@ -8476,11 +8088,7 @@ var UsersApi = class extends BaseAPI {
     }
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["update:user_feature_flags"]);
     }
     const response = await this.request({
       path: `/api/v1/users/{user_id}/feature_flags/{feature_flag_key}`.replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters["userId"]))).replace(`{${"feature_flag_key"}}`, encodeURIComponent(String(requestParameters["featureFlagKey"]))),
@@ -8519,11 +8127,7 @@ var UsersApi = class extends BaseAPI {
     const headerParameters = {};
     headerParameters["Content-Type"] = "application/json";
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["update:user_properties"]);
     }
     const response = await this.request({
       path: `/api/v1/users/{user_id}/properties`.replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters["userId"]))),
@@ -8571,11 +8175,7 @@ var UsersApi = class extends BaseAPI {
     }
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["update:user_properties"]);
     }
     const response = await this.request({
       path: `/api/v1/users/{user_id}/properties/{property_key}`.replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters["userId"]))).replace(`{${"property_key"}}`, encodeURIComponent(String(requestParameters["propertyKey"]))),
@@ -8612,11 +8212,7 @@ var WebhooksApi = class extends BaseAPI {
     const headerParameters = {};
     headerParameters["Content-Type"] = "application/json";
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["create:webhooks"]);
     }
     const response = await this.request({
       path: `/api/v1/webhooks`,
@@ -8649,11 +8245,7 @@ var WebhooksApi = class extends BaseAPI {
     const queryParameters = {};
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["delete:webhooks"]);
     }
     const response = await this.request({
       path: `/api/v1/webhooks/{webhook_id}`.replace(`{${"webhook_id"}}`, encodeURIComponent(String(requestParameters["webhookId"]))),
@@ -8685,11 +8277,7 @@ var WebhooksApi = class extends BaseAPI {
     const queryParameters = {};
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:events"]);
     }
     const response = await this.request({
       path: `/api/v1/events/{event_id}`.replace(`{${"event_id"}}`, encodeURIComponent(String(requestParameters["eventId"]))),
@@ -8715,11 +8303,7 @@ var WebhooksApi = class extends BaseAPI {
     const queryParameters = {};
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:event_types"]);
     }
     const response = await this.request({
       path: `/api/v1/event_types`,
@@ -8745,11 +8329,7 @@ var WebhooksApi = class extends BaseAPI {
     const queryParameters = {};
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:webhooks"]);
     }
     const response = await this.request({
       path: `/api/v1/webhooks`,
@@ -8782,11 +8362,7 @@ var WebhooksApi = class extends BaseAPI {
     const headerParameters = {};
     headerParameters["Content-Type"] = "application/json";
     if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token("kindeBearerAuth", []);
-      if (tokenString) {
-        headerParameters["Authorization"] = `Bearer ${tokenString}`;
-      }
+      headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["update:webhooks"]);
     }
     const response = await this.request({
       path: `/api/v1/webhooks`,

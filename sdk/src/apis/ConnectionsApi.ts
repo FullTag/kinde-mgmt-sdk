@@ -87,13 +87,10 @@ export class ConnectionsApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["create:connections"]);
         }
+
         const response = await this.request({
             path: `/api/v1/connections`,
             method: 'POST',
@@ -131,13 +128,10 @@ export class ConnectionsApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["delete:connections"]);
         }
+
         const response = await this.request({
             path: `/api/v1/connections/{connection_id}`.replace(`{${"connection_id"}}`, encodeURIComponent(String(requestParameters['connectionId']))),
             method: 'DELETE',
@@ -174,13 +168,10 @@ export class ConnectionsApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:connections"]);
         }
+
         const response = await this.request({
             path: `/api/v1/connections/{connection_id}`.replace(`{${"connection_id"}}`, encodeURIComponent(String(requestParameters['connectionId']))),
             method: 'GET',
@@ -222,13 +213,10 @@ export class ConnectionsApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:connections"]);
         }
+
         const response = await this.request({
             path: `/api/v1/connections`,
             method: 'GET',
@@ -274,13 +262,10 @@ export class ConnectionsApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["update:connections"]);
         }
+
         const response = await this.request({
             path: `/api/v1/connections/{connection_id}`.replace(`{${"connection_id"}}`, encodeURIComponent(String(requestParameters['connectionId']))),
             method: 'PATCH',

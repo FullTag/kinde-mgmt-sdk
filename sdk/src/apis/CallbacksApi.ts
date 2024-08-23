@@ -106,13 +106,10 @@ export class CallbacksApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["create:application_logout_uris"]);
         }
+
         const response = await this.request({
             path: `/api/v1/applications/{app_id}/auth_logout_urls`.replace(`{${"app_id"}}`, encodeURIComponent(String(requestParameters['appId']))),
             method: 'POST',
@@ -159,13 +156,10 @@ export class CallbacksApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["create:application_redirect_uris"]);
         }
+
         const response = await this.request({
             path: `/api/v1/applications/{app_id}/auth_redirect_urls`.replace(`{${"app_id"}}`, encodeURIComponent(String(requestParameters['appId']))),
             method: 'POST',
@@ -214,13 +208,10 @@ export class CallbacksApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["delete:application_redirect_uris"]);
         }
+
         const response = await this.request({
             path: `/api/v1/applications/{app_id}/auth_redirect_urls`.replace(`{${"app_id"}}`, encodeURIComponent(String(requestParameters['appId']))),
             method: 'DELETE',
@@ -268,13 +259,10 @@ export class CallbacksApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["delete:application_logout_uris"]);
         }
+
         const response = await this.request({
             path: `/api/v1/applications/{app_id}/auth_logout_urls`.replace(`{${"app_id"}}`, encodeURIComponent(String(requestParameters['appId']))),
             method: 'DELETE',
@@ -311,13 +299,10 @@ export class CallbacksApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:applications_redirect_uris"]);
         }
+
         const response = await this.request({
             path: `/api/v1/applications/{app_id}/auth_redirect_urls`.replace(`{${"app_id"}}`, encodeURIComponent(String(requestParameters['appId']))),
             method: 'GET',
@@ -354,13 +339,10 @@ export class CallbacksApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:application_logout_uris"]);
         }
+
         const response = await this.request({
             path: `/api/v1/applications/{app_id}/auth_logout_urls`.replace(`{${"app_id"}}`, encodeURIComponent(String(requestParameters['appId']))),
             method: 'GET',
@@ -406,13 +388,10 @@ export class CallbacksApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["update:application_logout_uris"]);
         }
+
         const response = await this.request({
             path: `/api/v1/applications/{app_id}/auth_logout_urls`.replace(`{${"app_id"}}`, encodeURIComponent(String(requestParameters['appId']))),
             method: 'PUT',
@@ -459,13 +438,10 @@ export class CallbacksApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["update:application_redirect_uris"]);
         }
+
         const response = await this.request({
             path: `/api/v1/applications/{app_id}/auth_redirect_urls`.replace(`{${"app_id"}}`, encodeURIComponent(String(requestParameters['appId']))),
             method: 'PUT',

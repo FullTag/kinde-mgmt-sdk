@@ -77,13 +77,10 @@ export class PropertyCategoriesApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["create:property_categories"]);
         }
+
         const response = await this.request({
             path: `/api/v1/property_categories`,
             method: 'POST',
@@ -130,13 +127,10 @@ export class PropertyCategoriesApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:property_categories"]);
         }
+
         const response = await this.request({
             path: `/api/v1/property_categories`,
             method: 'GET',
@@ -182,13 +176,10 @@ export class PropertyCategoriesApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["update:property_categories"]);
         }
+
         const response = await this.request({
             path: `/api/v1/property_categories/{category_id}`.replace(`{${"category_id"}}`, encodeURIComponent(String(requestParameters['categoryId']))),
             method: 'PUT',

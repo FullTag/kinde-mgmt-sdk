@@ -96,13 +96,10 @@ export class RolesApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["create:roles"]);
         }
+
         const response = await this.request({
             path: `/api/v1/roles`,
             method: 'POST',
@@ -140,13 +137,10 @@ export class RolesApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["delete:roles"]);
         }
+
         const response = await this.request({
             path: `/api/v1/roles/{role_id}`.replace(`{${"role_id"}}`, encodeURIComponent(String(requestParameters['roleId']))),
             method: 'DELETE',
@@ -195,13 +189,10 @@ export class RolesApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:role_permissions"]);
         }
+
         const response = await this.request({
             path: `/api/v1/roles/{role_id}/permissions`.replace(`{${"role_id"}}`, encodeURIComponent(String(requestParameters['roleId']))),
             method: 'GET',
@@ -243,13 +234,10 @@ export class RolesApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:roles"]);
         }
+
         const response = await this.request({
             path: `/api/v1/roles`,
             method: 'GET',
@@ -293,13 +281,10 @@ export class RolesApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["delete:role_permissions"]);
         }
+
         const response = await this.request({
             path: `/api/v1/roles/{role_id}/permissions/{permission_id}`.replace(`{${"role_id"}}`, encodeURIComponent(String(requestParameters['roleId']))).replace(`{${"permission_id"}}`, encodeURIComponent(String(requestParameters['permissionId']))),
             method: 'DELETE',
@@ -345,13 +330,10 @@ export class RolesApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["update:role_permissions"]);
         }
+
         const response = await this.request({
             path: `/api/v1/roles/{role_id}/permissions`.replace(`{${"role_id"}}`, encodeURIComponent(String(requestParameters['roleId']))),
             method: 'PATCH',
@@ -391,13 +373,10 @@ export class RolesApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["update:roles"]);
         }
+
         const response = await this.request({
             path: `/api/v1/roles/{role_id}`.replace(`{${"role_id"}}`, encodeURIComponent(String(requestParameters['roleId']))),
             method: 'PATCH',

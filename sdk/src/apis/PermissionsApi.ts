@@ -67,13 +67,10 @@ export class PermissionsApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["create:permissions"]);
         }
+
         const response = await this.request({
             path: `/api/v1/permissions`,
             method: 'POST',
@@ -111,13 +108,10 @@ export class PermissionsApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["delete:permissions"]);
         }
+
         const response = await this.request({
             path: `/api/v1/permissions/{permission_id}`.replace(`{${"permission_id"}}`, encodeURIComponent(String(requestParameters['permissionId']))),
             method: 'DELETE',
@@ -159,13 +153,10 @@ export class PermissionsApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:permissions"]);
         }
+
         const response = await this.request({
             path: `/api/v1/permissions`,
             method: 'GET',
@@ -204,13 +195,10 @@ export class PermissionsApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
         if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("kindeBearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
+            // oauth required
+            headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["update:permissions"]);
         }
+
         const response = await this.request({
             path: `/api/v1/permissions/{permission_id}`.replace(`{${"permission_id"}}`, encodeURIComponent(String(requestParameters['permissionId']))),
             method: 'PATCH',
