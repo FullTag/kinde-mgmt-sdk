@@ -526,7 +526,7 @@ paths:
                     - spa
                     - m2m
       responses:
-        '200':
+        '201':
           description: Application successfully created.
           content:
             application/json:
@@ -893,7 +893,7 @@ paths:
             nullable: true
           required: false
       responses:
-        '201':
+        '200':
           description: A successful response with your business details.
           content:
             application/json; charset=utf-8:
@@ -986,7 +986,7 @@ paths:
             nullable: true
           required: false
       responses:
-        '201':
+        '200':
           description: Business successfully updated.
           content:
             application/json; charset=utf-8:
@@ -1024,7 +1024,7 @@ paths:
           schema:
             type: string
       responses:
-        '201':
+        '200':
           description: A successful response with a list of industries and industry keys.
           content:
             application/json; charset=utf-8:
@@ -1056,7 +1056,7 @@ paths:
           schema:
             type: string
       responses:
-        '201':
+        '200':
           description: A successful response with a list of timezones and timezone keys.
           content:
             application/json; charset=utf-8:
@@ -3799,7 +3799,7 @@ paths:
                   description: The permission identifier to use in code.
                   type: string
       responses:
-        '201':
+        '200':
           description: Permission successfully updated
           content:
             application/json; charset=utf-8:
@@ -5566,7 +5566,7 @@ paths:
                     The country code for the phone number, only required when
                     identity type is 'phone'.
       responses:
-        '200':
+        '201':
           description: Identity successfully created.
           content:
             application/json:
