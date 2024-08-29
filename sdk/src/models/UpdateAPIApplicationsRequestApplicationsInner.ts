@@ -20,13 +20,13 @@ import { mapValues } from '../runtime';
  */
 export interface UpdateAPIApplicationsRequestApplicationsInner {
     /**
-     * The application's id.
+     * The application's Client ID.
      * @type {string}
      * @memberof UpdateAPIApplicationsRequestApplicationsInner
      */
     id: string;
     /**
-     * Optional operation, set to 'delete' to remove the user from the organization.
+     * Optional operation, set to 'delete' to revoke authorization for the application. If not set, the application will be authorized.
      * @type {string}
      * @memberof UpdateAPIApplicationsRequestApplicationsInner
      */

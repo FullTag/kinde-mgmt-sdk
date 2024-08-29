@@ -86,7 +86,7 @@ export interface UpdateApplicationOperationRequest {
 export class ApplicationsApi extends runtime.BaseAPI {
 
     /**
-     * Create an application.
+     * Create a new client.
      * Create Application
      */
     async createApplicationRaw(requestParameters: CreateApplicationOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateApplicationResponse>> {
@@ -113,7 +113,7 @@ export class ApplicationsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Create an application.
+     * Create a new client.
      * Create Application
      */
     async createApplication(requestParameters: CreateApplicationOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateApplicationResponse> {
@@ -122,8 +122,8 @@ export class ApplicationsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Delete application. 
-     * Delete Application
+     * Delete a client / application.
+     * Delete application
      */
     async deleteApplicationRaw(requestParameters: DeleteApplicationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SuccessResponse>> {
         if (requestParameters['applicationId'] == null) {
@@ -153,8 +153,8 @@ export class ApplicationsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Delete application. 
-     * Delete Application
+     * Delete a client / application.
+     * Delete application
      */
     async deleteApplication(requestParameters: DeleteApplicationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SuccessResponse> {
         const response = await this.deleteApplicationRaw(requestParameters, initOverrides);
@@ -208,8 +208,8 @@ export class ApplicationsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Gets an application given the application\'s id. 
-     * Get Application
+     * Gets an application given the application\'s ID.
+     * Get application
      */
     async getApplicationRaw(requestParameters: GetApplicationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetApplicationResponse>> {
         if (requestParameters['applicationId'] == null) {
@@ -239,8 +239,8 @@ export class ApplicationsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Gets an application given the application\'s id. 
-     * Get Application
+     * Gets an application given the application\'s ID.
+     * Get application
      */
     async getApplication(requestParameters: GetApplicationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetApplicationResponse> {
         const response = await this.getApplicationRaw(requestParameters, initOverrides);
@@ -288,8 +288,8 @@ export class ApplicationsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Get a list of applications. 
-     * List Applications
+     * Get a list of applications / clients.
+     * Get applications
      */
     async getApplicationsRaw(requestParameters: GetApplicationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetApplicationsResponse>> {
         const queryParameters: any = {};
@@ -324,8 +324,8 @@ export class ApplicationsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Get a list of applications. 
-     * List Applications
+     * Get a list of applications / clients.
+     * Get applications
      */
     async getApplications(requestParameters: GetApplicationsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetApplicationsResponse> {
         const response = await this.getApplicationsRaw(requestParameters, initOverrides);
@@ -380,7 +380,7 @@ export class ApplicationsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Update an application.
+     * Updates a client\'s settings. For more information, read [Applications in Kinde](https://docs.kinde.com/build/applications/about-applications)
      * Update Application
      */
     async updateApplicationRaw(requestParameters: UpdateApplicationOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
@@ -414,7 +414,7 @@ export class ApplicationsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Update an application.
+     * Updates a client\'s settings. For more information, read [Applications in Kinde](https://docs.kinde.com/build/applications/about-applications)
      * Update Application
      */
     async updateApplication(requestParameters: UpdateApplicationOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {

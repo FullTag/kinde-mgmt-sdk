@@ -20,13 +20,13 @@ import { mapValues } from '../runtime';
  */
 export interface AddAPIsRequest {
     /**
-     * 
+     * The name of the API. (1-64 characters).
      * @type {string}
      * @memberof AddAPIsRequest
      */
     name: string;
     /**
-     * 
+     * A unique identifier for the API - commonly the URL. This value will be used as the `audience` parameter in authorization claims. (1-64 characters)
      * @type {string}
      * @memberof AddAPIsRequest
      */

@@ -16,23 +16,29 @@
 import * as runtime from '../runtime';
 import type {
   AddAPIsRequest,
-  Api,
-  Apis,
+  AuthorizeAppApiResponse,
+  CreateApisResponse,
+  DeleteApiResponse,
   ErrorResponse,
-  SuccessResponse,
+  GetApiResponse,
+  GetApisResponse,
   UpdateAPIApplicationsRequest,
 } from '../models/index';
 import {
     AddAPIsRequestFromJSON,
     AddAPIsRequestToJSON,
-    ApiFromJSON,
-    ApiToJSON,
-    ApisFromJSON,
-    ApisToJSON,
+    AuthorizeAppApiResponseFromJSON,
+    AuthorizeAppApiResponseToJSON,
+    CreateApisResponseFromJSON,
+    CreateApisResponseToJSON,
+    DeleteApiResponseFromJSON,
+    DeleteApiResponseToJSON,
     ErrorResponseFromJSON,
     ErrorResponseToJSON,
-    SuccessResponseFromJSON,
-    SuccessResponseToJSON,
+    GetApiResponseFromJSON,
+    GetApiResponseToJSON,
+    GetApisResponseFromJSON,
+    GetApisResponseToJSON,
     UpdateAPIApplicationsRequestFromJSON,
     UpdateAPIApplicationsRequestToJSON,
 } from '../models/index';
@@ -60,10 +66,10 @@ export interface UpdateAPIApplicationsOperationRequest {
 export class APIsApi extends runtime.BaseAPI {
 
     /**
-     * Add APIs. 
-     * Add APIs
+     * Register a new API. For more information read [Register and manage APIs](https://docs.kinde.com/developer-tools/your-apis/register-manage-apis/).
+     * Create API
      */
-    async addAPIsRaw(requestParameters: AddAPIsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SuccessResponse>> {
+    async addAPIsRaw(requestParameters: AddAPIsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateApisResponse>> {
         if (requestParameters['addAPIsRequest'] == null) {
             throw new runtime.RequiredError(
                 'addAPIsRequest',
@@ -90,23 +96,23 @@ export class APIsApi extends runtime.BaseAPI {
             body: AddAPIsRequestToJSON(requestParameters['addAPIsRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => SuccessResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CreateApisResponseFromJSON(jsonValue));
     }
 
     /**
-     * Add APIs. 
-     * Add APIs
+     * Register a new API. For more information read [Register and manage APIs](https://docs.kinde.com/developer-tools/your-apis/register-manage-apis/).
+     * Create API
      */
-    async addAPIs(requestParameters: AddAPIsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SuccessResponse> {
+    async addAPIs(requestParameters: AddAPIsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateApisResponse> {
         const response = await this.addAPIsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-     * Deletes API. 
+     * Delete an API you previously created.
      * Delete API
      */
-    async deleteAPIRaw(requestParameters: DeleteAPIRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SuccessResponse>> {
+    async deleteAPIRaw(requestParameters: DeleteAPIRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeleteApiResponse>> {
         if (requestParameters['apiId'] == null) {
             throw new runtime.RequiredError(
                 'apiId',
@@ -130,23 +136,23 @@ export class APIsApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => SuccessResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => DeleteApiResponseFromJSON(jsonValue));
     }
 
     /**
-     * Deletes API. 
+     * Delete an API you previously created.
      * Delete API
      */
-    async deleteAPI(requestParameters: DeleteAPIRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SuccessResponse> {
+    async deleteAPI(requestParameters: DeleteAPIRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeleteApiResponse> {
         const response = await this.deleteAPIRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-     * Returns the details of the API. 
-     * List API details
+     * Retrieve API details by ID.
+     * Get API
      */
-    async getAPIRaw(requestParameters: GetAPIRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Api>> {
+    async getAPIRaw(requestParameters: GetAPIRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetApiResponse>> {
         if (requestParameters['apiId'] == null) {
             throw new runtime.RequiredError(
                 'apiId',
@@ -170,23 +176,23 @@ export class APIsApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetApiResponseFromJSON(jsonValue));
     }
 
     /**
-     * Returns the details of the API. 
-     * List API details
+     * Retrieve API details by ID.
+     * Get API
      */
-    async getAPI(requestParameters: GetAPIRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Api> {
+    async getAPI(requestParameters: GetAPIRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetApiResponse> {
         const response = await this.getAPIRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-     * Returns a list of APIs. 
-     * List APIs
+     * Returns a list of your APIs. The APIs are returned sorted by name.
+     * Get APIs
      */
-    async getAPIsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Apis>> {
+    async getAPIsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetApisResponse>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -203,23 +209,23 @@ export class APIsApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApisFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetApisResponseFromJSON(jsonValue));
     }
 
     /**
-     * Returns a list of APIs. 
-     * List APIs
+     * Returns a list of your APIs. The APIs are returned sorted by name.
+     * Get APIs
      */
-    async getAPIs(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Apis> {
+    async getAPIs(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetApisResponse> {
         const response = await this.getAPIsRaw(initOverrides);
         return await response.value();
     }
 
     /**
-     * Update the applications under that API. 
-     * Update API Applications
+     * Authorize applications to be allowed to request access tokens for an API
+     * Authorize API applications
      */
-    async updateAPIApplicationsRaw(requestParameters: UpdateAPIApplicationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SuccessResponse>> {
+    async updateAPIApplicationsRaw(requestParameters: UpdateAPIApplicationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuthorizeAppApiResponse>> {
         if (requestParameters['apiId'] == null) {
             throw new runtime.RequiredError(
                 'apiId',
@@ -253,14 +259,14 @@ export class APIsApi extends runtime.BaseAPI {
             body: UpdateAPIApplicationsRequestToJSON(requestParameters['updateAPIApplicationsRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => SuccessResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => AuthorizeAppApiResponseFromJSON(jsonValue));
     }
 
     /**
-     * Update the applications under that API. 
-     * Update API Applications
+     * Authorize applications to be allowed to request access tokens for an API
+     * Authorize API applications
      */
-    async updateAPIApplications(requestParameters: UpdateAPIApplicationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SuccessResponse> {
+    async updateAPIApplications(requestParameters: UpdateAPIApplicationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AuthorizeAppApiResponse> {
         const response = await this.updateAPIApplicationsRaw(requestParameters, initOverrides);
         return await response.value();
     }

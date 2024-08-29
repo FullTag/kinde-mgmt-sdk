@@ -32,22 +32,16 @@ __export(src_exports, {
   AddOrganizationUsersResponseFromJSON: () => AddOrganizationUsersResponseFromJSON,
   AddOrganizationUsersResponseFromJSONTyped: () => AddOrganizationUsersResponseFromJSONTyped,
   AddOrganizationUsersResponseToJSON: () => AddOrganizationUsersResponseToJSON,
-  ApiApplicationsInnerFromJSON: () => ApiApplicationsInnerFromJSON,
-  ApiApplicationsInnerFromJSONTyped: () => ApiApplicationsInnerFromJSONTyped,
-  ApiApplicationsInnerToJSON: () => ApiApplicationsInnerToJSON,
-  ApiFromJSON: () => ApiFromJSON,
-  ApiFromJSONTyped: () => ApiFromJSONTyped,
   ApiResultFromJSON: () => ApiResultFromJSON,
   ApiResultFromJSONTyped: () => ApiResultFromJSONTyped,
   ApiResultToJSON: () => ApiResultToJSON,
-  ApiToJSON: () => ApiToJSON,
-  ApisFromJSON: () => ApisFromJSON,
-  ApisFromJSONTyped: () => ApisFromJSONTyped,
-  ApisToJSON: () => ApisToJSON,
   ApplicationsApi: () => ApplicationsApi,
   ApplicationsFromJSON: () => ApplicationsFromJSON,
   ApplicationsFromJSONTyped: () => ApplicationsFromJSONTyped,
   ApplicationsToJSON: () => ApplicationsToJSON,
+  AuthorizeAppApiResponseFromJSON: () => AuthorizeAppApiResponseFromJSON,
+  AuthorizeAppApiResponseFromJSONTyped: () => AuthorizeAppApiResponseFromJSONTyped,
+  AuthorizeAppApiResponseToJSON: () => AuthorizeAppApiResponseToJSON,
   BASE_PATH: () => BASE_PATH,
   BaseAPI: () => BaseAPI,
   BlobApiResponse: () => BlobApiResponse,
@@ -69,6 +63,12 @@ __export(src_exports, {
   ConnectionFromJSONTyped: () => ConnectionFromJSONTyped,
   ConnectionToJSON: () => ConnectionToJSON,
   ConnectionsApi: () => ConnectionsApi,
+  CreateApisResponseApiFromJSON: () => CreateApisResponseApiFromJSON,
+  CreateApisResponseApiFromJSONTyped: () => CreateApisResponseApiFromJSONTyped,
+  CreateApisResponseApiToJSON: () => CreateApisResponseApiToJSON,
+  CreateApisResponseFromJSON: () => CreateApisResponseFromJSON,
+  CreateApisResponseFromJSONTyped: () => CreateApisResponseFromJSONTyped,
+  CreateApisResponseToJSON: () => CreateApisResponseToJSON,
   CreateApplicationRequestFromJSON: () => CreateApplicationRequestFromJSON,
   CreateApplicationRequestFromJSONTyped: () => CreateApplicationRequestFromJSONTyped,
   CreateApplicationRequestToJSON: () => CreateApplicationRequestToJSON,
@@ -179,6 +179,9 @@ __export(src_exports, {
   CreateWebhookResponseWebhookFromJSONTyped: () => CreateWebhookResponseWebhookFromJSONTyped,
   CreateWebhookResponseWebhookToJSON: () => CreateWebhookResponseWebhookToJSON,
   DefaultConfig: () => DefaultConfig,
+  DeleteApiResponseFromJSON: () => DeleteApiResponseFromJSON,
+  DeleteApiResponseFromJSONTyped: () => DeleteApiResponseFromJSONTyped,
+  DeleteApiResponseToJSON: () => DeleteApiResponseToJSON,
   DeleteWebhookResponseFromJSON: () => DeleteWebhookResponseFromJSON,
   DeleteWebhookResponseFromJSONTyped: () => DeleteWebhookResponseFromJSONTyped,
   DeleteWebhookResponseToJSON: () => DeleteWebhookResponseToJSON,
@@ -191,6 +194,22 @@ __export(src_exports, {
   EventTypeToJSON: () => EventTypeToJSON,
   FeatureFlagsApi: () => FeatureFlagsApi,
   FetchError: () => FetchError,
+  GetApiResponseApiApplicationsInnerFromJSON: () => GetApiResponseApiApplicationsInnerFromJSON,
+  GetApiResponseApiApplicationsInnerFromJSONTyped: () => GetApiResponseApiApplicationsInnerFromJSONTyped,
+  GetApiResponseApiApplicationsInnerToJSON: () => GetApiResponseApiApplicationsInnerToJSON,
+  GetApiResponseApiApplicationsInnerTypeEnum: () => GetApiResponseApiApplicationsInnerTypeEnum,
+  GetApiResponseApiFromJSON: () => GetApiResponseApiFromJSON,
+  GetApiResponseApiFromJSONTyped: () => GetApiResponseApiFromJSONTyped,
+  GetApiResponseApiToJSON: () => GetApiResponseApiToJSON,
+  GetApiResponseFromJSON: () => GetApiResponseFromJSON,
+  GetApiResponseFromJSONTyped: () => GetApiResponseFromJSONTyped,
+  GetApiResponseToJSON: () => GetApiResponseToJSON,
+  GetApisResponseApisInnerFromJSON: () => GetApisResponseApisInnerFromJSON,
+  GetApisResponseApisInnerFromJSONTyped: () => GetApisResponseApisInnerFromJSONTyped,
+  GetApisResponseApisInnerToJSON: () => GetApisResponseApisInnerToJSON,
+  GetApisResponseFromJSON: () => GetApisResponseFromJSON,
+  GetApisResponseFromJSONTyped: () => GetApisResponseFromJSONTyped,
+  GetApisResponseToJSON: () => GetApisResponseToJSON,
   GetApplicationResponseApplicationFromJSON: () => GetApplicationResponseApplicationFromJSON,
   GetApplicationResponseApplicationFromJSONTyped: () => GetApplicationResponseApplicationFromJSONTyped,
   GetApplicationResponseApplicationToJSON: () => GetApplicationResponseApplicationToJSON,
@@ -467,15 +486,15 @@ __export(src_exports, {
   instanceOfAddOrganizationUsersRequest: () => instanceOfAddOrganizationUsersRequest,
   instanceOfAddOrganizationUsersRequestUsersInner: () => instanceOfAddOrganizationUsersRequestUsersInner,
   instanceOfAddOrganizationUsersResponse: () => instanceOfAddOrganizationUsersResponse,
-  instanceOfApi: () => instanceOfApi,
-  instanceOfApiApplicationsInner: () => instanceOfApiApplicationsInner,
   instanceOfApiResult: () => instanceOfApiResult,
-  instanceOfApis: () => instanceOfApis,
   instanceOfApplications: () => instanceOfApplications,
+  instanceOfAuthorizeAppApiResponse: () => instanceOfAuthorizeAppApiResponse,
   instanceOfCategory: () => instanceOfCategory,
   instanceOfConnectedAppsAccessToken: () => instanceOfConnectedAppsAccessToken,
   instanceOfConnectedAppsAuthUrl: () => instanceOfConnectedAppsAuthUrl,
   instanceOfConnection: () => instanceOfConnection,
+  instanceOfCreateApisResponse: () => instanceOfCreateApisResponse,
+  instanceOfCreateApisResponseApi: () => instanceOfCreateApisResponseApi,
   instanceOfCreateApplicationRequest: () => instanceOfCreateApplicationRequest,
   instanceOfCreateApplicationResponse: () => instanceOfCreateApplicationResponse,
   instanceOfCreateApplicationResponseApplication: () => instanceOfCreateApplicationResponseApplication,
@@ -509,9 +528,15 @@ __export(src_exports, {
   instanceOfCreateWebHookRequest: () => instanceOfCreateWebHookRequest,
   instanceOfCreateWebhookResponse: () => instanceOfCreateWebhookResponse,
   instanceOfCreateWebhookResponseWebhook: () => instanceOfCreateWebhookResponseWebhook,
+  instanceOfDeleteApiResponse: () => instanceOfDeleteApiResponse,
   instanceOfDeleteWebhookResponse: () => instanceOfDeleteWebhookResponse,
   instanceOfErrorResponse: () => instanceOfErrorResponse,
   instanceOfEventType: () => instanceOfEventType,
+  instanceOfGetApiResponse: () => instanceOfGetApiResponse,
+  instanceOfGetApiResponseApi: () => instanceOfGetApiResponseApi,
+  instanceOfGetApiResponseApiApplicationsInner: () => instanceOfGetApiResponseApiApplicationsInner,
+  instanceOfGetApisResponse: () => instanceOfGetApisResponse,
+  instanceOfGetApisResponseApisInner: () => instanceOfGetApisResponseApisInner,
   instanceOfGetApplicationResponse: () => instanceOfGetApplicationResponse,
   instanceOfGetApplicationResponseApplication: () => instanceOfGetApplicationResponseApplication,
   instanceOfGetApplicationsResponse: () => instanceOfGetApplicationsResponse,
@@ -598,7 +623,7 @@ __export(src_exports, {
 module.exports = __toCommonJS(src_exports);
 
 // src/runtime.ts
-var BASE_PATH = "https://.kinde.com".replace(/\/+$/, "");
+var BASE_PATH = "https://app.kinde.com".replace(/\/+$/, "");
 var Configuration = class {
   constructor(configuration = {}) {
     this.configuration = configuration;
@@ -993,70 +1018,6 @@ function AddOrganizationUsersResponseToJSON(value) {
   };
 }
 
-// src/models/ApiApplicationsInner.ts
-function instanceOfApiApplicationsInner(value) {
-  return true;
-}
-function ApiApplicationsInnerFromJSON(json) {
-  return ApiApplicationsInnerFromJSONTyped(json, false);
-}
-function ApiApplicationsInnerFromJSONTyped(json, ignoreDiscriminator) {
-  if (json == null) {
-    return json;
-  }
-  return {
-    "id": json["id"] == null ? void 0 : json["id"],
-    "name": json["name"] == null ? void 0 : json["name"],
-    "type": json["type"] == null ? void 0 : json["type"],
-    "isActive": json["is_active"] == null ? void 0 : json["is_active"]
-  };
-}
-function ApiApplicationsInnerToJSON(value) {
-  if (value == null) {
-    return value;
-  }
-  return {
-    "id": value["id"],
-    "name": value["name"],
-    "type": value["type"],
-    "is_active": value["isActive"]
-  };
-}
-
-// src/models/Api.ts
-function instanceOfApi(value) {
-  return true;
-}
-function ApiFromJSON(json) {
-  return ApiFromJSONTyped(json, false);
-}
-function ApiFromJSONTyped(json, ignoreDiscriminator) {
-  if (json == null) {
-    return json;
-  }
-  return {
-    "id": json["id"] == null ? void 0 : json["id"],
-    "code": json["code"] == null ? void 0 : json["code"],
-    "name": json["name"] == null ? void 0 : json["name"],
-    "message": json["message"] == null ? void 0 : json["message"],
-    "audience": json["audience"] == null ? void 0 : json["audience"],
-    "applications": json["applications"] == null ? void 0 : json["applications"].map(ApiApplicationsInnerFromJSON)
-  };
-}
-function ApiToJSON(value) {
-  if (value == null) {
-    return value;
-  }
-  return {
-    "id": value["id"],
-    "code": value["code"],
-    "name": value["name"],
-    "message": value["message"],
-    "audience": value["audience"],
-    "applications": value["applications"] == null ? void 0 : value["applications"].map(ApiApplicationsInnerToJSON)
-  };
-}
-
 // src/models/ApiResult.ts
 function instanceOfApiResult(value) {
   return true;
@@ -1078,36 +1039,6 @@ function ApiResultToJSON(value) {
   }
   return {
     "result": value["result"]
-  };
-}
-
-// src/models/Apis.ts
-function instanceOfApis(value) {
-  return true;
-}
-function ApisFromJSON(json) {
-  return ApisFromJSONTyped(json, false);
-}
-function ApisFromJSONTyped(json, ignoreDiscriminator) {
-  if (json == null) {
-    return json;
-  }
-  return {
-    "id": json["id"] == null ? void 0 : json["id"],
-    "name": json["name"] == null ? void 0 : json["name"],
-    "audience": json["audience"] == null ? void 0 : json["audience"],
-    "isManagementApi": json["is_management_api"] == null ? void 0 : json["is_management_api"]
-  };
-}
-function ApisToJSON(value) {
-  if (value == null) {
-    return value;
-  }
-  return {
-    "id": value["id"],
-    "name": value["name"],
-    "audience": value["audience"],
-    "is_management_api": value["isManagementApi"]
   };
 }
 
@@ -1136,6 +1067,36 @@ function ApplicationsToJSON(value) {
     "id": value["id"],
     "name": value["name"],
     "type": value["type"]
+  };
+}
+
+// src/models/AuthorizeAppApiResponse.ts
+function instanceOfAuthorizeAppApiResponse(value) {
+  return true;
+}
+function AuthorizeAppApiResponseFromJSON(json) {
+  return AuthorizeAppApiResponseFromJSONTyped(json, false);
+}
+function AuthorizeAppApiResponseFromJSONTyped(json, ignoreDiscriminator) {
+  if (json == null) {
+    return json;
+  }
+  return {
+    "message": json["message"] == null ? void 0 : json["message"],
+    "code": json["code"] == null ? void 0 : json["code"],
+    "applicationsDisconnected": json["applications_disconnected"] == null ? void 0 : json["applications_disconnected"],
+    "applicationsConnected": json["applications_connected"] == null ? void 0 : json["applications_connected"]
+  };
+}
+function AuthorizeAppApiResponseToJSON(value) {
+  if (value == null) {
+    return value;
+  }
+  return {
+    "message": value["message"],
+    "code": value["code"],
+    "applications_disconnected": value["applicationsDisconnected"],
+    "applications_connected": value["applicationsConnected"]
   };
 }
 
@@ -1244,6 +1205,58 @@ function ConnectionToJSON(value) {
     "name": value["name"],
     "display_name": value["displayName"],
     "strategy": value["strategy"]
+  };
+}
+
+// src/models/CreateApisResponseApi.ts
+function instanceOfCreateApisResponseApi(value) {
+  return true;
+}
+function CreateApisResponseApiFromJSON(json) {
+  return CreateApisResponseApiFromJSONTyped(json, false);
+}
+function CreateApisResponseApiFromJSONTyped(json, ignoreDiscriminator) {
+  if (json == null) {
+    return json;
+  }
+  return {
+    "id": json["id"] == null ? void 0 : json["id"]
+  };
+}
+function CreateApisResponseApiToJSON(value) {
+  if (value == null) {
+    return value;
+  }
+  return {
+    "id": value["id"]
+  };
+}
+
+// src/models/CreateApisResponse.ts
+function instanceOfCreateApisResponse(value) {
+  return true;
+}
+function CreateApisResponseFromJSON(json) {
+  return CreateApisResponseFromJSONTyped(json, false);
+}
+function CreateApisResponseFromJSONTyped(json, ignoreDiscriminator) {
+  if (json == null) {
+    return json;
+  }
+  return {
+    "message": json["message"] == null ? void 0 : json["message"],
+    "code": json["code"] == null ? void 0 : json["code"],
+    "api": json["api"] == null ? void 0 : CreateApisResponseApiFromJSON(json["api"])
+  };
+}
+function CreateApisResponseToJSON(value) {
+  if (value == null) {
+    return value;
+  }
+  return {
+    "message": value["message"],
+    "code": value["code"],
+    "api": CreateApisResponseApiToJSON(value["api"])
   };
 }
 
@@ -2320,6 +2333,32 @@ function CreateWebhookResponseToJSON(value) {
   };
 }
 
+// src/models/DeleteApiResponse.ts
+function instanceOfDeleteApiResponse(value) {
+  return true;
+}
+function DeleteApiResponseFromJSON(json) {
+  return DeleteApiResponseFromJSONTyped(json, false);
+}
+function DeleteApiResponseFromJSONTyped(json, ignoreDiscriminator) {
+  if (json == null) {
+    return json;
+  }
+  return {
+    "message": json["message"] == null ? void 0 : json["message"],
+    "code": json["code"] == null ? void 0 : json["code"]
+  };
+}
+function DeleteApiResponseToJSON(value) {
+  if (value == null) {
+    return value;
+  }
+  return {
+    "message": value["message"],
+    "code": value["code"]
+  };
+}
+
 // src/models/DeleteWebhookResponse.ts
 function instanceOfDeleteWebhookResponse(value) {
   return true;
@@ -2425,6 +2464,161 @@ function EventTypeToJSON(value) {
     "name": value["name"],
     "origin": value["origin"],
     "schema": value["schema"]
+  };
+}
+
+// src/models/GetApiResponseApiApplicationsInner.ts
+var GetApiResponseApiApplicationsInnerTypeEnum = {
+  MachineToMachineM2M: "Machine to machine (M2M)",
+  BackEndWeb: "Back-end web",
+  FrontEndAndMobile: "Front-end and mobile"
+};
+function instanceOfGetApiResponseApiApplicationsInner(value) {
+  return true;
+}
+function GetApiResponseApiApplicationsInnerFromJSON(json) {
+  return GetApiResponseApiApplicationsInnerFromJSONTyped(json, false);
+}
+function GetApiResponseApiApplicationsInnerFromJSONTyped(json, ignoreDiscriminator) {
+  if (json == null) {
+    return json;
+  }
+  return {
+    "id": json["id"] == null ? void 0 : json["id"],
+    "name": json["name"] == null ? void 0 : json["name"],
+    "type": json["type"] == null ? void 0 : json["type"],
+    "isActive": json["is_active"] == null ? void 0 : json["is_active"]
+  };
+}
+function GetApiResponseApiApplicationsInnerToJSON(value) {
+  if (value == null) {
+    return value;
+  }
+  return {
+    "id": value["id"],
+    "name": value["name"],
+    "type": value["type"],
+    "is_active": value["isActive"]
+  };
+}
+
+// src/models/GetApiResponseApi.ts
+function instanceOfGetApiResponseApi(value) {
+  return true;
+}
+function GetApiResponseApiFromJSON(json) {
+  return GetApiResponseApiFromJSONTyped(json, false);
+}
+function GetApiResponseApiFromJSONTyped(json, ignoreDiscriminator) {
+  if (json == null) {
+    return json;
+  }
+  return {
+    "id": json["id"] == null ? void 0 : json["id"],
+    "name": json["name"] == null ? void 0 : json["name"],
+    "audience": json["audience"] == null ? void 0 : json["audience"],
+    "isManagementApi": json["is_management_api"] == null ? void 0 : json["is_management_api"],
+    "applications": json["applications"] == null ? void 0 : json["applications"].map(GetApiResponseApiApplicationsInnerFromJSON)
+  };
+}
+function GetApiResponseApiToJSON(value) {
+  if (value == null) {
+    return value;
+  }
+  return {
+    "id": value["id"],
+    "name": value["name"],
+    "audience": value["audience"],
+    "is_management_api": value["isManagementApi"],
+    "applications": value["applications"] == null ? void 0 : value["applications"].map(GetApiResponseApiApplicationsInnerToJSON)
+  };
+}
+
+// src/models/GetApiResponse.ts
+function instanceOfGetApiResponse(value) {
+  return true;
+}
+function GetApiResponseFromJSON(json) {
+  return GetApiResponseFromJSONTyped(json, false);
+}
+function GetApiResponseFromJSONTyped(json, ignoreDiscriminator) {
+  if (json == null) {
+    return json;
+  }
+  return {
+    "code": json["code"] == null ? void 0 : json["code"],
+    "message": json["message"] == null ? void 0 : json["message"],
+    "api": json["api"] == null ? void 0 : GetApiResponseApiFromJSON(json["api"])
+  };
+}
+function GetApiResponseToJSON(value) {
+  if (value == null) {
+    return value;
+  }
+  return {
+    "code": value["code"],
+    "message": value["message"],
+    "api": GetApiResponseApiToJSON(value["api"])
+  };
+}
+
+// src/models/GetApisResponseApisInner.ts
+function instanceOfGetApisResponseApisInner(value) {
+  return true;
+}
+function GetApisResponseApisInnerFromJSON(json) {
+  return GetApisResponseApisInnerFromJSONTyped(json, false);
+}
+function GetApisResponseApisInnerFromJSONTyped(json, ignoreDiscriminator) {
+  if (json == null) {
+    return json;
+  }
+  return {
+    "id": json["id"] == null ? void 0 : json["id"],
+    "name": json["name"] == null ? void 0 : json["name"],
+    "audience": json["audience"] == null ? void 0 : json["audience"],
+    "isManagementApi": json["is_management_api"] == null ? void 0 : json["is_management_api"]
+  };
+}
+function GetApisResponseApisInnerToJSON(value) {
+  if (value == null) {
+    return value;
+  }
+  return {
+    "id": value["id"],
+    "name": value["name"],
+    "audience": value["audience"],
+    "is_management_api": value["isManagementApi"]
+  };
+}
+
+// src/models/GetApisResponse.ts
+function instanceOfGetApisResponse(value) {
+  return true;
+}
+function GetApisResponseFromJSON(json) {
+  return GetApisResponseFromJSONTyped(json, false);
+}
+function GetApisResponseFromJSONTyped(json, ignoreDiscriminator) {
+  if (json == null) {
+    return json;
+  }
+  return {
+    "code": json["code"] == null ? void 0 : json["code"],
+    "message": json["message"] == null ? void 0 : json["message"],
+    "nextToken": json["next_token"] == null ? void 0 : json["next_token"],
+    "apis": json["apis"] == null ? void 0 : json["apis"].map(GetApisResponseApisInnerFromJSON)
+  };
+}
+function GetApisResponseToJSON(value) {
+  if (value == null) {
+    return value;
+  }
+  return {
+    "code": value["code"],
+    "message": value["message"],
+    "next_token": value["nextToken"],
+    "apis": value["apis"] == null ? void 0 : value["apis"].map(GetApisResponseApisInnerToJSON)
   };
 }
 
@@ -4776,8 +4970,8 @@ function UsersResponseToJSON(value) {
 // src/apis/APIsApi.ts
 var APIsApi = class extends BaseAPI {
   /**
-   * Add APIs. 
-   * Add APIs
+   * Register a new API. For more information read [Register and manage APIs](https://docs.kinde.com/developer-tools/your-apis/register-manage-apis/).
+   * Create API
    */
   async addAPIsRaw(requestParameters, initOverrides) {
     if (requestParameters["addAPIsRequest"] == null) {
@@ -4799,18 +4993,18 @@ var APIsApi = class extends BaseAPI {
       query: queryParameters,
       body: AddAPIsRequestToJSON(requestParameters["addAPIsRequest"])
     }, initOverrides);
-    return new JSONApiResponse(response, (jsonValue) => SuccessResponseFromJSON(jsonValue));
+    return new JSONApiResponse(response, (jsonValue) => CreateApisResponseFromJSON(jsonValue));
   }
   /**
-   * Add APIs. 
-   * Add APIs
+   * Register a new API. For more information read [Register and manage APIs](https://docs.kinde.com/developer-tools/your-apis/register-manage-apis/).
+   * Create API
    */
   async addAPIs(requestParameters, initOverrides) {
     const response = await this.addAPIsRaw(requestParameters, initOverrides);
     return await response.value();
   }
   /**
-   * Deletes API. 
+   * Delete an API you previously created.
    * Delete API
    */
   async deleteAPIRaw(requestParameters, initOverrides) {
@@ -4831,10 +5025,10 @@ var APIsApi = class extends BaseAPI {
       headers: headerParameters,
       query: queryParameters
     }, initOverrides);
-    return new JSONApiResponse(response, (jsonValue) => SuccessResponseFromJSON(jsonValue));
+    return new JSONApiResponse(response, (jsonValue) => DeleteApiResponseFromJSON(jsonValue));
   }
   /**
-   * Deletes API. 
+   * Delete an API you previously created.
    * Delete API
    */
   async deleteAPI(requestParameters, initOverrides) {
@@ -4842,8 +5036,8 @@ var APIsApi = class extends BaseAPI {
     return await response.value();
   }
   /**
-   * Returns the details of the API. 
-   * List API details
+   * Retrieve API details by ID.
+   * Get API
    */
   async getAPIRaw(requestParameters, initOverrides) {
     if (requestParameters["apiId"] == null) {
@@ -4863,19 +5057,19 @@ var APIsApi = class extends BaseAPI {
       headers: headerParameters,
       query: queryParameters
     }, initOverrides);
-    return new JSONApiResponse(response, (jsonValue) => ApiFromJSON(jsonValue));
+    return new JSONApiResponse(response, (jsonValue) => GetApiResponseFromJSON(jsonValue));
   }
   /**
-   * Returns the details of the API. 
-   * List API details
+   * Retrieve API details by ID.
+   * Get API
    */
   async getAPI(requestParameters, initOverrides) {
     const response = await this.getAPIRaw(requestParameters, initOverrides);
     return await response.value();
   }
   /**
-   * Returns a list of APIs. 
-   * List APIs
+   * Returns a list of your APIs. The APIs are returned sorted by name.
+   * Get APIs
    */
   async getAPIsRaw(initOverrides) {
     const queryParameters = {};
@@ -4889,19 +5083,19 @@ var APIsApi = class extends BaseAPI {
       headers: headerParameters,
       query: queryParameters
     }, initOverrides);
-    return new JSONApiResponse(response, (jsonValue) => ApisFromJSON(jsonValue));
+    return new JSONApiResponse(response, (jsonValue) => GetApisResponseFromJSON(jsonValue));
   }
   /**
-   * Returns a list of APIs. 
-   * List APIs
+   * Returns a list of your APIs. The APIs are returned sorted by name.
+   * Get APIs
    */
   async getAPIs(initOverrides) {
     const response = await this.getAPIsRaw(initOverrides);
     return await response.value();
   }
   /**
-   * Update the applications under that API. 
-   * Update API Applications
+   * Authorize applications to be allowed to request access tokens for an API
+   * Authorize API applications
    */
   async updateAPIApplicationsRaw(requestParameters, initOverrides) {
     if (requestParameters["apiId"] == null) {
@@ -4929,11 +5123,11 @@ var APIsApi = class extends BaseAPI {
       query: queryParameters,
       body: UpdateAPIApplicationsRequestToJSON(requestParameters["updateAPIApplicationsRequest"])
     }, initOverrides);
-    return new JSONApiResponse(response, (jsonValue) => SuccessResponseFromJSON(jsonValue));
+    return new JSONApiResponse(response, (jsonValue) => AuthorizeAppApiResponseFromJSON(jsonValue));
   }
   /**
-   * Update the applications under that API. 
-   * Update API Applications
+   * Authorize applications to be allowed to request access tokens for an API
+   * Authorize API applications
    */
   async updateAPIApplications(requestParameters, initOverrides) {
     const response = await this.updateAPIApplicationsRaw(requestParameters, initOverrides);
@@ -4944,7 +5138,7 @@ var APIsApi = class extends BaseAPI {
 // src/apis/ApplicationsApi.ts
 var ApplicationsApi = class extends BaseAPI {
   /**
-   * Create an application.
+   * Create a new client.
    * Create Application
    */
   async createApplicationRaw(requestParameters, initOverrides) {
@@ -4964,7 +5158,7 @@ var ApplicationsApi = class extends BaseAPI {
     return new JSONApiResponse(response, (jsonValue) => CreateApplicationResponseFromJSON(jsonValue));
   }
   /**
-   * Create an application.
+   * Create a new client.
    * Create Application
    */
   async createApplication(requestParameters = {}, initOverrides) {
@@ -4972,8 +5166,8 @@ var ApplicationsApi = class extends BaseAPI {
     return await response.value();
   }
   /**
-   * Delete application. 
-   * Delete Application
+   * Delete a client / application.
+   * Delete application
    */
   async deleteApplicationRaw(requestParameters, initOverrides) {
     if (requestParameters["applicationId"] == null) {
@@ -4996,8 +5190,8 @@ var ApplicationsApi = class extends BaseAPI {
     return new JSONApiResponse(response, (jsonValue) => SuccessResponseFromJSON(jsonValue));
   }
   /**
-   * Delete application. 
-   * Delete Application
+   * Delete a client / application.
+   * Delete application
    */
   async deleteApplication(requestParameters, initOverrides) {
     const response = await this.deleteApplicationRaw(requestParameters, initOverrides);
@@ -5041,8 +5235,8 @@ var ApplicationsApi = class extends BaseAPI {
     await this.enableConnectionRaw(requestParameters, initOverrides);
   }
   /**
-   * Gets an application given the application\'s id. 
-   * Get Application
+   * Gets an application given the application\'s ID.
+   * Get application
    */
   async getApplicationRaw(requestParameters, initOverrides) {
     if (requestParameters["applicationId"] == null) {
@@ -5065,8 +5259,8 @@ var ApplicationsApi = class extends BaseAPI {
     return new JSONApiResponse(response, (jsonValue) => GetApplicationResponseFromJSON(jsonValue));
   }
   /**
-   * Gets an application given the application\'s id. 
-   * Get Application
+   * Gets an application given the application\'s ID.
+   * Get application
    */
   async getApplication(requestParameters, initOverrides) {
     const response = await this.getApplicationRaw(requestParameters, initOverrides);
@@ -5105,8 +5299,8 @@ var ApplicationsApi = class extends BaseAPI {
     return await response.value();
   }
   /**
-   * Get a list of applications. 
-   * List Applications
+   * Get a list of applications / clients.
+   * Get applications
    */
   async getApplicationsRaw(requestParameters, initOverrides) {
     const queryParameters = {};
@@ -5132,8 +5326,8 @@ var ApplicationsApi = class extends BaseAPI {
     return new JSONApiResponse(response, (jsonValue) => GetApplicationsResponseFromJSON(jsonValue));
   }
   /**
-   * Get a list of applications. 
-   * List Applications
+   * Get a list of applications / clients.
+   * Get applications
    */
   async getApplications(requestParameters = {}, initOverrides) {
     const response = await this.getApplicationsRaw(requestParameters, initOverrides);
@@ -5178,7 +5372,7 @@ var ApplicationsApi = class extends BaseAPI {
     return await response.value();
   }
   /**
-   * Update an application.
+   * Updates a client\'s settings. For more information, read [Applications in Kinde](https://docs.kinde.com/build/applications/about-applications)
    * Update Application
    */
   async updateApplicationRaw(requestParameters, initOverrides) {
@@ -5204,7 +5398,7 @@ var ApplicationsApi = class extends BaseAPI {
     return new VoidApiResponse(response);
   }
   /**
-   * Update an application.
+   * Updates a client\'s settings. For more information, read [Applications in Kinde](https://docs.kinde.com/build/applications/about-applications)
    * Update Application
    */
   async updateApplication(requestParameters, initOverrides) {
@@ -8996,22 +9190,16 @@ var WebhooksApi = class extends BaseAPI {
   AddOrganizationUsersResponseFromJSON,
   AddOrganizationUsersResponseFromJSONTyped,
   AddOrganizationUsersResponseToJSON,
-  ApiApplicationsInnerFromJSON,
-  ApiApplicationsInnerFromJSONTyped,
-  ApiApplicationsInnerToJSON,
-  ApiFromJSON,
-  ApiFromJSONTyped,
   ApiResultFromJSON,
   ApiResultFromJSONTyped,
   ApiResultToJSON,
-  ApiToJSON,
-  ApisFromJSON,
-  ApisFromJSONTyped,
-  ApisToJSON,
   ApplicationsApi,
   ApplicationsFromJSON,
   ApplicationsFromJSONTyped,
   ApplicationsToJSON,
+  AuthorizeAppApiResponseFromJSON,
+  AuthorizeAppApiResponseFromJSONTyped,
+  AuthorizeAppApiResponseToJSON,
   BASE_PATH,
   BaseAPI,
   BlobApiResponse,
@@ -9033,6 +9221,12 @@ var WebhooksApi = class extends BaseAPI {
   ConnectionFromJSONTyped,
   ConnectionToJSON,
   ConnectionsApi,
+  CreateApisResponseApiFromJSON,
+  CreateApisResponseApiFromJSONTyped,
+  CreateApisResponseApiToJSON,
+  CreateApisResponseFromJSON,
+  CreateApisResponseFromJSONTyped,
+  CreateApisResponseToJSON,
   CreateApplicationRequestFromJSON,
   CreateApplicationRequestFromJSONTyped,
   CreateApplicationRequestToJSON,
@@ -9143,6 +9337,9 @@ var WebhooksApi = class extends BaseAPI {
   CreateWebhookResponseWebhookFromJSONTyped,
   CreateWebhookResponseWebhookToJSON,
   DefaultConfig,
+  DeleteApiResponseFromJSON,
+  DeleteApiResponseFromJSONTyped,
+  DeleteApiResponseToJSON,
   DeleteWebhookResponseFromJSON,
   DeleteWebhookResponseFromJSONTyped,
   DeleteWebhookResponseToJSON,
@@ -9155,6 +9352,22 @@ var WebhooksApi = class extends BaseAPI {
   EventTypeToJSON,
   FeatureFlagsApi,
   FetchError,
+  GetApiResponseApiApplicationsInnerFromJSON,
+  GetApiResponseApiApplicationsInnerFromJSONTyped,
+  GetApiResponseApiApplicationsInnerToJSON,
+  GetApiResponseApiApplicationsInnerTypeEnum,
+  GetApiResponseApiFromJSON,
+  GetApiResponseApiFromJSONTyped,
+  GetApiResponseApiToJSON,
+  GetApiResponseFromJSON,
+  GetApiResponseFromJSONTyped,
+  GetApiResponseToJSON,
+  GetApisResponseApisInnerFromJSON,
+  GetApisResponseApisInnerFromJSONTyped,
+  GetApisResponseApisInnerToJSON,
+  GetApisResponseFromJSON,
+  GetApisResponseFromJSONTyped,
+  GetApisResponseToJSON,
   GetApplicationResponseApplicationFromJSON,
   GetApplicationResponseApplicationFromJSONTyped,
   GetApplicationResponseApplicationToJSON,
@@ -9431,15 +9644,15 @@ var WebhooksApi = class extends BaseAPI {
   instanceOfAddOrganizationUsersRequest,
   instanceOfAddOrganizationUsersRequestUsersInner,
   instanceOfAddOrganizationUsersResponse,
-  instanceOfApi,
-  instanceOfApiApplicationsInner,
   instanceOfApiResult,
-  instanceOfApis,
   instanceOfApplications,
+  instanceOfAuthorizeAppApiResponse,
   instanceOfCategory,
   instanceOfConnectedAppsAccessToken,
   instanceOfConnectedAppsAuthUrl,
   instanceOfConnection,
+  instanceOfCreateApisResponse,
+  instanceOfCreateApisResponseApi,
   instanceOfCreateApplicationRequest,
   instanceOfCreateApplicationResponse,
   instanceOfCreateApplicationResponseApplication,
@@ -9473,9 +9686,15 @@ var WebhooksApi = class extends BaseAPI {
   instanceOfCreateWebHookRequest,
   instanceOfCreateWebhookResponse,
   instanceOfCreateWebhookResponseWebhook,
+  instanceOfDeleteApiResponse,
   instanceOfDeleteWebhookResponse,
   instanceOfErrorResponse,
   instanceOfEventType,
+  instanceOfGetApiResponse,
+  instanceOfGetApiResponseApi,
+  instanceOfGetApiResponseApiApplicationsInner,
+  instanceOfGetApisResponse,
+  instanceOfGetApisResponseApisInner,
   instanceOfGetApplicationResponse,
   instanceOfGetApplicationResponseApplication,
   instanceOfGetApplicationsResponse,
