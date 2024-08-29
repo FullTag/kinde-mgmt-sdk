@@ -11,9 +11,12 @@ info:
 servers:
   - url: https://{your_subdomain}.kinde.com
     variables:
-      businessName:
+      your_subdomain:
         default: app
-        description: Business name created in the Kinde admin area.
+        description: The subdomain generated for your business on Kinde.
+      basePath:
+        default: v1
+        description: The version of the API.
 tags:
   - name: OAuth
     x-displayName: OAuth
@@ -190,54 +193,39 @@ paths:
       tags:
         - APIs
       operationId: getAPIs
-      description: |
-        Returns a list of APIs.
+      summary: Get APIs
+      description: Returns a list of your APIs. The APIs are returned sorted by name.
       security:
         - ManagementAPI:
             - read:apis
-      summary: List APIs
       responses:
         '200':
-          description: APIs successfully retrieved.
+          description: A list of APIs.
           content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/apis'
             application/json:
               schema:
-                $ref: '#/components/schemas/apis'
+                $ref: '#/components/schemas/get_apis_response'
         '400':
-          description: Invalid request.
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/error_response'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error_response'
+          $ref: '#/components/responses/bad_request'
         '403':
-          description: Invalid credentials.
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/error_response'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error_response'
+          $ref: '#/components/responses/forbidden'
         '429':
-          description: Request was throttled.
+          $ref: '#/components/responses/too_many_requests'
     post:
       tags:
         - APIs
       operationId: addAPIs
-      description: |
-        Add APIs.
+      summary: Create API
+      description: >-
+        Register a new API. For more information read [Register and manage
+        APIs](https://docs.kinde.com/developer-tools/your-apis/register-manage-apis/).
+      externalDocs:
+        url: https://docs.kinde.com/developer-tools/your-apis/register-manage-apis
+        description: Register and manage APIs
       security:
         - ManagementAPI:
             - create:apis
-      summary: Add APIs
       requestBody:
-        description: API details.
         required: true
         content:
           application/json:
@@ -246,8 +234,15 @@ paths:
               properties:
                 name:
                   type: string
+                  description: The name of the API. (1-64 characters).
+                  example: Example API
                 audience:
                   type: string
+                  description: >-
+                    A unique identifier for the API - commonly the URL. This
+                    value will be used as the `audience` parameter in
+                    authorization claims. (1-64 characters)
+                  example: https://api.example.com
               required:
                 - name
                 - audience
@@ -255,149 +250,76 @@ paths:
         '200':
           description: APIs successfully updated
           content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/success_response'
             application/json:
               schema:
-                $ref: '#/components/schemas/success_response'
+                $ref: '#/components/schemas/create_apis_response'
         '400':
-          description: Invalid request.
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/error_response'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error_response'
+          $ref: '#/components/responses/bad_request'
         '403':
-          description: Invalid credentials.
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/error_response'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error_response'
+          $ref: '#/components/responses/forbidden'
         '429':
-          description: Request was throttled.
+          $ref: '#/components/responses/too_many_requests'
   /api/v1/apis/{api_id}:
+    parameters:
+      - $ref: '#/components/parameters/api_id'
     get:
       tags:
         - APIs
       operationId: getAPI
-      description: |
-        Returns the details of the API.
+      summary: Get API
+      description: Retrieve API details by ID.
       security:
         - ManagementAPI:
             - read:apis
-      summary: List API details
-      parameters:
-        - name: api_id
-          in: path
-          description: The API's id.
-          required: true
-          schema:
-            type: string
-            nullable: false
       responses:
         '200':
           description: API successfully retrieved.
           content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/api'
             application/json:
               schema:
-                $ref: '#/components/schemas/api'
+                $ref: '#/components/schemas/get_api_response'
         '400':
-          description: Invalid request.
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/error_response'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error_response'
+          $ref: '#/components/responses/bad_request'
         '403':
-          description: Invalid credentials.
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/error_response'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error_response'
+          $ref: '#/components/responses/forbidden'
         '429':
-          description: Request was throttled.
+          $ref: '#/components/responses/too_many_requests'
     delete:
       tags:
         - APIs
       operationId: deleteAPI
-      description: |
-        Deletes API.
+      summary: Delete API
+      description: Delete an API you previously created.
       security:
         - ManagementAPI:
             - delete:apis
-      summary: Delete API
-      parameters:
-        - name: api_id
-          in: path
-          description: The API's id.
-          required: true
-          schema:
-            type: string
-            nullable: false
       responses:
         '200':
           description: API successfully deleted.
           content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/success_response'
             application/json:
               schema:
-                $ref: '#/components/schemas/success_response'
+                $ref: '#/components/schemas/delete_api_response'
         '400':
-          description: Invalid request.
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/error_response'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error_response'
+          $ref: '#/components/responses/bad_request'
         '403':
-          description: Invalid credentials.
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/error_response'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error_response'
+          $ref: '#/components/responses/forbidden'
         '429':
-          description: Request was throttled.
+          $ref: '#/components/responses/too_many_requests'
   /api/v1/apis/{api_id}/applications:
+    parameters:
+      - $ref: '#/components/parameters/api_id'
     patch:
       tags:
         - APIs
       operationId: updateAPIApplications
-      description: |
-        Update the applications under that API.
+      summary: Authorize API applications
+      description: Authorize applications to be allowed to request access tokens for an API
       security:
         - ManagementAPI:
             - update:apis
-      summary: Update API Applications
-      parameters:
-        - name: api_id
-          in: path
-          description: The identifier for the API.
-          required: true
-          schema:
-            type: string
       requestBody:
-        description: The applications you want to connect or disconnect.
+        description: The applications you want to authorize.
         required: true
         content:
           application/json:
@@ -414,54 +336,39 @@ paths:
                       - id
                     properties:
                       id:
-                        description: The application's id.
+                        description: The application's Client ID.
                         type: string
+                        example: d2db282d6214242b3b145c123f0c123
                       operation:
                         description: >-
-                          Optional operation, set to 'delete' to remove the user
-                          from the organization.
+                          Optional operation, set to 'delete' to revoke
+                          authorization for the application. If not set, the
+                          application will be authorized.
                         type: string
+                        example: delete
       responses:
         '200':
-          description: API applications updated.
+          description: Authorized applications updated.
           content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/success_response'
             application/json:
               schema:
-                $ref: '#/components/schemas/success_response'
+                $ref: '#/components/schemas/authorize_app_api_response'
         '400':
-          description: Invalid request.
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/error_response'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error_response'
+          $ref: '#/components/responses/bad_request'
         '403':
-          description: Invalid credentials.
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/error_response'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error_response'
+          $ref: '#/components/responses/forbidden'
         '429':
-          description: Request was throttled.
+          $ref: '#/components/responses/too_many_requests'
   /api/v1/applications:
     get:
       tags:
         - Applications
       operationId: getApplications
-      description: |
-        Get a list of applications.
+      summary: Get applications
+      description: Get a list of applications / clients.
       security:
         - ManagementAPI:
             - read:applications
-      summary: List Applications
       parameters:
         - name: sort
           in: query
@@ -491,22 +398,21 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/get_applications_response'
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/get_applications_response'
+        '400':
+          $ref: '#/components/responses/bad_request'
         '403':
-          description: Invalid credentials.
+          $ref: '#/components/responses/forbidden'
         '429':
-          description: Request was throttled.
+          $ref: '#/components/responses/too_many_requests'
     post:
       tags:
         - Applications
       operationId: createApplication
-      description: Create an application.
+      summary: Create Application
+      description: Create a new client.
       security:
         - ManagementAPI:
             - create:applications
-      summary: Create Application
       requestBody:
         description: Application details.
         required: false
@@ -532,30 +438,19 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/create_application_response'
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/create_application_response'
         '400':
-          description: Error creating user.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error_response'
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/error_response'
+          $ref: '#/components/responses/bad_request'
         '403':
-          description: Invalid credentials.
+          $ref: '#/components/responses/forbidden'
         '429':
-          description: Request was throttled.
+          $ref: '#/components/responses/too_many_requests'
   /api/v1/applications/{application_id}:
     get:
       tags:
         - Applications
       operationId: getApplication
-      description: |
-        Gets an application given the application's id.
-      summary: Get Application
+      summary: Get application
+      description: Gets an application given the application's ID.
       security:
         - ManagementAPI:
             - read:applications
@@ -574,28 +469,20 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/get_application_response'
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/get_application_response'
         '400':
-          description: Bad request.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error_response'
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/error_response'
+          $ref: '#/components/responses/bad_request'
         '403':
-          description: Invalid credentials.
+          $ref: '#/components/responses/forbidden'
         '429':
-          description: Request was throttled.
+          $ref: '#/components/responses/too_many_requests'
     patch:
       tags:
         - Applications
       operationId: updateApplication
-      description: Update an application.
       summary: Update Application
+      description: >-
+        Updates a client's settings. For more information, read [Applications in
+        Kinde](https://docs.kinde.com/build/applications/about-applications)
       security:
         - ManagementAPI:
             - update:applications
@@ -640,28 +527,20 @@ paths:
         '200':
           description: Application successfully updated.
         '400':
-          description: Bad request.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error_response'
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/error_response'
+          $ref: '#/components/responses/bad_request'
         '403':
-          description: Invalid credentials.
+          $ref: '#/components/responses/forbidden'
         '429':
-          description: Request was throttled.
+          $ref: '#/components/responses/too_many_requests'
     delete:
       tags:
         - Applications
       operationId: deleteApplication
-      description: |
-        Delete application.
+      summary: Delete application
+      description: Delete a client / application.
       security:
         - ManagementAPI:
             - delete:applications
-      summary: Delete Application
       parameters:
         - name: application_id
           in: path
@@ -676,36 +555,22 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success_response'
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/success_response'
         '400':
-          description: Invalid request.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error_response'
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/error_response'
+          $ref: '#/components/responses/bad_request'
         '403':
-          description: Invalid credentials.
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/error_response'
+          $ref: '#/components/responses/forbidden'
         '429':
-          description: Request was throttled.
+          $ref: '#/components/responses/too_many_requests'
   /api/v1/applications/{application_id}/connections:
     get:
       tags:
         - Applications
       operationId: GetApplicationConnections
       description: Gets all connections for an application.
+      summary: Get connections
       security:
         - ManagementAPI:
             - read:application_connections
-      summary: Get connections
       parameters:
         - name: application_id
           in: path
@@ -721,32 +586,22 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/get_connections_response'
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/get_connections_response'
         '400':
-          description: Bad request.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error_response'
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/error_response'
+          $ref: '#/components/responses/bad_request'
         '403':
-          description: Invalid credentials.
+          $ref: '#/components/responses/forbidden'
         '429':
-          description: Request was throttled.
+          $ref: '#/components/responses/too_many_requests'
   /api/v1/applications/{application_id}/connections/{connection_id}:
     post:
       tags:
         - Applications
       operationId: EnableConnection
+      summary: Enable connection
       description: Enable an auth connection for an application.
       security:
         - ManagementAPI:
             - create:application_connections
-      summary: Enable connection
       parameters:
         - name: application_id
           in: path
@@ -764,24 +619,17 @@ paths:
         '200':
           description: Connection successfully enabled.
         '400':
-          description: Bad request.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error_response'
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/error_response'
+          $ref: '#/components/responses/bad_request'
         '403':
-          description: Invalid credentials.
+          $ref: '#/components/responses/forbidden'
         '429':
-          description: Request was throttled.
+          $ref: '#/components/responses/too_many_requests'
     delete:
       tags:
         - Applications
       operationId: RemoveConnection
-      description: Turn off an auth connection for an application
       summary: Remove connection
+      description: Turn off an auth connection for an application
       security:
         - ManagementAPI:
             - delete:application_connections
@@ -805,26 +653,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success_response'
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/success_response'
         '400':
-          description: Invalid request.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error_response'
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/error_response'
+          $ref: '#/components/responses/bad_request'
         '403':
-          description: Invalid credentials.
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/error_response'
+          $ref: '#/components/responses/forbidden'
         '429':
-          description: Request was throttled.
+          $ref: '#/components/responses/too_many_requests'
   /api/v1/business:
     get:
       tags:
@@ -2445,9 +2279,6 @@ paths:
           description: Organization successfully retrieved.
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/organization'
-            application/json; charset=utf-8:
               schema:
                 $ref: '#/components/schemas/organization'
         '400':
@@ -5901,14 +5732,50 @@ paths:
         '429':
           description: Request was throttled.
 components:
+  parameters:
+    api_id:
+      in: path
+      name: api_id
+      description: The API's ID.
+      required: true
+      schema:
+        type: string
+        example: 7ccd126599aa422a771abcb341596881
+  responses:
+    bad_request:
+      description: Invalid request.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/error_response'
+    not_found:
+      description: The specified resource was not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/error_response'
+    forbidden:
+      description: Unauthorized - invalid credentials.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/error_response'
+    too_many_requests:
+      description: Too many requests. Request was throttled.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/error_response'
   schemas:
     success_response:
       type: object
       properties:
         message:
           type: string
+          example: Success
         code:
           type: string
+          example: OK
     error:
       type: object
       properties:
@@ -5925,6 +5792,151 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/error'
+    get_apis_response:
+      type: object
+      properties:
+        code:
+          type: string
+          description: Response code.
+          example: OK
+        message:
+          type: string
+          description: Response message.
+          example: Success
+        next_token:
+          type: string
+          description: Pagination token.
+          example: Njo5Om1hvWVfYXNj
+        apis:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                description: The unique ID for the API.
+                type: string
+                example: 7ccd126599aa422a771abcb341596881
+              name:
+                type: string
+                description: The API’s name.
+                example: Example API
+              audience:
+                type: string
+                description: >-
+                  A unique identifier for the API - commonly the URL. This value
+                  will be used as the `audience` parameter in authorization
+                  claims.
+                example: https://api.example.com
+              is_management_api:
+                type: boolean
+                description: Whether or not it is the Kinde management API.
+                example: false
+    create_apis_response:
+      type: object
+      properties:
+        message:
+          type: string
+          description: A Kinde generated message.
+          example: Success
+        code:
+          type: string
+          description: A Kinde generated status code.
+          example: OK
+        api:
+          type: object
+          properties:
+            id:
+              description: The unique ID for the API.
+              type: string
+              example: 7ccd126599aa422a771abcb341596881
+    get_api_response:
+      type: object
+      properties:
+        code:
+          type: string
+          description: Response code.
+          example: OK
+        message:
+          type: string
+          description: Response message.
+          example: success_response
+        api:
+          type: object
+          properties:
+            id:
+              type: string
+              description: Unique ID of the API.
+              example: 7ccd126599aa422a771abcb341596881
+            name:
+              type: string
+              description: The API’s name.
+              example: Example API
+            audience:
+              type: string
+              description: >-
+                A unique identifier for the API - commonly the URL. This value
+                will be used as the `audience` parameter in authorization
+                claims.
+              example: https://api.example.com
+            is_management_api:
+              type: boolean
+              description: Whether or not it is the Kinde management API.
+              example: false
+            applications:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: The Client ID of the application.
+                    example: 3b0b5c6c8fcc464fab397f4969b5f482
+                  name:
+                    type: string
+                    description: The application's name.
+                    example: My M2M app
+                  type:
+                    type: string
+                    description: The application's type.
+                    enum:
+                      - Machine to machine (M2M)
+                      - Back-end web
+                      - Front-end and mobile
+                    example: Machine to machine (M2M)
+                  is_active:
+                    type: boolean
+                    description: >-
+                      Whether or not the application is authorized to access the
+                      API
+                    example: true
+                    nullable: true
+    authorize_app_api_response:
+      type: object
+      properties:
+        message:
+          type: string
+          example: API applications updated
+        code:
+          type: string
+          example: API_APPLICATIONS_UPDATED
+        applications_disconnected:
+          type: array
+          items:
+            type: string
+        applications_connected:
+          type: array
+          items:
+            type: string
+            example: d2db282d6214242b3b145c123f0c123
+    delete_api_response:
+      type: object
+      properties:
+        message:
+          type: string
+          example: API successfully deleted
+        code:
+          type: string
+          example: API_DELETED
     user:
       type: object
       properties:
@@ -7046,52 +7058,6 @@ components:
             type: string
           description:
             type: string
-    apis:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Unique id of the API.
-        name:
-          type: string
-          description: The API's name.
-        audience:
-          type: string
-          description: The logical identifier for the API.
-        is_management_api:
-          type: boolean
-          description: Whether it is the management API or not.
-    api:
-      type: object
-      properties:
-        id:
-          type: string
-          description: The API's unique identifier.
-        code:
-          type: string
-          description: Response code.
-        name:
-          type: string
-          description: The API's name.
-        message:
-          type: string
-          description: Response message.
-        audience:
-          type: string
-          description: The API's audience.
-        applications:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: string
-              name:
-                type: string
-              type:
-                type: string
-              is_active:
-                type: boolean
   securitySchemes:
     kindeBearerAuth:
       description: >
