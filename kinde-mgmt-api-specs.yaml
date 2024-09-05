@@ -2261,45 +2261,39 @@ paths:
       tags:
         - Organizations
       operationId: getOrganization
-      description: |
-        Gets an organization given the organization's code.
-      summary: Get Organization
+      summary: Get organization
+      description: Retrieve organization details by code.
       security:
         - ManagementAPI:
             - read:organizations
       parameters:
-        - name: code
-          in: query
+        - in: query
+          name: code
           description: The organization's code.
           schema:
             type: string
-            nullable: false
+            example: org_1ccfb819462
       responses:
         '200':
           description: Organization successfully retrieved.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/organization'
+                $ref: '#/components/schemas/get_organization_response'
         '400':
-          description: Bad request.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error_response'
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/error_response'
+          $ref: '#/components/responses/bad_request'
         '403':
-          description: Invalid credentials.
+          $ref: '#/components/responses/forbidden'
         '429':
-          description: Request was throttled.
+          $ref: '#/components/responses/too_many_requests'
     post:
       tags:
         - Organizations
       operationId: createOrganization
-      description: Create an organization.
-      summary: Create Organization
+      summary: Create organization
+      description: >-
+        Create a new organization. To learn more read about [multi tenancy using
+        organizations](https://docs.kinde.com/build/organizations/multi-tenancy-using-organizations/)
       security:
         - ManagementAPI:
             - create:organizations
@@ -2316,6 +2310,7 @@ paths:
                 name:
                   description: The organization's name.
                   type: string
+                  example: Acme Corp
                 feature_flags:
                   type: object
                   description: The organization's feature flag settings.
@@ -2327,8 +2322,11 @@ paths:
                       - bool
                     description: Value of the feature flag.
                 external_id:
-                  description: The organization's ID.
+                  description: >-
+                    The organization's external identifier - commonly used when
+                    migrating from or mapping to other systems.
                   type: string
+                  example: some1234
                 background_color:
                   description: The organization's brand settings - background color.
                   type: string
@@ -2363,11 +2361,17 @@ paths:
                     'dark' | 'user_preference'.
                   type: string
                 handle:
-                  description: The organization's handle.
+                  description: >-
+                    A unique handle for the organization - can be used for
+                    dynamic callback urls.
                   type: string
+                  example: acme_corp
                 is_allow_registrations:
-                  description: Users can sign up to this organization.
+                  description: >-
+                    If users become members of this organization when the org
+                    code is supplied during authentication.
                   type: boolean
+                  example: true
       responses:
         '200':
           description: Organization successfully created.
@@ -2376,20 +2380,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/create_organization_response'
         '400':
-          description: Error creating user.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error_response'
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/error_response'
+          $ref: '#/components/responses/bad_request'
         '403':
-          description: Invalid credentials.
+          $ref: '#/components/responses/forbidden'
         '429':
-          description: Request was throttled.
-        '500':
-          description: Could not create organization.
+          $ref: '#/components/responses/too_many_requests'
   /api/v1/organization/{org_code}:
     patch:
       tags:
@@ -2520,9 +2515,8 @@ paths:
       tags:
         - Organizations
       operationId: getOrganizations
-      description: |
-        Get a list of organizations.
-      summary: List Organizations
+      summary: Get organizations
+      description: Get a list of organizations.
       security:
         - ManagementAPI:
             - read:organizations
@@ -2552,18 +2546,17 @@ paths:
             nullable: true
       responses:
         '200':
-          description: A successful response with a list of organizations or an empty list.
+          description: Organizations successfully retreived.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/get_organizations_response'
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/get_organizations_response'
+        '400':
+          $ref: '#/components/responses/bad_request'
         '403':
-          description: Invalid credentials.
+          $ref: '#/components/responses/forbidden'
         '429':
-          description: Request was throttled.
+          $ref: '#/components/responses/too_many_requests'
   /api/v1/organizations/{org_code}/users:
     get:
       tags:
@@ -6114,14 +6107,19 @@ components:
       properties:
         message:
           type: string
+          description: Response message.
+          example: Success
         code:
           type: string
+          description: Response code.
+          example: OK
         organization:
           type: object
           properties:
             code:
-              description: The organization's code.
+              description: The organization's unique code.
               type: string
+              example: org_1ccfb819462
     user_identity:
       type: object
       properties:
@@ -6474,29 +6472,138 @@ components:
         picture:
           type: string
           description: URL that point's to the user's picture or avatar
-    organization:
+    organization_item_schema:
       type: object
       properties:
         code:
           type: string
+          description: The unique identifier for the organization.
+          example: org_1ccfb819462
         name:
           type: string
+          description: The organization's name.
+          example: Acme Corp
+        handle:
+          type: string
+          description: >-
+            A unique handle for the organization - can be used for dynamic
+            callback urls.
+          example: acme_corp
+          nullable: true
         is_default:
           type: boolean
+          description: Whether the organization is the default organization.
+          example: false
         external_id:
           type: string
+          description: >-
+            The organization's external identifier - commonly used when
+            migrating from or mapping to other systems.
+          example: some1234
+          nullable: true
+        is_auto_membership_enabled:
+          type: boolean
+          example: true
+          description: >-
+            If users become members of this organization when the org code is
+            supplied during authentication.
+    get_organization_response:
+      type: object
+      properties:
+        code:
+          type: string
+          description: The unique identifier for the organization.
+          example: org_1ccfb819462
+        name:
+          type: string
+          description: The organization's name.
+          example: Acme Corp
+        handle:
+          type: string
+          description: >-
+            A unique handle for the organization - can be used for dynamic
+            callback urls.
+          example: acme_corp
+          nullable: true
+        is_default:
+          type: boolean
+          description: Whether the organization is the default organization.
+          example: false
+        external_id:
+          type: string
+          description: >-
+            The organization's external identifier - commonly used when
+            migrating from or mapping to other systems.
+          example: some1234
+          nullable: true
+        is_auto_membership_enabled:
+          type: boolean
+          example: true
+          description: >-
+            If users become members of this organization when the org code is
+            supplied during authentication.
         logo:
           type: string
+          deprecated: true
+          nullable: true
         link_color:
-          type: string
-        button_color:
-          type: string
+          type: object
+          nullable: true
+          properties:
+            raw:
+              type: string
+              example: '#0056F1'
+            hex:
+              type: string
+              example: '#0056F1'
+            hsl:
+              type: string
+              example: hsl(220, 100%, 50%)
         background_color:
-          type: string
+          nullable: true
+          type: object
+          properties:
+            raw:
+              type: string
+              example: '#ffffff'
+            hex:
+              type: string
+              example: '#ffffff'
+            hsl:
+              type: string
+              example: hsl(0, 0%, 100%)
+        button_color:
+          nullable: true
+          type: object
+          properties:
+            raw:
+              type: string
+              example: '#0056F1'
+            hex:
+              type: string
+              example: '#0056F1'
+            hsl:
+              type: string
+              example: hsl(220, 100%, 50%)
         button_text_color:
-          type: string
+          nullable: true
+          type: object
+          properties:
+            raw:
+              type: string
+              example: '#ffffff'
+            hex:
+              type: string
+              example: '#ffffff'
+            hsl:
+              type: string
+              example: hsl(0, 0%, 100%)
         is_allow_registrations:
+          nullable: true
           type: boolean
+          example: true
+          deprecated: true
+          description: Deprecated - Use 'is_auto_membership_enabled' instead
     organization_user:
       type: object
       properties:
@@ -6712,16 +6819,19 @@ components:
         code:
           type: string
           description: Response code.
+          example: OK
         message:
           type: string
           description: Response message.
+          example: Success
         organizations:
           type: array
           items:
-            $ref: '#/components/schemas/organization'
+            $ref: '#/components/schemas/organization_item_schema'
         next_token:
           description: Pagination token.
           type: string
+          example: Mjo5Om1hbWVfYZNj
     get_organization_users_response:
       type: object
       properties:
