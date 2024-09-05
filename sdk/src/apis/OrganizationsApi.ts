@@ -23,12 +23,12 @@ import type {
   CreateOrganizationUserRoleRequest,
   ErrorResponse,
   GetOrganizationFeatureFlagsResponse,
+  GetOrganizationResponse,
   GetOrganizationUsersResponse,
   GetOrganizationsResponse,
   GetOrganizationsUserPermissionsResponse,
   GetOrganizationsUserRolesResponse,
   GetPropertyValuesResponse,
-  Organization,
   SuccessResponse,
   UpdateOrganizationPropertiesRequest,
   UpdateOrganizationRequest,
@@ -52,6 +52,8 @@ import {
     ErrorResponseToJSON,
     GetOrganizationFeatureFlagsResponseFromJSON,
     GetOrganizationFeatureFlagsResponseToJSON,
+    GetOrganizationResponseFromJSON,
+    GetOrganizationResponseToJSON,
     GetOrganizationUsersResponseFromJSON,
     GetOrganizationUsersResponseToJSON,
     GetOrganizationsResponseFromJSON,
@@ -62,8 +64,6 @@ import {
     GetOrganizationsUserRolesResponseToJSON,
     GetPropertyValuesResponseFromJSON,
     GetPropertyValuesResponseToJSON,
-    OrganizationFromJSON,
-    OrganizationToJSON,
     SuccessResponseFromJSON,
     SuccessResponseToJSON,
     UpdateOrganizationPropertiesRequestFromJSON,
@@ -252,8 +252,8 @@ export class OrganizationsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Create an organization.
-     * Create Organization
+     * Create a new organization. To learn more read about [multi tenancy using organizations](https://docs.kinde.com/build/organizations/multi-tenancy-using-organizations/)
+     * Create organization
      */
     async createOrganizationRaw(requestParameters: CreateOrganizationOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateOrganizationResponse>> {
         if (requestParameters['createOrganizationRequest'] == null) {
@@ -286,8 +286,8 @@ export class OrganizationsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Create an organization.
-     * Create Organization
+     * Create a new organization. To learn more read about [multi tenancy using organizations](https://docs.kinde.com/build/organizations/multi-tenancy-using-organizations/)
+     * Create organization
      */
     async createOrganization(requestParameters: CreateOrganizationOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateOrganizationResponse> {
         const response = await this.createOrganizationRaw(requestParameters, initOverrides);
@@ -683,10 +683,10 @@ export class OrganizationsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Gets an organization given the organization\'s code. 
-     * Get Organization
+     * Retrieve organization details by code.
+     * Get organization
      */
-    async getOrganizationRaw(requestParameters: GetOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Organization>> {
+    async getOrganizationRaw(requestParameters: GetOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetOrganizationResponse>> {
         const queryParameters: any = {};
 
         if (requestParameters['code'] != null) {
@@ -707,14 +707,14 @@ export class OrganizationsApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => OrganizationFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetOrganizationResponseFromJSON(jsonValue));
     }
 
     /**
-     * Gets an organization given the organization\'s code. 
-     * Get Organization
+     * Retrieve organization details by code.
+     * Get organization
      */
-    async getOrganization(requestParameters: GetOrganizationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Organization> {
+    async getOrganization(requestParameters: GetOrganizationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetOrganizationResponse> {
         const response = await this.getOrganizationRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -958,8 +958,8 @@ export class OrganizationsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Get a list of organizations. 
-     * List Organizations
+     * Get a list of organizations.
+     * Get organizations
      */
     async getOrganizationsRaw(requestParameters: GetOrganizationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetOrganizationsResponse>> {
         const queryParameters: any = {};
@@ -994,8 +994,8 @@ export class OrganizationsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Get a list of organizations. 
-     * List Organizations
+     * Get a list of organizations.
+     * Get organizations
      */
     async getOrganizations(requestParameters: GetOrganizationsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetOrganizationsResponse> {
         const response = await this.getOrganizationsRaw(requestParameters, initOverrides);

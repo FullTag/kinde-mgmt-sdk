@@ -13,12 +13,12 @@
  */
 
 import { mapValues } from '../runtime';
-import type { Organization } from './Organization';
+import type { OrganizationItemSchema } from './OrganizationItemSchema';
 import {
-    OrganizationFromJSON,
-    OrganizationFromJSONTyped,
-    OrganizationToJSON,
-} from './Organization';
+    OrganizationItemSchemaFromJSON,
+    OrganizationItemSchemaFromJSONTyped,
+    OrganizationItemSchemaToJSON,
+} from './OrganizationItemSchema';
 
 /**
  * 
@@ -40,10 +40,10 @@ export interface GetOrganizationsResponse {
     message?: string;
     /**
      * 
-     * @type {Array<Organization>}
+     * @type {Array<OrganizationItemSchema>}
      * @memberof GetOrganizationsResponse
      */
-    organizations?: Array<Organization>;
+    organizations?: Array<OrganizationItemSchema>;
     /**
      * Pagination token.
      * @type {string}
@@ -71,7 +71,7 @@ export function GetOrganizationsResponseFromJSONTyped(json: any, ignoreDiscrimin
         
         'code': json['code'] == null ? undefined : json['code'],
         'message': json['message'] == null ? undefined : json['message'],
-        'organizations': json['organizations'] == null ? undefined : ((json['organizations'] as Array<any>).map(OrganizationFromJSON)),
+        'organizations': json['organizations'] == null ? undefined : ((json['organizations'] as Array<any>).map(OrganizationItemSchemaFromJSON)),
         'nextToken': json['next_token'] == null ? undefined : json['next_token'],
     };
 }
@@ -84,7 +84,7 @@ export function GetOrganizationsResponseToJSON(value?: GetOrganizationsResponse 
         
         'code': value['code'],
         'message': value['message'],
-        'organizations': value['organizations'] == null ? undefined : ((value['organizations'] as Array<any>).map(OrganizationToJSON)),
+        'organizations': value['organizations'] == null ? undefined : ((value['organizations'] as Array<any>).map(OrganizationItemSchemaToJSON)),
         'next_token': value['nextToken'],
     };
 }

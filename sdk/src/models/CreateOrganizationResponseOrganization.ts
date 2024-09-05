@@ -20,7 +20,7 @@ import { mapValues } from '../runtime';
  */
 export interface CreateOrganizationResponseOrganization {
     /**
-     * The organization's code.
+     * The organization's unique code.
      * @type {string}
      * @memberof CreateOrganizationResponseOrganization
      */

@@ -27,13 +27,13 @@ import {
  */
 export interface CreateOrganizationResponse {
     /**
-     * 
+     * Response message.
      * @type {string}
      * @memberof CreateOrganizationResponse
      */
     message?: string;
     /**
-     * 
+     * Response code.
      * @type {string}
      * @memberof CreateOrganizationResponse
      */

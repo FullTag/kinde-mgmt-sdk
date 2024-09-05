@@ -32,7 +32,7 @@ export interface CreateOrganizationRequest {
      */
     featureFlags?: { [key: string]: string; };
     /**
-     * The organization's ID.
+     * The organization's external identifier - commonly used when migrating from or mapping to other systems.
      * @type {string}
      * @memberof CreateOrganizationRequest
      */
@@ -92,13 +92,13 @@ export interface CreateOrganizationRequest {
      */
     themeCode?: string;
     /**
-     * The organization's handle.
+     * A unique handle for the organization - can be used for dynamic callback urls.
      * @type {string}
      * @memberof CreateOrganizationRequest
      */
     handle?: string;
     /**
-     * Users can sign up to this organization.
+     * If users become members of this organization when the org code is supplied during authentication.
      * @type {boolean}
      * @memberof CreateOrganizationRequest
      */

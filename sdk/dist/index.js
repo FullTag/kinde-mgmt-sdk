@@ -249,6 +249,15 @@ __export(src_exports, {
   GetOrganizationFeatureFlagsResponseFromJSON: () => GetOrganizationFeatureFlagsResponseFromJSON,
   GetOrganizationFeatureFlagsResponseFromJSONTyped: () => GetOrganizationFeatureFlagsResponseFromJSONTyped,
   GetOrganizationFeatureFlagsResponseToJSON: () => GetOrganizationFeatureFlagsResponseToJSON,
+  GetOrganizationResponseBackgroundColorFromJSON: () => GetOrganizationResponseBackgroundColorFromJSON,
+  GetOrganizationResponseBackgroundColorFromJSONTyped: () => GetOrganizationResponseBackgroundColorFromJSONTyped,
+  GetOrganizationResponseBackgroundColorToJSON: () => GetOrganizationResponseBackgroundColorToJSON,
+  GetOrganizationResponseFromJSON: () => GetOrganizationResponseFromJSON,
+  GetOrganizationResponseFromJSONTyped: () => GetOrganizationResponseFromJSONTyped,
+  GetOrganizationResponseLinkColorFromJSON: () => GetOrganizationResponseLinkColorFromJSON,
+  GetOrganizationResponseLinkColorFromJSONTyped: () => GetOrganizationResponseLinkColorFromJSONTyped,
+  GetOrganizationResponseLinkColorToJSON: () => GetOrganizationResponseLinkColorToJSON,
+  GetOrganizationResponseToJSON: () => GetOrganizationResponseToJSON,
   GetOrganizationUsersResponseFromJSON: () => GetOrganizationUsersResponseFromJSON,
   GetOrganizationUsersResponseFromJSONTyped: () => GetOrganizationUsersResponseFromJSONTyped,
   GetOrganizationUsersResponseToJSON: () => GetOrganizationUsersResponseToJSON,
@@ -305,9 +314,9 @@ __export(src_exports, {
   ModelErrorFromJSONTyped: () => ModelErrorFromJSONTyped,
   ModelErrorToJSON: () => ModelErrorToJSON,
   OAuthApi: () => OAuthApi,
-  OrganizationFromJSON: () => OrganizationFromJSON,
-  OrganizationFromJSONTyped: () => OrganizationFromJSONTyped,
-  OrganizationToJSON: () => OrganizationToJSON,
+  OrganizationItemSchemaFromJSON: () => OrganizationItemSchemaFromJSON,
+  OrganizationItemSchemaFromJSONTyped: () => OrganizationItemSchemaFromJSONTyped,
+  OrganizationItemSchemaToJSON: () => OrganizationItemSchemaToJSON,
   OrganizationUserFromJSON: () => OrganizationUserFromJSON,
   OrganizationUserFromJSONTyped: () => OrganizationUserFromJSONTyped,
   OrganizationUserPermissionFromJSON: () => OrganizationUserPermissionFromJSON,
@@ -549,6 +558,9 @@ __export(src_exports, {
   instanceOfGetIdentitiesResponse: () => instanceOfGetIdentitiesResponse,
   instanceOfGetOrganizationFeatureFlagsResponse: () => instanceOfGetOrganizationFeatureFlagsResponse,
   instanceOfGetOrganizationFeatureFlagsResponseFeatureFlagsValue: () => instanceOfGetOrganizationFeatureFlagsResponseFeatureFlagsValue,
+  instanceOfGetOrganizationResponse: () => instanceOfGetOrganizationResponse,
+  instanceOfGetOrganizationResponseBackgroundColor: () => instanceOfGetOrganizationResponseBackgroundColor,
+  instanceOfGetOrganizationResponseLinkColor: () => instanceOfGetOrganizationResponseLinkColor,
   instanceOfGetOrganizationUsersResponse: () => instanceOfGetOrganizationUsersResponse,
   instanceOfGetOrganizationsResponse: () => instanceOfGetOrganizationsResponse,
   instanceOfGetOrganizationsUserPermissionsResponse: () => instanceOfGetOrganizationsUserPermissionsResponse,
@@ -564,7 +576,7 @@ __export(src_exports, {
   instanceOfIdentity: () => instanceOfIdentity,
   instanceOfLogoutRedirectUrls: () => instanceOfLogoutRedirectUrls,
   instanceOfModelError: () => instanceOfModelError,
-  instanceOfOrganization: () => instanceOfOrganization,
+  instanceOfOrganizationItemSchema: () => instanceOfOrganizationItemSchema,
   instanceOfOrganizationUser: () => instanceOfOrganizationUser,
   instanceOfOrganizationUserPermission: () => instanceOfOrganizationUserPermission,
   instanceOfOrganizationUserPermissionRolesInner: () => instanceOfOrganizationUserPermissionRolesInner,
@@ -3019,6 +3031,108 @@ function GetOrganizationFeatureFlagsResponseToJSON(value) {
   };
 }
 
+// src/models/GetOrganizationResponseLinkColor.ts
+function instanceOfGetOrganizationResponseLinkColor(value) {
+  return true;
+}
+function GetOrganizationResponseLinkColorFromJSON(json) {
+  return GetOrganizationResponseLinkColorFromJSONTyped(json, false);
+}
+function GetOrganizationResponseLinkColorFromJSONTyped(json, ignoreDiscriminator) {
+  if (json == null) {
+    return json;
+  }
+  return {
+    "raw": json["raw"] == null ? void 0 : json["raw"],
+    "hex": json["hex"] == null ? void 0 : json["hex"],
+    "hsl": json["hsl"] == null ? void 0 : json["hsl"]
+  };
+}
+function GetOrganizationResponseLinkColorToJSON(value) {
+  if (value == null) {
+    return value;
+  }
+  return {
+    "raw": value["raw"],
+    "hex": value["hex"],
+    "hsl": value["hsl"]
+  };
+}
+
+// src/models/GetOrganizationResponseBackgroundColor.ts
+function instanceOfGetOrganizationResponseBackgroundColor(value) {
+  return true;
+}
+function GetOrganizationResponseBackgroundColorFromJSON(json) {
+  return GetOrganizationResponseBackgroundColorFromJSONTyped(json, false);
+}
+function GetOrganizationResponseBackgroundColorFromJSONTyped(json, ignoreDiscriminator) {
+  if (json == null) {
+    return json;
+  }
+  return {
+    "raw": json["raw"] == null ? void 0 : json["raw"],
+    "hex": json["hex"] == null ? void 0 : json["hex"],
+    "hsl": json["hsl"] == null ? void 0 : json["hsl"]
+  };
+}
+function GetOrganizationResponseBackgroundColorToJSON(value) {
+  if (value == null) {
+    return value;
+  }
+  return {
+    "raw": value["raw"],
+    "hex": value["hex"],
+    "hsl": value["hsl"]
+  };
+}
+
+// src/models/GetOrganizationResponse.ts
+function instanceOfGetOrganizationResponse(value) {
+  return true;
+}
+function GetOrganizationResponseFromJSON(json) {
+  return GetOrganizationResponseFromJSONTyped(json, false);
+}
+function GetOrganizationResponseFromJSONTyped(json, ignoreDiscriminator) {
+  if (json == null) {
+    return json;
+  }
+  return {
+    "code": json["code"] == null ? void 0 : json["code"],
+    "name": json["name"] == null ? void 0 : json["name"],
+    "handle": json["handle"] == null ? void 0 : json["handle"],
+    "isDefault": json["is_default"] == null ? void 0 : json["is_default"],
+    "externalId": json["external_id"] == null ? void 0 : json["external_id"],
+    "isAutoMembershipEnabled": json["is_auto_membership_enabled"] == null ? void 0 : json["is_auto_membership_enabled"],
+    "logo": json["logo"] == null ? void 0 : json["logo"],
+    "linkColor": json["link_color"] == null ? void 0 : GetOrganizationResponseLinkColorFromJSON(json["link_color"]),
+    "backgroundColor": json["background_color"] == null ? void 0 : GetOrganizationResponseBackgroundColorFromJSON(json["background_color"]),
+    "buttonColor": json["button_color"] == null ? void 0 : GetOrganizationResponseLinkColorFromJSON(json["button_color"]),
+    "buttonTextColor": json["button_text_color"] == null ? void 0 : GetOrganizationResponseBackgroundColorFromJSON(json["button_text_color"]),
+    "isAllowRegistrations": json["is_allow_registrations"] == null ? void 0 : json["is_allow_registrations"]
+  };
+}
+function GetOrganizationResponseToJSON(value) {
+  if (value == null) {
+    return value;
+  }
+  return {
+    "code": value["code"],
+    "name": value["name"],
+    "handle": value["handle"],
+    "is_default": value["isDefault"],
+    "external_id": value["externalId"],
+    "is_auto_membership_enabled": value["isAutoMembershipEnabled"],
+    "logo": value["logo"],
+    "link_color": GetOrganizationResponseLinkColorToJSON(value["linkColor"]),
+    "background_color": GetOrganizationResponseBackgroundColorToJSON(value["backgroundColor"]),
+    "button_color": GetOrganizationResponseLinkColorToJSON(value["buttonColor"]),
+    "button_text_color": GetOrganizationResponseBackgroundColorToJSON(value["buttonTextColor"]),
+    "is_allow_registrations": value["isAllowRegistrations"]
+  };
+}
+
 // src/models/OrganizationUser.ts
 function instanceOfOrganizationUser(value) {
   return true;
@@ -3085,45 +3199,37 @@ function GetOrganizationUsersResponseToJSON(value) {
   };
 }
 
-// src/models/Organization.ts
-function instanceOfOrganization(value) {
+// src/models/OrganizationItemSchema.ts
+function instanceOfOrganizationItemSchema(value) {
   return true;
 }
-function OrganizationFromJSON(json) {
-  return OrganizationFromJSONTyped(json, false);
+function OrganizationItemSchemaFromJSON(json) {
+  return OrganizationItemSchemaFromJSONTyped(json, false);
 }
-function OrganizationFromJSONTyped(json, ignoreDiscriminator) {
+function OrganizationItemSchemaFromJSONTyped(json, ignoreDiscriminator) {
   if (json == null) {
     return json;
   }
   return {
     "code": json["code"] == null ? void 0 : json["code"],
     "name": json["name"] == null ? void 0 : json["name"],
+    "handle": json["handle"] == null ? void 0 : json["handle"],
     "isDefault": json["is_default"] == null ? void 0 : json["is_default"],
     "externalId": json["external_id"] == null ? void 0 : json["external_id"],
-    "logo": json["logo"] == null ? void 0 : json["logo"],
-    "linkColor": json["link_color"] == null ? void 0 : json["link_color"],
-    "buttonColor": json["button_color"] == null ? void 0 : json["button_color"],
-    "backgroundColor": json["background_color"] == null ? void 0 : json["background_color"],
-    "buttonTextColor": json["button_text_color"] == null ? void 0 : json["button_text_color"],
-    "isAllowRegistrations": json["is_allow_registrations"] == null ? void 0 : json["is_allow_registrations"]
+    "isAutoMembershipEnabled": json["is_auto_membership_enabled"] == null ? void 0 : json["is_auto_membership_enabled"]
   };
 }
-function OrganizationToJSON(value) {
+function OrganizationItemSchemaToJSON(value) {
   if (value == null) {
     return value;
   }
   return {
     "code": value["code"],
     "name": value["name"],
+    "handle": value["handle"],
     "is_default": value["isDefault"],
     "external_id": value["externalId"],
-    "logo": value["logo"],
-    "link_color": value["linkColor"],
-    "button_color": value["buttonColor"],
-    "background_color": value["backgroundColor"],
-    "button_text_color": value["buttonTextColor"],
-    "is_allow_registrations": value["isAllowRegistrations"]
+    "is_auto_membership_enabled": value["isAutoMembershipEnabled"]
   };
 }
 
@@ -3141,7 +3247,7 @@ function GetOrganizationsResponseFromJSONTyped(json, ignoreDiscriminator) {
   return {
     "code": json["code"] == null ? void 0 : json["code"],
     "message": json["message"] == null ? void 0 : json["message"],
-    "organizations": json["organizations"] == null ? void 0 : json["organizations"].map(OrganizationFromJSON),
+    "organizations": json["organizations"] == null ? void 0 : json["organizations"].map(OrganizationItemSchemaFromJSON),
     "nextToken": json["next_token"] == null ? void 0 : json["next_token"]
   };
 }
@@ -3152,7 +3258,7 @@ function GetOrganizationsResponseToJSON(value) {
   return {
     "code": value["code"],
     "message": value["message"],
-    "organizations": value["organizations"] == null ? void 0 : value["organizations"].map(OrganizationToJSON),
+    "organizations": value["organizations"] == null ? void 0 : value["organizations"].map(OrganizationItemSchemaToJSON),
     "next_token": value["nextToken"]
   };
 }
@@ -6789,8 +6895,8 @@ var OrganizationsApi = class extends BaseAPI {
     }
   }
   /**
-   * Create an organization.
-   * Create Organization
+   * Create a new organization. To learn more read about [multi tenancy using organizations](https://docs.kinde.com/build/organizations/multi-tenancy-using-organizations/)
+   * Create organization
    */
   async createOrganizationRaw(requestParameters, initOverrides) {
     if (requestParameters["createOrganizationRequest"] == null) {
@@ -6815,8 +6921,8 @@ var OrganizationsApi = class extends BaseAPI {
     return new JSONApiResponse(response, (jsonValue) => CreateOrganizationResponseFromJSON(jsonValue));
   }
   /**
-   * Create an organization.
-   * Create Organization
+   * Create a new organization. To learn more read about [multi tenancy using organizations](https://docs.kinde.com/build/organizations/multi-tenancy-using-organizations/)
+   * Create organization
    */
   async createOrganization(requestParameters, initOverrides) {
     const response = await this.createOrganizationRaw(requestParameters, initOverrides);
@@ -7136,8 +7242,8 @@ var OrganizationsApi = class extends BaseAPI {
     return await response.value();
   }
   /**
-   * Gets an organization given the organization\'s code. 
-   * Get Organization
+   * Retrieve organization details by code.
+   * Get organization
    */
   async getOrganizationRaw(requestParameters, initOverrides) {
     const queryParameters = {};
@@ -7154,11 +7260,11 @@ var OrganizationsApi = class extends BaseAPI {
       headers: headerParameters,
       query: queryParameters
     }, initOverrides);
-    return new JSONApiResponse(response, (jsonValue) => OrganizationFromJSON(jsonValue));
+    return new JSONApiResponse(response, (jsonValue) => GetOrganizationResponseFromJSON(jsonValue));
   }
   /**
-   * Gets an organization given the organization\'s code. 
-   * Get Organization
+   * Retrieve organization details by code.
+   * Get organization
    */
   async getOrganization(requestParameters = {}, initOverrides) {
     const response = await this.getOrganizationRaw(requestParameters, initOverrides);
@@ -7355,8 +7461,8 @@ var OrganizationsApi = class extends BaseAPI {
     return await response.value();
   }
   /**
-   * Get a list of organizations. 
-   * List Organizations
+   * Get a list of organizations.
+   * Get organizations
    */
   async getOrganizationsRaw(requestParameters, initOverrides) {
     const queryParameters = {};
@@ -7382,8 +7488,8 @@ var OrganizationsApi = class extends BaseAPI {
     return new JSONApiResponse(response, (jsonValue) => GetOrganizationsResponseFromJSON(jsonValue));
   }
   /**
-   * Get a list of organizations. 
-   * List Organizations
+   * Get a list of organizations.
+   * Get organizations
    */
   async getOrganizations(requestParameters = {}, initOverrides) {
     const response = await this.getOrganizationsRaw(requestParameters, initOverrides);
@@ -9407,6 +9513,15 @@ var WebhooksApi = class extends BaseAPI {
   GetOrganizationFeatureFlagsResponseFromJSON,
   GetOrganizationFeatureFlagsResponseFromJSONTyped,
   GetOrganizationFeatureFlagsResponseToJSON,
+  GetOrganizationResponseBackgroundColorFromJSON,
+  GetOrganizationResponseBackgroundColorFromJSONTyped,
+  GetOrganizationResponseBackgroundColorToJSON,
+  GetOrganizationResponseFromJSON,
+  GetOrganizationResponseFromJSONTyped,
+  GetOrganizationResponseLinkColorFromJSON,
+  GetOrganizationResponseLinkColorFromJSONTyped,
+  GetOrganizationResponseLinkColorToJSON,
+  GetOrganizationResponseToJSON,
   GetOrganizationUsersResponseFromJSON,
   GetOrganizationUsersResponseFromJSONTyped,
   GetOrganizationUsersResponseToJSON,
@@ -9463,9 +9578,9 @@ var WebhooksApi = class extends BaseAPI {
   ModelErrorFromJSONTyped,
   ModelErrorToJSON,
   OAuthApi,
-  OrganizationFromJSON,
-  OrganizationFromJSONTyped,
-  OrganizationToJSON,
+  OrganizationItemSchemaFromJSON,
+  OrganizationItemSchemaFromJSONTyped,
+  OrganizationItemSchemaToJSON,
   OrganizationUserFromJSON,
   OrganizationUserFromJSONTyped,
   OrganizationUserPermissionFromJSON,
@@ -9707,6 +9822,9 @@ var WebhooksApi = class extends BaseAPI {
   instanceOfGetIdentitiesResponse,
   instanceOfGetOrganizationFeatureFlagsResponse,
   instanceOfGetOrganizationFeatureFlagsResponseFeatureFlagsValue,
+  instanceOfGetOrganizationResponse,
+  instanceOfGetOrganizationResponseBackgroundColor,
+  instanceOfGetOrganizationResponseLinkColor,
   instanceOfGetOrganizationUsersResponse,
   instanceOfGetOrganizationsResponse,
   instanceOfGetOrganizationsUserPermissionsResponse,
@@ -9722,7 +9840,7 @@ var WebhooksApi = class extends BaseAPI {
   instanceOfIdentity,
   instanceOfLogoutRedirectUrls,
   instanceOfModelError,
-  instanceOfOrganization,
+  instanceOfOrganizationItemSchema,
   instanceOfOrganizationUser,
   instanceOfOrganizationUserPermission,
   instanceOfOrganizationUserPermissionRolesInner,

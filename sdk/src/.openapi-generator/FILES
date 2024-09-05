@@ -87,6 +87,9 @@ models/GetEventTypesResponse.ts
 models/GetIdentitiesResponse.ts
 models/GetOrganizationFeatureFlagsResponse.ts
 models/GetOrganizationFeatureFlagsResponseFeatureFlagsValue.ts
+models/GetOrganizationResponse.ts
+models/GetOrganizationResponseBackgroundColor.ts
+models/GetOrganizationResponseLinkColor.ts
 models/GetOrganizationUsersResponse.ts
 models/GetOrganizationsResponse.ts
 models/GetOrganizationsUserPermissionsResponse.ts
@@ -102,7 +105,7 @@ models/GetWebhooksResponse.ts
 models/Identity.ts
 models/LogoutRedirectUrls.ts
 models/ModelError.ts
-models/Organization.ts
+models/OrganizationItemSchema.ts
 models/OrganizationUser.ts
 models/OrganizationUserPermission.ts
 models/OrganizationUserPermissionRolesInner.ts
