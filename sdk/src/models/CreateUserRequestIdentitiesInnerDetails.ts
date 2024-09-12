@@ -62,10 +62,15 @@ export function CreateUserRequestIdentitiesInnerDetailsFromJSONTyped(json: any, 
     };
 }
 
-export function CreateUserRequestIdentitiesInnerDetailsToJSON(value?: CreateUserRequestIdentitiesInnerDetails | null): any {
+  export function CreateUserRequestIdentitiesInnerDetailsToJSON(json: any): CreateUserRequestIdentitiesInnerDetails {
+      return CreateUserRequestIdentitiesInnerDetailsToJSONTyped(json, false);
+  }
+
+  export function CreateUserRequestIdentitiesInnerDetailsToJSONTyped(value?: CreateUserRequestIdentitiesInnerDetails | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'email': value['email'],

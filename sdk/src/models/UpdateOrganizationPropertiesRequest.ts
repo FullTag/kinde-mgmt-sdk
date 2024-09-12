@@ -49,10 +49,15 @@ export function UpdateOrganizationPropertiesRequestFromJSONTyped(json: any, igno
     };
 }
 
-export function UpdateOrganizationPropertiesRequestToJSON(value?: UpdateOrganizationPropertiesRequest | null): any {
+  export function UpdateOrganizationPropertiesRequestToJSON(json: any): UpdateOrganizationPropertiesRequest {
+      return UpdateOrganizationPropertiesRequestToJSONTyped(json, false);
+  }
+
+  export function UpdateOrganizationPropertiesRequestToJSONTyped(value?: UpdateOrganizationPropertiesRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'properties': value['properties'],

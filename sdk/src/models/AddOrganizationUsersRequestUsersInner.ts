@@ -62,10 +62,15 @@ export function AddOrganizationUsersRequestUsersInnerFromJSONTyped(json: any, ig
     };
 }
 
-export function AddOrganizationUsersRequestUsersInnerToJSON(value?: AddOrganizationUsersRequestUsersInner | null): any {
+  export function AddOrganizationUsersRequestUsersInnerToJSON(json: any): AddOrganizationUsersRequestUsersInner {
+      return AddOrganizationUsersRequestUsersInnerToJSONTyped(json, false);
+  }
+
+  export function AddOrganizationUsersRequestUsersInnerToJSONTyped(value?: AddOrganizationUsersRequestUsersInner | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'id': value['id'],

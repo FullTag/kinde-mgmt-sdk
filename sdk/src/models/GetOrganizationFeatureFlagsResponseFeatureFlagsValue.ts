@@ -67,10 +67,15 @@ export function GetOrganizationFeatureFlagsResponseFeatureFlagsValueFromJSONType
     };
 }
 
-export function GetOrganizationFeatureFlagsResponseFeatureFlagsValueToJSON(value?: GetOrganizationFeatureFlagsResponseFeatureFlagsValue | null): any {
+  export function GetOrganizationFeatureFlagsResponseFeatureFlagsValueToJSON(json: any): GetOrganizationFeatureFlagsResponseFeatureFlagsValue {
+      return GetOrganizationFeatureFlagsResponseFeatureFlagsValueToJSONTyped(json, false);
+  }
+
+  export function GetOrganizationFeatureFlagsResponseFeatureFlagsValueToJSONTyped(value?: GetOrganizationFeatureFlagsResponseFeatureFlagsValue | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'type': value['type'],

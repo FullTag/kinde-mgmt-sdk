@@ -18,6 +18,7 @@ import {
     RolesFromJSON,
     RolesFromJSONTyped,
     RolesToJSON,
+    RolesToJSONTyped,
 } from './Roles';
 
 /**
@@ -76,10 +77,15 @@ export function GetRolesResponseFromJSONTyped(json: any, ignoreDiscriminator: bo
     };
 }
 
-export function GetRolesResponseToJSON(value?: GetRolesResponse | null): any {
+  export function GetRolesResponseToJSON(json: any): GetRolesResponse {
+      return GetRolesResponseToJSONTyped(json, false);
+  }
+
+  export function GetRolesResponseToJSONTyped(value?: GetRolesResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'code': value['code'],

@@ -18,6 +18,7 @@ import {
     GetApiResponseApiApplicationsInnerFromJSON,
     GetApiResponseApiApplicationsInnerFromJSONTyped,
     GetApiResponseApiApplicationsInnerToJSON,
+    GetApiResponseApiApplicationsInnerToJSONTyped,
 } from './GetApiResponseApiApplicationsInner';
 
 /**
@@ -83,10 +84,15 @@ export function GetApiResponseApiFromJSONTyped(json: any, ignoreDiscriminator: b
     };
 }
 
-export function GetApiResponseApiToJSON(value?: GetApiResponseApi | null): any {
+  export function GetApiResponseApiToJSON(json: any): GetApiResponseApi {
+      return GetApiResponseApiToJSONTyped(json, false);
+  }
+
+  export function GetApiResponseApiToJSONTyped(value?: GetApiResponseApi | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'id': value['id'],

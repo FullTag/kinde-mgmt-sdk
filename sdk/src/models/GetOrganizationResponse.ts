@@ -18,12 +18,14 @@ import {
     GetOrganizationResponseLinkColorFromJSON,
     GetOrganizationResponseLinkColorFromJSONTyped,
     GetOrganizationResponseLinkColorToJSON,
+    GetOrganizationResponseLinkColorToJSONTyped,
 } from './GetOrganizationResponseLinkColor';
 import type { GetOrganizationResponseBackgroundColor } from './GetOrganizationResponseBackgroundColor';
 import {
     GetOrganizationResponseBackgroundColorFromJSON,
     GetOrganizationResponseBackgroundColorFromJSONTyped,
     GetOrganizationResponseBackgroundColorToJSON,
+    GetOrganizationResponseBackgroundColorToJSONTyped,
 } from './GetOrganizationResponseBackgroundColor';
 
 /**
@@ -100,6 +102,30 @@ export interface GetOrganizationResponse {
      */
     buttonTextColor?: GetOrganizationResponseBackgroundColor | null;
     /**
+     * 
+     * @type {GetOrganizationResponseLinkColor}
+     * @memberof GetOrganizationResponse
+     */
+    linkColorDark?: GetOrganizationResponseLinkColor | null;
+    /**
+     * 
+     * @type {GetOrganizationResponseLinkColor}
+     * @memberof GetOrganizationResponse
+     */
+    backgroundColorDark?: GetOrganizationResponseLinkColor | null;
+    /**
+     * 
+     * @type {GetOrganizationResponseLinkColor}
+     * @memberof GetOrganizationResponse
+     */
+    buttonTextColorDark?: GetOrganizationResponseLinkColor | null;
+    /**
+     * 
+     * @type {GetOrganizationResponseLinkColor}
+     * @memberof GetOrganizationResponse
+     */
+    buttonColorDark?: GetOrganizationResponseLinkColor | null;
+    /**
      * Deprecated - Use 'is_auto_membership_enabled' instead
      * @type {boolean}
      * @memberof GetOrganizationResponse
@@ -136,14 +162,23 @@ export function GetOrganizationResponseFromJSONTyped(json: any, ignoreDiscrimina
         'backgroundColor': json['background_color'] == null ? undefined : GetOrganizationResponseBackgroundColorFromJSON(json['background_color']),
         'buttonColor': json['button_color'] == null ? undefined : GetOrganizationResponseLinkColorFromJSON(json['button_color']),
         'buttonTextColor': json['button_text_color'] == null ? undefined : GetOrganizationResponseBackgroundColorFromJSON(json['button_text_color']),
+        'linkColorDark': json['link_color_dark'] == null ? undefined : GetOrganizationResponseLinkColorFromJSON(json['link_color_dark']),
+        'backgroundColorDark': json['background_color_dark'] == null ? undefined : GetOrganizationResponseLinkColorFromJSON(json['background_color_dark']),
+        'buttonTextColorDark': json['button_text_color_dark'] == null ? undefined : GetOrganizationResponseLinkColorFromJSON(json['button_text_color_dark']),
+        'buttonColorDark': json['button_color_dark'] == null ? undefined : GetOrganizationResponseLinkColorFromJSON(json['button_color_dark']),
         'isAllowRegistrations': json['is_allow_registrations'] == null ? undefined : json['is_allow_registrations'],
     };
 }
 
-export function GetOrganizationResponseToJSON(value?: GetOrganizationResponse | null): any {
+  export function GetOrganizationResponseToJSON(json: any): GetOrganizationResponse {
+      return GetOrganizationResponseToJSONTyped(json, false);
+  }
+
+  export function GetOrganizationResponseToJSONTyped(value?: GetOrganizationResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'code': value['code'],
@@ -157,6 +192,10 @@ export function GetOrganizationResponseToJSON(value?: GetOrganizationResponse | 
         'background_color': GetOrganizationResponseBackgroundColorToJSON(value['backgroundColor']),
         'button_color': GetOrganizationResponseLinkColorToJSON(value['buttonColor']),
         'button_text_color': GetOrganizationResponseBackgroundColorToJSON(value['buttonTextColor']),
+        'link_color_dark': GetOrganizationResponseLinkColorToJSON(value['linkColorDark']),
+        'background_color_dark': GetOrganizationResponseLinkColorToJSON(value['backgroundColorDark']),
+        'button_text_color_dark': GetOrganizationResponseLinkColorToJSON(value['buttonTextColorDark']),
+        'button_color_dark': GetOrganizationResponseLinkColorToJSON(value['buttonColorDark']),
         'is_allow_registrations': value['isAllowRegistrations'],
     };
 }

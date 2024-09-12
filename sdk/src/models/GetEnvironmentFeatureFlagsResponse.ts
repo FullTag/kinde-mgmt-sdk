@@ -18,6 +18,7 @@ import {
     GetOrganizationFeatureFlagsResponseFeatureFlagsValueFromJSON,
     GetOrganizationFeatureFlagsResponseFeatureFlagsValueFromJSONTyped,
     GetOrganizationFeatureFlagsResponseFeatureFlagsValueToJSON,
+    GetOrganizationFeatureFlagsResponseFeatureFlagsValueToJSONTyped,
 } from './GetOrganizationFeatureFlagsResponseFeatureFlagsValue';
 
 /**
@@ -76,10 +77,15 @@ export function GetEnvironmentFeatureFlagsResponseFromJSONTyped(json: any, ignor
     };
 }
 
-export function GetEnvironmentFeatureFlagsResponseToJSON(value?: GetEnvironmentFeatureFlagsResponse | null): any {
+  export function GetEnvironmentFeatureFlagsResponseToJSON(json: any): GetEnvironmentFeatureFlagsResponse {
+      return GetEnvironmentFeatureFlagsResponseToJSONTyped(json, false);
+  }
+
+  export function GetEnvironmentFeatureFlagsResponseToJSONTyped(value?: GetEnvironmentFeatureFlagsResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'code': value['code'],

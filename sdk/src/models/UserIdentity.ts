@@ -18,6 +18,7 @@ import {
     UserIdentityResultFromJSON,
     UserIdentityResultFromJSONTyped,
     UserIdentityResultToJSON,
+    UserIdentityResultToJSONTyped,
 } from './UserIdentityResult';
 
 /**
@@ -62,10 +63,15 @@ export function UserIdentityFromJSONTyped(json: any, ignoreDiscriminator: boolea
     };
 }
 
-export function UserIdentityToJSON(value?: UserIdentity | null): any {
+  export function UserIdentityToJSON(json: any): UserIdentity {
+      return UserIdentityToJSONTyped(json, false);
+  }
+
+  export function UserIdentityToJSONTyped(value?: UserIdentity | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'type': value['type'],

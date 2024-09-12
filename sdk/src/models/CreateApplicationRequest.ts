@@ -24,13 +24,13 @@ export interface CreateApplicationRequest {
      * @type {string}
      * @memberof CreateApplicationRequest
      */
-    name?: string;
+    name: string;
     /**
-     * The application's type.
+     * The application's type. Use `reg` for regular server rendered applications, `spa` for single-page applications, and `m2m` for machine-to-machine applications.
      * @type {string}
      * @memberof CreateApplicationRequest
      */
-    type?: CreateApplicationRequestTypeEnum;
+    type: CreateApplicationRequestTypeEnum;
 }
 
 
@@ -49,6 +49,8 @@ export type CreateApplicationRequestTypeEnum = typeof CreateApplicationRequestTy
  * Check if a given object implements the CreateApplicationRequest interface.
  */
 export function instanceOfCreateApplicationRequest(value: object): value is CreateApplicationRequest {
+    if (!('name' in value) || value['name'] === undefined) return false;
+    if (!('type' in value) || value['type'] === undefined) return false;
     return true;
 }
 
@@ -62,15 +64,20 @@ export function CreateApplicationRequestFromJSONTyped(json: any, ignoreDiscrimin
     }
     return {
         
-        'name': json['name'] == null ? undefined : json['name'],
-        'type': json['type'] == null ? undefined : json['type'],
+        'name': json['name'],
+        'type': json['type'],
     };
 }
 
-export function CreateApplicationRequestToJSON(value?: CreateApplicationRequest | null): any {
+  export function CreateApplicationRequestToJSON(json: any): CreateApplicationRequest {
+      return CreateApplicationRequestToJSONTyped(json, false);
+  }
+
+  export function CreateApplicationRequestToJSONTyped(value?: CreateApplicationRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'name': value['name'],

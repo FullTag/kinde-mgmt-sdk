@@ -69,10 +69,15 @@ export function UpdateUserRequestFromJSONTyped(json: any, ignoreDiscriminator: b
     };
 }
 
-export function UpdateUserRequestToJSON(value?: UpdateUserRequest | null): any {
+  export function UpdateUserRequestToJSON(json: any): UpdateUserRequest {
+      return UpdateUserRequestToJSONTyped(json, false);
+  }
+
+  export function UpdateUserRequestToJSONTyped(value?: UpdateUserRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'given_name': value['givenName'],

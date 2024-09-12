@@ -18,6 +18,7 @@ import {
     PermissionsFromJSON,
     PermissionsFromJSONTyped,
     PermissionsToJSON,
+    PermissionsToJSONTyped,
 } from './Permissions';
 
 /**
@@ -76,10 +77,15 @@ export function GetPermissionsResponseFromJSONTyped(json: any, ignoreDiscriminat
     };
 }
 
-export function GetPermissionsResponseToJSON(value?: GetPermissionsResponse | null): any {
+  export function GetPermissionsResponseToJSON(json: any): GetPermissionsResponse {
+      return GetPermissionsResponseToJSONTyped(json, false);
+  }
+
+  export function GetPermissionsResponseToJSONTyped(value?: GetPermissionsResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'code': value['code'],

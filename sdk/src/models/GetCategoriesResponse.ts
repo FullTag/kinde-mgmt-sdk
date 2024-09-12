@@ -18,6 +18,7 @@ import {
     CategoryFromJSON,
     CategoryFromJSONTyped,
     CategoryToJSON,
+    CategoryToJSONTyped,
 } from './Category';
 
 /**
@@ -76,10 +77,15 @@ export function GetCategoriesResponseFromJSONTyped(json: any, ignoreDiscriminato
     };
 }
 
-export function GetCategoriesResponseToJSON(value?: GetCategoriesResponse | null): any {
+  export function GetCategoriesResponseToJSON(json: any): GetCategoriesResponse {
+      return GetCategoriesResponseToJSONTyped(json, false);
+  }
+
+  export function GetCategoriesResponseToJSONTyped(value?: GetCategoriesResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'code': value['code'],

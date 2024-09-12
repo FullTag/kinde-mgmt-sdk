@@ -48,10 +48,15 @@ export function CreateOrganizationUserRoleRequestFromJSONTyped(json: any, ignore
     };
 }
 
-export function CreateOrganizationUserRoleRequestToJSON(value?: CreateOrganizationUserRoleRequest | null): any {
+  export function CreateOrganizationUserRoleRequestToJSON(json: any): CreateOrganizationUserRoleRequest {
+      return CreateOrganizationUserRoleRequestToJSONTyped(json, false);
+  }
+
+  export function CreateOrganizationUserRoleRequestToJSONTyped(value?: CreateOrganizationUserRoleRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'role_id': value['roleId'],

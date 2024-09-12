@@ -18,12 +18,14 @@ import {
     CreateUserRequestIdentitiesInnerFromJSON,
     CreateUserRequestIdentitiesInnerFromJSONTyped,
     CreateUserRequestIdentitiesInnerToJSON,
+    CreateUserRequestIdentitiesInnerToJSONTyped,
 } from './CreateUserRequestIdentitiesInner';
 import type { CreateUserRequestProfile } from './CreateUserRequestProfile';
 import {
     CreateUserRequestProfileFromJSON,
     CreateUserRequestProfileFromJSONTyped,
     CreateUserRequestProfileToJSON,
+    CreateUserRequestProfileToJSONTyped,
 } from './CreateUserRequestProfile';
 
 /**
@@ -75,10 +77,15 @@ export function CreateUserRequestFromJSONTyped(json: any, ignoreDiscriminator: b
     };
 }
 
-export function CreateUserRequestToJSON(value?: CreateUserRequest | null): any {
+  export function CreateUserRequestToJSON(json: any): CreateUserRequest {
+      return CreateUserRequestToJSONTyped(json, false);
+  }
+
+  export function CreateUserRequestToJSONTyped(value?: CreateUserRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'profile': CreateUserRequestProfileToJSON(value['profile']),

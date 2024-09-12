@@ -68,10 +68,15 @@ export function CreateCategoryRequestFromJSONTyped(json: any, ignoreDiscriminato
     };
 }
 
-export function CreateCategoryRequestToJSON(value?: CreateCategoryRequest | null): any {
+  export function CreateCategoryRequestToJSON(json: any): CreateCategoryRequest {
+      return CreateCategoryRequestToJSONTyped(json, false);
+  }
+
+  export function CreateCategoryRequestToJSONTyped(value?: CreateCategoryRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'name': value['name'],

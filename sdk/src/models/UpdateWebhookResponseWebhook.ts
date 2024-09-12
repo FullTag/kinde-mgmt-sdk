@@ -48,10 +48,15 @@ export function UpdateWebhookResponseWebhookFromJSONTyped(json: any, ignoreDiscr
     };
 }
 
-export function UpdateWebhookResponseWebhookToJSON(value?: UpdateWebhookResponseWebhook | null): any {
+  export function UpdateWebhookResponseWebhookToJSON(json: any): UpdateWebhookResponseWebhook {
+      return UpdateWebhookResponseWebhookToJSONTyped(json, false);
+  }
+
+  export function UpdateWebhookResponseWebhookToJSONTyped(value?: UpdateWebhookResponseWebhook | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'id': value['id'],

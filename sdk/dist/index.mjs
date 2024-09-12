@@ -304,7 +304,10 @@ function AddAPIsRequestFromJSONTyped(json, ignoreDiscriminator) {
     "audience": json["audience"]
   };
 }
-function AddAPIsRequestToJSON(value) {
+function AddAPIsRequestToJSON(json) {
+  return AddAPIsRequestToJSONTyped(json, false);
+}
+function AddAPIsRequestToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -331,7 +334,10 @@ function AddOrganizationUsersRequestUsersInnerFromJSONTyped(json, ignoreDiscrimi
     "permissions": json["permissions"] == null ? void 0 : json["permissions"]
   };
 }
-function AddOrganizationUsersRequestUsersInnerToJSON(value) {
+function AddOrganizationUsersRequestUsersInnerToJSON(json) {
+  return AddOrganizationUsersRequestUsersInnerToJSONTyped(json, false);
+}
+function AddOrganizationUsersRequestUsersInnerToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -357,7 +363,10 @@ function AddOrganizationUsersRequestFromJSONTyped(json, ignoreDiscriminator) {
     "users": json["users"] == null ? void 0 : json["users"].map(AddOrganizationUsersRequestUsersInnerFromJSON)
   };
 }
-function AddOrganizationUsersRequestToJSON(value) {
+function AddOrganizationUsersRequestToJSON(json) {
+  return AddOrganizationUsersRequestToJSONTyped(json, false);
+}
+function AddOrganizationUsersRequestToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -383,7 +392,10 @@ function AddOrganizationUsersResponseFromJSONTyped(json, ignoreDiscriminator) {
     "usersAdded": json["users_added"] == null ? void 0 : json["users_added"]
   };
 }
-function AddOrganizationUsersResponseToJSON(value) {
+function AddOrganizationUsersResponseToJSON(json) {
+  return AddOrganizationUsersResponseToJSONTyped(json, false);
+}
+function AddOrganizationUsersResponseToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -409,7 +421,10 @@ function ApiResultFromJSONTyped(json, ignoreDiscriminator) {
     "result": json["result"] == null ? void 0 : json["result"]
   };
 }
-function ApiResultToJSON(value) {
+function ApiResultToJSON(json) {
+  return ApiResultToJSONTyped(json, false);
+}
+function ApiResultToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -435,7 +450,10 @@ function ApplicationsFromJSONTyped(json, ignoreDiscriminator) {
     "type": json["type"] == null ? void 0 : json["type"]
   };
 }
-function ApplicationsToJSON(value) {
+function ApplicationsToJSON(json) {
+  return ApplicationsToJSONTyped(json, false);
+}
+function ApplicationsToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -464,7 +482,10 @@ function AuthorizeAppApiResponseFromJSONTyped(json, ignoreDiscriminator) {
     "applicationsConnected": json["applications_connected"] == null ? void 0 : json["applications_connected"]
   };
 }
-function AuthorizeAppApiResponseToJSON(value) {
+function AuthorizeAppApiResponseToJSON(json) {
+  return AuthorizeAppApiResponseToJSONTyped(json, false);
+}
+function AuthorizeAppApiResponseToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -492,7 +513,10 @@ function CategoryFromJSONTyped(json, ignoreDiscriminator) {
     "name": json["name"] == null ? void 0 : json["name"]
   };
 }
-function CategoryToJSON(value) {
+function CategoryToJSON(json) {
+  return CategoryToJSONTyped(json, false);
+}
+function CategoryToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -518,7 +542,10 @@ function ConnectedAppsAccessTokenFromJSONTyped(json, ignoreDiscriminator) {
     "accessTokenExpiry": json["access_token_expiry"] == null ? void 0 : json["access_token_expiry"]
   };
 }
-function ConnectedAppsAccessTokenToJSON(value) {
+function ConnectedAppsAccessTokenToJSON(json) {
+  return ConnectedAppsAccessTokenToJSONTyped(json, false);
+}
+function ConnectedAppsAccessTokenToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -544,7 +571,10 @@ function ConnectedAppsAuthUrlFromJSONTyped(json, ignoreDiscriminator) {
     "sessionId": json["session_id"] == null ? void 0 : json["session_id"]
   };
 }
-function ConnectedAppsAuthUrlToJSON(value) {
+function ConnectedAppsAuthUrlToJSON(json) {
+  return ConnectedAppsAuthUrlToJSONTyped(json, false);
+}
+function ConnectedAppsAuthUrlToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -572,7 +602,10 @@ function ConnectionFromJSONTyped(json, ignoreDiscriminator) {
     "strategy": json["strategy"] == null ? void 0 : json["strategy"]
   };
 }
-function ConnectionToJSON(value) {
+function ConnectionToJSON(json) {
+  return ConnectionToJSONTyped(json, false);
+}
+function ConnectionToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -599,7 +632,10 @@ function CreateApisResponseApiFromJSONTyped(json, ignoreDiscriminator) {
     "id": json["id"] == null ? void 0 : json["id"]
   };
 }
-function CreateApisResponseApiToJSON(value) {
+function CreateApisResponseApiToJSON(json) {
+  return CreateApisResponseApiToJSONTyped(json, false);
+}
+function CreateApisResponseApiToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -625,7 +661,10 @@ function CreateApisResponseFromJSONTyped(json, ignoreDiscriminator) {
     "api": json["api"] == null ? void 0 : CreateApisResponseApiFromJSON(json["api"])
   };
 }
-function CreateApisResponseToJSON(value) {
+function CreateApisResponseToJSON(json) {
+  return CreateApisResponseToJSONTyped(json, false);
+}
+function CreateApisResponseToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -643,6 +682,10 @@ var CreateApplicationRequestTypeEnum = {
   M2m: "m2m"
 };
 function instanceOfCreateApplicationRequest(value) {
+  if (!("name" in value) || value["name"] === void 0)
+    return false;
+  if (!("type" in value) || value["type"] === void 0)
+    return false;
   return true;
 }
 function CreateApplicationRequestFromJSON(json) {
@@ -653,11 +696,14 @@ function CreateApplicationRequestFromJSONTyped(json, ignoreDiscriminator) {
     return json;
   }
   return {
-    "name": json["name"] == null ? void 0 : json["name"],
-    "type": json["type"] == null ? void 0 : json["type"]
+    "name": json["name"],
+    "type": json["type"]
   };
 }
-function CreateApplicationRequestToJSON(value) {
+function CreateApplicationRequestToJSON(json) {
+  return CreateApplicationRequestToJSONTyped(json, false);
+}
+function CreateApplicationRequestToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -684,7 +730,10 @@ function CreateApplicationResponseApplicationFromJSONTyped(json, ignoreDiscrimin
     "clientSecret": json["client_secret"] == null ? void 0 : json["client_secret"]
   };
 }
-function CreateApplicationResponseApplicationToJSON(value) {
+function CreateApplicationResponseApplicationToJSON(json) {
+  return CreateApplicationResponseApplicationToJSONTyped(json, false);
+}
+function CreateApplicationResponseApplicationToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -712,7 +761,10 @@ function CreateApplicationResponseFromJSONTyped(json, ignoreDiscriminator) {
     "application": json["application"] == null ? void 0 : CreateApplicationResponseApplicationFromJSON(json["application"])
   };
 }
-function CreateApplicationResponseToJSON(value) {
+function CreateApplicationResponseToJSON(json) {
+  return CreateApplicationResponseToJSONTyped(json, false);
+}
+function CreateApplicationResponseToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -747,7 +799,10 @@ function CreateCategoryRequestFromJSONTyped(json, ignoreDiscriminator) {
     "context": json["context"]
   };
 }
-function CreateCategoryRequestToJSON(value) {
+function CreateCategoryRequestToJSON(json) {
+  return CreateCategoryRequestToJSONTyped(json, false);
+}
+function CreateCategoryRequestToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -772,7 +827,10 @@ function CreateCategoryResponseCategoryFromJSONTyped(json, ignoreDiscriminator) 
     "id": json["id"] == null ? void 0 : json["id"]
   };
 }
-function CreateCategoryResponseCategoryToJSON(value) {
+function CreateCategoryResponseCategoryToJSON(json) {
+  return CreateCategoryResponseCategoryToJSONTyped(json, false);
+}
+function CreateCategoryResponseCategoryToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -798,7 +856,10 @@ function CreateCategoryResponseFromJSONTyped(json, ignoreDiscriminator) {
     "category": json["category"] == null ? void 0 : CreateCategoryResponseCategoryFromJSON(json["category"])
   };
 }
-function CreateCategoryResponseToJSON(value) {
+function CreateCategoryResponseToJSON(json) {
+  return CreateCategoryResponseToJSONTyped(json, false);
+}
+function CreateCategoryResponseToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -854,7 +915,10 @@ function CreateConnectionRequestFromJSONTyped(json, ignoreDiscriminator) {
     "options": json["options"] == null ? void 0 : json["options"]
   };
 }
-function CreateConnectionRequestToJSON(value) {
+function CreateConnectionRequestToJSON(json) {
+  return CreateConnectionRequestToJSONTyped(json, false);
+}
+function CreateConnectionRequestToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -882,7 +946,10 @@ function CreateConnectionResponseConnectionFromJSONTyped(json, ignoreDiscriminat
     "id": json["id"] == null ? void 0 : json["id"]
   };
 }
-function CreateConnectionResponseConnectionToJSON(value) {
+function CreateConnectionResponseConnectionToJSON(json) {
+  return CreateConnectionResponseConnectionToJSONTyped(json, false);
+}
+function CreateConnectionResponseConnectionToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -908,7 +975,10 @@ function CreateConnectionResponseFromJSONTyped(json, ignoreDiscriminator) {
     "connection": json["connection"] == null ? void 0 : CreateConnectionResponseConnectionFromJSON(json["connection"])
   };
 }
-function CreateConnectionResponseToJSON(value) {
+function CreateConnectionResponseToJSON(json) {
+  return CreateConnectionResponseToJSONTyped(json, false);
+}
+function CreateConnectionResponseToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -957,7 +1027,10 @@ function CreateFeatureFlagRequestFromJSONTyped(json, ignoreDiscriminator) {
     "defaultValue": json["default_value"]
   };
 }
-function CreateFeatureFlagRequestToJSON(value) {
+function CreateFeatureFlagRequestToJSON(json) {
+  return CreateFeatureFlagRequestToJSONTyped(json, false);
+}
+function CreateFeatureFlagRequestToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -986,7 +1059,10 @@ function CreateIdentityResponseIdentityFromJSONTyped(json, ignoreDiscriminator) 
     "id": json["id"] == null ? void 0 : json["id"]
   };
 }
-function CreateIdentityResponseIdentityToJSON(value) {
+function CreateIdentityResponseIdentityToJSON(json) {
+  return CreateIdentityResponseIdentityToJSONTyped(json, false);
+}
+function CreateIdentityResponseIdentityToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -1012,7 +1088,10 @@ function CreateIdentityResponseFromJSONTyped(json, ignoreDiscriminator) {
     "identity": json["identity"] == null ? void 0 : CreateIdentityResponseIdentityFromJSON(json["identity"])
   };
 }
-function CreateIdentityResponseToJSON(value) {
+function CreateIdentityResponseToJSON(json) {
+  return CreateIdentityResponseToJSONTyped(json, false);
+}
+function CreateIdentityResponseToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -1055,10 +1134,14 @@ function CreateOrganizationRequestFromJSONTyped(json, ignoreDiscriminator) {
     "linkColorDark": json["link_color_dark"] == null ? void 0 : json["link_color_dark"],
     "themeCode": json["theme_code"] == null ? void 0 : json["theme_code"],
     "handle": json["handle"] == null ? void 0 : json["handle"],
-    "isAllowRegistrations": json["is_allow_registrations"] == null ? void 0 : json["is_allow_registrations"]
+    "isAllowRegistrations": json["is_allow_registrations"] == null ? void 0 : json["is_allow_registrations"],
+    "isCustomAuthConnectionsEnabled": json["is_custom_auth_connections_enabled"] == null ? void 0 : json["is_custom_auth_connections_enabled"]
   };
 }
-function CreateOrganizationRequestToJSON(value) {
+function CreateOrganizationRequestToJSON(json) {
+  return CreateOrganizationRequestToJSONTyped(json, false);
+}
+function CreateOrganizationRequestToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -1076,7 +1159,8 @@ function CreateOrganizationRequestToJSON(value) {
     "link_color_dark": value["linkColorDark"],
     "theme_code": value["themeCode"],
     "handle": value["handle"],
-    "is_allow_registrations": value["isAllowRegistrations"]
+    "is_allow_registrations": value["isAllowRegistrations"],
+    "is_custom_auth_connections_enabled": value["isCustomAuthConnectionsEnabled"]
   };
 }
 
@@ -1095,7 +1179,10 @@ function CreateOrganizationResponseOrganizationFromJSONTyped(json, ignoreDiscrim
     "code": json["code"] == null ? void 0 : json["code"]
   };
 }
-function CreateOrganizationResponseOrganizationToJSON(value) {
+function CreateOrganizationResponseOrganizationToJSON(json) {
+  return CreateOrganizationResponseOrganizationToJSONTyped(json, false);
+}
+function CreateOrganizationResponseOrganizationToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -1121,7 +1208,10 @@ function CreateOrganizationResponseFromJSONTyped(json, ignoreDiscriminator) {
     "organization": json["organization"] == null ? void 0 : CreateOrganizationResponseOrganizationFromJSON(json["organization"])
   };
 }
-function CreateOrganizationResponseToJSON(value) {
+function CreateOrganizationResponseToJSON(json) {
+  return CreateOrganizationResponseToJSONTyped(json, false);
+}
+function CreateOrganizationResponseToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -1147,7 +1237,10 @@ function CreateOrganizationUserPermissionRequestFromJSONTyped(json, ignoreDiscri
     "permissionId": json["permission_id"] == null ? void 0 : json["permission_id"]
   };
 }
-function CreateOrganizationUserPermissionRequestToJSON(value) {
+function CreateOrganizationUserPermissionRequestToJSON(json) {
+  return CreateOrganizationUserPermissionRequestToJSONTyped(json, false);
+}
+function CreateOrganizationUserPermissionRequestToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -1171,7 +1264,10 @@ function CreateOrganizationUserRoleRequestFromJSONTyped(json, ignoreDiscriminato
     "roleId": json["role_id"] == null ? void 0 : json["role_id"]
   };
 }
-function CreateOrganizationUserRoleRequestToJSON(value) {
+function CreateOrganizationUserRoleRequestToJSON(json) {
+  return CreateOrganizationUserRoleRequestToJSONTyped(json, false);
+}
+function CreateOrganizationUserRoleRequestToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -1197,7 +1293,10 @@ function CreatePermissionRequestFromJSONTyped(json, ignoreDiscriminator) {
     "key": json["key"] == null ? void 0 : json["key"]
   };
 }
-function CreatePermissionRequestToJSON(value) {
+function CreatePermissionRequestToJSON(json) {
+  return CreatePermissionRequestToJSONTyped(json, false);
+}
+function CreatePermissionRequestToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -1249,7 +1348,10 @@ function CreatePropertyRequestFromJSONTyped(json, ignoreDiscriminator) {
     "categoryId": json["category_id"]
   };
 }
-function CreatePropertyRequestToJSON(value) {
+function CreatePropertyRequestToJSON(json) {
+  return CreatePropertyRequestToJSONTyped(json, false);
+}
+function CreatePropertyRequestToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -1279,7 +1381,10 @@ function CreatePropertyResponsePropertyFromJSONTyped(json, ignoreDiscriminator) 
     "id": json["id"] == null ? void 0 : json["id"]
   };
 }
-function CreatePropertyResponsePropertyToJSON(value) {
+function CreatePropertyResponsePropertyToJSON(json) {
+  return CreatePropertyResponsePropertyToJSONTyped(json, false);
+}
+function CreatePropertyResponsePropertyToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -1305,7 +1410,10 @@ function CreatePropertyResponseFromJSONTyped(json, ignoreDiscriminator) {
     "property": json["property"] == null ? void 0 : CreatePropertyResponsePropertyFromJSON(json["property"])
   };
 }
-function CreatePropertyResponseToJSON(value) {
+function CreatePropertyResponseToJSON(json) {
+  return CreatePropertyResponseToJSONTyped(json, false);
+}
+function CreatePropertyResponseToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -1334,7 +1442,10 @@ function CreateRoleRequestFromJSONTyped(json, ignoreDiscriminator) {
     "isDefaultRole": json["is_default_role"] == null ? void 0 : json["is_default_role"]
   };
 }
-function CreateRoleRequestToJSON(value) {
+function CreateRoleRequestToJSON(json) {
+  return CreateRoleRequestToJSONTyped(json, false);
+}
+function CreateRoleRequestToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -1361,7 +1472,10 @@ function CreateSubscriberSuccessResponseSubscriberFromJSONTyped(json, ignoreDisc
     "subscriberId": json["subscriber_id"] == null ? void 0 : json["subscriber_id"]
   };
 }
-function CreateSubscriberSuccessResponseSubscriberToJSON(value) {
+function CreateSubscriberSuccessResponseSubscriberToJSON(json) {
+  return CreateSubscriberSuccessResponseSubscriberToJSONTyped(json, false);
+}
+function CreateSubscriberSuccessResponseSubscriberToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -1385,7 +1499,10 @@ function CreateSubscriberSuccessResponseFromJSONTyped(json, ignoreDiscriminator)
     "subscriber": json["subscriber"] == null ? void 0 : CreateSubscriberSuccessResponseSubscriberFromJSON(json["subscriber"])
   };
 }
-function CreateSubscriberSuccessResponseToJSON(value) {
+function CreateSubscriberSuccessResponseToJSON(json) {
+  return CreateSubscriberSuccessResponseToJSONTyped(json, false);
+}
+function CreateSubscriberSuccessResponseToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -1417,7 +1534,10 @@ function CreateUserIdentityRequestFromJSONTyped(json, ignoreDiscriminator) {
     "phoneCountryId": json["phone_country_id"] == null ? void 0 : json["phone_country_id"]
   };
 }
-function CreateUserIdentityRequestToJSON(value) {
+function CreateUserIdentityRequestToJSON(json) {
+  return CreateUserIdentityRequestToJSONTyped(json, false);
+}
+function CreateUserIdentityRequestToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -1445,7 +1565,10 @@ function CreateUserRequestIdentitiesInnerDetailsFromJSONTyped(json, ignoreDiscri
     "username": json["username"] == null ? void 0 : json["username"]
   };
 }
-function CreateUserRequestIdentitiesInnerDetailsToJSON(value) {
+function CreateUserRequestIdentitiesInnerDetailsToJSON(json) {
+  return CreateUserRequestIdentitiesInnerDetailsToJSONTyped(json, false);
+}
+function CreateUserRequestIdentitiesInnerDetailsToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -1477,7 +1600,10 @@ function CreateUserRequestIdentitiesInnerFromJSONTyped(json, ignoreDiscriminator
     "details": json["details"] == null ? void 0 : CreateUserRequestIdentitiesInnerDetailsFromJSON(json["details"])
   };
 }
-function CreateUserRequestIdentitiesInnerToJSON(value) {
+function CreateUserRequestIdentitiesInnerToJSON(json) {
+  return CreateUserRequestIdentitiesInnerToJSONTyped(json, false);
+}
+function CreateUserRequestIdentitiesInnerToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -1503,7 +1629,10 @@ function CreateUserRequestProfileFromJSONTyped(json, ignoreDiscriminator) {
     "familyName": json["family_name"] == null ? void 0 : json["family_name"]
   };
 }
-function CreateUserRequestProfileToJSON(value) {
+function CreateUserRequestProfileToJSON(json) {
+  return CreateUserRequestProfileToJSONTyped(json, false);
+}
+function CreateUserRequestProfileToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -1530,7 +1659,10 @@ function CreateUserRequestFromJSONTyped(json, ignoreDiscriminator) {
     "identities": json["identities"] == null ? void 0 : json["identities"].map(CreateUserRequestIdentitiesInnerFromJSON)
   };
 }
-function CreateUserRequestToJSON(value) {
+function CreateUserRequestToJSON(json) {
+  return CreateUserRequestToJSONTyped(json, false);
+}
+function CreateUserRequestToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -1556,7 +1688,10 @@ function UserIdentityResultFromJSONTyped(json, ignoreDiscriminator) {
     "created": json["created"] == null ? void 0 : json["created"]
   };
 }
-function UserIdentityResultToJSON(value) {
+function UserIdentityResultToJSON(json) {
+  return UserIdentityResultToJSONTyped(json, false);
+}
+function UserIdentityResultToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -1581,7 +1716,10 @@ function UserIdentityFromJSONTyped(json, ignoreDiscriminator) {
     "result": json["result"] == null ? void 0 : UserIdentityResultFromJSON(json["result"])
   };
 }
-function UserIdentityToJSON(value) {
+function UserIdentityToJSON(json) {
+  return UserIdentityToJSONTyped(json, false);
+}
+function UserIdentityToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -1608,7 +1746,10 @@ function CreateUserResponseFromJSONTyped(json, ignoreDiscriminator) {
     "identities": json["identities"] == null ? void 0 : json["identities"].map(UserIdentityFromJSON)
   };
 }
-function CreateUserResponseToJSON(value) {
+function CreateUserResponseToJSON(json) {
+  return CreateUserResponseToJSONTyped(json, false);
+}
+function CreateUserResponseToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -1643,7 +1784,10 @@ function CreateWebHookRequestFromJSONTyped(json, ignoreDiscriminator) {
     "description": json["description"] == null ? void 0 : json["description"]
   };
 }
-function CreateWebHookRequestToJSON(value) {
+function CreateWebHookRequestToJSON(json) {
+  return CreateWebHookRequestToJSONTyped(json, false);
+}
+function CreateWebHookRequestToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -1671,7 +1815,10 @@ function CreateWebhookResponseWebhookFromJSONTyped(json, ignoreDiscriminator) {
     "endpoint": json["endpoint"] == null ? void 0 : json["endpoint"]
   };
 }
-function CreateWebhookResponseWebhookToJSON(value) {
+function CreateWebhookResponseWebhookToJSON(json) {
+  return CreateWebhookResponseWebhookToJSONTyped(json, false);
+}
+function CreateWebhookResponseWebhookToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -1698,7 +1845,10 @@ function CreateWebhookResponseFromJSONTyped(json, ignoreDiscriminator) {
     "webhook": json["webhook"] == null ? void 0 : CreateWebhookResponseWebhookFromJSON(json["webhook"])
   };
 }
-function CreateWebhookResponseToJSON(value) {
+function CreateWebhookResponseToJSON(json) {
+  return CreateWebhookResponseToJSONTyped(json, false);
+}
+function CreateWebhookResponseToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -1725,7 +1875,10 @@ function DeleteApiResponseFromJSONTyped(json, ignoreDiscriminator) {
     "code": json["code"] == null ? void 0 : json["code"]
   };
 }
-function DeleteApiResponseToJSON(value) {
+function DeleteApiResponseToJSON(json) {
+  return DeleteApiResponseToJSONTyped(json, false);
+}
+function DeleteApiResponseToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -1751,7 +1904,10 @@ function DeleteWebhookResponseFromJSONTyped(json, ignoreDiscriminator) {
     "message": json["message"] == null ? void 0 : json["message"]
   };
 }
-function DeleteWebhookResponseToJSON(value) {
+function DeleteWebhookResponseToJSON(json) {
+  return DeleteWebhookResponseToJSONTyped(json, false);
+}
+function DeleteWebhookResponseToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -1777,7 +1933,10 @@ function ModelErrorFromJSONTyped(json, ignoreDiscriminator) {
     "message": json["message"] == null ? void 0 : json["message"]
   };
 }
-function ModelErrorToJSON(value) {
+function ModelErrorToJSON(json) {
+  return ModelErrorToJSONTyped(json, false);
+}
+function ModelErrorToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -1802,7 +1961,10 @@ function ErrorResponseFromJSONTyped(json, ignoreDiscriminator) {
     "errors": json["errors"] == null ? void 0 : json["errors"].map(ModelErrorFromJSON)
   };
 }
-function ErrorResponseToJSON(value) {
+function ErrorResponseToJSON(json) {
+  return ErrorResponseToJSONTyped(json, false);
+}
+function ErrorResponseToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -1830,7 +1992,10 @@ function EventTypeFromJSONTyped(json, ignoreDiscriminator) {
     "schema": json["schema"] == null ? void 0 : json["schema"]
   };
 }
-function EventTypeToJSON(value) {
+function EventTypeToJSON(json) {
+  return EventTypeToJSONTyped(json, false);
+}
+function EventTypeToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -1866,7 +2031,10 @@ function GetApiResponseApiApplicationsInnerFromJSONTyped(json, ignoreDiscriminat
     "isActive": json["is_active"] == null ? void 0 : json["is_active"]
   };
 }
-function GetApiResponseApiApplicationsInnerToJSON(value) {
+function GetApiResponseApiApplicationsInnerToJSON(json) {
+  return GetApiResponseApiApplicationsInnerToJSONTyped(json, false);
+}
+function GetApiResponseApiApplicationsInnerToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -1897,7 +2065,10 @@ function GetApiResponseApiFromJSONTyped(json, ignoreDiscriminator) {
     "applications": json["applications"] == null ? void 0 : json["applications"].map(GetApiResponseApiApplicationsInnerFromJSON)
   };
 }
-function GetApiResponseApiToJSON(value) {
+function GetApiResponseApiToJSON(json) {
+  return GetApiResponseApiToJSONTyped(json, false);
+}
+function GetApiResponseApiToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -1927,7 +2098,10 @@ function GetApiResponseFromJSONTyped(json, ignoreDiscriminator) {
     "api": json["api"] == null ? void 0 : GetApiResponseApiFromJSON(json["api"])
   };
 }
-function GetApiResponseToJSON(value) {
+function GetApiResponseToJSON(json) {
+  return GetApiResponseToJSONTyped(json, false);
+}
+function GetApiResponseToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -1956,7 +2130,10 @@ function GetApisResponseApisInnerFromJSONTyped(json, ignoreDiscriminator) {
     "isManagementApi": json["is_management_api"] == null ? void 0 : json["is_management_api"]
   };
 }
-function GetApisResponseApisInnerToJSON(value) {
+function GetApisResponseApisInnerToJSON(json) {
+  return GetApisResponseApisInnerToJSONTyped(json, false);
+}
+function GetApisResponseApisInnerToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -1986,7 +2163,10 @@ function GetApisResponseFromJSONTyped(json, ignoreDiscriminator) {
     "apis": json["apis"] == null ? void 0 : json["apis"].map(GetApisResponseApisInnerFromJSON)
   };
 }
-function GetApisResponseToJSON(value) {
+function GetApisResponseToJSON(json) {
+  return GetApisResponseToJSONTyped(json, false);
+}
+function GetApisResponseToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -2019,7 +2199,10 @@ function GetApplicationResponseApplicationFromJSONTyped(json, ignoreDiscriminato
     "homepageUri": json["homepage_uri"] == null ? void 0 : json["homepage_uri"]
   };
 }
-function GetApplicationResponseApplicationToJSON(value) {
+function GetApplicationResponseApplicationToJSON(json) {
+  return GetApplicationResponseApplicationToJSONTyped(json, false);
+}
+function GetApplicationResponseApplicationToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -2051,7 +2234,10 @@ function GetApplicationResponseFromJSONTyped(json, ignoreDiscriminator) {
     "application": json["application"] == null ? void 0 : GetApplicationResponseApplicationFromJSON(json["application"])
   };
 }
-function GetApplicationResponseToJSON(value) {
+function GetApplicationResponseToJSON(json) {
+  return GetApplicationResponseToJSONTyped(json, false);
+}
+function GetApplicationResponseToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -2080,7 +2266,10 @@ function GetApplicationsResponseFromJSONTyped(json, ignoreDiscriminator) {
     "nextToken": json["next_token"] == null ? void 0 : json["next_token"]
   };
 }
-function GetApplicationsResponseToJSON(value) {
+function GetApplicationsResponseToJSON(json) {
+  return GetApplicationsResponseToJSONTyped(json, false);
+}
+function GetApplicationsResponseToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -2089,6 +2278,78 @@ function GetApplicationsResponseToJSON(value) {
     "message": value["message"],
     "applications": value["applications"] == null ? void 0 : value["applications"].map(ApplicationsToJSON),
     "next_token": value["nextToken"]
+  };
+}
+
+// src/models/GetBusinessResponseBusiness.ts
+function instanceOfGetBusinessResponseBusiness(value) {
+  return true;
+}
+function GetBusinessResponseBusinessFromJSON(json) {
+  return GetBusinessResponseBusinessFromJSONTyped(json, false);
+}
+function GetBusinessResponseBusinessFromJSONTyped(json, ignoreDiscriminator) {
+  if (json == null) {
+    return json;
+  }
+  return {
+    "code": json["code"] == null ? void 0 : json["code"],
+    "name": json["name"] == null ? void 0 : json["name"],
+    "phone": json["phone"] == null ? void 0 : json["phone"],
+    "email": json["email"] == null ? void 0 : json["email"],
+    "industry": json["industry"] == null ? void 0 : json["industry"],
+    "timezone": json["timezone"] == null ? void 0 : json["timezone"],
+    "privacyUrl": json["privacy_url"] == null ? void 0 : json["privacy_url"],
+    "termsUrl": json["terms_url"] == null ? void 0 : json["terms_url"]
+  };
+}
+function GetBusinessResponseBusinessToJSON(json) {
+  return GetBusinessResponseBusinessToJSONTyped(json, false);
+}
+function GetBusinessResponseBusinessToJSONTyped(value, ignoreDiscriminator = false) {
+  if (value == null) {
+    return value;
+  }
+  return {
+    "code": value["code"],
+    "name": value["name"],
+    "phone": value["phone"],
+    "email": value["email"],
+    "industry": value["industry"],
+    "timezone": value["timezone"],
+    "privacy_url": value["privacyUrl"],
+    "terms_url": value["termsUrl"]
+  };
+}
+
+// src/models/GetBusinessResponse.ts
+function instanceOfGetBusinessResponse(value) {
+  return true;
+}
+function GetBusinessResponseFromJSON(json) {
+  return GetBusinessResponseFromJSONTyped(json, false);
+}
+function GetBusinessResponseFromJSONTyped(json, ignoreDiscriminator) {
+  if (json == null) {
+    return json;
+  }
+  return {
+    "code": json["code"] == null ? void 0 : json["code"],
+    "message": json["message"] == null ? void 0 : json["message"],
+    "business": json["business"] == null ? void 0 : GetBusinessResponseBusinessFromJSON(json["business"])
+  };
+}
+function GetBusinessResponseToJSON(json) {
+  return GetBusinessResponseToJSONTyped(json, false);
+}
+function GetBusinessResponseToJSONTyped(value, ignoreDiscriminator = false) {
+  if (value == null) {
+    return value;
+  }
+  return {
+    "code": value["code"],
+    "message": value["message"],
+    "business": GetBusinessResponseBusinessToJSON(value["business"])
   };
 }
 
@@ -2110,7 +2371,10 @@ function GetCategoriesResponseFromJSONTyped(json, ignoreDiscriminator) {
     "hasMore": json["has_more"] == null ? void 0 : json["has_more"]
   };
 }
-function GetCategoriesResponseToJSON(value) {
+function GetCategoriesResponseToJSON(json) {
+  return GetCategoriesResponseToJSONTyped(json, false);
+}
+function GetCategoriesResponseToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -2140,7 +2404,10 @@ function GetConnectionsResponseFromJSONTyped(json, ignoreDiscriminator) {
     "hasMore": json["has_more"] == null ? void 0 : json["has_more"]
   };
 }
-function GetConnectionsResponseToJSON(value) {
+function GetConnectionsResponseToJSON(json) {
+  return GetConnectionsResponseToJSONTyped(json, false);
+}
+function GetConnectionsResponseToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -2173,7 +2440,10 @@ function GetOrganizationFeatureFlagsResponseFeatureFlagsValueFromJSONTyped(json,
     "value": json["value"] == null ? void 0 : json["value"]
   };
 }
-function GetOrganizationFeatureFlagsResponseFeatureFlagsValueToJSON(value) {
+function GetOrganizationFeatureFlagsResponseFeatureFlagsValueToJSON(json) {
+  return GetOrganizationFeatureFlagsResponseFeatureFlagsValueToJSONTyped(json, false);
+}
+function GetOrganizationFeatureFlagsResponseFeatureFlagsValueToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -2201,7 +2471,10 @@ function GetEnvironmentFeatureFlagsResponseFromJSONTyped(json, ignoreDiscriminat
     "nextToken": json["next_token"] == null ? void 0 : json["next_token"]
   };
 }
-function GetEnvironmentFeatureFlagsResponseToJSON(value) {
+function GetEnvironmentFeatureFlagsResponseToJSON(json) {
+  return GetEnvironmentFeatureFlagsResponseToJSONTyped(json, false);
+}
+function GetEnvironmentFeatureFlagsResponseToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -2232,7 +2505,10 @@ function GetEventResponseEventFromJSONTyped(json, ignoreDiscriminator) {
     "data": json["data"] == null ? void 0 : json["data"]
   };
 }
-function GetEventResponseEventToJSON(value) {
+function GetEventResponseEventToJSON(json) {
+  return GetEventResponseEventToJSONTyped(json, false);
+}
+function GetEventResponseEventToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -2262,7 +2538,10 @@ function GetEventResponseFromJSONTyped(json, ignoreDiscriminator) {
     "event": json["event"] == null ? void 0 : GetEventResponseEventFromJSON(json["event"])
   };
 }
-function GetEventResponseToJSON(value) {
+function GetEventResponseToJSON(json) {
+  return GetEventResponseToJSONTyped(json, false);
+}
+function GetEventResponseToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -2290,7 +2569,10 @@ function GetEventTypesResponseFromJSONTyped(json, ignoreDiscriminator) {
     "eventTypes": json["event_types"] == null ? void 0 : json["event_types"].map(EventTypeFromJSON)
   };
 }
-function GetEventTypesResponseToJSON(value) {
+function GetEventTypesResponseToJSON(json) {
+  return GetEventTypesResponseToJSONTyped(json, false);
+}
+function GetEventTypesResponseToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -2322,7 +2604,10 @@ function IdentityFromJSONTyped(json, ignoreDiscriminator) {
     "name": json["name"] == null ? void 0 : json["name"]
   };
 }
-function IdentityToJSON(value) {
+function IdentityToJSON(json) {
+  return IdentityToJSONTyped(json, false);
+}
+function IdentityToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -2355,7 +2640,10 @@ function GetIdentitiesResponseFromJSONTyped(json, ignoreDiscriminator) {
     "hasMore": json["has_more"] == null ? void 0 : json["has_more"]
   };
 }
-function GetIdentitiesResponseToJSON(value) {
+function GetIdentitiesResponseToJSON(json) {
+  return GetIdentitiesResponseToJSONTyped(json, false);
+}
+function GetIdentitiesResponseToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -2364,6 +2652,66 @@ function GetIdentitiesResponseToJSON(value) {
     "message": value["message"],
     "properties": value["properties"] == null ? void 0 : value["properties"].map(IdentityToJSON),
     "has_more": value["hasMore"]
+  };
+}
+
+// src/models/GetIndustriesResponseIndustriesInner.ts
+function instanceOfGetIndustriesResponseIndustriesInner(value) {
+  return true;
+}
+function GetIndustriesResponseIndustriesInnerFromJSON(json) {
+  return GetIndustriesResponseIndustriesInnerFromJSONTyped(json, false);
+}
+function GetIndustriesResponseIndustriesInnerFromJSONTyped(json, ignoreDiscriminator) {
+  if (json == null) {
+    return json;
+  }
+  return {
+    "key": json["key"] == null ? void 0 : json["key"],
+    "name": json["name"] == null ? void 0 : json["name"]
+  };
+}
+function GetIndustriesResponseIndustriesInnerToJSON(json) {
+  return GetIndustriesResponseIndustriesInnerToJSONTyped(json, false);
+}
+function GetIndustriesResponseIndustriesInnerToJSONTyped(value, ignoreDiscriminator = false) {
+  if (value == null) {
+    return value;
+  }
+  return {
+    "key": value["key"],
+    "name": value["name"]
+  };
+}
+
+// src/models/GetIndustriesResponse.ts
+function instanceOfGetIndustriesResponse(value) {
+  return true;
+}
+function GetIndustriesResponseFromJSON(json) {
+  return GetIndustriesResponseFromJSONTyped(json, false);
+}
+function GetIndustriesResponseFromJSONTyped(json, ignoreDiscriminator) {
+  if (json == null) {
+    return json;
+  }
+  return {
+    "code": json["code"] == null ? void 0 : json["code"],
+    "message": json["message"] == null ? void 0 : json["message"],
+    "industries": json["industries"] == null ? void 0 : json["industries"].map(GetIndustriesResponseIndustriesInnerFromJSON)
+  };
+}
+function GetIndustriesResponseToJSON(json) {
+  return GetIndustriesResponseToJSONTyped(json, false);
+}
+function GetIndustriesResponseToJSONTyped(value, ignoreDiscriminator = false) {
+  if (value == null) {
+    return value;
+  }
+  return {
+    "code": value["code"],
+    "message": value["message"],
+    "industries": value["industries"] == null ? void 0 : value["industries"].map(GetIndustriesResponseIndustriesInnerToJSON)
   };
 }
 
@@ -2384,7 +2732,10 @@ function GetOrganizationFeatureFlagsResponseFromJSONTyped(json, ignoreDiscrimina
     "featureFlags": json["feature_flags"] == null ? void 0 : mapValues(json["feature_flags"], GetOrganizationFeatureFlagsResponseFeatureFlagsValueFromJSON)
   };
 }
-function GetOrganizationFeatureFlagsResponseToJSON(value) {
+function GetOrganizationFeatureFlagsResponseToJSON(json) {
+  return GetOrganizationFeatureFlagsResponseToJSONTyped(json, false);
+}
+function GetOrganizationFeatureFlagsResponseToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -2412,7 +2763,10 @@ function GetOrganizationResponseLinkColorFromJSONTyped(json, ignoreDiscriminator
     "hsl": json["hsl"] == null ? void 0 : json["hsl"]
   };
 }
-function GetOrganizationResponseLinkColorToJSON(value) {
+function GetOrganizationResponseLinkColorToJSON(json) {
+  return GetOrganizationResponseLinkColorToJSONTyped(json, false);
+}
+function GetOrganizationResponseLinkColorToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -2440,7 +2794,10 @@ function GetOrganizationResponseBackgroundColorFromJSONTyped(json, ignoreDiscrim
     "hsl": json["hsl"] == null ? void 0 : json["hsl"]
   };
 }
-function GetOrganizationResponseBackgroundColorToJSON(value) {
+function GetOrganizationResponseBackgroundColorToJSON(json) {
+  return GetOrganizationResponseBackgroundColorToJSONTyped(json, false);
+}
+function GetOrganizationResponseBackgroundColorToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -2474,10 +2831,17 @@ function GetOrganizationResponseFromJSONTyped(json, ignoreDiscriminator) {
     "backgroundColor": json["background_color"] == null ? void 0 : GetOrganizationResponseBackgroundColorFromJSON(json["background_color"]),
     "buttonColor": json["button_color"] == null ? void 0 : GetOrganizationResponseLinkColorFromJSON(json["button_color"]),
     "buttonTextColor": json["button_text_color"] == null ? void 0 : GetOrganizationResponseBackgroundColorFromJSON(json["button_text_color"]),
+    "linkColorDark": json["link_color_dark"] == null ? void 0 : GetOrganizationResponseLinkColorFromJSON(json["link_color_dark"]),
+    "backgroundColorDark": json["background_color_dark"] == null ? void 0 : GetOrganizationResponseLinkColorFromJSON(json["background_color_dark"]),
+    "buttonTextColorDark": json["button_text_color_dark"] == null ? void 0 : GetOrganizationResponseLinkColorFromJSON(json["button_text_color_dark"]),
+    "buttonColorDark": json["button_color_dark"] == null ? void 0 : GetOrganizationResponseLinkColorFromJSON(json["button_color_dark"]),
     "isAllowRegistrations": json["is_allow_registrations"] == null ? void 0 : json["is_allow_registrations"]
   };
 }
-function GetOrganizationResponseToJSON(value) {
+function GetOrganizationResponseToJSON(json) {
+  return GetOrganizationResponseToJSONTyped(json, false);
+}
+function GetOrganizationResponseToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -2493,6 +2857,10 @@ function GetOrganizationResponseToJSON(value) {
     "background_color": GetOrganizationResponseBackgroundColorToJSON(value["backgroundColor"]),
     "button_color": GetOrganizationResponseLinkColorToJSON(value["buttonColor"]),
     "button_text_color": GetOrganizationResponseBackgroundColorToJSON(value["buttonTextColor"]),
+    "link_color_dark": GetOrganizationResponseLinkColorToJSON(value["linkColorDark"]),
+    "background_color_dark": GetOrganizationResponseLinkColorToJSON(value["backgroundColorDark"]),
+    "button_text_color_dark": GetOrganizationResponseLinkColorToJSON(value["buttonTextColorDark"]),
+    "button_color_dark": GetOrganizationResponseLinkColorToJSON(value["buttonColorDark"]),
     "is_allow_registrations": value["isAllowRegistrations"]
   };
 }
@@ -2518,7 +2886,10 @@ function OrganizationUserFromJSONTyped(json, ignoreDiscriminator) {
     "roles": json["roles"] == null ? void 0 : json["roles"]
   };
 }
-function OrganizationUserToJSON(value) {
+function OrganizationUserToJSON(json) {
+  return OrganizationUserToJSONTyped(json, false);
+}
+function OrganizationUserToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -2551,7 +2922,10 @@ function GetOrganizationUsersResponseFromJSONTyped(json, ignoreDiscriminator) {
     "nextToken": json["next_token"] == null ? void 0 : json["next_token"]
   };
 }
-function GetOrganizationUsersResponseToJSON(value) {
+function GetOrganizationUsersResponseToJSON(json) {
+  return GetOrganizationUsersResponseToJSONTyped(json, false);
+}
+function GetOrganizationUsersResponseToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -2583,7 +2957,10 @@ function OrganizationItemSchemaFromJSONTyped(json, ignoreDiscriminator) {
     "isAutoMembershipEnabled": json["is_auto_membership_enabled"] == null ? void 0 : json["is_auto_membership_enabled"]
   };
 }
-function OrganizationItemSchemaToJSON(value) {
+function OrganizationItemSchemaToJSON(json) {
+  return OrganizationItemSchemaToJSONTyped(json, false);
+}
+function OrganizationItemSchemaToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -2615,7 +2992,10 @@ function GetOrganizationsResponseFromJSONTyped(json, ignoreDiscriminator) {
     "nextToken": json["next_token"] == null ? void 0 : json["next_token"]
   };
 }
-function GetOrganizationsResponseToJSON(value) {
+function GetOrganizationsResponseToJSON(json) {
+  return GetOrganizationsResponseToJSONTyped(json, false);
+}
+function GetOrganizationsResponseToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -2643,7 +3023,10 @@ function OrganizationUserPermissionRolesInnerFromJSONTyped(json, ignoreDiscrimin
     "key": json["key"] == null ? void 0 : json["key"]
   };
 }
-function OrganizationUserPermissionRolesInnerToJSON(value) {
+function OrganizationUserPermissionRolesInnerToJSON(json) {
+  return OrganizationUserPermissionRolesInnerToJSONTyped(json, false);
+}
+function OrganizationUserPermissionRolesInnerToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -2672,7 +3055,10 @@ function OrganizationUserPermissionFromJSONTyped(json, ignoreDiscriminator) {
     "roles": json["roles"] == null ? void 0 : json["roles"].map(OrganizationUserPermissionRolesInnerFromJSON)
   };
 }
-function OrganizationUserPermissionToJSON(value) {
+function OrganizationUserPermissionToJSON(json) {
+  return OrganizationUserPermissionToJSONTyped(json, false);
+}
+function OrganizationUserPermissionToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -2702,7 +3088,10 @@ function GetOrganizationsUserPermissionsResponseFromJSONTyped(json, ignoreDiscri
     "permissions": json["permissions"] == null ? void 0 : json["permissions"].map(OrganizationUserPermissionFromJSON)
   };
 }
-function GetOrganizationsUserPermissionsResponseToJSON(value) {
+function GetOrganizationsUserPermissionsResponseToJSON(json) {
+  return GetOrganizationsUserPermissionsResponseToJSONTyped(json, false);
+}
+function GetOrganizationsUserPermissionsResponseToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -2730,7 +3119,10 @@ function OrganizationUserRoleFromJSONTyped(json, ignoreDiscriminator) {
     "name": json["name"] == null ? void 0 : json["name"]
   };
 }
-function OrganizationUserRoleToJSON(value) {
+function OrganizationUserRoleToJSON(json) {
+  return OrganizationUserRoleToJSONTyped(json, false);
+}
+function OrganizationUserRoleToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -2759,7 +3151,10 @@ function GetOrganizationsUserRolesResponseFromJSONTyped(json, ignoreDiscriminato
     "nextToken": json["next_token"] == null ? void 0 : json["next_token"]
   };
 }
-function GetOrganizationsUserRolesResponseToJSON(value) {
+function GetOrganizationsUserRolesResponseToJSON(json) {
+  return GetOrganizationsUserRolesResponseToJSONTyped(json, false);
+}
+function GetOrganizationsUserRolesResponseToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -2789,7 +3184,10 @@ function PermissionsFromJSONTyped(json, ignoreDiscriminator) {
     "description": json["description"] == null ? void 0 : json["description"]
   };
 }
-function PermissionsToJSON(value) {
+function PermissionsToJSON(json) {
+  return PermissionsToJSONTyped(json, false);
+}
+function PermissionsToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -2819,7 +3217,10 @@ function GetPermissionsResponseFromJSONTyped(json, ignoreDiscriminator) {
     "nextToken": json["next_token"] == null ? void 0 : json["next_token"]
   };
 }
-function GetPermissionsResponseToJSON(value) {
+function GetPermissionsResponseToJSON(json) {
+  return GetPermissionsResponseToJSONTyped(json, false);
+}
+function GetPermissionsResponseToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -2851,7 +3252,10 @@ function PropertyFromJSONTyped(json, ignoreDiscriminator) {
     "isKindeProperty": json["is_kinde_property"] == null ? void 0 : json["is_kinde_property"]
   };
 }
-function PropertyToJSON(value) {
+function PropertyToJSON(json) {
+  return PropertyToJSONTyped(json, false);
+}
+function PropertyToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -2883,7 +3287,10 @@ function GetPropertiesResponseFromJSONTyped(json, ignoreDiscriminator) {
     "hasMore": json["has_more"] == null ? void 0 : json["has_more"]
   };
 }
-function GetPropertiesResponseToJSON(value) {
+function GetPropertiesResponseToJSON(json) {
+  return GetPropertiesResponseToJSONTyped(json, false);
+}
+function GetPropertiesResponseToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -2914,7 +3321,10 @@ function PropertyValueFromJSONTyped(json, ignoreDiscriminator) {
     "value": json["value"] == null ? void 0 : json["value"]
   };
 }
-function PropertyValueToJSON(value) {
+function PropertyValueToJSON(json) {
+  return PropertyValueToJSONTyped(json, false);
+}
+function PropertyValueToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -2945,7 +3355,10 @@ function GetPropertyValuesResponseFromJSONTyped(json, ignoreDiscriminator) {
     "nextToken": json["next_token"] == null ? void 0 : json["next_token"]
   };
 }
-function GetPropertyValuesResponseToJSON(value) {
+function GetPropertyValuesResponseToJSON(json) {
+  return GetPropertyValuesResponseToJSONTyped(json, false);
+}
+function GetPropertyValuesResponseToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -2972,7 +3385,10 @@ function RedirectCallbackUrlsFromJSONTyped(json, ignoreDiscriminator) {
     "redirectUrls": json["redirect_urls"] == null ? void 0 : json["redirect_urls"]
   };
 }
-function RedirectCallbackUrlsToJSON(value) {
+function RedirectCallbackUrlsToJSON(json) {
+  return RedirectCallbackUrlsToJSONTyped(json, false);
+}
+function RedirectCallbackUrlsToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -2996,7 +3412,10 @@ function GetRedirectCallbackUrlsResponseFromJSONTyped(json, ignoreDiscriminator)
     "redirectUrls": json["redirect_urls"] == null ? void 0 : json["redirect_urls"].map(RedirectCallbackUrlsFromJSON)
   };
 }
-function GetRedirectCallbackUrlsResponseToJSON(value) {
+function GetRedirectCallbackUrlsResponseToJSON(json) {
+  return GetRedirectCallbackUrlsResponseToJSONTyped(json, false);
+}
+function GetRedirectCallbackUrlsResponseToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -3023,7 +3442,10 @@ function RolesFromJSONTyped(json, ignoreDiscriminator) {
     "description": json["description"] == null ? void 0 : json["description"]
   };
 }
-function RolesToJSON(value) {
+function RolesToJSON(json) {
+  return RolesToJSONTyped(json, false);
+}
+function RolesToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -3053,7 +3475,10 @@ function GetRolesResponseFromJSONTyped(json, ignoreDiscriminator) {
     "nextToken": json["next_token"] == null ? void 0 : json["next_token"]
   };
 }
-function GetRolesResponseToJSON(value) {
+function GetRolesResponseToJSON(json) {
+  return GetRolesResponseToJSONTyped(json, false);
+}
+function GetRolesResponseToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -3083,7 +3508,10 @@ function SubscriberFromJSONTyped(json, ignoreDiscriminator) {
     "lastName": json["last_name"] == null ? void 0 : json["last_name"]
   };
 }
-function SubscriberToJSON(value) {
+function SubscriberToJSON(json) {
+  return SubscriberToJSONTyped(json, false);
+}
+function SubscriberToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -3112,7 +3540,10 @@ function GetSubscriberResponseFromJSONTyped(json, ignoreDiscriminator) {
     "subscribers": json["subscribers"] == null ? void 0 : json["subscribers"].map(SubscriberFromJSON)
   };
 }
-function GetSubscriberResponseToJSON(value) {
+function GetSubscriberResponseToJSON(json) {
+  return GetSubscriberResponseToJSONTyped(json, false);
+}
+function GetSubscriberResponseToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -3142,7 +3573,10 @@ function SubscribersSubscriberFromJSONTyped(json, ignoreDiscriminator) {
     "lastName": json["last_name"] == null ? void 0 : json["last_name"]
   };
 }
-function SubscribersSubscriberToJSON(value) {
+function SubscribersSubscriberToJSON(json) {
+  return SubscribersSubscriberToJSONTyped(json, false);
+}
+function SubscribersSubscriberToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -3173,7 +3607,10 @@ function GetSubscribersResponseFromJSONTyped(json, ignoreDiscriminator) {
     "nextToken": json["next_token"] == null ? void 0 : json["next_token"]
   };
 }
-function GetSubscribersResponseToJSON(value) {
+function GetSubscribersResponseToJSON(json) {
+  return GetSubscribersResponseToJSONTyped(json, false);
+}
+function GetSubscribersResponseToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -3182,6 +3619,66 @@ function GetSubscribersResponseToJSON(value) {
     "message": value["message"],
     "subscribers": value["subscribers"] == null ? void 0 : value["subscribers"].map(SubscribersSubscriberToJSON),
     "next_token": value["nextToken"]
+  };
+}
+
+// src/models/GetTimezonesResponseTimezonesInner.ts
+function instanceOfGetTimezonesResponseTimezonesInner(value) {
+  return true;
+}
+function GetTimezonesResponseTimezonesInnerFromJSON(json) {
+  return GetTimezonesResponseTimezonesInnerFromJSONTyped(json, false);
+}
+function GetTimezonesResponseTimezonesInnerFromJSONTyped(json, ignoreDiscriminator) {
+  if (json == null) {
+    return json;
+  }
+  return {
+    "key": json["key"] == null ? void 0 : json["key"],
+    "name": json["name"] == null ? void 0 : json["name"]
+  };
+}
+function GetTimezonesResponseTimezonesInnerToJSON(json) {
+  return GetTimezonesResponseTimezonesInnerToJSONTyped(json, false);
+}
+function GetTimezonesResponseTimezonesInnerToJSONTyped(value, ignoreDiscriminator = false) {
+  if (value == null) {
+    return value;
+  }
+  return {
+    "key": value["key"],
+    "name": value["name"]
+  };
+}
+
+// src/models/GetTimezonesResponse.ts
+function instanceOfGetTimezonesResponse(value) {
+  return true;
+}
+function GetTimezonesResponseFromJSON(json) {
+  return GetTimezonesResponseFromJSONTyped(json, false);
+}
+function GetTimezonesResponseFromJSONTyped(json, ignoreDiscriminator) {
+  if (json == null) {
+    return json;
+  }
+  return {
+    "code": json["code"] == null ? void 0 : json["code"],
+    "message": json["message"] == null ? void 0 : json["message"],
+    "timezones": json["timezones"] == null ? void 0 : json["timezones"].map(GetTimezonesResponseTimezonesInnerFromJSON)
+  };
+}
+function GetTimezonesResponseToJSON(json) {
+  return GetTimezonesResponseToJSONTyped(json, false);
+}
+function GetTimezonesResponseToJSONTyped(value, ignoreDiscriminator = false) {
+  if (value == null) {
+    return value;
+  }
+  return {
+    "code": value["code"],
+    "message": value["message"],
+    "timezones": value["timezones"] == null ? void 0 : value["timezones"].map(GetTimezonesResponseTimezonesInnerToJSON)
   };
 }
 
@@ -3205,7 +3702,10 @@ function WebhookFromJSONTyped(json, ignoreDiscriminator) {
     "createdOn": json["created_on"] == null ? void 0 : json["created_on"]
   };
 }
-function WebhookToJSON(value) {
+function WebhookToJSON(json) {
+  return WebhookToJSONTyped(json, false);
+}
+function WebhookToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -3236,7 +3736,10 @@ function GetWebhooksResponseFromJSONTyped(json, ignoreDiscriminator) {
     "webhooks": json["webhooks"] == null ? void 0 : json["webhooks"].map(WebhookFromJSON)
   };
 }
-function GetWebhooksResponseToJSON(value) {
+function GetWebhooksResponseToJSON(json) {
+  return GetWebhooksResponseToJSONTyped(json, false);
+}
+function GetWebhooksResponseToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -3262,12 +3765,71 @@ function LogoutRedirectUrlsFromJSONTyped(json, ignoreDiscriminator) {
     "redirectUrls": json["redirect_urls"] == null ? void 0 : json["redirect_urls"]
   };
 }
-function LogoutRedirectUrlsToJSON(value) {
+function LogoutRedirectUrlsToJSON(json) {
+  return LogoutRedirectUrlsToJSONTyped(json, false);
+}
+function LogoutRedirectUrlsToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
   return {
     "redirect_urls": value["redirectUrls"]
+  };
+}
+
+// src/models/NotFoundResponseErrors.ts
+function instanceOfNotFoundResponseErrors(value) {
+  return true;
+}
+function NotFoundResponseErrorsFromJSON(json) {
+  return NotFoundResponseErrorsFromJSONTyped(json, false);
+}
+function NotFoundResponseErrorsFromJSONTyped(json, ignoreDiscriminator) {
+  if (json == null) {
+    return json;
+  }
+  return {
+    "code": json["code"] == null ? void 0 : json["code"],
+    "message": json["message"] == null ? void 0 : json["message"]
+  };
+}
+function NotFoundResponseErrorsToJSON(json) {
+  return NotFoundResponseErrorsToJSONTyped(json, false);
+}
+function NotFoundResponseErrorsToJSONTyped(value, ignoreDiscriminator = false) {
+  if (value == null) {
+    return value;
+  }
+  return {
+    "code": value["code"],
+    "message": value["message"]
+  };
+}
+
+// src/models/NotFoundResponse.ts
+function instanceOfNotFoundResponse(value) {
+  return true;
+}
+function NotFoundResponseFromJSON(json) {
+  return NotFoundResponseFromJSONTyped(json, false);
+}
+function NotFoundResponseFromJSONTyped(json, ignoreDiscriminator) {
+  if (json == null) {
+    return json;
+  }
+  return {
+    "errors": json["errors"] == null ? void 0 : NotFoundResponseErrorsFromJSON(json["errors"])
+  };
+}
+function NotFoundResponseToJSON(json) {
+  return NotFoundResponseToJSONTyped(json, false);
+}
+function NotFoundResponseToJSONTyped(value, ignoreDiscriminator = false) {
+  if (value == null) {
+    return value;
+  }
+  return {
+    "errors": NotFoundResponseErrorsToJSON(value["errors"])
   };
 }
 
@@ -3286,7 +3848,10 @@ function OrganizationUserRolePermissionsPermissionsFromJSONTyped(json, ignoreDis
     "key": json["key"] == null ? void 0 : json["key"]
   };
 }
-function OrganizationUserRolePermissionsPermissionsToJSON(value) {
+function OrganizationUserRolePermissionsPermissionsToJSON(json) {
+  return OrganizationUserRolePermissionsPermissionsToJSONTyped(json, false);
+}
+function OrganizationUserRolePermissionsPermissionsToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -3312,7 +3877,10 @@ function OrganizationUserRolePermissionsFromJSONTyped(json, ignoreDiscriminator)
     "permissions": json["permissions"] == null ? void 0 : OrganizationUserRolePermissionsPermissionsFromJSON(json["permissions"])
   };
 }
-function OrganizationUserRolePermissionsToJSON(value) {
+function OrganizationUserRolePermissionsToJSON(json) {
+  return OrganizationUserRolePermissionsToJSONTyped(json, false);
+}
+function OrganizationUserRolePermissionsToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -3338,7 +3906,10 @@ function ReplaceLogoutRedirectURLsRequestFromJSONTyped(json, ignoreDiscriminator
     "urls": json["urls"] == null ? void 0 : json["urls"]
   };
 }
-function ReplaceLogoutRedirectURLsRequestToJSON(value) {
+function ReplaceLogoutRedirectURLsRequestToJSON(json) {
+  return ReplaceLogoutRedirectURLsRequestToJSONTyped(json, false);
+}
+function ReplaceLogoutRedirectURLsRequestToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -3362,7 +3933,10 @@ function ReplaceRedirectCallbackURLsRequestFromJSONTyped(json, ignoreDiscriminat
     "urls": json["urls"] == null ? void 0 : json["urls"]
   };
 }
-function ReplaceRedirectCallbackURLsRequestToJSON(value) {
+function ReplaceRedirectCallbackURLsRequestToJSON(json) {
+  return ReplaceRedirectCallbackURLsRequestToJSONTyped(json, false);
+}
+function ReplaceRedirectCallbackURLsRequestToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -3389,7 +3963,10 @@ function RoleFromJSONTyped(json, ignoreDiscriminator) {
     "description": json["description"] == null ? void 0 : json["description"]
   };
 }
-function RoleToJSON(value) {
+function RoleToJSON(json) {
+  return RoleToJSONTyped(json, false);
+}
+function RoleToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -3419,7 +3996,10 @@ function RolesPermissionResponseInnerFromJSONTyped(json, ignoreDiscriminator) {
     "description": json["description"] == null ? void 0 : json["description"]
   };
 }
-function RolesPermissionResponseInnerToJSON(value) {
+function RolesPermissionResponseInnerToJSON(json) {
+  return RolesPermissionResponseInnerToJSONTyped(json, false);
+}
+function RolesPermissionResponseInnerToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -3462,7 +4042,10 @@ function SetUserPasswordRequestFromJSONTyped(json, ignoreDiscriminator) {
     "isTemporaryPassword": json["is_temporary_password"] == null ? void 0 : json["is_temporary_password"]
   };
 }
-function SetUserPasswordRequestToJSON(value) {
+function SetUserPasswordRequestToJSON(json) {
+  return SetUserPasswordRequestToJSONTyped(json, false);
+}
+function SetUserPasswordRequestToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -3491,7 +4074,10 @@ function SuccessResponseFromJSONTyped(json, ignoreDiscriminator) {
     "code": json["code"] == null ? void 0 : json["code"]
   };
 }
-function SuccessResponseToJSON(value) {
+function SuccessResponseToJSON(json) {
+  return SuccessResponseToJSONTyped(json, false);
+}
+function SuccessResponseToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -3517,7 +4103,10 @@ function TokenErrorResponseFromJSONTyped(json, ignoreDiscriminator) {
     "errorDescription": json["error_description"] == null ? void 0 : json["error_description"]
   };
 }
-function TokenErrorResponseToJSON(value) {
+function TokenErrorResponseToJSON(json) {
+  return TokenErrorResponseToJSONTyped(json, false);
+}
+function TokenErrorResponseToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -3546,7 +4135,10 @@ function TokenIntrospectFromJSONTyped(json, ignoreDiscriminator) {
     "iat": json["iat"] == null ? void 0 : json["iat"]
   };
 }
-function TokenIntrospectToJSON(value) {
+function TokenIntrospectToJSON(json) {
+  return TokenIntrospectToJSONTyped(json, false);
+}
+function TokenIntrospectToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -3577,7 +4169,10 @@ function UpdateAPIApplicationsRequestApplicationsInnerFromJSONTyped(json, ignore
     "operation": json["operation"] == null ? void 0 : json["operation"]
   };
 }
-function UpdateAPIApplicationsRequestApplicationsInnerToJSON(value) {
+function UpdateAPIApplicationsRequestApplicationsInnerToJSON(json) {
+  return UpdateAPIApplicationsRequestApplicationsInnerToJSONTyped(json, false);
+}
+function UpdateAPIApplicationsRequestApplicationsInnerToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -3604,7 +4199,10 @@ function UpdateAPIApplicationsRequestFromJSONTyped(json, ignoreDiscriminator) {
     "applications": json["applications"].map(UpdateAPIApplicationsRequestApplicationsInnerFromJSON)
   };
 }
-function UpdateAPIApplicationsRequestToJSON(value) {
+function UpdateAPIApplicationsRequestToJSON(json) {
+  return UpdateAPIApplicationsRequestToJSONTyped(json, false);
+}
+function UpdateAPIApplicationsRequestToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -3633,7 +4231,10 @@ function UpdateApplicationRequestFromJSONTyped(json, ignoreDiscriminator) {
     "homepageUri": json["homepage_uri"] == null ? void 0 : json["homepage_uri"]
   };
 }
-function UpdateApplicationRequestToJSON(value) {
+function UpdateApplicationRequestToJSON(json) {
+  return UpdateApplicationRequestToJSONTyped(json, false);
+}
+function UpdateApplicationRequestToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -3644,6 +4245,51 @@ function UpdateApplicationRequestToJSON(value) {
     "redirect_uris": value["redirectUris"],
     "login_uri": value["loginUri"],
     "homepage_uri": value["homepageUri"]
+  };
+}
+
+// src/models/UpdateBusinessRequest.ts
+function instanceOfUpdateBusinessRequest(value) {
+  return true;
+}
+function UpdateBusinessRequestFromJSON(json) {
+  return UpdateBusinessRequestFromJSONTyped(json, false);
+}
+function UpdateBusinessRequestFromJSONTyped(json, ignoreDiscriminator) {
+  if (json == null) {
+    return json;
+  }
+  return {
+    "businessName": json["business_name"] == null ? void 0 : json["business_name"],
+    "email": json["email"] == null ? void 0 : json["email"],
+    "industryKey": json["industry_key"] == null ? void 0 : json["industry_key"],
+    "isClickWrap": json["is_click_wrap"] == null ? void 0 : json["is_click_wrap"],
+    "isShowKindeBranding": json["is_show_kinde_branding"] == null ? void 0 : json["is_show_kinde_branding"],
+    "kindePerkCode": json["kinde_perk_code"] == null ? void 0 : json["kinde_perk_code"],
+    "phone": json["phone"] == null ? void 0 : json["phone"],
+    "privacyUrl": json["privacy_url"] == null ? void 0 : json["privacy_url"],
+    "termsUrl": json["terms_url"] == null ? void 0 : json["terms_url"],
+    "timezoneKey": json["timezone_key"] == null ? void 0 : json["timezone_key"]
+  };
+}
+function UpdateBusinessRequestToJSON(json) {
+  return UpdateBusinessRequestToJSONTyped(json, false);
+}
+function UpdateBusinessRequestToJSONTyped(value, ignoreDiscriminator = false) {
+  if (value == null) {
+    return value;
+  }
+  return {
+    "business_name": value["businessName"],
+    "email": value["email"],
+    "industry_key": value["industryKey"],
+    "is_click_wrap": value["isClickWrap"],
+    "is_show_kinde_branding": value["isShowKindeBranding"],
+    "kinde_perk_code": value["kindePerkCode"],
+    "phone": value["phone"],
+    "privacy_url": value["privacyUrl"],
+    "terms_url": value["termsUrl"],
+    "timezone_key": value["timezoneKey"]
   };
 }
 
@@ -3662,7 +4308,10 @@ function UpdateCategoryRequestFromJSONTyped(json, ignoreDiscriminator) {
     "name": json["name"] == null ? void 0 : json["name"]
   };
 }
-function UpdateCategoryRequestToJSON(value) {
+function UpdateCategoryRequestToJSON(json) {
+  return UpdateCategoryRequestToJSONTyped(json, false);
+}
+function UpdateCategoryRequestToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -3689,7 +4338,10 @@ function UpdateConnectionRequestFromJSONTyped(json, ignoreDiscriminator) {
     "options": json["options"] == null ? void 0 : json["options"]
   };
 }
-function UpdateConnectionRequestToJSON(value) {
+function UpdateConnectionRequestToJSON(json) {
+  return UpdateConnectionRequestToJSONTyped(json, false);
+}
+function UpdateConnectionRequestToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -3718,7 +4370,10 @@ function UpdateEnvironementFeatureFlagOverrideRequestFromJSONTyped(json, ignoreD
     "value": json["value"]
   };
 }
-function UpdateEnvironementFeatureFlagOverrideRequestToJSON(value) {
+function UpdateEnvironementFeatureFlagOverrideRequestToJSON(json) {
+  return UpdateEnvironementFeatureFlagOverrideRequestToJSONTyped(json, false);
+}
+function UpdateEnvironementFeatureFlagOverrideRequestToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -3742,7 +4397,10 @@ function UpdateIdentityRequestFromJSONTyped(json, ignoreDiscriminator) {
     "isPrimary": json["is_primary"] == null ? void 0 : json["is_primary"]
   };
 }
-function UpdateIdentityRequestToJSON(value) {
+function UpdateIdentityRequestToJSON(json) {
+  return UpdateIdentityRequestToJSONTyped(json, false);
+}
+function UpdateIdentityRequestToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -3768,7 +4426,10 @@ function UpdateOrganizationPropertiesRequestFromJSONTyped(json, ignoreDiscrimina
     "properties": json["properties"]
   };
 }
-function UpdateOrganizationPropertiesRequestToJSON(value) {
+function UpdateOrganizationPropertiesRequestToJSON(json) {
+  return UpdateOrganizationPropertiesRequestToJSONTyped(json, false);
+}
+function UpdateOrganizationPropertiesRequestToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -3778,6 +4439,11 @@ function UpdateOrganizationPropertiesRequestToJSON(value) {
 }
 
 // src/models/UpdateOrganizationRequest.ts
+var UpdateOrganizationRequestThemeCodeEnum = {
+  Light: "light",
+  Dark: "dark",
+  UserPreference: "user_preference"
+};
 function instanceOfUpdateOrganizationRequest(value) {
   return true;
 }
@@ -3801,10 +4467,16 @@ function UpdateOrganizationRequestFromJSONTyped(json, ignoreDiscriminator) {
     "linkColorDark": json["link_color_dark"] == null ? void 0 : json["link_color_dark"],
     "themeCode": json["theme_code"] == null ? void 0 : json["theme_code"],
     "handle": json["handle"] == null ? void 0 : json["handle"],
-    "isAllowRegistrations": json["is_allow_registrations"] == null ? void 0 : json["is_allow_registrations"]
+    "isAllowRegistrations": json["is_allow_registrations"] == null ? void 0 : json["is_allow_registrations"],
+    "isCustomAuthConnectionsEnabled": json["is_custom_auth_connections_enabled"] == null ? void 0 : json["is_custom_auth_connections_enabled"],
+    "isAutoJoinDomainList": json["is_auto_join_domain_list"] == null ? void 0 : json["is_auto_join_domain_list"],
+    "allowedDomains": json["allowed_domains"] == null ? void 0 : json["allowed_domains"]
   };
 }
-function UpdateOrganizationRequestToJSON(value) {
+function UpdateOrganizationRequestToJSON(json) {
+  return UpdateOrganizationRequestToJSONTyped(json, false);
+}
+function UpdateOrganizationRequestToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -3821,7 +4493,10 @@ function UpdateOrganizationRequestToJSON(value) {
     "link_color_dark": value["linkColorDark"],
     "theme_code": value["themeCode"],
     "handle": value["handle"],
-    "is_allow_registrations": value["isAllowRegistrations"]
+    "is_allow_registrations": value["isAllowRegistrations"],
+    "is_custom_auth_connections_enabled": value["isCustomAuthConnectionsEnabled"],
+    "is_auto_join_domain_list": value["isAutoJoinDomainList"],
+    "allowed_domains": value["allowedDomains"]
   };
 }
 
@@ -3843,7 +4518,10 @@ function UpdateOrganizationUsersRequestUsersInnerFromJSONTyped(json, ignoreDiscr
     "permissions": json["permissions"] == null ? void 0 : json["permissions"]
   };
 }
-function UpdateOrganizationUsersRequestUsersInnerToJSON(value) {
+function UpdateOrganizationUsersRequestUsersInnerToJSON(json) {
+  return UpdateOrganizationUsersRequestUsersInnerToJSONTyped(json, false);
+}
+function UpdateOrganizationUsersRequestUsersInnerToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -3870,7 +4548,10 @@ function UpdateOrganizationUsersRequestFromJSONTyped(json, ignoreDiscriminator) 
     "users": json["users"] == null ? void 0 : json["users"].map(UpdateOrganizationUsersRequestUsersInnerFromJSON)
   };
 }
-function UpdateOrganizationUsersRequestToJSON(value) {
+function UpdateOrganizationUsersRequestToJSON(json) {
+  return UpdateOrganizationUsersRequestToJSONTyped(json, false);
+}
+function UpdateOrganizationUsersRequestToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -3897,7 +4578,10 @@ function UpdateOrganizationUsersResponseFromJSONTyped(json, ignoreDiscriminator)
     "usersRemoved": json["users_removed"] == null ? void 0 : json["users_removed"]
   };
 }
-function UpdateOrganizationUsersResponseToJSON(value) {
+function UpdateOrganizationUsersResponseToJSON(json) {
+  return UpdateOrganizationUsersResponseToJSONTyped(json, false);
+}
+function UpdateOrganizationUsersResponseToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -3933,7 +4617,10 @@ function UpdatePropertyRequestFromJSONTyped(json, ignoreDiscriminator) {
     "categoryId": json["category_id"]
   };
 }
-function UpdatePropertyRequestToJSON(value) {
+function UpdatePropertyRequestToJSON(json) {
+  return UpdatePropertyRequestToJSONTyped(json, false);
+}
+function UpdatePropertyRequestToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -3961,7 +4648,10 @@ function UpdateRolePermissionsRequestPermissionsInnerFromJSONTyped(json, ignoreD
     "operation": json["operation"] == null ? void 0 : json["operation"]
   };
 }
-function UpdateRolePermissionsRequestPermissionsInnerToJSON(value) {
+function UpdateRolePermissionsRequestPermissionsInnerToJSON(json) {
+  return UpdateRolePermissionsRequestPermissionsInnerToJSONTyped(json, false);
+}
+function UpdateRolePermissionsRequestPermissionsInnerToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -3986,7 +4676,10 @@ function UpdateRolePermissionsRequestFromJSONTyped(json, ignoreDiscriminator) {
     "permissions": json["permissions"] == null ? void 0 : json["permissions"].map(UpdateRolePermissionsRequestPermissionsInnerFromJSON)
   };
 }
-function UpdateRolePermissionsRequestToJSON(value) {
+function UpdateRolePermissionsRequestToJSON(json) {
+  return UpdateRolePermissionsRequestToJSONTyped(json, false);
+}
+function UpdateRolePermissionsRequestToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -4013,7 +4706,10 @@ function UpdateRolePermissionsResponseFromJSONTyped(json, ignoreDiscriminator) {
     "permissionsRemoved": json["permissions_removed"] == null ? void 0 : json["permissions_removed"]
   };
 }
-function UpdateRolePermissionsResponseToJSON(value) {
+function UpdateRolePermissionsResponseToJSON(json) {
+  return UpdateRolePermissionsResponseToJSONTyped(json, false);
+}
+function UpdateRolePermissionsResponseToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -4047,7 +4743,10 @@ function UpdateRolesRequestFromJSONTyped(json, ignoreDiscriminator) {
     "isDefaultRole": json["is_default_role"] == null ? void 0 : json["is_default_role"]
   };
 }
-function UpdateRolesRequestToJSON(value) {
+function UpdateRolesRequestToJSON(json) {
+  return UpdateRolesRequestToJSONTyped(json, false);
+}
+function UpdateRolesRequestToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -4077,7 +4776,10 @@ function UpdateUserRequestFromJSONTyped(json, ignoreDiscriminator) {
     "isPasswordResetRequested": json["is_password_reset_requested"] == null ? void 0 : json["is_password_reset_requested"]
   };
 }
-function UpdateUserRequestToJSON(value) {
+function UpdateUserRequestToJSON(json) {
+  return UpdateUserRequestToJSONTyped(json, false);
+}
+function UpdateUserRequestToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -4110,7 +4812,10 @@ function UpdateUserResponseFromJSONTyped(json, ignoreDiscriminator) {
     "picture": json["picture"] == null ? void 0 : json["picture"]
   };
 }
-function UpdateUserResponseToJSON(value) {
+function UpdateUserResponseToJSON(json) {
+  return UpdateUserResponseToJSONTyped(json, false);
+}
+function UpdateUserResponseToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -4142,7 +4847,10 @@ function UpdateWebHookRequestFromJSONTyped(json, ignoreDiscriminator) {
     "description": json["description"] == null ? void 0 : json["description"]
   };
 }
-function UpdateWebHookRequestToJSON(value) {
+function UpdateWebHookRequestToJSON(json) {
+  return UpdateWebHookRequestToJSONTyped(json, false);
+}
+function UpdateWebHookRequestToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -4168,7 +4876,10 @@ function UpdateWebhookResponseWebhookFromJSONTyped(json, ignoreDiscriminator) {
     "id": json["id"] == null ? void 0 : json["id"]
   };
 }
-function UpdateWebhookResponseWebhookToJSON(value) {
+function UpdateWebhookResponseWebhookToJSON(json) {
+  return UpdateWebhookResponseWebhookToJSONTyped(json, false);
+}
+function UpdateWebhookResponseWebhookToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -4194,7 +4905,10 @@ function UpdateWebhookResponseFromJSONTyped(json, ignoreDiscriminator) {
     "webhook": json["webhook"] == null ? void 0 : UpdateWebhookResponseWebhookFromJSON(json["webhook"])
   };
 }
-function UpdateWebhookResponseToJSON(value) {
+function UpdateWebhookResponseToJSON(json) {
+  return UpdateWebhookResponseToJSONTyped(json, false);
+}
+function UpdateWebhookResponseToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -4221,7 +4935,10 @@ function UserIdentitiesInnerFromJSONTyped(json, ignoreDiscriminator) {
     "identity": json["identity"] == null ? void 0 : json["identity"]
   };
 }
-function UserIdentitiesInnerToJSON(value) {
+function UserIdentitiesInnerToJSON(json) {
+  return UserIdentitiesInnerToJSONTyped(json, false);
+}
+function UserIdentitiesInnerToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -4259,7 +4976,10 @@ function UserFromJSONTyped(json, ignoreDiscriminator) {
     "identities": json["identities"] == null ? void 0 : json["identities"].map(UserIdentitiesInnerFromJSON)
   };
 }
-function UserToJSON(value) {
+function UserToJSON(json) {
+  return UserToJSONTyped(json, false);
+}
+function UserToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -4302,7 +5022,10 @@ function UserProfileFromJSONTyped(json, ignoreDiscriminator) {
     "picture": json["picture"] == null ? void 0 : json["picture"]
   };
 }
-function UserProfileToJSON(value) {
+function UserProfileToJSON(json) {
+  return UserProfileToJSONTyped(json, false);
+}
+function UserProfileToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -4340,7 +5063,10 @@ function UserProfileV2FromJSONTyped(json, ignoreDiscriminator) {
     "picture": json["picture"] == null ? void 0 : json["picture"]
   };
 }
-function UserProfileV2ToJSON(value) {
+function UserProfileV2ToJSON(json) {
+  return UserProfileV2ToJSONTyped(json, false);
+}
+function UserProfileV2ToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -4385,7 +5111,10 @@ function UsersResponseUsersInnerFromJSONTyped(json, ignoreDiscriminator) {
     "identities": json["identities"] == null ? void 0 : json["identities"].map(UserIdentitiesInnerFromJSON)
   };
 }
-function UsersResponseUsersInnerToJSON(value) {
+function UsersResponseUsersInnerToJSON(json) {
+  return UsersResponseUsersInnerToJSONTyped(json, false);
+}
+function UsersResponseUsersInnerToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -4425,7 +5154,10 @@ function UsersResponseFromJSONTyped(json, ignoreDiscriminator) {
     "nextToken": json["next_token"] == null ? void 0 : json["next_token"]
   };
 }
-function UsersResponseToJSON(value) {
+function UsersResponseToJSON(json) {
+  return UsersResponseToJSONTyped(json, false);
+}
+function UsersResponseToJSONTyped(value, ignoreDiscriminator = false) {
   if (value == null) {
     return value;
   }
@@ -4609,9 +5341,15 @@ var APIsApi = class extends BaseAPI {
 var ApplicationsApi = class extends BaseAPI {
   /**
    * Create a new client.
-   * Create Application
+   * Create application
    */
   async createApplicationRaw(requestParameters, initOverrides) {
+    if (requestParameters["createApplicationRequest"] == null) {
+      throw new RequiredError(
+        "createApplicationRequest",
+        'Required parameter "createApplicationRequest" was null or undefined when calling createApplication().'
+      );
+    }
     const queryParameters = {};
     const headerParameters = {};
     headerParameters["Content-Type"] = "application/json";
@@ -4629,9 +5367,9 @@ var ApplicationsApi = class extends BaseAPI {
   }
   /**
    * Create a new client.
-   * Create Application
+   * Create application
    */
-  async createApplication(requestParameters = {}, initOverrides) {
+  async createApplication(requestParameters, initOverrides) {
     const response = await this.createApplicationRaw(requestParameters, initOverrides);
     return await response.value();
   }
@@ -4884,52 +5622,10 @@ var GetApplicationsSortEnum = {
 var BusinessApi = class extends BaseAPI {
   /**
    * Get your business details.
-   * List business details
+   * Get business
    */
-  async getBusinessRaw(requestParameters, initOverrides) {
-    if (requestParameters["code"] == null) {
-      throw new RequiredError(
-        "code",
-        'Required parameter "code" was null or undefined when calling getBusiness().'
-      );
-    }
-    if (requestParameters["name"] == null) {
-      throw new RequiredError(
-        "name",
-        'Required parameter "name" was null or undefined when calling getBusiness().'
-      );
-    }
-    if (requestParameters["email"] == null) {
-      throw new RequiredError(
-        "email",
-        'Required parameter "email" was null or undefined when calling getBusiness().'
-      );
-    }
+  async getBusinessRaw(initOverrides) {
     const queryParameters = {};
-    if (requestParameters["code"] != null) {
-      queryParameters["code"] = requestParameters["code"];
-    }
-    if (requestParameters["name"] != null) {
-      queryParameters["name"] = requestParameters["name"];
-    }
-    if (requestParameters["email"] != null) {
-      queryParameters["email"] = requestParameters["email"];
-    }
-    if (requestParameters["phone"] != null) {
-      queryParameters["phone"] = requestParameters["phone"];
-    }
-    if (requestParameters["industry"] != null) {
-      queryParameters["industry"] = requestParameters["industry"];
-    }
-    if (requestParameters["timezone"] != null) {
-      queryParameters["timezone"] = requestParameters["timezone"];
-    }
-    if (requestParameters["privacyUrl"] != null) {
-      queryParameters["privacy_url"] = requestParameters["privacyUrl"];
-    }
-    if (requestParameters["termsUrl"] != null) {
-      queryParameters["terms_url"] = requestParameters["termsUrl"];
-    }
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
       headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", []);
@@ -4940,65 +5636,30 @@ var BusinessApi = class extends BaseAPI {
       headers: headerParameters,
       query: queryParameters
     }, initOverrides);
-    return new JSONApiResponse(response, (jsonValue) => SuccessResponseFromJSON(jsonValue));
+    return new JSONApiResponse(response, (jsonValue) => GetBusinessResponseFromJSON(jsonValue));
   }
   /**
    * Get your business details.
-   * List business details
+   * Get business
    */
-  async getBusiness(requestParameters, initOverrides) {
-    const response = await this.getBusinessRaw(requestParameters, initOverrides);
+  async getBusiness(initOverrides) {
+    const response = await this.getBusinessRaw(initOverrides);
     return await response.value();
   }
   /**
-   * Update business details.
-   * Update business details
+   * Update your business details.
+   * Update business
    */
   async updateBusinessRaw(requestParameters, initOverrides) {
-    if (requestParameters["businessName"] == null) {
+    if (requestParameters["updateBusinessRequest"] == null) {
       throw new RequiredError(
-        "businessName",
-        'Required parameter "businessName" was null or undefined when calling updateBusiness().'
-      );
-    }
-    if (requestParameters["primaryEmail"] == null) {
-      throw new RequiredError(
-        "primaryEmail",
-        'Required parameter "primaryEmail" was null or undefined when calling updateBusiness().'
+        "updateBusinessRequest",
+        'Required parameter "updateBusinessRequest" was null or undefined when calling updateBusiness().'
       );
     }
     const queryParameters = {};
-    if (requestParameters["businessName"] != null) {
-      queryParameters["business_name"] = requestParameters["businessName"];
-    }
-    if (requestParameters["primaryEmail"] != null) {
-      queryParameters["primary_email"] = requestParameters["primaryEmail"];
-    }
-    if (requestParameters["primaryPhone"] != null) {
-      queryParameters["primary_phone"] = requestParameters["primaryPhone"];
-    }
-    if (requestParameters["industryKey"] != null) {
-      queryParameters["industry_key"] = requestParameters["industryKey"];
-    }
-    if (requestParameters["timezoneId"] != null) {
-      queryParameters["timezone_id"] = requestParameters["timezoneId"];
-    }
-    if (requestParameters["privacyUrl"] != null) {
-      queryParameters["privacy_url"] = requestParameters["privacyUrl"];
-    }
-    if (requestParameters["termsUrl"] != null) {
-      queryParameters["terms_url"] = requestParameters["termsUrl"];
-    }
-    if (requestParameters["isShowKindeBranding"] != null) {
-      queryParameters["is_show_kinde_branding"] = requestParameters["isShowKindeBranding"];
-    }
-    if (requestParameters["isClickWrap"] != null) {
-      queryParameters["is_click_wrap"] = requestParameters["isClickWrap"];
-    }
-    if (requestParameters["partnerCode"] != null) {
-      queryParameters["partner_code"] = requestParameters["partnerCode"];
-    }
     const headerParameters = {};
+    headerParameters["Content-Type"] = "application/json";
     if (this.configuration && this.configuration.accessToken) {
       headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["update:businesses"]);
     }
@@ -5006,13 +5667,14 @@ var BusinessApi = class extends BaseAPI {
       path: `/api/v1/business`,
       method: "PATCH",
       headers: headerParameters,
-      query: queryParameters
+      query: queryParameters,
+      body: UpdateBusinessRequestToJSON(requestParameters["updateBusinessRequest"])
     }, initOverrides);
     return new JSONApiResponse(response, (jsonValue) => SuccessResponseFromJSON(jsonValue));
   }
   /**
-   * Update business details.
-   * Update business details
+   * Update your business details.
+   * Update business
    */
   async updateBusiness(requestParameters, initOverrides) {
     const response = await this.updateBusinessRaw(requestParameters, initOverrides);
@@ -6021,16 +6683,10 @@ var IdentitiesApi = class extends BaseAPI {
 var IndustriesApi = class extends BaseAPI {
   /**
    * Get a list of industries and associated industry keys.
-   * List industries and industry keys.
+   * Get industries
    */
-  async getIndustriesRaw(requestParameters, initOverrides) {
+  async getIndustriesRaw(initOverrides) {
     const queryParameters = {};
-    if (requestParameters["industryKey"] != null) {
-      queryParameters["industry_key"] = requestParameters["industryKey"];
-    }
-    if (requestParameters["name"] != null) {
-      queryParameters["name"] = requestParameters["name"];
-    }
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
       headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:industries"]);
@@ -6041,14 +6697,14 @@ var IndustriesApi = class extends BaseAPI {
       headers: headerParameters,
       query: queryParameters
     }, initOverrides);
-    return new JSONApiResponse(response, (jsonValue) => SuccessResponseFromJSON(jsonValue));
+    return new JSONApiResponse(response, (jsonValue) => GetIndustriesResponseFromJSON(jsonValue));
   }
   /**
    * Get a list of industries and associated industry keys.
-   * List industries and industry keys.
+   * Get industries
    */
-  async getIndustries(requestParameters = {}, initOverrides) {
-    const response = await this.getIndustriesRaw(requestParameters, initOverrides);
+  async getIndustries(initOverrides) {
+    const response = await this.getIndustriesRaw(initOverrides);
     return await response.value();
   }
 };
@@ -6406,14 +7062,15 @@ var OrganizationsApi = class extends BaseAPI {
       headers: headerParameters,
       query: queryParameters
     }, initOverrides);
-    return new VoidApiResponse(response);
+    return new JSONApiResponse(response, (jsonValue) => SuccessResponseFromJSON(jsonValue));
   }
   /**
    * Delete an organization.
    * Delete Organization
    */
   async deleteOrganization(requestParameters, initOverrides) {
-    await this.deleteOrganizationRaw(requestParameters, initOverrides);
+    const response = await this.deleteOrganizationRaw(requestParameters, initOverrides);
+    return await response.value();
   }
   /**
    * Delete organization feature flag override.
@@ -7924,16 +8581,10 @@ var GetSubscribersSortEnum = {
 var TimezonesApi = class extends BaseAPI {
   /**
    * Get a list of timezones and associated timezone keys.
-   * List timezones and timezone IDs.
+   * Get timezones
    */
-  async getTimezonesRaw(requestParameters, initOverrides) {
+  async getTimezonesRaw(initOverrides) {
     const queryParameters = {};
-    if (requestParameters["timezoneKey"] != null) {
-      queryParameters["timezone_key"] = requestParameters["timezoneKey"];
-    }
-    if (requestParameters["name"] != null) {
-      queryParameters["name"] = requestParameters["name"];
-    }
     const headerParameters = {};
     if (this.configuration && this.configuration.accessToken) {
       headerParameters["Authorization"] = await this.configuration.accessToken("ManagementAPI", ["read:timezones"]);
@@ -7944,14 +8595,14 @@ var TimezonesApi = class extends BaseAPI {
       headers: headerParameters,
       query: queryParameters
     }, initOverrides);
-    return new JSONApiResponse(response, (jsonValue) => SuccessResponseFromJSON(jsonValue));
+    return new JSONApiResponse(response, (jsonValue) => GetTimezonesResponseFromJSON(jsonValue));
   }
   /**
    * Get a list of timezones and associated timezone keys.
-   * List timezones and timezone IDs.
+   * Get timezones
    */
-  async getTimezones(requestParameters = {}, initOverrides) {
-    const response = await this.getTimezonesRaw(requestParameters, initOverrides);
+  async getTimezones(initOverrides) {
+    const response = await this.getTimezonesRaw(initOverrides);
     return await response.value();
   }
 };
@@ -8650,25 +9301,32 @@ export {
   AddAPIsRequestFromJSON,
   AddAPIsRequestFromJSONTyped,
   AddAPIsRequestToJSON,
+  AddAPIsRequestToJSONTyped,
   AddOrganizationUsersRequestFromJSON,
   AddOrganizationUsersRequestFromJSONTyped,
   AddOrganizationUsersRequestToJSON,
+  AddOrganizationUsersRequestToJSONTyped,
   AddOrganizationUsersRequestUsersInnerFromJSON,
   AddOrganizationUsersRequestUsersInnerFromJSONTyped,
   AddOrganizationUsersRequestUsersInnerToJSON,
+  AddOrganizationUsersRequestUsersInnerToJSONTyped,
   AddOrganizationUsersResponseFromJSON,
   AddOrganizationUsersResponseFromJSONTyped,
   AddOrganizationUsersResponseToJSON,
+  AddOrganizationUsersResponseToJSONTyped,
   ApiResultFromJSON,
   ApiResultFromJSONTyped,
   ApiResultToJSON,
+  ApiResultToJSONTyped,
   ApplicationsApi,
   ApplicationsFromJSON,
   ApplicationsFromJSONTyped,
   ApplicationsToJSON,
+  ApplicationsToJSONTyped,
   AuthorizeAppApiResponseFromJSON,
   AuthorizeAppApiResponseFromJSONTyped,
   AuthorizeAppApiResponseToJSON,
+  AuthorizeAppApiResponseToJSONTyped,
   BASE_PATH,
   BaseAPI,
   BlobApiResponse,
@@ -8678,272 +9336,383 @@ export {
   CategoryFromJSON,
   CategoryFromJSONTyped,
   CategoryToJSON,
+  CategoryToJSONTyped,
   Configuration,
   ConnectedAppsAccessTokenFromJSON,
   ConnectedAppsAccessTokenFromJSONTyped,
   ConnectedAppsAccessTokenToJSON,
+  ConnectedAppsAccessTokenToJSONTyped,
   ConnectedAppsApi,
   ConnectedAppsAuthUrlFromJSON,
   ConnectedAppsAuthUrlFromJSONTyped,
   ConnectedAppsAuthUrlToJSON,
+  ConnectedAppsAuthUrlToJSONTyped,
   ConnectionFromJSON,
   ConnectionFromJSONTyped,
   ConnectionToJSON,
+  ConnectionToJSONTyped,
   ConnectionsApi,
   CreateApisResponseApiFromJSON,
   CreateApisResponseApiFromJSONTyped,
   CreateApisResponseApiToJSON,
+  CreateApisResponseApiToJSONTyped,
   CreateApisResponseFromJSON,
   CreateApisResponseFromJSONTyped,
   CreateApisResponseToJSON,
+  CreateApisResponseToJSONTyped,
   CreateApplicationRequestFromJSON,
   CreateApplicationRequestFromJSONTyped,
   CreateApplicationRequestToJSON,
+  CreateApplicationRequestToJSONTyped,
   CreateApplicationRequestTypeEnum,
   CreateApplicationResponseApplicationFromJSON,
   CreateApplicationResponseApplicationFromJSONTyped,
   CreateApplicationResponseApplicationToJSON,
+  CreateApplicationResponseApplicationToJSONTyped,
   CreateApplicationResponseFromJSON,
   CreateApplicationResponseFromJSONTyped,
   CreateApplicationResponseToJSON,
+  CreateApplicationResponseToJSONTyped,
   CreateCategoryRequestContextEnum,
   CreateCategoryRequestFromJSON,
   CreateCategoryRequestFromJSONTyped,
   CreateCategoryRequestToJSON,
+  CreateCategoryRequestToJSONTyped,
   CreateCategoryResponseCategoryFromJSON,
   CreateCategoryResponseCategoryFromJSONTyped,
   CreateCategoryResponseCategoryToJSON,
+  CreateCategoryResponseCategoryToJSONTyped,
   CreateCategoryResponseFromJSON,
   CreateCategoryResponseFromJSONTyped,
   CreateCategoryResponseToJSON,
+  CreateCategoryResponseToJSONTyped,
   CreateConnectionRequestFromJSON,
   CreateConnectionRequestFromJSONTyped,
   CreateConnectionRequestStrategyEnum,
   CreateConnectionRequestToJSON,
+  CreateConnectionRequestToJSONTyped,
   CreateConnectionResponseConnectionFromJSON,
   CreateConnectionResponseConnectionFromJSONTyped,
   CreateConnectionResponseConnectionToJSON,
+  CreateConnectionResponseConnectionToJSONTyped,
   CreateConnectionResponseFromJSON,
   CreateConnectionResponseFromJSONTyped,
   CreateConnectionResponseToJSON,
+  CreateConnectionResponseToJSONTyped,
   CreateFeatureFlagRequestAllowOverrideLevelEnum,
   CreateFeatureFlagRequestFromJSON,
   CreateFeatureFlagRequestFromJSONTyped,
   CreateFeatureFlagRequestToJSON,
+  CreateFeatureFlagRequestToJSONTyped,
   CreateFeatureFlagRequestTypeEnum,
   CreateIdentityResponseFromJSON,
   CreateIdentityResponseFromJSONTyped,
   CreateIdentityResponseIdentityFromJSON,
   CreateIdentityResponseIdentityFromJSONTyped,
   CreateIdentityResponseIdentityToJSON,
+  CreateIdentityResponseIdentityToJSONTyped,
   CreateIdentityResponseToJSON,
+  CreateIdentityResponseToJSONTyped,
   CreateOrganizationRequestFeatureFlagsEnum,
   CreateOrganizationRequestFromJSON,
   CreateOrganizationRequestFromJSONTyped,
   CreateOrganizationRequestToJSON,
+  CreateOrganizationRequestToJSONTyped,
   CreateOrganizationResponseFromJSON,
   CreateOrganizationResponseFromJSONTyped,
   CreateOrganizationResponseOrganizationFromJSON,
   CreateOrganizationResponseOrganizationFromJSONTyped,
   CreateOrganizationResponseOrganizationToJSON,
+  CreateOrganizationResponseOrganizationToJSONTyped,
   CreateOrganizationResponseToJSON,
+  CreateOrganizationResponseToJSONTyped,
   CreateOrganizationUserPermissionRequestFromJSON,
   CreateOrganizationUserPermissionRequestFromJSONTyped,
   CreateOrganizationUserPermissionRequestToJSON,
+  CreateOrganizationUserPermissionRequestToJSONTyped,
   CreateOrganizationUserRoleRequestFromJSON,
   CreateOrganizationUserRoleRequestFromJSONTyped,
   CreateOrganizationUserRoleRequestToJSON,
+  CreateOrganizationUserRoleRequestToJSONTyped,
   CreatePermissionRequestFromJSON,
   CreatePermissionRequestFromJSONTyped,
   CreatePermissionRequestToJSON,
+  CreatePermissionRequestToJSONTyped,
   CreatePropertyRequestContextEnum,
   CreatePropertyRequestFromJSON,
   CreatePropertyRequestFromJSONTyped,
   CreatePropertyRequestToJSON,
+  CreatePropertyRequestToJSONTyped,
   CreatePropertyRequestTypeEnum,
   CreatePropertyResponseFromJSON,
   CreatePropertyResponseFromJSONTyped,
   CreatePropertyResponsePropertyFromJSON,
   CreatePropertyResponsePropertyFromJSONTyped,
   CreatePropertyResponsePropertyToJSON,
+  CreatePropertyResponsePropertyToJSONTyped,
   CreatePropertyResponseToJSON,
+  CreatePropertyResponseToJSONTyped,
   CreateRoleRequestFromJSON,
   CreateRoleRequestFromJSONTyped,
   CreateRoleRequestToJSON,
+  CreateRoleRequestToJSONTyped,
   CreateSubscriberSuccessResponseFromJSON,
   CreateSubscriberSuccessResponseFromJSONTyped,
   CreateSubscriberSuccessResponseSubscriberFromJSON,
   CreateSubscriberSuccessResponseSubscriberFromJSONTyped,
   CreateSubscriberSuccessResponseSubscriberToJSON,
+  CreateSubscriberSuccessResponseSubscriberToJSONTyped,
   CreateSubscriberSuccessResponseToJSON,
+  CreateSubscriberSuccessResponseToJSONTyped,
   CreateUserIdentityRequestFromJSON,
   CreateUserIdentityRequestFromJSONTyped,
   CreateUserIdentityRequestToJSON,
+  CreateUserIdentityRequestToJSONTyped,
   CreateUserIdentityRequestTypeEnum,
   CreateUserRequestFromJSON,
   CreateUserRequestFromJSONTyped,
   CreateUserRequestIdentitiesInnerDetailsFromJSON,
   CreateUserRequestIdentitiesInnerDetailsFromJSONTyped,
   CreateUserRequestIdentitiesInnerDetailsToJSON,
+  CreateUserRequestIdentitiesInnerDetailsToJSONTyped,
   CreateUserRequestIdentitiesInnerFromJSON,
   CreateUserRequestIdentitiesInnerFromJSONTyped,
   CreateUserRequestIdentitiesInnerToJSON,
+  CreateUserRequestIdentitiesInnerToJSONTyped,
   CreateUserRequestIdentitiesInnerTypeEnum,
   CreateUserRequestProfileFromJSON,
   CreateUserRequestProfileFromJSONTyped,
   CreateUserRequestProfileToJSON,
+  CreateUserRequestProfileToJSONTyped,
   CreateUserRequestToJSON,
+  CreateUserRequestToJSONTyped,
   CreateUserResponseFromJSON,
   CreateUserResponseFromJSONTyped,
   CreateUserResponseToJSON,
+  CreateUserResponseToJSONTyped,
   CreateWebHookRequestFromJSON,
   CreateWebHookRequestFromJSONTyped,
   CreateWebHookRequestToJSON,
+  CreateWebHookRequestToJSONTyped,
   CreateWebhookResponseFromJSON,
   CreateWebhookResponseFromJSONTyped,
   CreateWebhookResponseToJSON,
+  CreateWebhookResponseToJSONTyped,
   CreateWebhookResponseWebhookFromJSON,
   CreateWebhookResponseWebhookFromJSONTyped,
   CreateWebhookResponseWebhookToJSON,
+  CreateWebhookResponseWebhookToJSONTyped,
   DefaultConfig,
   DeleteApiResponseFromJSON,
   DeleteApiResponseFromJSONTyped,
   DeleteApiResponseToJSON,
+  DeleteApiResponseToJSONTyped,
   DeleteWebhookResponseFromJSON,
   DeleteWebhookResponseFromJSONTyped,
   DeleteWebhookResponseToJSON,
+  DeleteWebhookResponseToJSONTyped,
   EnvironmentsApi,
   ErrorResponseFromJSON,
   ErrorResponseFromJSONTyped,
   ErrorResponseToJSON,
+  ErrorResponseToJSONTyped,
   EventTypeFromJSON,
   EventTypeFromJSONTyped,
   EventTypeToJSON,
+  EventTypeToJSONTyped,
   FeatureFlagsApi,
   FetchError,
   GetApiResponseApiApplicationsInnerFromJSON,
   GetApiResponseApiApplicationsInnerFromJSONTyped,
   GetApiResponseApiApplicationsInnerToJSON,
+  GetApiResponseApiApplicationsInnerToJSONTyped,
   GetApiResponseApiApplicationsInnerTypeEnum,
   GetApiResponseApiFromJSON,
   GetApiResponseApiFromJSONTyped,
   GetApiResponseApiToJSON,
+  GetApiResponseApiToJSONTyped,
   GetApiResponseFromJSON,
   GetApiResponseFromJSONTyped,
   GetApiResponseToJSON,
+  GetApiResponseToJSONTyped,
   GetApisResponseApisInnerFromJSON,
   GetApisResponseApisInnerFromJSONTyped,
   GetApisResponseApisInnerToJSON,
+  GetApisResponseApisInnerToJSONTyped,
   GetApisResponseFromJSON,
   GetApisResponseFromJSONTyped,
   GetApisResponseToJSON,
+  GetApisResponseToJSONTyped,
   GetApplicationResponseApplicationFromJSON,
   GetApplicationResponseApplicationFromJSONTyped,
   GetApplicationResponseApplicationToJSON,
+  GetApplicationResponseApplicationToJSONTyped,
   GetApplicationResponseFromJSON,
   GetApplicationResponseFromJSONTyped,
   GetApplicationResponseToJSON,
+  GetApplicationResponseToJSONTyped,
   GetApplicationsResponseFromJSON,
   GetApplicationsResponseFromJSONTyped,
   GetApplicationsResponseToJSON,
+  GetApplicationsResponseToJSONTyped,
   GetApplicationsSortEnum,
+  GetBusinessResponseBusinessFromJSON,
+  GetBusinessResponseBusinessFromJSONTyped,
+  GetBusinessResponseBusinessToJSON,
+  GetBusinessResponseBusinessToJSONTyped,
+  GetBusinessResponseFromJSON,
+  GetBusinessResponseFromJSONTyped,
+  GetBusinessResponseToJSON,
+  GetBusinessResponseToJSONTyped,
   GetCategoriesContextEnum,
   GetCategoriesResponseFromJSON,
   GetCategoriesResponseFromJSONTyped,
   GetCategoriesResponseToJSON,
+  GetCategoriesResponseToJSONTyped,
   GetConnectionsResponseFromJSON,
   GetConnectionsResponseFromJSONTyped,
   GetConnectionsResponseToJSON,
+  GetConnectionsResponseToJSONTyped,
   GetEnvironmentFeatureFlagsResponseFromJSON,
   GetEnvironmentFeatureFlagsResponseFromJSONTyped,
   GetEnvironmentFeatureFlagsResponseToJSON,
+  GetEnvironmentFeatureFlagsResponseToJSONTyped,
   GetEventResponseEventFromJSON,
   GetEventResponseEventFromJSONTyped,
   GetEventResponseEventToJSON,
+  GetEventResponseEventToJSONTyped,
   GetEventResponseFromJSON,
   GetEventResponseFromJSONTyped,
   GetEventResponseToJSON,
+  GetEventResponseToJSONTyped,
   GetEventTypesResponseFromJSON,
   GetEventTypesResponseFromJSONTyped,
   GetEventTypesResponseToJSON,
+  GetEventTypesResponseToJSONTyped,
   GetIdentitiesResponseFromJSON,
   GetIdentitiesResponseFromJSONTyped,
   GetIdentitiesResponseToJSON,
+  GetIdentitiesResponseToJSONTyped,
+  GetIndustriesResponseFromJSON,
+  GetIndustriesResponseFromJSONTyped,
+  GetIndustriesResponseIndustriesInnerFromJSON,
+  GetIndustriesResponseIndustriesInnerFromJSONTyped,
+  GetIndustriesResponseIndustriesInnerToJSON,
+  GetIndustriesResponseIndustriesInnerToJSONTyped,
+  GetIndustriesResponseToJSON,
+  GetIndustriesResponseToJSONTyped,
   GetOrganizationFeatureFlagsResponseFeatureFlagsValueFromJSON,
   GetOrganizationFeatureFlagsResponseFeatureFlagsValueFromJSONTyped,
   GetOrganizationFeatureFlagsResponseFeatureFlagsValueToJSON,
+  GetOrganizationFeatureFlagsResponseFeatureFlagsValueToJSONTyped,
   GetOrganizationFeatureFlagsResponseFeatureFlagsValueTypeEnum,
   GetOrganizationFeatureFlagsResponseFromJSON,
   GetOrganizationFeatureFlagsResponseFromJSONTyped,
   GetOrganizationFeatureFlagsResponseToJSON,
+  GetOrganizationFeatureFlagsResponseToJSONTyped,
   GetOrganizationResponseBackgroundColorFromJSON,
   GetOrganizationResponseBackgroundColorFromJSONTyped,
   GetOrganizationResponseBackgroundColorToJSON,
+  GetOrganizationResponseBackgroundColorToJSONTyped,
   GetOrganizationResponseFromJSON,
   GetOrganizationResponseFromJSONTyped,
   GetOrganizationResponseLinkColorFromJSON,
   GetOrganizationResponseLinkColorFromJSONTyped,
   GetOrganizationResponseLinkColorToJSON,
+  GetOrganizationResponseLinkColorToJSONTyped,
   GetOrganizationResponseToJSON,
+  GetOrganizationResponseToJSONTyped,
   GetOrganizationUsersResponseFromJSON,
   GetOrganizationUsersResponseFromJSONTyped,
   GetOrganizationUsersResponseToJSON,
+  GetOrganizationUsersResponseToJSONTyped,
   GetOrganizationUsersSortEnum,
   GetOrganizationsResponseFromJSON,
   GetOrganizationsResponseFromJSONTyped,
   GetOrganizationsResponseToJSON,
+  GetOrganizationsResponseToJSONTyped,
   GetOrganizationsSortEnum,
   GetOrganizationsUserPermissionsResponseFromJSON,
   GetOrganizationsUserPermissionsResponseFromJSONTyped,
   GetOrganizationsUserPermissionsResponseToJSON,
+  GetOrganizationsUserPermissionsResponseToJSONTyped,
   GetOrganizationsUserRolesResponseFromJSON,
   GetOrganizationsUserRolesResponseFromJSONTyped,
   GetOrganizationsUserRolesResponseToJSON,
+  GetOrganizationsUserRolesResponseToJSONTyped,
   GetPermissionsResponseFromJSON,
   GetPermissionsResponseFromJSONTyped,
   GetPermissionsResponseToJSON,
+  GetPermissionsResponseToJSONTyped,
   GetPermissionsSortEnum,
   GetPropertiesContextEnum,
   GetPropertiesResponseFromJSON,
   GetPropertiesResponseFromJSONTyped,
   GetPropertiesResponseToJSON,
+  GetPropertiesResponseToJSONTyped,
   GetPropertyValuesResponseFromJSON,
   GetPropertyValuesResponseFromJSONTyped,
   GetPropertyValuesResponseToJSON,
+  GetPropertyValuesResponseToJSONTyped,
   GetRedirectCallbackUrlsResponseFromJSON,
   GetRedirectCallbackUrlsResponseFromJSONTyped,
   GetRedirectCallbackUrlsResponseToJSON,
+  GetRedirectCallbackUrlsResponseToJSONTyped,
   GetRolePermissionSortEnum,
   GetRolesResponseFromJSON,
   GetRolesResponseFromJSONTyped,
   GetRolesResponseToJSON,
+  GetRolesResponseToJSONTyped,
   GetRolesSortEnum,
   GetSubscriberResponseFromJSON,
   GetSubscriberResponseFromJSONTyped,
   GetSubscriberResponseToJSON,
+  GetSubscriberResponseToJSONTyped,
   GetSubscribersResponseFromJSON,
   GetSubscribersResponseFromJSONTyped,
   GetSubscribersResponseToJSON,
+  GetSubscribersResponseToJSONTyped,
   GetSubscribersSortEnum,
+  GetTimezonesResponseFromJSON,
+  GetTimezonesResponseFromJSONTyped,
+  GetTimezonesResponseTimezonesInnerFromJSON,
+  GetTimezonesResponseTimezonesInnerFromJSONTyped,
+  GetTimezonesResponseTimezonesInnerToJSON,
+  GetTimezonesResponseTimezonesInnerToJSONTyped,
+  GetTimezonesResponseToJSON,
+  GetTimezonesResponseToJSONTyped,
   GetWebhooksResponseFromJSON,
   GetWebhooksResponseFromJSONTyped,
   GetWebhooksResponseToJSON,
+  GetWebhooksResponseToJSONTyped,
   IdentitiesApi,
   IdentityFromJSON,
   IdentityFromJSONTyped,
   IdentityToJSON,
+  IdentityToJSONTyped,
   IndustriesApi,
   JSONApiResponse,
   LogoutRedirectUrlsFromJSON,
   LogoutRedirectUrlsFromJSONTyped,
   LogoutRedirectUrlsToJSON,
+  LogoutRedirectUrlsToJSONTyped,
   ModelErrorFromJSON,
   ModelErrorFromJSONTyped,
   ModelErrorToJSON,
+  ModelErrorToJSONTyped,
+  NotFoundResponseErrorsFromJSON,
+  NotFoundResponseErrorsFromJSONTyped,
+  NotFoundResponseErrorsToJSON,
+  NotFoundResponseErrorsToJSONTyped,
+  NotFoundResponseFromJSON,
+  NotFoundResponseFromJSONTyped,
+  NotFoundResponseToJSON,
+  NotFoundResponseToJSONTyped,
   OAuthApi,
   OrganizationItemSchemaFromJSON,
   OrganizationItemSchemaFromJSONTyped,
   OrganizationItemSchemaToJSON,
+  OrganizationItemSchemaToJSONTyped,
   OrganizationUserFromJSON,
   OrganizationUserFromJSONTyped,
   OrganizationUserPermissionFromJSON,
@@ -8951,7 +9720,9 @@ export {
   OrganizationUserPermissionRolesInnerFromJSON,
   OrganizationUserPermissionRolesInnerFromJSONTyped,
   OrganizationUserPermissionRolesInnerToJSON,
+  OrganizationUserPermissionRolesInnerToJSONTyped,
   OrganizationUserPermissionToJSON,
+  OrganizationUserPermissionToJSONTyped,
   OrganizationUserRoleFromJSON,
   OrganizationUserRoleFromJSONTyped,
   OrganizationUserRolePermissionsFromJSON,
@@ -8959,163 +9730,218 @@ export {
   OrganizationUserRolePermissionsPermissionsFromJSON,
   OrganizationUserRolePermissionsPermissionsFromJSONTyped,
   OrganizationUserRolePermissionsPermissionsToJSON,
+  OrganizationUserRolePermissionsPermissionsToJSONTyped,
   OrganizationUserRolePermissionsToJSON,
+  OrganizationUserRolePermissionsToJSONTyped,
   OrganizationUserRoleToJSON,
+  OrganizationUserRoleToJSONTyped,
   OrganizationUserToJSON,
+  OrganizationUserToJSONTyped,
   OrganizationsApi,
   PermissionsApi,
   PermissionsFromJSON,
   PermissionsFromJSONTyped,
   PermissionsToJSON,
+  PermissionsToJSONTyped,
   PropertiesApi,
   PropertyCategoriesApi,
   PropertyFromJSON,
   PropertyFromJSONTyped,
   PropertyToJSON,
+  PropertyToJSONTyped,
   PropertyValueFromJSON,
   PropertyValueFromJSONTyped,
   PropertyValueToJSON,
+  PropertyValueToJSONTyped,
   RedirectCallbackUrlsFromJSON,
   RedirectCallbackUrlsFromJSONTyped,
   RedirectCallbackUrlsToJSON,
+  RedirectCallbackUrlsToJSONTyped,
   ReplaceLogoutRedirectURLsRequestFromJSON,
   ReplaceLogoutRedirectURLsRequestFromJSONTyped,
   ReplaceLogoutRedirectURLsRequestToJSON,
+  ReplaceLogoutRedirectURLsRequestToJSONTyped,
   ReplaceRedirectCallbackURLsRequestFromJSON,
   ReplaceRedirectCallbackURLsRequestFromJSONTyped,
   ReplaceRedirectCallbackURLsRequestToJSON,
+  ReplaceRedirectCallbackURLsRequestToJSONTyped,
   RequiredError,
   ResponseError,
   RoleFromJSON,
   RoleFromJSONTyped,
   RoleToJSON,
+  RoleToJSONTyped,
   RolesApi,
   RolesFromJSON,
   RolesFromJSONTyped,
   RolesPermissionResponseInnerFromJSON,
   RolesPermissionResponseInnerFromJSONTyped,
   RolesPermissionResponseInnerToJSON,
+  RolesPermissionResponseInnerToJSONTyped,
   RolesToJSON,
+  RolesToJSONTyped,
   SetUserPasswordRequestFromJSON,
   SetUserPasswordRequestFromJSONTyped,
   SetUserPasswordRequestHashingMethodEnum,
   SetUserPasswordRequestSaltPositionEnum,
   SetUserPasswordRequestToJSON,
+  SetUserPasswordRequestToJSONTyped,
   SubscriberFromJSON,
   SubscriberFromJSONTyped,
   SubscriberToJSON,
+  SubscriberToJSONTyped,
   SubscribersApi,
   SubscribersSubscriberFromJSON,
   SubscribersSubscriberFromJSONTyped,
   SubscribersSubscriberToJSON,
+  SubscribersSubscriberToJSONTyped,
   SuccessResponseFromJSON,
   SuccessResponseFromJSONTyped,
   SuccessResponseToJSON,
+  SuccessResponseToJSONTyped,
   TextApiResponse,
   TimezonesApi,
   TokenErrorResponseFromJSON,
   TokenErrorResponseFromJSONTyped,
   TokenErrorResponseToJSON,
+  TokenErrorResponseToJSONTyped,
   TokenIntrospectFromJSON,
   TokenIntrospectFromJSONTyped,
   TokenIntrospectToJSON,
+  TokenIntrospectToJSONTyped,
   UpdateAPIApplicationsRequestApplicationsInnerFromJSON,
   UpdateAPIApplicationsRequestApplicationsInnerFromJSONTyped,
   UpdateAPIApplicationsRequestApplicationsInnerToJSON,
+  UpdateAPIApplicationsRequestApplicationsInnerToJSONTyped,
   UpdateAPIApplicationsRequestFromJSON,
   UpdateAPIApplicationsRequestFromJSONTyped,
   UpdateAPIApplicationsRequestToJSON,
+  UpdateAPIApplicationsRequestToJSONTyped,
   UpdateApplicationRequestFromJSON,
   UpdateApplicationRequestFromJSONTyped,
   UpdateApplicationRequestToJSON,
+  UpdateApplicationRequestToJSONTyped,
+  UpdateBusinessRequestFromJSON,
+  UpdateBusinessRequestFromJSONTyped,
+  UpdateBusinessRequestToJSON,
+  UpdateBusinessRequestToJSONTyped,
   UpdateCategoryRequestFromJSON,
   UpdateCategoryRequestFromJSONTyped,
   UpdateCategoryRequestToJSON,
+  UpdateCategoryRequestToJSONTyped,
   UpdateConnectionRequestFromJSON,
   UpdateConnectionRequestFromJSONTyped,
   UpdateConnectionRequestToJSON,
+  UpdateConnectionRequestToJSONTyped,
   UpdateEnvironementFeatureFlagOverrideRequestFromJSON,
   UpdateEnvironementFeatureFlagOverrideRequestFromJSONTyped,
   UpdateEnvironementFeatureFlagOverrideRequestToJSON,
+  UpdateEnvironementFeatureFlagOverrideRequestToJSONTyped,
   UpdateFeatureFlagAllowOverrideLevelEnum,
   UpdateFeatureFlagTypeEnum,
   UpdateIdentityRequestFromJSON,
   UpdateIdentityRequestFromJSONTyped,
   UpdateIdentityRequestToJSON,
+  UpdateIdentityRequestToJSONTyped,
   UpdateOrganizationPropertiesRequestFromJSON,
   UpdateOrganizationPropertiesRequestFromJSONTyped,
   UpdateOrganizationPropertiesRequestToJSON,
+  UpdateOrganizationPropertiesRequestToJSONTyped,
   UpdateOrganizationRequestFromJSON,
   UpdateOrganizationRequestFromJSONTyped,
+  UpdateOrganizationRequestThemeCodeEnum,
   UpdateOrganizationRequestToJSON,
+  UpdateOrganizationRequestToJSONTyped,
   UpdateOrganizationUsersRequestFromJSON,
   UpdateOrganizationUsersRequestFromJSONTyped,
   UpdateOrganizationUsersRequestToJSON,
+  UpdateOrganizationUsersRequestToJSONTyped,
   UpdateOrganizationUsersRequestUsersInnerFromJSON,
   UpdateOrganizationUsersRequestUsersInnerFromJSONTyped,
   UpdateOrganizationUsersRequestUsersInnerToJSON,
+  UpdateOrganizationUsersRequestUsersInnerToJSONTyped,
   UpdateOrganizationUsersResponseFromJSON,
   UpdateOrganizationUsersResponseFromJSONTyped,
   UpdateOrganizationUsersResponseToJSON,
+  UpdateOrganizationUsersResponseToJSONTyped,
   UpdatePropertyRequestFromJSON,
   UpdatePropertyRequestFromJSONTyped,
   UpdatePropertyRequestToJSON,
+  UpdatePropertyRequestToJSONTyped,
   UpdateRolePermissionsRequestFromJSON,
   UpdateRolePermissionsRequestFromJSONTyped,
   UpdateRolePermissionsRequestPermissionsInnerFromJSON,
   UpdateRolePermissionsRequestPermissionsInnerFromJSONTyped,
   UpdateRolePermissionsRequestPermissionsInnerToJSON,
+  UpdateRolePermissionsRequestPermissionsInnerToJSONTyped,
   UpdateRolePermissionsRequestToJSON,
+  UpdateRolePermissionsRequestToJSONTyped,
   UpdateRolePermissionsResponseFromJSON,
   UpdateRolePermissionsResponseFromJSONTyped,
   UpdateRolePermissionsResponseToJSON,
+  UpdateRolePermissionsResponseToJSONTyped,
   UpdateRolesRequestFromJSON,
   UpdateRolesRequestFromJSONTyped,
   UpdateRolesRequestToJSON,
+  UpdateRolesRequestToJSONTyped,
   UpdateUserRequestFromJSON,
   UpdateUserRequestFromJSONTyped,
   UpdateUserRequestToJSON,
+  UpdateUserRequestToJSONTyped,
   UpdateUserResponseFromJSON,
   UpdateUserResponseFromJSONTyped,
   UpdateUserResponseToJSON,
+  UpdateUserResponseToJSONTyped,
   UpdateWebHookRequestFromJSON,
   UpdateWebHookRequestFromJSONTyped,
   UpdateWebHookRequestToJSON,
+  UpdateWebHookRequestToJSONTyped,
   UpdateWebhookResponseFromJSON,
   UpdateWebhookResponseFromJSONTyped,
   UpdateWebhookResponseToJSON,
+  UpdateWebhookResponseToJSONTyped,
   UpdateWebhookResponseWebhookFromJSON,
   UpdateWebhookResponseWebhookFromJSONTyped,
   UpdateWebhookResponseWebhookToJSON,
+  UpdateWebhookResponseWebhookToJSONTyped,
   UserFromJSON,
   UserFromJSONTyped,
   UserIdentitiesInnerFromJSON,
   UserIdentitiesInnerFromJSONTyped,
   UserIdentitiesInnerToJSON,
+  UserIdentitiesInnerToJSONTyped,
   UserIdentityFromJSON,
   UserIdentityFromJSONTyped,
   UserIdentityResultFromJSON,
   UserIdentityResultFromJSONTyped,
   UserIdentityResultToJSON,
+  UserIdentityResultToJSONTyped,
   UserIdentityToJSON,
+  UserIdentityToJSONTyped,
   UserProfileFromJSON,
   UserProfileFromJSONTyped,
   UserProfileToJSON,
+  UserProfileToJSONTyped,
   UserProfileV2FromJSON,
   UserProfileV2FromJSONTyped,
   UserProfileV2ToJSON,
+  UserProfileV2ToJSONTyped,
   UserToJSON,
+  UserToJSONTyped,
   UsersApi,
   UsersResponseFromJSON,
   UsersResponseFromJSONTyped,
   UsersResponseToJSON,
+  UsersResponseToJSONTyped,
   UsersResponseUsersInnerFromJSON,
   UsersResponseUsersInnerFromJSONTyped,
   UsersResponseUsersInnerToJSON,
+  UsersResponseUsersInnerToJSONTyped,
   VoidApiResponse,
   WebhookFromJSON,
   WebhookFromJSONTyped,
   WebhookToJSON,
+  WebhookToJSONTyped,
   WebhooksApi,
   canConsumeForm,
   instanceOfAddAPIsRequest,
@@ -9176,6 +10002,8 @@ export {
   instanceOfGetApplicationResponse,
   instanceOfGetApplicationResponseApplication,
   instanceOfGetApplicationsResponse,
+  instanceOfGetBusinessResponse,
+  instanceOfGetBusinessResponseBusiness,
   instanceOfGetCategoriesResponse,
   instanceOfGetConnectionsResponse,
   instanceOfGetEnvironmentFeatureFlagsResponse,
@@ -9183,6 +10011,8 @@ export {
   instanceOfGetEventResponseEvent,
   instanceOfGetEventTypesResponse,
   instanceOfGetIdentitiesResponse,
+  instanceOfGetIndustriesResponse,
+  instanceOfGetIndustriesResponseIndustriesInner,
   instanceOfGetOrganizationFeatureFlagsResponse,
   instanceOfGetOrganizationFeatureFlagsResponseFeatureFlagsValue,
   instanceOfGetOrganizationResponse,
@@ -9199,10 +10029,14 @@ export {
   instanceOfGetRolesResponse,
   instanceOfGetSubscriberResponse,
   instanceOfGetSubscribersResponse,
+  instanceOfGetTimezonesResponse,
+  instanceOfGetTimezonesResponseTimezonesInner,
   instanceOfGetWebhooksResponse,
   instanceOfIdentity,
   instanceOfLogoutRedirectUrls,
   instanceOfModelError,
+  instanceOfNotFoundResponse,
+  instanceOfNotFoundResponseErrors,
   instanceOfOrganizationItemSchema,
   instanceOfOrganizationUser,
   instanceOfOrganizationUserPermission,
@@ -9228,6 +10062,7 @@ export {
   instanceOfUpdateAPIApplicationsRequest,
   instanceOfUpdateAPIApplicationsRequestApplicationsInner,
   instanceOfUpdateApplicationRequest,
+  instanceOfUpdateBusinessRequest,
   instanceOfUpdateCategoryRequest,
   instanceOfUpdateConnectionRequest,
   instanceOfUpdateEnvironementFeatureFlagOverrideRequest,

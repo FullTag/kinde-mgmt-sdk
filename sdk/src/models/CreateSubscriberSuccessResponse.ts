@@ -18,6 +18,7 @@ import {
     CreateSubscriberSuccessResponseSubscriberFromJSON,
     CreateSubscriberSuccessResponseSubscriberFromJSONTyped,
     CreateSubscriberSuccessResponseSubscriberToJSON,
+    CreateSubscriberSuccessResponseSubscriberToJSONTyped,
 } from './CreateSubscriberSuccessResponseSubscriber';
 
 /**
@@ -55,10 +56,15 @@ export function CreateSubscriberSuccessResponseFromJSONTyped(json: any, ignoreDi
     };
 }
 
-export function CreateSubscriberSuccessResponseToJSON(value?: CreateSubscriberSuccessResponse | null): any {
+  export function CreateSubscriberSuccessResponseToJSON(json: any): CreateSubscriberSuccessResponse {
+      return CreateSubscriberSuccessResponseToJSONTyped(json, false);
+  }
+
+  export function CreateSubscriberSuccessResponseToJSONTyped(value?: CreateSubscriberSuccessResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'subscriber': CreateSubscriberSuccessResponseSubscriberToJSON(value['subscriber']),

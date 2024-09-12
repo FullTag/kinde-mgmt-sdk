@@ -55,10 +55,15 @@ export function DeleteWebhookResponseFromJSONTyped(json: any, ignoreDiscriminato
     };
 }
 
-export function DeleteWebhookResponseToJSON(value?: DeleteWebhookResponse | null): any {
+  export function DeleteWebhookResponseToJSON(json: any): DeleteWebhookResponse {
+      return DeleteWebhookResponseToJSONTyped(json, false);
+  }
+
+  export function DeleteWebhookResponseToJSONTyped(value?: DeleteWebhookResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'code': value['code'],

@@ -55,10 +55,15 @@ export function CreateWebhookResponseWebhookFromJSONTyped(json: any, ignoreDiscr
     };
 }
 
-export function CreateWebhookResponseWebhookToJSON(value?: CreateWebhookResponseWebhook | null): any {
+  export function CreateWebhookResponseWebhookToJSON(json: any): CreateWebhookResponseWebhook {
+      return CreateWebhookResponseWebhookToJSONTyped(json, false);
+  }
+
+  export function CreateWebhookResponseWebhookToJSONTyped(value?: CreateWebhookResponseWebhook | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'id': value['id'],

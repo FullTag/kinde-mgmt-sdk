@@ -18,6 +18,7 @@ import {
     CreateApisResponseApiFromJSON,
     CreateApisResponseApiFromJSONTyped,
     CreateApisResponseApiToJSON,
+    CreateApisResponseApiToJSONTyped,
 } from './CreateApisResponseApi';
 
 /**
@@ -69,10 +70,15 @@ export function CreateApisResponseFromJSONTyped(json: any, ignoreDiscriminator: 
     };
 }
 
-export function CreateApisResponseToJSON(value?: CreateApisResponse | null): any {
+  export function CreateApisResponseToJSON(json: any): CreateApisResponse {
+      return CreateApisResponseToJSONTyped(json, false);
+  }
+
+  export function CreateApisResponseToJSONTyped(value?: CreateApisResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'message': value['message'],

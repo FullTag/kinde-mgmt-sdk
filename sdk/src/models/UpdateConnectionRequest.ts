@@ -69,10 +69,15 @@ export function UpdateConnectionRequestFromJSONTyped(json: any, ignoreDiscrimina
     };
 }
 
-export function UpdateConnectionRequestToJSON(value?: UpdateConnectionRequest | null): any {
+  export function UpdateConnectionRequestToJSON(json: any): UpdateConnectionRequest {
+      return UpdateConnectionRequestToJSONTyped(json, false);
+  }
+
+  export function UpdateConnectionRequestToJSONTyped(value?: UpdateConnectionRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'name': value['name'],

@@ -48,10 +48,15 @@ export function UserIdentityResultFromJSONTyped(json: any, ignoreDiscriminator: 
     };
 }
 
-export function UserIdentityResultToJSON(value?: UserIdentityResult | null): any {
+  export function UserIdentityResultToJSON(json: any): UserIdentityResult {
+      return UserIdentityResultToJSONTyped(json, false);
+  }
+
+  export function UserIdentityResultToJSONTyped(value?: UserIdentityResult | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'created': value['created'],

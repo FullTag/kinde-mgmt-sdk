@@ -62,10 +62,15 @@ export function ApplicationsFromJSONTyped(json: any, ignoreDiscriminator: boolea
     };
 }
 
-export function ApplicationsToJSON(value?: Applications | null): any {
+  export function ApplicationsToJSON(json: any): Applications {
+      return ApplicationsToJSONTyped(json, false);
+  }
+
+  export function ApplicationsToJSONTyped(value?: Applications | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'id': value['id'],

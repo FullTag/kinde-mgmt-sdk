@@ -18,6 +18,7 @@ import {
     CreateIdentityResponseIdentityFromJSON,
     CreateIdentityResponseIdentityFromJSONTyped,
     CreateIdentityResponseIdentityToJSON,
+    CreateIdentityResponseIdentityToJSONTyped,
 } from './CreateIdentityResponseIdentity';
 
 /**
@@ -69,10 +70,15 @@ export function CreateIdentityResponseFromJSONTyped(json: any, ignoreDiscriminat
     };
 }
 
-export function CreateIdentityResponseToJSON(value?: CreateIdentityResponse | null): any {
+  export function CreateIdentityResponseToJSON(json: any): CreateIdentityResponse {
+      return CreateIdentityResponseToJSONTyped(json, false);
+  }
+
+  export function CreateIdentityResponseToJSONTyped(value?: CreateIdentityResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'message': value['message'],

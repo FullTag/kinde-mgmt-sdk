@@ -48,10 +48,15 @@ export function CreateApisResponseApiFromJSONTyped(json: any, ignoreDiscriminato
     };
 }
 
-export function CreateApisResponseApiToJSON(value?: CreateApisResponseApi | null): any {
+  export function CreateApisResponseApiToJSON(json: any): CreateApisResponseApi {
+      return CreateApisResponseApiToJSONTyped(json, false);
+  }
+
+  export function CreateApisResponseApiToJSONTyped(value?: CreateApisResponseApi | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'id': value['id'],

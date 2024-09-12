@@ -62,10 +62,15 @@ export function CreatePermissionRequestFromJSONTyped(json: any, ignoreDiscrimina
     };
 }
 
-export function CreatePermissionRequestToJSON(value?: CreatePermissionRequest | null): any {
+  export function CreatePermissionRequestToJSON(json: any): CreatePermissionRequest {
+      return CreatePermissionRequestToJSONTyped(json, false);
+  }
+
+  export function CreatePermissionRequestToJSONTyped(value?: CreatePermissionRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'name': value['name'],

@@ -18,6 +18,7 @@ import {
     GetApiResponseApiFromJSON,
     GetApiResponseApiFromJSONTyped,
     GetApiResponseApiToJSON,
+    GetApiResponseApiToJSONTyped,
 } from './GetApiResponseApi';
 
 /**
@@ -69,10 +70,15 @@ export function GetApiResponseFromJSONTyped(json: any, ignoreDiscriminator: bool
     };
 }
 
-export function GetApiResponseToJSON(value?: GetApiResponse | null): any {
+  export function GetApiResponseToJSON(json: any): GetApiResponse {
+      return GetApiResponseToJSONTyped(json, false);
+  }
+
+  export function GetApiResponseToJSONTyped(value?: GetApiResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'code': value['code'],

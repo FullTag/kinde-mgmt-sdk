@@ -48,10 +48,15 @@ export function CreateOrganizationUserPermissionRequestFromJSONTyped(json: any, 
     };
 }
 
-export function CreateOrganizationUserPermissionRequestToJSON(value?: CreateOrganizationUserPermissionRequest | null): any {
+  export function CreateOrganizationUserPermissionRequestToJSON(json: any): CreateOrganizationUserPermissionRequest {
+      return CreateOrganizationUserPermissionRequestToJSONTyped(json, false);
+  }
+
+  export function CreateOrganizationUserPermissionRequestToJSONTyped(value?: CreateOrganizationUserPermissionRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'permission_id': value['permissionId'],

@@ -83,10 +83,15 @@ export function OrganizationItemSchemaFromJSONTyped(json: any, ignoreDiscriminat
     };
 }
 
-export function OrganizationItemSchemaToJSON(value?: OrganizationItemSchema | null): any {
+  export function OrganizationItemSchemaToJSON(json: any): OrganizationItemSchema {
+      return OrganizationItemSchemaToJSONTyped(json, false);
+  }
+
+  export function OrganizationItemSchemaToJSONTyped(value?: OrganizationItemSchema | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'code': value['code'],

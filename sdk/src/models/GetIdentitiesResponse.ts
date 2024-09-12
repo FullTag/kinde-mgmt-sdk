@@ -18,6 +18,7 @@ import {
     IdentityFromJSON,
     IdentityFromJSONTyped,
     IdentityToJSON,
+    IdentityToJSONTyped,
 } from './Identity';
 
 /**
@@ -76,10 +77,15 @@ export function GetIdentitiesResponseFromJSONTyped(json: any, ignoreDiscriminato
     };
 }
 
-export function GetIdentitiesResponseToJSON(value?: GetIdentitiesResponse | null): any {
+  export function GetIdentitiesResponseToJSON(json: any): GetIdentitiesResponse {
+      return GetIdentitiesResponseToJSONTyped(json, false);
+  }
+
+  export function GetIdentitiesResponseToJSONTyped(value?: GetIdentitiesResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'code': value['code'],

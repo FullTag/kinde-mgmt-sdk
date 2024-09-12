@@ -48,10 +48,15 @@ export function RedirectCallbackUrlsFromJSONTyped(json: any, ignoreDiscriminator
     };
 }
 
-export function RedirectCallbackUrlsToJSON(value?: RedirectCallbackUrls | null): any {
+  export function RedirectCallbackUrlsToJSON(json: any): RedirectCallbackUrls {
+      return RedirectCallbackUrlsToJSONTyped(json, false);
+  }
+
+  export function RedirectCallbackUrlsToJSONTyped(value?: RedirectCallbackUrls | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'redirect_urls': value['redirectUrls'],

@@ -62,10 +62,15 @@ export function GetOrganizationResponseBackgroundColorFromJSONTyped(json: any, i
     };
 }
 
-export function GetOrganizationResponseBackgroundColorToJSON(value?: GetOrganizationResponseBackgroundColor | null): any {
+  export function GetOrganizationResponseBackgroundColorToJSON(json: any): GetOrganizationResponseBackgroundColor {
+      return GetOrganizationResponseBackgroundColorToJSONTyped(json, false);
+  }
+
+  export function GetOrganizationResponseBackgroundColorToJSONTyped(value?: GetOrganizationResponseBackgroundColor | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'raw': value['raw'],

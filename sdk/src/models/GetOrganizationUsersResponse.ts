@@ -18,6 +18,7 @@ import {
     OrganizationUserFromJSON,
     OrganizationUserFromJSONTyped,
     OrganizationUserToJSON,
+    OrganizationUserToJSONTyped,
 } from './OrganizationUser';
 
 /**
@@ -76,10 +77,15 @@ export function GetOrganizationUsersResponseFromJSONTyped(json: any, ignoreDiscr
     };
 }
 
-export function GetOrganizationUsersResponseToJSON(value?: GetOrganizationUsersResponse | null): any {
+  export function GetOrganizationUsersResponseToJSON(json: any): GetOrganizationUsersResponse {
+      return GetOrganizationUsersResponseToJSONTyped(json, false);
+  }
+
+  export function GetOrganizationUsersResponseToJSONTyped(value?: GetOrganizationUsersResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'code': value['code'],

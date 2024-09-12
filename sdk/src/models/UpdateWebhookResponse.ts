@@ -18,6 +18,7 @@ import {
     UpdateWebhookResponseWebhookFromJSON,
     UpdateWebhookResponseWebhookFromJSONTyped,
     UpdateWebhookResponseWebhookToJSON,
+    UpdateWebhookResponseWebhookToJSONTyped,
 } from './UpdateWebhookResponseWebhook';
 
 /**
@@ -69,10 +70,15 @@ export function UpdateWebhookResponseFromJSONTyped(json: any, ignoreDiscriminato
     };
 }
 
-export function UpdateWebhookResponseToJSON(value?: UpdateWebhookResponse | null): any {
+  export function UpdateWebhookResponseToJSON(json: any): UpdateWebhookResponse {
+      return UpdateWebhookResponseToJSONTyped(json, false);
+  }
+
+  export function UpdateWebhookResponseToJSONTyped(value?: UpdateWebhookResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'message': value['message'],

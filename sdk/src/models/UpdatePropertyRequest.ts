@@ -72,10 +72,15 @@ export function UpdatePropertyRequestFromJSONTyped(json: any, ignoreDiscriminato
     };
 }
 
-export function UpdatePropertyRequestToJSON(value?: UpdatePropertyRequest | null): any {
+  export function UpdatePropertyRequestToJSON(json: any): UpdatePropertyRequest {
+      return UpdatePropertyRequestToJSONTyped(json, false);
+  }
+
+  export function UpdatePropertyRequestToJSONTyped(value?: UpdatePropertyRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'name': value['name'],

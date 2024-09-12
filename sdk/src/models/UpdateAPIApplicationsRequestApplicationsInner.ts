@@ -56,10 +56,15 @@ export function UpdateAPIApplicationsRequestApplicationsInnerFromJSONTyped(json:
     };
 }
 
-export function UpdateAPIApplicationsRequestApplicationsInnerToJSON(value?: UpdateAPIApplicationsRequestApplicationsInner | null): any {
+  export function UpdateAPIApplicationsRequestApplicationsInnerToJSON(json: any): UpdateAPIApplicationsRequestApplicationsInner {
+      return UpdateAPIApplicationsRequestApplicationsInnerToJSONTyped(json, false);
+  }
+
+  export function UpdateAPIApplicationsRequestApplicationsInnerToJSONTyped(value?: UpdateAPIApplicationsRequestApplicationsInner | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'id': value['id'],

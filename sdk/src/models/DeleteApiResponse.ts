@@ -55,10 +55,15 @@ export function DeleteApiResponseFromJSONTyped(json: any, ignoreDiscriminator: b
     };
 }
 
-export function DeleteApiResponseToJSON(value?: DeleteApiResponse | null): any {
+  export function DeleteApiResponseToJSON(json: any): DeleteApiResponse {
+      return DeleteApiResponseToJSONTyped(json, false);
+  }
+
+  export function DeleteApiResponseToJSONTyped(value?: DeleteApiResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'message': value['message'],

@@ -18,6 +18,7 @@ import {
     OrganizationItemSchemaFromJSON,
     OrganizationItemSchemaFromJSONTyped,
     OrganizationItemSchemaToJSON,
+    OrganizationItemSchemaToJSONTyped,
 } from './OrganizationItemSchema';
 
 /**
@@ -76,10 +77,15 @@ export function GetOrganizationsResponseFromJSONTyped(json: any, ignoreDiscrimin
     };
 }
 
-export function GetOrganizationsResponseToJSON(value?: GetOrganizationsResponse | null): any {
+  export function GetOrganizationsResponseToJSON(json: any): GetOrganizationsResponse {
+      return GetOrganizationsResponseToJSONTyped(json, false);
+  }
+
+  export function GetOrganizationsResponseToJSONTyped(value?: GetOrganizationsResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'code': value['code'],

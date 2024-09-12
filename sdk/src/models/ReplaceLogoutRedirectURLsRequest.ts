@@ -48,10 +48,15 @@ export function ReplaceLogoutRedirectURLsRequestFromJSONTyped(json: any, ignoreD
     };
 }
 
-export function ReplaceLogoutRedirectURLsRequestToJSON(value?: ReplaceLogoutRedirectURLsRequest | null): any {
+  export function ReplaceLogoutRedirectURLsRequestToJSON(json: any): ReplaceLogoutRedirectURLsRequest {
+      return ReplaceLogoutRedirectURLsRequestToJSONTyped(json, false);
+  }
+
+  export function ReplaceLogoutRedirectURLsRequestToJSONTyped(value?: ReplaceLogoutRedirectURLsRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'urls': value['urls'],

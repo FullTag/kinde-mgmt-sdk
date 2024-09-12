@@ -18,6 +18,7 @@ import {
     OrganizationUserRolePermissionsPermissionsFromJSON,
     OrganizationUserRolePermissionsPermissionsFromJSONTyped,
     OrganizationUserRolePermissionsPermissionsToJSON,
+    OrganizationUserRolePermissionsPermissionsToJSONTyped,
 } from './OrganizationUserRolePermissionsPermissions';
 
 /**
@@ -69,10 +70,15 @@ export function OrganizationUserRolePermissionsFromJSONTyped(json: any, ignoreDi
     };
 }
 
-export function OrganizationUserRolePermissionsToJSON(value?: OrganizationUserRolePermissions | null): any {
+  export function OrganizationUserRolePermissionsToJSON(json: any): OrganizationUserRolePermissions {
+      return OrganizationUserRolePermissionsToJSONTyped(json, false);
+  }
+
+  export function OrganizationUserRolePermissionsToJSONTyped(value?: OrganizationUserRolePermissions | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'id': value['id'],

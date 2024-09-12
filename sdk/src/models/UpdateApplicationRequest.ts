@@ -83,10 +83,15 @@ export function UpdateApplicationRequestFromJSONTyped(json: any, ignoreDiscrimin
     };
 }
 
-export function UpdateApplicationRequestToJSON(value?: UpdateApplicationRequest | null): any {
+  export function UpdateApplicationRequestToJSON(json: any): UpdateApplicationRequest {
+      return UpdateApplicationRequestToJSONTyped(json, false);
+  }
+
+  export function UpdateApplicationRequestToJSONTyped(value?: UpdateApplicationRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'name': value['name'],

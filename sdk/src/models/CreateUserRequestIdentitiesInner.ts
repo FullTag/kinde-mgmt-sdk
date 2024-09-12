@@ -18,6 +18,7 @@ import {
     CreateUserRequestIdentitiesInnerDetailsFromJSON,
     CreateUserRequestIdentitiesInnerDetailsFromJSONTyped,
     CreateUserRequestIdentitiesInnerDetailsToJSON,
+    CreateUserRequestIdentitiesInnerDetailsToJSONTyped,
 } from './CreateUserRequestIdentitiesInnerDetails';
 
 /**
@@ -74,10 +75,15 @@ export function CreateUserRequestIdentitiesInnerFromJSONTyped(json: any, ignoreD
     };
 }
 
-export function CreateUserRequestIdentitiesInnerToJSON(value?: CreateUserRequestIdentitiesInner | null): any {
+  export function CreateUserRequestIdentitiesInnerToJSON(json: any): CreateUserRequestIdentitiesInner {
+      return CreateUserRequestIdentitiesInnerToJSONTyped(json, false);
+  }
+
+  export function CreateUserRequestIdentitiesInnerToJSONTyped(value?: CreateUserRequestIdentitiesInner | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'type': value['type'],

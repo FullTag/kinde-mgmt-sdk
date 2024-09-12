@@ -76,10 +76,15 @@ export function SubscribersSubscriberFromJSONTyped(json: any, ignoreDiscriminato
     };
 }
 
-export function SubscribersSubscriberToJSON(value?: SubscribersSubscriber | null): any {
+  export function SubscribersSubscriberToJSON(json: any): SubscribersSubscriber {
+      return SubscribersSubscriberToJSONTyped(json, false);
+  }
+
+  export function SubscribersSubscriberToJSONTyped(value?: SubscribersSubscriber | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'id': value['id'],

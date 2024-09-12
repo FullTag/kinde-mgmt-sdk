@@ -18,6 +18,7 @@ import {
     CreateCategoryResponseCategoryFromJSON,
     CreateCategoryResponseCategoryFromJSONTyped,
     CreateCategoryResponseCategoryToJSON,
+    CreateCategoryResponseCategoryToJSONTyped,
 } from './CreateCategoryResponseCategory';
 
 /**
@@ -69,10 +70,15 @@ export function CreateCategoryResponseFromJSONTyped(json: any, ignoreDiscriminat
     };
 }
 
-export function CreateCategoryResponseToJSON(value?: CreateCategoryResponse | null): any {
+  export function CreateCategoryResponseToJSON(json: any): CreateCategoryResponse {
+      return CreateCategoryResponseToJSONTyped(json, false);
+  }
+
+  export function CreateCategoryResponseToJSONTyped(value?: CreateCategoryResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'message': value['message'],

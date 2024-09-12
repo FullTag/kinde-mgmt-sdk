@@ -90,10 +90,15 @@ export function UpdateUserResponseFromJSONTyped(json: any, ignoreDiscriminator: 
     };
 }
 
-export function UpdateUserResponseToJSON(value?: UpdateUserResponse | null): any {
+  export function UpdateUserResponseToJSON(json: any): UpdateUserResponse {
+      return UpdateUserResponseToJSONTyped(json, false);
+  }
+
+  export function UpdateUserResponseToJSONTyped(value?: UpdateUserResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'id': value['id'],

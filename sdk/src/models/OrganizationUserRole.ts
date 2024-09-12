@@ -62,10 +62,15 @@ export function OrganizationUserRoleFromJSONTyped(json: any, ignoreDiscriminator
     };
 }
 
-export function OrganizationUserRoleToJSON(value?: OrganizationUserRole | null): any {
+  export function OrganizationUserRoleToJSON(json: any): OrganizationUserRole {
+      return OrganizationUserRoleToJSONTyped(json, false);
+  }
+
+  export function OrganizationUserRoleToJSONTyped(value?: OrganizationUserRole | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'id': value['id'],

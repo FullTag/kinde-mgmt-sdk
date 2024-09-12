@@ -48,10 +48,15 @@ export function OrganizationUserRolePermissionsPermissionsFromJSONTyped(json: an
     };
 }
 
-export function OrganizationUserRolePermissionsPermissionsToJSON(value?: OrganizationUserRolePermissionsPermissions | null): any {
+  export function OrganizationUserRolePermissionsPermissionsToJSON(json: any): OrganizationUserRolePermissionsPermissions {
+      return OrganizationUserRolePermissionsPermissionsToJSONTyped(json, false);
+  }
+
+  export function OrganizationUserRolePermissionsPermissionsToJSONTyped(value?: OrganizationUserRolePermissionsPermissions | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'key': value['key'],

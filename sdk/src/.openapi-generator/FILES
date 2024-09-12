@@ -78,6 +78,8 @@ models/GetApisResponseApisInner.ts
 models/GetApplicationResponse.ts
 models/GetApplicationResponseApplication.ts
 models/GetApplicationsResponse.ts
+models/GetBusinessResponse.ts
+models/GetBusinessResponseBusiness.ts
 models/GetCategoriesResponse.ts
 models/GetConnectionsResponse.ts
 models/GetEnvironmentFeatureFlagsResponse.ts
@@ -85,6 +87,8 @@ models/GetEventResponse.ts
 models/GetEventResponseEvent.ts
 models/GetEventTypesResponse.ts
 models/GetIdentitiesResponse.ts
+models/GetIndustriesResponse.ts
+models/GetIndustriesResponseIndustriesInner.ts
 models/GetOrganizationFeatureFlagsResponse.ts
 models/GetOrganizationFeatureFlagsResponseFeatureFlagsValue.ts
 models/GetOrganizationResponse.ts
@@ -101,10 +105,14 @@ models/GetRedirectCallbackUrlsResponse.ts
 models/GetRolesResponse.ts
 models/GetSubscriberResponse.ts
 models/GetSubscribersResponse.ts
+models/GetTimezonesResponse.ts
+models/GetTimezonesResponseTimezonesInner.ts
 models/GetWebhooksResponse.ts
 models/Identity.ts
 models/LogoutRedirectUrls.ts
 models/ModelError.ts
+models/NotFoundResponse.ts
+models/NotFoundResponseErrors.ts
 models/OrganizationItemSchema.ts
 models/OrganizationUser.ts
 models/OrganizationUserPermission.ts
@@ -130,6 +138,7 @@ models/TokenIntrospect.ts
 models/UpdateAPIApplicationsRequest.ts
 models/UpdateAPIApplicationsRequestApplicationsInner.ts
 models/UpdateApplicationRequest.ts
+models/UpdateBusinessRequest.ts
 models/UpdateCategoryRequest.ts
 models/UpdateConnectionRequest.ts
 models/UpdateEnvironementFeatureFlagOverrideRequest.ts

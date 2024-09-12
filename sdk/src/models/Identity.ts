@@ -90,10 +90,15 @@ export function IdentityFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
     };
 }
 
-export function IdentityToJSON(value?: Identity | null): any {
+  export function IdentityToJSON(json: any): Identity {
+      return IdentityToJSONTyped(json, false);
+  }
+
+  export function IdentityToJSONTyped(value?: Identity | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'id': value['id'],

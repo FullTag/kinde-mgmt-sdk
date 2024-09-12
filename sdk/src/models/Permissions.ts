@@ -69,10 +69,15 @@ export function PermissionsFromJSONTyped(json: any, ignoreDiscriminator: boolean
     };
 }
 
-export function PermissionsToJSON(value?: Permissions | null): any {
+  export function PermissionsToJSON(json: any): Permissions {
+      return PermissionsToJSONTyped(json, false);
+  }
+
+  export function PermissionsToJSONTyped(value?: Permissions | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'id': value['id'],

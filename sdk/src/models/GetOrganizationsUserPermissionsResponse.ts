@@ -18,6 +18,7 @@ import {
     OrganizationUserPermissionFromJSON,
     OrganizationUserPermissionFromJSONTyped,
     OrganizationUserPermissionToJSON,
+    OrganizationUserPermissionToJSONTyped,
 } from './OrganizationUserPermission';
 
 /**
@@ -69,10 +70,15 @@ export function GetOrganizationsUserPermissionsResponseFromJSONTyped(json: any, 
     };
 }
 
-export function GetOrganizationsUserPermissionsResponseToJSON(value?: GetOrganizationsUserPermissionsResponse | null): any {
+  export function GetOrganizationsUserPermissionsResponseToJSON(json: any): GetOrganizationsUserPermissionsResponse {
+      return GetOrganizationsUserPermissionsResponseToJSONTyped(json, false);
+  }
+
+  export function GetOrganizationsUserPermissionsResponseToJSONTyped(value?: GetOrganizationsUserPermissionsResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'code': value['code'],

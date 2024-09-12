@@ -55,10 +55,15 @@ export function TokenErrorResponseFromJSONTyped(json: any, ignoreDiscriminator: 
     };
 }
 
-export function TokenErrorResponseToJSON(value?: TokenErrorResponse | null): any {
+  export function TokenErrorResponseToJSON(json: any): TokenErrorResponse {
+      return TokenErrorResponseToJSONTyped(json, false);
+  }
+
+  export function TokenErrorResponseToJSONTyped(value?: TokenErrorResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'error': value['error'],

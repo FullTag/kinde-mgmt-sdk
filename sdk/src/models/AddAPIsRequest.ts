@@ -57,10 +57,15 @@ export function AddAPIsRequestFromJSONTyped(json: any, ignoreDiscriminator: bool
     };
 }
 
-export function AddAPIsRequestToJSON(value?: AddAPIsRequest | null): any {
+  export function AddAPIsRequestToJSON(json: any): AddAPIsRequest {
+      return AddAPIsRequestToJSONTyped(json, false);
+  }
+
+  export function AddAPIsRequestToJSONTyped(value?: AddAPIsRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'name': value['name'],

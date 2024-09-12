@@ -76,10 +76,15 @@ export function TokenIntrospectFromJSONTyped(json: any, ignoreDiscriminator: boo
     };
 }
 
-export function TokenIntrospectToJSON(value?: TokenIntrospect | null): any {
+  export function TokenIntrospectToJSON(json: any): TokenIntrospect {
+      return TokenIntrospectToJSONTyped(json, false);
+  }
+
+  export function TokenIntrospectToJSONTyped(value?: TokenIntrospect | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'active': value['active'],

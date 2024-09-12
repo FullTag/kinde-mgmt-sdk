@@ -55,10 +55,15 @@ export function UserIdentitiesInnerFromJSONTyped(json: any, ignoreDiscriminator:
     };
 }
 
-export function UserIdentitiesInnerToJSON(value?: UserIdentitiesInner | null): any {
+  export function UserIdentitiesInnerToJSON(json: any): UserIdentitiesInner {
+      return UserIdentitiesInnerToJSONTyped(json, false);
+  }
+
+  export function UserIdentitiesInnerToJSONTyped(value?: UserIdentitiesInner | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'type': value['type'],

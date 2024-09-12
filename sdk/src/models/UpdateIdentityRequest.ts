@@ -48,10 +48,15 @@ export function UpdateIdentityRequestFromJSONTyped(json: any, ignoreDiscriminato
     };
 }
 
-export function UpdateIdentityRequestToJSON(value?: UpdateIdentityRequest | null): any {
+  export function UpdateIdentityRequestToJSON(json: any): UpdateIdentityRequest {
+      return UpdateIdentityRequestToJSONTyped(json, false);
+  }
+
+  export function UpdateIdentityRequestToJSONTyped(value?: UpdateIdentityRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'is_primary': value['isPrimary'],

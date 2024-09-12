@@ -62,10 +62,15 @@ export function GetOrganizationResponseLinkColorFromJSONTyped(json: any, ignoreD
     };
 }
 
-export function GetOrganizationResponseLinkColorToJSON(value?: GetOrganizationResponseLinkColor | null): any {
+  export function GetOrganizationResponseLinkColorToJSON(json: any): GetOrganizationResponseLinkColor {
+      return GetOrganizationResponseLinkColorToJSONTyped(json, false);
+  }
+
+  export function GetOrganizationResponseLinkColorToJSONTyped(value?: GetOrganizationResponseLinkColor | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'raw': value['raw'],

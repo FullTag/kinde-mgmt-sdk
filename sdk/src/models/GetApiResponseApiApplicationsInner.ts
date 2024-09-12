@@ -81,10 +81,15 @@ export function GetApiResponseApiApplicationsInnerFromJSONTyped(json: any, ignor
     };
 }
 
-export function GetApiResponseApiApplicationsInnerToJSON(value?: GetApiResponseApiApplicationsInner | null): any {
+  export function GetApiResponseApiApplicationsInnerToJSON(json: any): GetApiResponseApiApplicationsInner {
+      return GetApiResponseApiApplicationsInnerToJSONTyped(json, false);
+  }
+
+  export function GetApiResponseApiApplicationsInnerToJSONTyped(value?: GetApiResponseApiApplicationsInner | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'id': value['id'],

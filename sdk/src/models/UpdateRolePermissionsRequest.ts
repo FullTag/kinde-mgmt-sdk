@@ -18,6 +18,7 @@ import {
     UpdateRolePermissionsRequestPermissionsInnerFromJSON,
     UpdateRolePermissionsRequestPermissionsInnerFromJSONTyped,
     UpdateRolePermissionsRequestPermissionsInnerToJSON,
+    UpdateRolePermissionsRequestPermissionsInnerToJSONTyped,
 } from './UpdateRolePermissionsRequestPermissionsInner';
 
 /**
@@ -55,10 +56,15 @@ export function UpdateRolePermissionsRequestFromJSONTyped(json: any, ignoreDiscr
     };
 }
 
-export function UpdateRolePermissionsRequestToJSON(value?: UpdateRolePermissionsRequest | null): any {
+  export function UpdateRolePermissionsRequestToJSON(json: any): UpdateRolePermissionsRequest {
+      return UpdateRolePermissionsRequestToJSONTyped(json, false);
+  }
+
+  export function UpdateRolePermissionsRequestToJSONTyped(value?: UpdateRolePermissionsRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'permissions': value['permissions'] == null ? undefined : ((value['permissions'] as Array<any>).map(UpdateRolePermissionsRequestPermissionsInnerToJSON)),

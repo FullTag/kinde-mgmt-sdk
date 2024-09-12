@@ -69,10 +69,15 @@ export function RolesPermissionResponseInnerFromJSONTyped(json: any, ignoreDiscr
     };
 }
 
-export function RolesPermissionResponseInnerToJSON(value?: RolesPermissionResponseInner | null): any {
+  export function RolesPermissionResponseInnerToJSON(json: any): RolesPermissionResponseInner {
+      return RolesPermissionResponseInnerToJSONTyped(json, false);
+  }
+
+  export function RolesPermissionResponseInnerToJSONTyped(value?: RolesPermissionResponseInner | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'id': value['id'],

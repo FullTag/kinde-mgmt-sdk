@@ -90,10 +90,15 @@ export function UserProfileFromJSONTyped(json: any, ignoreDiscriminator: boolean
     };
 }
 
-export function UserProfileToJSON(value?: UserProfile | null): any {
+  export function UserProfileToJSON(json: any): UserProfile {
+      return UserProfileToJSONTyped(json, false);
+  }
+
+  export function UserProfileToJSONTyped(value?: UserProfile | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'id': value['id'],

@@ -109,10 +109,15 @@ export function CreateFeatureFlagRequestFromJSONTyped(json: any, ignoreDiscrimin
     };
 }
 
-export function CreateFeatureFlagRequestToJSON(value?: CreateFeatureFlagRequest | null): any {
+  export function CreateFeatureFlagRequestToJSON(json: any): CreateFeatureFlagRequest {
+      return CreateFeatureFlagRequestToJSONTyped(json, false);
+  }
+
+  export function CreateFeatureFlagRequestToJSONTyped(value?: CreateFeatureFlagRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'name': value['name'],

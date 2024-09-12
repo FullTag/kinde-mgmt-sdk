@@ -18,6 +18,7 @@ import {
     CreateConnectionResponseConnectionFromJSON,
     CreateConnectionResponseConnectionFromJSONTyped,
     CreateConnectionResponseConnectionToJSON,
+    CreateConnectionResponseConnectionToJSONTyped,
 } from './CreateConnectionResponseConnection';
 
 /**
@@ -69,10 +70,15 @@ export function CreateConnectionResponseFromJSONTyped(json: any, ignoreDiscrimin
     };
 }
 
-export function CreateConnectionResponseToJSON(value?: CreateConnectionResponse | null): any {
+  export function CreateConnectionResponseToJSON(json: any): CreateConnectionResponse {
+      return CreateConnectionResponseToJSONTyped(json, false);
+  }
+
+  export function CreateConnectionResponseToJSONTyped(value?: CreateConnectionResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'message': value['message'],

@@ -76,10 +76,15 @@ export function GetEventResponseEventFromJSONTyped(json: any, ignoreDiscriminato
     };
 }
 
-export function GetEventResponseEventToJSON(value?: GetEventResponseEvent | null): any {
+  export function GetEventResponseEventToJSON(json: any): GetEventResponseEvent {
+      return GetEventResponseEventToJSONTyped(json, false);
+  }
+
+  export function GetEventResponseEventToJSONTyped(value?: GetEventResponseEvent | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'type': value['type'],

@@ -18,6 +18,7 @@ import {
     GetEventResponseEventFromJSON,
     GetEventResponseEventFromJSONTyped,
     GetEventResponseEventToJSON,
+    GetEventResponseEventToJSONTyped,
 } from './GetEventResponseEvent';
 
 /**
@@ -69,10 +70,15 @@ export function GetEventResponseFromJSONTyped(json: any, ignoreDiscriminator: bo
     };
 }
 
-export function GetEventResponseToJSON(value?: GetEventResponse | null): any {
+  export function GetEventResponseToJSON(json: any): GetEventResponse {
+      return GetEventResponseToJSONTyped(json, false);
+  }
+
+  export function GetEventResponseToJSONTyped(value?: GetEventResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'code': value['code'],

@@ -48,10 +48,15 @@ export function CreateConnectionResponseConnectionFromJSONTyped(json: any, ignor
     };
 }
 
-export function CreateConnectionResponseConnectionToJSON(value?: CreateConnectionResponseConnection | null): any {
+  export function CreateConnectionResponseConnectionToJSON(json: any): CreateConnectionResponseConnection {
+      return CreateConnectionResponseConnectionToJSONTyped(json, false);
+  }
+
+  export function CreateConnectionResponseConnectionToJSONTyped(value?: CreateConnectionResponseConnection | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'id': value['id'],

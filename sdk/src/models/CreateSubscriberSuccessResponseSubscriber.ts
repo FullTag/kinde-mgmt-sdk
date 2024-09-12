@@ -48,10 +48,15 @@ export function CreateSubscriberSuccessResponseSubscriberFromJSONTyped(json: any
     };
 }
 
-export function CreateSubscriberSuccessResponseSubscriberToJSON(value?: CreateSubscriberSuccessResponseSubscriber | null): any {
+  export function CreateSubscriberSuccessResponseSubscriberToJSON(json: any): CreateSubscriberSuccessResponseSubscriber {
+      return CreateSubscriberSuccessResponseSubscriberToJSONTyped(json, false);
+  }
+
+  export function CreateSubscriberSuccessResponseSubscriberToJSONTyped(value?: CreateSubscriberSuccessResponseSubscriber | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'subscriber_id': value['subscriberId'],

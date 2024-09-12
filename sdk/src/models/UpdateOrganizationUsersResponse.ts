@@ -69,10 +69,15 @@ export function UpdateOrganizationUsersResponseFromJSONTyped(json: any, ignoreDi
     };
 }
 
-export function UpdateOrganizationUsersResponseToJSON(value?: UpdateOrganizationUsersResponse | null): any {
+  export function UpdateOrganizationUsersResponseToJSON(json: any): UpdateOrganizationUsersResponse {
+      return UpdateOrganizationUsersResponseToJSONTyped(json, false);
+  }
+
+  export function UpdateOrganizationUsersResponseToJSONTyped(value?: UpdateOrganizationUsersResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'message': value['message'],

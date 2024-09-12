@@ -75,10 +75,15 @@ export function CreateUserIdentityRequestFromJSONTyped(json: any, ignoreDiscrimi
     };
 }
 
-export function CreateUserIdentityRequestToJSON(value?: CreateUserIdentityRequest | null): any {
+  export function CreateUserIdentityRequestToJSON(json: any): CreateUserIdentityRequest {
+      return CreateUserIdentityRequestToJSONTyped(json, false);
+  }
+
+  export function CreateUserIdentityRequestToJSONTyped(value?: CreateUserIdentityRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'value': value['value'],

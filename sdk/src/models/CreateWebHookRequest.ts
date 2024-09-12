@@ -72,10 +72,15 @@ export function CreateWebHookRequestFromJSONTyped(json: any, ignoreDiscriminator
     };
 }
 
-export function CreateWebHookRequestToJSON(value?: CreateWebHookRequest | null): any {
+  export function CreateWebHookRequestToJSON(json: any): CreateWebHookRequest {
+      return CreateWebHookRequestToJSONTyped(json, false);
+  }
+
+  export function CreateWebHookRequestToJSONTyped(value?: CreateWebHookRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'endpoint': value['endpoint'],

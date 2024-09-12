@@ -48,10 +48,15 @@ export function ReplaceRedirectCallbackURLsRequestFromJSONTyped(json: any, ignor
     };
 }
 
-export function ReplaceRedirectCallbackURLsRequestToJSON(value?: ReplaceRedirectCallbackURLsRequest | null): any {
+  export function ReplaceRedirectCallbackURLsRequestToJSON(json: any): ReplaceRedirectCallbackURLsRequest {
+      return ReplaceRedirectCallbackURLsRequestToJSONTyped(json, false);
+  }
+
+  export function ReplaceRedirectCallbackURLsRequestToJSONTyped(value?: ReplaceRedirectCallbackURLsRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'urls': value['urls'],

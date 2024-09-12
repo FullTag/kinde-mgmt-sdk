@@ -55,10 +55,15 @@ export function CreateUserRequestProfileFromJSONTyped(json: any, ignoreDiscrimin
     };
 }
 
-export function CreateUserRequestProfileToJSON(value?: CreateUserRequestProfile | null): any {
+  export function CreateUserRequestProfileToJSON(json: any): CreateUserRequestProfile {
+      return CreateUserRequestProfileToJSONTyped(json, false);
+  }
+
+  export function CreateUserRequestProfileToJSONTyped(value?: CreateUserRequestProfile | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'given_name': value['givenName'],

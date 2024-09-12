@@ -62,10 +62,15 @@ export function CreateApplicationResponseApplicationFromJSONTyped(json: any, ign
     };
 }
 
-export function CreateApplicationResponseApplicationToJSON(value?: CreateApplicationResponseApplication | null): any {
+  export function CreateApplicationResponseApplicationToJSON(json: any): CreateApplicationResponseApplication {
+      return CreateApplicationResponseApplicationToJSONTyped(json, false);
+  }
+
+  export function CreateApplicationResponseApplicationToJSONTyped(value?: CreateApplicationResponseApplication | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'id': value['id'],

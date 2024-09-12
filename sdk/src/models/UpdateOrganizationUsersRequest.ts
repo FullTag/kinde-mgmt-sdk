@@ -18,6 +18,7 @@ import {
     UpdateOrganizationUsersRequestUsersInnerFromJSON,
     UpdateOrganizationUsersRequestUsersInnerFromJSONTyped,
     UpdateOrganizationUsersRequestUsersInnerToJSON,
+    UpdateOrganizationUsersRequestUsersInnerToJSONTyped,
 } from './UpdateOrganizationUsersRequestUsersInner';
 
 /**
@@ -55,10 +56,15 @@ export function UpdateOrganizationUsersRequestFromJSONTyped(json: any, ignoreDis
     };
 }
 
-export function UpdateOrganizationUsersRequestToJSON(value?: UpdateOrganizationUsersRequest | null): any {
+  export function UpdateOrganizationUsersRequestToJSON(json: any): UpdateOrganizationUsersRequest {
+      return UpdateOrganizationUsersRequestToJSONTyped(json, false);
+  }
+
+  export function UpdateOrganizationUsersRequestToJSONTyped(value?: UpdateOrganizationUsersRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'users': value['users'] == null ? undefined : ((value['users'] as Array<any>).map(UpdateOrganizationUsersRequestUsersInnerToJSON)),

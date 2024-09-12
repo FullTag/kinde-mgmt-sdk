@@ -48,10 +48,15 @@ export function CreatePropertyResponsePropertyFromJSONTyped(json: any, ignoreDis
     };
 }
 
-export function CreatePropertyResponsePropertyToJSON(value?: CreatePropertyResponseProperty | null): any {
+  export function CreatePropertyResponsePropertyToJSON(json: any): CreatePropertyResponseProperty {
+      return CreatePropertyResponsePropertyToJSONTyped(json, false);
+  }
+
+  export function CreatePropertyResponsePropertyToJSONTyped(value?: CreatePropertyResponseProperty | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'id': value['id'],

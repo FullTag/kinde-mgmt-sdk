@@ -18,6 +18,7 @@ import {
     ApplicationsFromJSON,
     ApplicationsFromJSONTyped,
     ApplicationsToJSON,
+    ApplicationsToJSONTyped,
 } from './Applications';
 
 /**
@@ -76,10 +77,15 @@ export function GetApplicationsResponseFromJSONTyped(json: any, ignoreDiscrimina
     };
 }
 
-export function GetApplicationsResponseToJSON(value?: GetApplicationsResponse | null): any {
+  export function GetApplicationsResponseToJSON(json: any): GetApplicationsResponse {
+      return GetApplicationsResponseToJSONTyped(json, false);
+  }
+
+  export function GetApplicationsResponseToJSONTyped(value?: GetApplicationsResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'code': value['code'],

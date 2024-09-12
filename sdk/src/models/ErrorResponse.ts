@@ -18,6 +18,7 @@ import {
     ModelErrorFromJSON,
     ModelErrorFromJSONTyped,
     ModelErrorToJSON,
+    ModelErrorToJSONTyped,
 } from './ModelError';
 
 /**
@@ -55,10 +56,15 @@ export function ErrorResponseFromJSONTyped(json: any, ignoreDiscriminator: boole
     };
 }
 
-export function ErrorResponseToJSON(value?: ErrorResponse | null): any {
+  export function ErrorResponseToJSON(json: any): ErrorResponse {
+      return ErrorResponseToJSONTyped(json, false);
+  }
+
+  export function ErrorResponseToJSONTyped(value?: ErrorResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'errors': value['errors'] == null ? undefined : ((value['errors'] as Array<any>).map(ModelErrorToJSON)),

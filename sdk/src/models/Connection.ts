@@ -69,10 +69,15 @@ export function ConnectionFromJSONTyped(json: any, ignoreDiscriminator: boolean)
     };
 }
 
-export function ConnectionToJSON(value?: Connection | null): any {
+  export function ConnectionToJSON(json: any): Connection {
+      return ConnectionToJSONTyped(json, false);
+  }
+
+  export function ConnectionToJSONTyped(value?: Connection | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'id': value['id'],

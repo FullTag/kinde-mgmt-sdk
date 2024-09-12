@@ -69,10 +69,15 @@ export function CreateRoleRequestFromJSONTyped(json: any, ignoreDiscriminator: b
     };
 }
 
-export function CreateRoleRequestToJSON(value?: CreateRoleRequest | null): any {
+  export function CreateRoleRequestToJSON(json: any): CreateRoleRequest {
+      return CreateRoleRequestToJSONTyped(json, false);
+  }
+
+  export function CreateRoleRequestToJSONTyped(value?: CreateRoleRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'name': value['name'],

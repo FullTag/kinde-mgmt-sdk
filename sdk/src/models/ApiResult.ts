@@ -48,10 +48,15 @@ export function ApiResultFromJSONTyped(json: any, ignoreDiscriminator: boolean):
     };
 }
 
-export function ApiResultToJSON(value?: ApiResult | null): any {
+  export function ApiResultToJSON(json: any): ApiResult {
+      return ApiResultToJSONTyped(json, false);
+  }
+
+  export function ApiResultToJSONTyped(value?: ApiResult | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'result': value['result'],

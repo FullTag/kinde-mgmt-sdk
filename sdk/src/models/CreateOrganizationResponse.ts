@@ -18,6 +18,7 @@ import {
     CreateOrganizationResponseOrganizationFromJSON,
     CreateOrganizationResponseOrganizationFromJSONTyped,
     CreateOrganizationResponseOrganizationToJSON,
+    CreateOrganizationResponseOrganizationToJSONTyped,
 } from './CreateOrganizationResponseOrganization';
 
 /**
@@ -69,10 +70,15 @@ export function CreateOrganizationResponseFromJSONTyped(json: any, ignoreDiscrim
     };
 }
 
-export function CreateOrganizationResponseToJSON(value?: CreateOrganizationResponse | null): any {
+  export function CreateOrganizationResponseToJSON(json: any): CreateOrganizationResponse {
+      return CreateOrganizationResponseToJSONTyped(json, false);
+  }
+
+  export function CreateOrganizationResponseToJSONTyped(value?: CreateOrganizationResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'message': value['message'],

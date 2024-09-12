@@ -62,10 +62,15 @@ export function UpdateWebHookRequestFromJSONTyped(json: any, ignoreDiscriminator
     };
 }
 
-export function UpdateWebHookRequestToJSON(value?: UpdateWebHookRequest | null): any {
+  export function UpdateWebHookRequestToJSON(json: any): UpdateWebHookRequest {
+      return UpdateWebHookRequestToJSONTyped(json, false);
+  }
+
+  export function UpdateWebHookRequestToJSONTyped(value?: UpdateWebHookRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'event_types': value['eventTypes'],

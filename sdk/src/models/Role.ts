@@ -69,10 +69,15 @@ export function RoleFromJSONTyped(json: any, ignoreDiscriminator: boolean): Role
     };
 }
 
-export function RoleToJSON(value?: Role | null): any {
+  export function RoleToJSON(json: any): Role {
+      return RoleToJSONTyped(json, false);
+  }
+
+  export function RoleToJSONTyped(value?: Role | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'id': value['id'],

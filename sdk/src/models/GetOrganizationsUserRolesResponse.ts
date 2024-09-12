@@ -18,6 +18,7 @@ import {
     OrganizationUserRoleFromJSON,
     OrganizationUserRoleFromJSONTyped,
     OrganizationUserRoleToJSON,
+    OrganizationUserRoleToJSONTyped,
 } from './OrganizationUserRole';
 
 /**
@@ -76,10 +77,15 @@ export function GetOrganizationsUserRolesResponseFromJSONTyped(json: any, ignore
     };
 }
 
-export function GetOrganizationsUserRolesResponseToJSON(value?: GetOrganizationsUserRolesResponse | null): any {
+  export function GetOrganizationsUserRolesResponseToJSON(json: any): GetOrganizationsUserRolesResponse {
+      return GetOrganizationsUserRolesResponseToJSONTyped(json, false);
+  }
+
+  export function GetOrganizationsUserRolesResponseToJSONTyped(value?: GetOrganizationsUserRolesResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'code': value['code'],

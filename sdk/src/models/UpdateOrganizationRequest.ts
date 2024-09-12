@@ -80,11 +80,11 @@ export interface UpdateOrganizationRequest {
      */
     linkColorDark?: string;
     /**
-     * The organization's brand settings - theme/mode 'light' | 'dark' | 'user_preference'.
+     * The organization's brand settings - theme/mode.
      * @type {string}
      * @memberof UpdateOrganizationRequest
      */
-    themeCode?: string;
+    themeCode?: UpdateOrganizationRequestThemeCodeEnum;
     /**
      * The organization's handle.
      * @type {string}
@@ -92,12 +92,43 @@ export interface UpdateOrganizationRequest {
      */
     handle?: string;
     /**
+     * Deprecated - Use 'is_auto_membership_enabled' instead.
+     * @type {boolean}
+     * @memberof UpdateOrganizationRequest
+     * @deprecated
+     */
+    isAllowRegistrations?: boolean;
+    /**
+     * Enable custom auth connections for this organization.
+     * @type {boolean}
+     * @memberof UpdateOrganizationRequest
+     */
+    isCustomAuthConnectionsEnabled?: boolean;
+    /**
      * Users can sign up to this organization.
      * @type {boolean}
      * @memberof UpdateOrganizationRequest
      */
-    isAllowRegistrations?: boolean;
+    isAutoJoinDomainList?: boolean;
+    /**
+     * Domains allowed for self-sign up to this environment.
+     * @type {Array<string>}
+     * @memberof UpdateOrganizationRequest
+     */
+    allowedDomains?: Array<string>;
 }
+
+
+/**
+ * @export
+ */
+export const UpdateOrganizationRequestThemeCodeEnum = {
+    Light: 'light',
+    Dark: 'dark',
+    UserPreference: 'user_preference'
+} as const;
+export type UpdateOrganizationRequestThemeCodeEnum = typeof UpdateOrganizationRequestThemeCodeEnum[keyof typeof UpdateOrganizationRequestThemeCodeEnum];
+
 
 /**
  * Check if a given object implements the UpdateOrganizationRequest interface.
@@ -129,13 +160,21 @@ export function UpdateOrganizationRequestFromJSONTyped(json: any, ignoreDiscrimi
         'themeCode': json['theme_code'] == null ? undefined : json['theme_code'],
         'handle': json['handle'] == null ? undefined : json['handle'],
         'isAllowRegistrations': json['is_allow_registrations'] == null ? undefined : json['is_allow_registrations'],
+        'isCustomAuthConnectionsEnabled': json['is_custom_auth_connections_enabled'] == null ? undefined : json['is_custom_auth_connections_enabled'],
+        'isAutoJoinDomainList': json['is_auto_join_domain_list'] == null ? undefined : json['is_auto_join_domain_list'],
+        'allowedDomains': json['allowed_domains'] == null ? undefined : json['allowed_domains'],
     };
 }
 
-export function UpdateOrganizationRequestToJSON(value?: UpdateOrganizationRequest | null): any {
+  export function UpdateOrganizationRequestToJSON(json: any): UpdateOrganizationRequest {
+      return UpdateOrganizationRequestToJSONTyped(json, false);
+  }
+
+  export function UpdateOrganizationRequestToJSONTyped(value?: UpdateOrganizationRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'name': value['name'],
@@ -151,6 +190,9 @@ export function UpdateOrganizationRequestToJSON(value?: UpdateOrganizationReques
         'theme_code': value['themeCode'],
         'handle': value['handle'],
         'is_allow_registrations': value['isAllowRegistrations'],
+        'is_custom_auth_connections_enabled': value['isCustomAuthConnectionsEnabled'],
+        'is_auto_join_domain_list': value['isAutoJoinDomainList'],
+        'allowed_domains': value['allowedDomains'],
     };
 }
 

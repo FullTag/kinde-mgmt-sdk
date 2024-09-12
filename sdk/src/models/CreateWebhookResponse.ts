@@ -18,6 +18,7 @@ import {
     CreateWebhookResponseWebhookFromJSON,
     CreateWebhookResponseWebhookFromJSONTyped,
     CreateWebhookResponseWebhookToJSON,
+    CreateWebhookResponseWebhookToJSONTyped,
 } from './CreateWebhookResponseWebhook';
 
 /**
@@ -69,10 +70,15 @@ export function CreateWebhookResponseFromJSONTyped(json: any, ignoreDiscriminato
     };
 }
 
-export function CreateWebhookResponseToJSON(value?: CreateWebhookResponse | null): any {
+  export function CreateWebhookResponseToJSON(json: any): CreateWebhookResponse {
+      return CreateWebhookResponseToJSONTyped(json, false);
+  }
+
+  export function CreateWebhookResponseToJSONTyped(value?: CreateWebhookResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'code': value['code'],

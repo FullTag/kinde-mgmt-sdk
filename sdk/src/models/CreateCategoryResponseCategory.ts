@@ -48,10 +48,15 @@ export function CreateCategoryResponseCategoryFromJSONTyped(json: any, ignoreDis
     };
 }
 
-export function CreateCategoryResponseCategoryToJSON(value?: CreateCategoryResponseCategory | null): any {
+  export function CreateCategoryResponseCategoryToJSON(json: any): CreateCategoryResponseCategory {
+      return CreateCategoryResponseCategoryToJSONTyped(json, false);
+  }
+
+  export function CreateCategoryResponseCategoryToJSONTyped(value?: CreateCategoryResponseCategory | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'id': value['id'],

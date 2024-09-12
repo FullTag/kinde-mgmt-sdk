@@ -99,10 +99,15 @@ export function SetUserPasswordRequestFromJSONTyped(json: any, ignoreDiscriminat
     };
 }
 
-export function SetUserPasswordRequestToJSON(value?: SetUserPasswordRequest | null): any {
+  export function SetUserPasswordRequestToJSON(json: any): SetUserPasswordRequest {
+      return SetUserPasswordRequestToJSONTyped(json, false);
+  }
+
+  export function SetUserPasswordRequestToJSONTyped(value?: SetUserPasswordRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'hashed_password': value['hashedPassword'],

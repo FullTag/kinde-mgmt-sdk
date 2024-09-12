@@ -15,17 +15,15 @@
 
 import * as runtime from '../runtime';
 import type {
-  SuccessResponse,
+  ErrorResponse,
+  GetIndustriesResponse,
 } from '../models/index';
 import {
-    SuccessResponseFromJSON,
-    SuccessResponseToJSON,
+    ErrorResponseFromJSON,
+    ErrorResponseToJSON,
+    GetIndustriesResponseFromJSON,
+    GetIndustriesResponseToJSON,
 } from '../models/index';
-
-export interface GetIndustriesRequest {
-    industryKey?: string;
-    name?: string;
-}
 
 /**
  * 
@@ -34,18 +32,10 @@ export class IndustriesApi extends runtime.BaseAPI {
 
     /**
      * Get a list of industries and associated industry keys.
-     * List industries and industry keys.
+     * Get industries
      */
-    async getIndustriesRaw(requestParameters: GetIndustriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SuccessResponse>> {
+    async getIndustriesRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetIndustriesResponse>> {
         const queryParameters: any = {};
-
-        if (requestParameters['industryKey'] != null) {
-            queryParameters['industry_key'] = requestParameters['industryKey'];
-        }
-
-        if (requestParameters['name'] != null) {
-            queryParameters['name'] = requestParameters['name'];
-        }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
@@ -61,15 +51,15 @@ export class IndustriesApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => SuccessResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetIndustriesResponseFromJSON(jsonValue));
     }
 
     /**
      * Get a list of industries and associated industry keys.
-     * List industries and industry keys.
+     * Get industries
      */
-    async getIndustries(requestParameters: GetIndustriesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SuccessResponse> {
-        const response = await this.getIndustriesRaw(requestParameters, initOverrides);
+    async getIndustries(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetIndustriesResponse> {
+        const response = await this.getIndustriesRaw(initOverrides);
         return await response.value();
     }
 

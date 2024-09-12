@@ -15,17 +15,15 @@
 
 import * as runtime from '../runtime';
 import type {
-  SuccessResponse,
+  ErrorResponse,
+  GetTimezonesResponse,
 } from '../models/index';
 import {
-    SuccessResponseFromJSON,
-    SuccessResponseToJSON,
+    ErrorResponseFromJSON,
+    ErrorResponseToJSON,
+    GetTimezonesResponseFromJSON,
+    GetTimezonesResponseToJSON,
 } from '../models/index';
-
-export interface GetTimezonesRequest {
-    timezoneKey?: string;
-    name?: string;
-}
 
 /**
  * 
@@ -34,18 +32,10 @@ export class TimezonesApi extends runtime.BaseAPI {
 
     /**
      * Get a list of timezones and associated timezone keys.
-     * List timezones and timezone IDs.
+     * Get timezones
      */
-    async getTimezonesRaw(requestParameters: GetTimezonesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SuccessResponse>> {
+    async getTimezonesRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetTimezonesResponse>> {
         const queryParameters: any = {};
-
-        if (requestParameters['timezoneKey'] != null) {
-            queryParameters['timezone_key'] = requestParameters['timezoneKey'];
-        }
-
-        if (requestParameters['name'] != null) {
-            queryParameters['name'] = requestParameters['name'];
-        }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
@@ -61,15 +51,15 @@ export class TimezonesApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => SuccessResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetTimezonesResponseFromJSON(jsonValue));
     }
 
     /**
      * Get a list of timezones and associated timezone keys.
-     * List timezones and timezone IDs.
+     * Get timezones
      */
-    async getTimezones(requestParameters: GetTimezonesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SuccessResponse> {
-        const response = await this.getTimezonesRaw(requestParameters, initOverrides);
+    async getTimezones(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetTimezonesResponse> {
+        const response = await this.getTimezonesRaw(initOverrides);
         return await response.value();
     }
 

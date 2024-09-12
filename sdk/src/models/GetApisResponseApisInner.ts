@@ -69,10 +69,15 @@ export function GetApisResponseApisInnerFromJSONTyped(json: any, ignoreDiscrimin
     };
 }
 
-export function GetApisResponseApisInnerToJSON(value?: GetApisResponseApisInner | null): any {
+  export function GetApisResponseApisInnerToJSON(json: any): GetApisResponseApisInner {
+      return GetApisResponseApisInnerToJSONTyped(json, false);
+  }
+
+  export function GetApisResponseApisInnerToJSONTyped(value?: GetApisResponseApisInner | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'id': value['id'],

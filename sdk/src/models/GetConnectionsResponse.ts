@@ -18,6 +18,7 @@ import {
     ConnectionFromJSON,
     ConnectionFromJSONTyped,
     ConnectionToJSON,
+    ConnectionToJSONTyped,
 } from './Connection';
 
 /**
@@ -76,10 +77,15 @@ export function GetConnectionsResponseFromJSONTyped(json: any, ignoreDiscriminat
     };
 }
 
-export function GetConnectionsResponseToJSON(value?: GetConnectionsResponse | null): any {
+  export function GetConnectionsResponseToJSON(json: any): GetConnectionsResponse {
+      return GetConnectionsResponseToJSONTyped(json, false);
+  }
+
+  export function GetConnectionsResponseToJSONTyped(value?: GetConnectionsResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'code': value['code'],

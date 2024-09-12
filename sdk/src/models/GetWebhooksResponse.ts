@@ -18,6 +18,7 @@ import {
     WebhookFromJSON,
     WebhookFromJSONTyped,
     WebhookToJSON,
+    WebhookToJSONTyped,
 } from './Webhook';
 
 /**
@@ -69,10 +70,15 @@ export function GetWebhooksResponseFromJSONTyped(json: any, ignoreDiscriminator:
     };
 }
 
-export function GetWebhooksResponseToJSON(value?: GetWebhooksResponse | null): any {
+  export function GetWebhooksResponseToJSON(json: any): GetWebhooksResponse {
+      return GetWebhooksResponseToJSONTyped(json, false);
+  }
+
+  export function GetWebhooksResponseToJSONTyped(value?: GetWebhooksResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'code': value['code'],

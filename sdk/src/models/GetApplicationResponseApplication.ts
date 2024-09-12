@@ -90,10 +90,15 @@ export function GetApplicationResponseApplicationFromJSONTyped(json: any, ignore
     };
 }
 
-export function GetApplicationResponseApplicationToJSON(value?: GetApplicationResponseApplication | null): any {
+  export function GetApplicationResponseApplicationToJSON(json: any): GetApplicationResponseApplication {
+      return GetApplicationResponseApplicationToJSONTyped(json, false);
+  }
+
+  export function GetApplicationResponseApplicationToJSONTyped(value?: GetApplicationResponseApplication | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'id': value['id'],

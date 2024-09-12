@@ -18,6 +18,7 @@ import {
     UsersResponseUsersInnerFromJSON,
     UsersResponseUsersInnerFromJSONTyped,
     UsersResponseUsersInnerToJSON,
+    UsersResponseUsersInnerToJSONTyped,
 } from './UsersResponseUsersInner';
 
 /**
@@ -76,10 +77,15 @@ export function UsersResponseFromJSONTyped(json: any, ignoreDiscriminator: boole
     };
 }
 
-export function UsersResponseToJSON(value?: UsersResponse | null): any {
+  export function UsersResponseToJSON(json: any): UsersResponse {
+      return UsersResponseToJSONTyped(json, false);
+  }
+
+  export function UsersResponseToJSONTyped(value?: UsersResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'code': value['code'],

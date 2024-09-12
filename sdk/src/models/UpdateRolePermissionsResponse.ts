@@ -69,10 +69,15 @@ export function UpdateRolePermissionsResponseFromJSONTyped(json: any, ignoreDisc
     };
 }
 
-export function UpdateRolePermissionsResponseToJSON(value?: UpdateRolePermissionsResponse | null): any {
+  export function UpdateRolePermissionsResponseToJSON(json: any): UpdateRolePermissionsResponse {
+      return UpdateRolePermissionsResponseToJSONTyped(json, false);
+  }
+
+  export function UpdateRolePermissionsResponseToJSONTyped(value?: UpdateRolePermissionsResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'code': value['code'],

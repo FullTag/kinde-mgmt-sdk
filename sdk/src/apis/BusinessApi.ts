@@ -16,37 +16,23 @@
 import * as runtime from '../runtime';
 import type {
   ErrorResponse,
+  GetBusinessResponse,
   SuccessResponse,
+  UpdateBusinessRequest,
 } from '../models/index';
 import {
     ErrorResponseFromJSON,
     ErrorResponseToJSON,
+    GetBusinessResponseFromJSON,
+    GetBusinessResponseToJSON,
     SuccessResponseFromJSON,
     SuccessResponseToJSON,
+    UpdateBusinessRequestFromJSON,
+    UpdateBusinessRequestToJSON,
 } from '../models/index';
 
-export interface GetBusinessRequest {
-    code: string;
-    name: string;
-    email: string;
-    phone?: string | null;
-    industry?: string;
-    timezone?: string;
-    privacyUrl?: string | null;
-    termsUrl?: string | null;
-}
-
-export interface UpdateBusinessRequest {
-    businessName: string;
-    primaryEmail: string;
-    primaryPhone?: string | null;
-    industryKey?: string;
-    timezoneId?: string;
-    privacyUrl?: string | null;
-    termsUrl?: string | null;
-    isShowKindeBranding?: string | null;
-    isClickWrap?: boolean | null;
-    partnerCode?: string | null;
+export interface UpdateBusinessOperationRequest {
+    updateBusinessRequest: UpdateBusinessRequest;
 }
 
 /**
@@ -56,63 +42,10 @@ export class BusinessApi extends runtime.BaseAPI {
 
     /**
      * Get your business details.
-     * List business details
+     * Get business
      */
-    async getBusinessRaw(requestParameters: GetBusinessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SuccessResponse>> {
-        if (requestParameters['code'] == null) {
-            throw new runtime.RequiredError(
-                'code',
-                'Required parameter "code" was null or undefined when calling getBusiness().'
-            );
-        }
-
-        if (requestParameters['name'] == null) {
-            throw new runtime.RequiredError(
-                'name',
-                'Required parameter "name" was null or undefined when calling getBusiness().'
-            );
-        }
-
-        if (requestParameters['email'] == null) {
-            throw new runtime.RequiredError(
-                'email',
-                'Required parameter "email" was null or undefined when calling getBusiness().'
-            );
-        }
-
+    async getBusinessRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetBusinessResponse>> {
         const queryParameters: any = {};
-
-        if (requestParameters['code'] != null) {
-            queryParameters['code'] = requestParameters['code'];
-        }
-
-        if (requestParameters['name'] != null) {
-            queryParameters['name'] = requestParameters['name'];
-        }
-
-        if (requestParameters['email'] != null) {
-            queryParameters['email'] = requestParameters['email'];
-        }
-
-        if (requestParameters['phone'] != null) {
-            queryParameters['phone'] = requestParameters['phone'];
-        }
-
-        if (requestParameters['industry'] != null) {
-            queryParameters['industry'] = requestParameters['industry'];
-        }
-
-        if (requestParameters['timezone'] != null) {
-            queryParameters['timezone'] = requestParameters['timezone'];
-        }
-
-        if (requestParameters['privacyUrl'] != null) {
-            queryParameters['privacy_url'] = requestParameters['privacyUrl'];
-        }
-
-        if (requestParameters['termsUrl'] != null) {
-            queryParameters['terms_url'] = requestParameters['termsUrl'];
-        }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
@@ -128,80 +61,35 @@ export class BusinessApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => SuccessResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetBusinessResponseFromJSON(jsonValue));
     }
 
     /**
      * Get your business details.
-     * List business details
+     * Get business
      */
-    async getBusiness(requestParameters: GetBusinessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SuccessResponse> {
-        const response = await this.getBusinessRaw(requestParameters, initOverrides);
+    async getBusiness(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetBusinessResponse> {
+        const response = await this.getBusinessRaw(initOverrides);
         return await response.value();
     }
 
     /**
-     * Update business details.
-     * Update business details
+     * Update your business details.
+     * Update business
      */
-    async updateBusinessRaw(requestParameters: UpdateBusinessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SuccessResponse>> {
-        if (requestParameters['businessName'] == null) {
+    async updateBusinessRaw(requestParameters: UpdateBusinessOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SuccessResponse>> {
+        if (requestParameters['updateBusinessRequest'] == null) {
             throw new runtime.RequiredError(
-                'businessName',
-                'Required parameter "businessName" was null or undefined when calling updateBusiness().'
-            );
-        }
-
-        if (requestParameters['primaryEmail'] == null) {
-            throw new runtime.RequiredError(
-                'primaryEmail',
-                'Required parameter "primaryEmail" was null or undefined when calling updateBusiness().'
+                'updateBusinessRequest',
+                'Required parameter "updateBusinessRequest" was null or undefined when calling updateBusiness().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['businessName'] != null) {
-            queryParameters['business_name'] = requestParameters['businessName'];
-        }
-
-        if (requestParameters['primaryEmail'] != null) {
-            queryParameters['primary_email'] = requestParameters['primaryEmail'];
-        }
-
-        if (requestParameters['primaryPhone'] != null) {
-            queryParameters['primary_phone'] = requestParameters['primaryPhone'];
-        }
-
-        if (requestParameters['industryKey'] != null) {
-            queryParameters['industry_key'] = requestParameters['industryKey'];
-        }
-
-        if (requestParameters['timezoneId'] != null) {
-            queryParameters['timezone_id'] = requestParameters['timezoneId'];
-        }
-
-        if (requestParameters['privacyUrl'] != null) {
-            queryParameters['privacy_url'] = requestParameters['privacyUrl'];
-        }
-
-        if (requestParameters['termsUrl'] != null) {
-            queryParameters['terms_url'] = requestParameters['termsUrl'];
-        }
-
-        if (requestParameters['isShowKindeBranding'] != null) {
-            queryParameters['is_show_kinde_branding'] = requestParameters['isShowKindeBranding'];
-        }
-
-        if (requestParameters['isClickWrap'] != null) {
-            queryParameters['is_click_wrap'] = requestParameters['isClickWrap'];
-        }
-
-        if (requestParameters['partnerCode'] != null) {
-            queryParameters['partner_code'] = requestParameters['partnerCode'];
-        }
-
         const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
 
         if (this.configuration && this.configuration.accessToken) {
             // oauth required
@@ -213,16 +101,17 @@ export class BusinessApi extends runtime.BaseAPI {
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
+            body: UpdateBusinessRequestToJSON(requestParameters['updateBusinessRequest']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => SuccessResponseFromJSON(jsonValue));
     }
 
     /**
-     * Update business details.
-     * Update business details
+     * Update your business details.
+     * Update business
      */
-    async updateBusiness(requestParameters: UpdateBusinessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SuccessResponse> {
+    async updateBusiness(requestParameters: UpdateBusinessOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SuccessResponse> {
         const response = await this.updateBusinessRaw(requestParameters, initOverrides);
         return await response.value();
     }

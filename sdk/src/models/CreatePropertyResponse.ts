@@ -18,6 +18,7 @@ import {
     CreatePropertyResponsePropertyFromJSON,
     CreatePropertyResponsePropertyFromJSONTyped,
     CreatePropertyResponsePropertyToJSON,
+    CreatePropertyResponsePropertyToJSONTyped,
 } from './CreatePropertyResponseProperty';
 
 /**
@@ -69,10 +70,15 @@ export function CreatePropertyResponseFromJSONTyped(json: any, ignoreDiscriminat
     };
 }
 
-export function CreatePropertyResponseToJSON(value?: CreatePropertyResponse | null): any {
+  export function CreatePropertyResponseToJSON(json: any): CreatePropertyResponse {
+      return CreatePropertyResponseToJSONTyped(json, false);
+  }
+
+  export function CreatePropertyResponseToJSONTyped(value?: CreatePropertyResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'message': value['message'],

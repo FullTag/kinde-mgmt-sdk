@@ -106,10 +106,15 @@ export function CreateConnectionRequestFromJSONTyped(json: any, ignoreDiscrimina
     };
 }
 
-export function CreateConnectionRequestToJSON(value?: CreateConnectionRequest | null): any {
+  export function CreateConnectionRequestToJSON(json: any): CreateConnectionRequest {
+      return CreateConnectionRequestToJSONTyped(json, false);
+  }
+
+  export function CreateConnectionRequestToJSONTyped(value?: CreateConnectionRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'name': value['name'],

@@ -55,10 +55,15 @@ export function SuccessResponseFromJSONTyped(json: any, ignoreDiscriminator: boo
     };
 }
 
-export function SuccessResponseToJSON(value?: SuccessResponse | null): any {
+  export function SuccessResponseToJSON(json: any): SuccessResponse {
+      return SuccessResponseToJSONTyped(json, false);
+  }
+
+  export function SuccessResponseToJSONTyped(value?: SuccessResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'message': value['message'],

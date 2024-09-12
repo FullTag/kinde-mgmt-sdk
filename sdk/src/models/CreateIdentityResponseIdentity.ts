@@ -48,10 +48,15 @@ export function CreateIdentityResponseIdentityFromJSONTyped(json: any, ignoreDis
     };
 }
 
-export function CreateIdentityResponseIdentityToJSON(value?: CreateIdentityResponseIdentity | null): any {
+  export function CreateIdentityResponseIdentityToJSON(json: any): CreateIdentityResponseIdentity {
+      return CreateIdentityResponseIdentityToJSONTyped(json, false);
+  }
+
+  export function CreateIdentityResponseIdentityToJSONTyped(value?: CreateIdentityResponseIdentity | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'id': value['id'],

@@ -18,6 +18,7 @@ import {
     GetApisResponseApisInnerFromJSON,
     GetApisResponseApisInnerFromJSONTyped,
     GetApisResponseApisInnerToJSON,
+    GetApisResponseApisInnerToJSONTyped,
 } from './GetApisResponseApisInner';
 
 /**
@@ -76,10 +77,15 @@ export function GetApisResponseFromJSONTyped(json: any, ignoreDiscriminator: boo
     };
 }
 
-export function GetApisResponseToJSON(value?: GetApisResponse | null): any {
+  export function GetApisResponseToJSON(json: any): GetApisResponse {
+      return GetApisResponseToJSONTyped(json, false);
+  }
+
+  export function GetApisResponseToJSONTyped(value?: GetApisResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'code': value['code'],

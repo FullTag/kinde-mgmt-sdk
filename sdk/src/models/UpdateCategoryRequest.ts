@@ -48,10 +48,15 @@ export function UpdateCategoryRequestFromJSONTyped(json: any, ignoreDiscriminato
     };
 }
 
-export function UpdateCategoryRequestToJSON(value?: UpdateCategoryRequest | null): any {
+  export function UpdateCategoryRequestToJSON(json: any): UpdateCategoryRequest {
+      return UpdateCategoryRequestToJSONTyped(json, false);
+  }
+
+  export function UpdateCategoryRequestToJSONTyped(value?: UpdateCategoryRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'name': value['name'],

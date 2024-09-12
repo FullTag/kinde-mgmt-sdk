@@ -18,6 +18,7 @@ import {
     UpdateAPIApplicationsRequestApplicationsInnerFromJSON,
     UpdateAPIApplicationsRequestApplicationsInnerFromJSONTyped,
     UpdateAPIApplicationsRequestApplicationsInnerToJSON,
+    UpdateAPIApplicationsRequestApplicationsInnerToJSONTyped,
 } from './UpdateAPIApplicationsRequestApplicationsInner';
 
 /**
@@ -56,10 +57,15 @@ export function UpdateAPIApplicationsRequestFromJSONTyped(json: any, ignoreDiscr
     };
 }
 
-export function UpdateAPIApplicationsRequestToJSON(value?: UpdateAPIApplicationsRequest | null): any {
+  export function UpdateAPIApplicationsRequestToJSON(json: any): UpdateAPIApplicationsRequest {
+      return UpdateAPIApplicationsRequestToJSONTyped(json, false);
+  }
+
+  export function UpdateAPIApplicationsRequestToJSONTyped(value?: UpdateAPIApplicationsRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'applications': ((value['applications'] as Array<any>).map(UpdateAPIApplicationsRequestApplicationsInnerToJSON)),

@@ -49,10 +49,15 @@ export function UpdateEnvironementFeatureFlagOverrideRequestFromJSONTyped(json: 
     };
 }
 
-export function UpdateEnvironementFeatureFlagOverrideRequestToJSON(value?: UpdateEnvironementFeatureFlagOverrideRequest | null): any {
+  export function UpdateEnvironementFeatureFlagOverrideRequestToJSON(json: any): UpdateEnvironementFeatureFlagOverrideRequest {
+      return UpdateEnvironementFeatureFlagOverrideRequestToJSONTyped(json, false);
+  }
+
+  export function UpdateEnvironementFeatureFlagOverrideRequestToJSONTyped(value?: UpdateEnvironementFeatureFlagOverrideRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'value': value['value'],

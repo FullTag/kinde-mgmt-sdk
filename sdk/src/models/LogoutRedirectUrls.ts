@@ -48,10 +48,15 @@ export function LogoutRedirectUrlsFromJSONTyped(json: any, ignoreDiscriminator: 
     };
 }
 
-export function LogoutRedirectUrlsToJSON(value?: LogoutRedirectUrls | null): any {
+  export function LogoutRedirectUrlsToJSON(json: any): LogoutRedirectUrls {
+      return LogoutRedirectUrlsToJSONTyped(json, false);
+  }
+
+  export function LogoutRedirectUrlsToJSONTyped(value?: LogoutRedirectUrls | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'redirect_urls': value['redirectUrls'],

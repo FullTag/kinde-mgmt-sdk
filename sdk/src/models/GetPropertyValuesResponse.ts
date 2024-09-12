@@ -18,6 +18,7 @@ import {
     PropertyValueFromJSON,
     PropertyValueFromJSONTyped,
     PropertyValueToJSON,
+    PropertyValueToJSONTyped,
 } from './PropertyValue';
 
 /**
@@ -76,10 +77,15 @@ export function GetPropertyValuesResponseFromJSONTyped(json: any, ignoreDiscrimi
     };
 }
 
-export function GetPropertyValuesResponseToJSON(value?: GetPropertyValuesResponse | null): any {
+  export function GetPropertyValuesResponseToJSON(json: any): GetPropertyValuesResponse {
+      return GetPropertyValuesResponseToJSONTyped(json, false);
+  }
+
+  export function GetPropertyValuesResponseToJSONTyped(value?: GetPropertyValuesResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'code': value['code'],

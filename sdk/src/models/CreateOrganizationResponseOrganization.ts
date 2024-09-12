@@ -48,10 +48,15 @@ export function CreateOrganizationResponseOrganizationFromJSONTyped(json: any, i
     };
 }
 
-export function CreateOrganizationResponseOrganizationToJSON(value?: CreateOrganizationResponseOrganization | null): any {
+  export function CreateOrganizationResponseOrganizationToJSON(json: any): CreateOrganizationResponseOrganization {
+      return CreateOrganizationResponseOrganizationToJSONTyped(json, false);
+  }
+
+  export function CreateOrganizationResponseOrganizationToJSONTyped(value?: CreateOrganizationResponseOrganization | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'code': value['code'],

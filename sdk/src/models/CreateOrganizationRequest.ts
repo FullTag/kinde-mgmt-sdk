@@ -103,6 +103,12 @@ export interface CreateOrganizationRequest {
      * @memberof CreateOrganizationRequest
      */
     isAllowRegistrations?: boolean;
+    /**
+     * Enable custom auth connections for this organization.
+     * @type {boolean}
+     * @memberof CreateOrganizationRequest
+     */
+    isCustomAuthConnectionsEnabled?: boolean;
 }
 
 
@@ -149,13 +155,19 @@ export function CreateOrganizationRequestFromJSONTyped(json: any, ignoreDiscrimi
         'themeCode': json['theme_code'] == null ? undefined : json['theme_code'],
         'handle': json['handle'] == null ? undefined : json['handle'],
         'isAllowRegistrations': json['is_allow_registrations'] == null ? undefined : json['is_allow_registrations'],
+        'isCustomAuthConnectionsEnabled': json['is_custom_auth_connections_enabled'] == null ? undefined : json['is_custom_auth_connections_enabled'],
     };
 }
 
-export function CreateOrganizationRequestToJSON(value?: CreateOrganizationRequest | null): any {
+  export function CreateOrganizationRequestToJSON(json: any): CreateOrganizationRequest {
+      return CreateOrganizationRequestToJSONTyped(json, false);
+  }
+
+  export function CreateOrganizationRequestToJSONTyped(value?: CreateOrganizationRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'name': value['name'],
@@ -172,6 +184,7 @@ export function CreateOrganizationRequestToJSON(value?: CreateOrganizationReques
         'theme_code': value['themeCode'],
         'handle': value['handle'],
         'is_allow_registrations': value['isAllowRegistrations'],
+        'is_custom_auth_connections_enabled': value['isCustomAuthConnectionsEnabled'],
     };
 }
 

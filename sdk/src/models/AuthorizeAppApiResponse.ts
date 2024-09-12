@@ -69,10 +69,15 @@ export function AuthorizeAppApiResponseFromJSONTyped(json: any, ignoreDiscrimina
     };
 }
 
-export function AuthorizeAppApiResponseToJSON(value?: AuthorizeAppApiResponse | null): any {
+  export function AuthorizeAppApiResponseToJSON(json: any): AuthorizeAppApiResponse {
+      return AuthorizeAppApiResponseToJSONTyped(json, false);
+  }
+
+  export function AuthorizeAppApiResponseToJSONTyped(value?: AuthorizeAppApiResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'message': value['message'],

@@ -18,6 +18,7 @@ import {
     UserIdentitiesInnerFromJSON,
     UserIdentitiesInnerFromJSONTyped,
     UserIdentitiesInnerToJSON,
+    UserIdentitiesInnerToJSONTyped,
 } from './UserIdentitiesInner';
 
 /**
@@ -146,10 +147,15 @@ export function UsersResponseUsersInnerFromJSONTyped(json: any, ignoreDiscrimina
     };
 }
 
-export function UsersResponseUsersInnerToJSON(value?: UsersResponseUsersInner | null): any {
+  export function UsersResponseUsersInnerToJSON(json: any): UsersResponseUsersInner {
+      return UsersResponseUsersInnerToJSONTyped(json, false);
+  }
+
+  export function UsersResponseUsersInnerToJSONTyped(value?: UsersResponseUsersInner | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'id': value['id'],

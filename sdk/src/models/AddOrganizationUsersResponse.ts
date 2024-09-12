@@ -62,10 +62,15 @@ export function AddOrganizationUsersResponseFromJSONTyped(json: any, ignoreDiscr
     };
 }
 
-export function AddOrganizationUsersResponseToJSON(value?: AddOrganizationUsersResponse | null): any {
+  export function AddOrganizationUsersResponseToJSON(json: any): AddOrganizationUsersResponse {
+      return AddOrganizationUsersResponseToJSONTyped(json, false);
+  }
+
+  export function AddOrganizationUsersResponseToJSONTyped(value?: AddOrganizationUsersResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'code': value['code'],

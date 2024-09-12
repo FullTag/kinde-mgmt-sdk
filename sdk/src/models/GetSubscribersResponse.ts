@@ -18,6 +18,7 @@ import {
     SubscribersSubscriberFromJSON,
     SubscribersSubscriberFromJSONTyped,
     SubscribersSubscriberToJSON,
+    SubscribersSubscriberToJSONTyped,
 } from './SubscribersSubscriber';
 
 /**
@@ -76,10 +77,15 @@ export function GetSubscribersResponseFromJSONTyped(json: any, ignoreDiscriminat
     };
 }
 
-export function GetSubscribersResponseToJSON(value?: GetSubscribersResponse | null): any {
+  export function GetSubscribersResponseToJSON(json: any): GetSubscribersResponse {
+      return GetSubscribersResponseToJSONTyped(json, false);
+  }
+
+  export function GetSubscribersResponseToJSONTyped(value?: GetSubscribersResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'code': value['code'],

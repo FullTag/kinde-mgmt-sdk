@@ -71,10 +71,15 @@ export function UpdateRolesRequestFromJSONTyped(json: any, ignoreDiscriminator: 
     };
 }
 
-export function UpdateRolesRequestToJSON(value?: UpdateRolesRequest | null): any {
+  export function UpdateRolesRequestToJSON(json: any): UpdateRolesRequest {
+      return UpdateRolesRequestToJSONTyped(json, false);
+  }
+
+  export function UpdateRolesRequestToJSONTyped(value?: UpdateRolesRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'name': value['name'],

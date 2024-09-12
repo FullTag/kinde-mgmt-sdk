@@ -90,10 +90,15 @@ export function OrganizationUserFromJSONTyped(json: any, ignoreDiscriminator: bo
     };
 }
 
-export function OrganizationUserToJSON(value?: OrganizationUser | null): any {
+  export function OrganizationUserToJSON(json: any): OrganizationUser {
+      return OrganizationUserToJSONTyped(json, false);
+  }
+
+  export function OrganizationUserToJSONTyped(value?: OrganizationUser | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'id': value['id'],

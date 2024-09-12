@@ -76,10 +76,15 @@ export function EventTypeFromJSONTyped(json: any, ignoreDiscriminator: boolean):
     };
 }
 
-export function EventTypeToJSON(value?: EventType | null): any {
+  export function EventTypeToJSON(json: any): EventType {
+      return EventTypeToJSONTyped(json, false);
+  }
+
+  export function EventTypeToJSONTyped(value?: EventType | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'id': value['id'],

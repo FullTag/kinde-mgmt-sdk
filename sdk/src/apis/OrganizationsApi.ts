@@ -29,6 +29,7 @@ import type {
   GetOrganizationsUserPermissionsResponse,
   GetOrganizationsUserRolesResponse,
   GetPropertyValuesResponse,
+  NotFoundResponse,
   SuccessResponse,
   UpdateOrganizationPropertiesRequest,
   UpdateOrganizationRequest,
@@ -64,6 +65,8 @@ import {
     GetOrganizationsUserRolesResponseToJSON,
     GetPropertyValuesResponseFromJSON,
     GetPropertyValuesResponseToJSON,
+    NotFoundResponseFromJSON,
+    NotFoundResponseToJSON,
     SuccessResponseFromJSON,
     SuccessResponseToJSON,
     UpdateOrganizationPropertiesRequestFromJSON,
@@ -412,7 +415,7 @@ export class OrganizationsApi extends runtime.BaseAPI {
      * Delete an organization.
      * Delete Organization
      */
-    async deleteOrganizationRaw(requestParameters: DeleteOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async deleteOrganizationRaw(requestParameters: DeleteOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SuccessResponse>> {
         if (requestParameters['orgCode'] == null) {
             throw new runtime.RequiredError(
                 'orgCode',
@@ -436,15 +439,16 @@ export class OrganizationsApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.VoidApiResponse(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => SuccessResponseFromJSON(jsonValue));
     }
 
     /**
      * Delete an organization.
      * Delete Organization
      */
-    async deleteOrganization(requestParameters: DeleteOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.deleteOrganizationRaw(requestParameters, initOverrides);
+    async deleteOrganization(requestParameters: DeleteOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SuccessResponse> {
+        const response = await this.deleteOrganizationRaw(requestParameters, initOverrides);
+        return await response.value();
     }
 
     /**

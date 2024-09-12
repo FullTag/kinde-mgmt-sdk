@@ -55,10 +55,15 @@ export function OrganizationUserPermissionRolesInnerFromJSONTyped(json: any, ign
     };
 }
 
-export function OrganizationUserPermissionRolesInnerToJSON(value?: OrganizationUserPermissionRolesInner | null): any {
+  export function OrganizationUserPermissionRolesInnerToJSON(json: any): OrganizationUserPermissionRolesInner {
+      return OrganizationUserPermissionRolesInnerToJSONTyped(json, false);
+  }
+
+  export function OrganizationUserPermissionRolesInnerToJSONTyped(value?: OrganizationUserPermissionRolesInner | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'id': value['id'],

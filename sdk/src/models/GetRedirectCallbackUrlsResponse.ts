@@ -18,6 +18,7 @@ import {
     RedirectCallbackUrlsFromJSON,
     RedirectCallbackUrlsFromJSONTyped,
     RedirectCallbackUrlsToJSON,
+    RedirectCallbackUrlsToJSONTyped,
 } from './RedirectCallbackUrls';
 
 /**
@@ -55,10 +56,15 @@ export function GetRedirectCallbackUrlsResponseFromJSONTyped(json: any, ignoreDi
     };
 }
 
-export function GetRedirectCallbackUrlsResponseToJSON(value?: GetRedirectCallbackUrlsResponse | null): any {
+  export function GetRedirectCallbackUrlsResponseToJSON(json: any): GetRedirectCallbackUrlsResponse {
+      return GetRedirectCallbackUrlsResponseToJSONTyped(json, false);
+  }
+
+  export function GetRedirectCallbackUrlsResponseToJSONTyped(value?: GetRedirectCallbackUrlsResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'redirect_urls': value['redirectUrls'] == null ? undefined : ((value['redirectUrls'] as Array<any>).map(RedirectCallbackUrlsToJSON)),

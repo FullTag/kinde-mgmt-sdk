@@ -55,10 +55,15 @@ export function UpdateRolePermissionsRequestPermissionsInnerFromJSONTyped(json: 
     };
 }
 
-export function UpdateRolePermissionsRequestPermissionsInnerToJSON(value?: UpdateRolePermissionsRequestPermissionsInner | null): any {
+  export function UpdateRolePermissionsRequestPermissionsInnerToJSON(json: any): UpdateRolePermissionsRequestPermissionsInner {
+      return UpdateRolePermissionsRequestPermissionsInnerToJSONTyped(json, false);
+  }
+
+  export function UpdateRolePermissionsRequestPermissionsInnerToJSONTyped(value?: UpdateRolePermissionsRequestPermissionsInner | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'id': value['id'],

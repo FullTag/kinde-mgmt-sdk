@@ -55,10 +55,15 @@ export function ConnectedAppsAccessTokenFromJSONTyped(json: any, ignoreDiscrimin
     };
 }
 
-export function ConnectedAppsAccessTokenToJSON(value?: ConnectedAppsAccessToken | null): any {
+  export function ConnectedAppsAccessTokenToJSON(json: any): ConnectedAppsAccessToken {
+      return ConnectedAppsAccessTokenToJSONTyped(json, false);
+  }
+
+  export function ConnectedAppsAccessTokenToJSONTyped(value?: ConnectedAppsAccessToken | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'access_token': value['accessToken'],

@@ -55,10 +55,15 @@ export function ConnectedAppsAuthUrlFromJSONTyped(json: any, ignoreDiscriminator
     };
 }
 
-export function ConnectedAppsAuthUrlToJSON(value?: ConnectedAppsAuthUrl | null): any {
+  export function ConnectedAppsAuthUrlToJSON(json: any): ConnectedAppsAuthUrl {
+      return ConnectedAppsAuthUrlToJSONTyped(json, false);
+  }
+
+  export function ConnectedAppsAuthUrlToJSONTyped(value?: ConnectedAppsAuthUrl | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'url': value['url'],

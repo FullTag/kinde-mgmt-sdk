@@ -69,10 +69,15 @@ export function UpdateOrganizationUsersRequestUsersInnerFromJSONTyped(json: any,
     };
 }
 
-export function UpdateOrganizationUsersRequestUsersInnerToJSON(value?: UpdateOrganizationUsersRequestUsersInner | null): any {
+  export function UpdateOrganizationUsersRequestUsersInnerToJSON(json: any): UpdateOrganizationUsersRequestUsersInner {
+      return UpdateOrganizationUsersRequestUsersInnerToJSONTyped(json, false);
+  }
+
+  export function UpdateOrganizationUsersRequestUsersInnerToJSONTyped(value?: UpdateOrganizationUsersRequestUsersInner | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'id': value['id'],

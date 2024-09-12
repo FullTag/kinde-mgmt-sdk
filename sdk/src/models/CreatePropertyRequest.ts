@@ -116,10 +116,15 @@ export function CreatePropertyRequestFromJSONTyped(json: any, ignoreDiscriminato
     };
 }
 
-export function CreatePropertyRequestToJSON(value?: CreatePropertyRequest | null): any {
+  export function CreatePropertyRequestToJSON(json: any): CreatePropertyRequest {
+      return CreatePropertyRequestToJSONTyped(json, false);
+  }
+
+  export function CreatePropertyRequestToJSONTyped(value?: CreatePropertyRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'name': value['name'],

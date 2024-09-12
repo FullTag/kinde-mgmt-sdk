@@ -44,7 +44,7 @@ import {
 } from '../models/index';
 
 export interface CreateApplicationOperationRequest {
-    createApplicationRequest?: CreateApplicationRequest;
+    createApplicationRequest: CreateApplicationRequest;
 }
 
 export interface DeleteApplicationRequest {
@@ -87,9 +87,16 @@ export class ApplicationsApi extends runtime.BaseAPI {
 
     /**
      * Create a new client.
-     * Create Application
+     * Create application
      */
     async createApplicationRaw(requestParameters: CreateApplicationOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateApplicationResponse>> {
+        if (requestParameters['createApplicationRequest'] == null) {
+            throw new runtime.RequiredError(
+                'createApplicationRequest',
+                'Required parameter "createApplicationRequest" was null or undefined when calling createApplication().'
+            );
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -114,9 +121,9 @@ export class ApplicationsApi extends runtime.BaseAPI {
 
     /**
      * Create a new client.
-     * Create Application
+     * Create application
      */
-    async createApplication(requestParameters: CreateApplicationOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateApplicationResponse> {
+    async createApplication(requestParameters: CreateApplicationOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateApplicationResponse> {
         const response = await this.createApplicationRaw(requestParameters, initOverrides);
         return await response.value();
     }

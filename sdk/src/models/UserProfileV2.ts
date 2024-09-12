@@ -104,10 +104,15 @@ export function UserProfileV2FromJSONTyped(json: any, ignoreDiscriminator: boole
     };
 }
 
-export function UserProfileV2ToJSON(value?: UserProfileV2 | null): any {
+  export function UserProfileV2ToJSON(json: any): UserProfileV2 {
+      return UserProfileV2ToJSONTyped(json, false);
+  }
+
+  export function UserProfileV2ToJSONTyped(value?: UserProfileV2 | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'id': value['id'],

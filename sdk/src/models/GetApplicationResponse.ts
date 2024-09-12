@@ -18,6 +18,7 @@ import {
     GetApplicationResponseApplicationFromJSON,
     GetApplicationResponseApplicationFromJSONTyped,
     GetApplicationResponseApplicationToJSON,
+    GetApplicationResponseApplicationToJSONTyped,
 } from './GetApplicationResponseApplication';
 
 /**
@@ -69,10 +70,15 @@ export function GetApplicationResponseFromJSONTyped(json: any, ignoreDiscriminat
     };
 }
 
-export function GetApplicationResponseToJSON(value?: GetApplicationResponse | null): any {
+  export function GetApplicationResponseToJSON(json: any): GetApplicationResponse {
+      return GetApplicationResponseToJSONTyped(json, false);
+  }
+
+  export function GetApplicationResponseToJSONTyped(value?: GetApplicationResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'code': value['code'],

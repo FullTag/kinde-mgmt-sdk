@@ -76,10 +76,15 @@ export function PropertyValueFromJSONTyped(json: any, ignoreDiscriminator: boole
     };
 }
 
-export function PropertyValueToJSON(value?: PropertyValue | null): any {
+  export function PropertyValueToJSON(json: any): PropertyValue {
+      return PropertyValueToJSONTyped(json, false);
+  }
+
+  export function PropertyValueToJSONTyped(value?: PropertyValue | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'id': value['id'],
