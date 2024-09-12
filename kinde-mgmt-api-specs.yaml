@@ -408,14 +408,13 @@ paths:
       tags:
         - Applications
       operationId: createApplication
-      summary: Create Application
+      summary: Create application
       description: Create a new client.
       security:
         - ManagementAPI:
             - create:applications
       requestBody:
-        description: Application details.
-        required: false
+        required: true
         content:
           application/json:
             schema:
@@ -424,13 +423,20 @@ paths:
                 name:
                   description: The application's name.
                   type: string
+                  example: React Native app
                 type:
-                  description: The application's type.
+                  description: >-
+                    The application's type. Use `reg` for regular server
+                    rendered applications, `spa` for single-page applications,
+                    and `m2m` for machine-to-machine applications.
                   type: string
                   enum:
                     - reg
                     - spa
                     - m2m
+              required:
+                - name
+                - type
       responses:
         '201':
           description: Application successfully created.
@@ -664,242 +670,155 @@ paths:
       tags:
         - Business
       operationId: getBusiness
+      summary: Get business
       description: Get your business details.
       security:
         - ManagementAPI:
             - read:business
-      summary: List business details
-      parameters:
-        - name: code
-          in: query
-          description: Business code.
-          schema:
-            type: string
-            nullable: false
-          required: true
-        - name: name
-          in: query
-          description: Business name.
-          schema:
-            type: string
-            nullable: false
-          required: true
-        - name: email
-          in: query
-          description: Email associated with business.
-          schema:
-            type: string
-            nullable: false
-          required: true
-        - name: phone
-          in: query
-          description: Phone number associated with business.
-          schema:
-            type: string
-            nullable: true
-          required: false
-        - name: industry
-          in: query
-          description: The industry your business is in.
-          schema:
-            type: string
-            nullable: false
-          required: false
-        - name: timezone
-          in: query
-          description: The timezone your business is in.
-          schema:
-            type: string
-            nullable: false
-          required: false
-        - name: privacy_url
-          in: query
-          description: Your Privacy policy URL.
-          schema:
-            type: string
-            nullable: true
-          required: false
-        - name: terms_url
-          in: query
-          description: Your Terms and Conditions URL.
-          schema:
-            type: string
-            nullable: true
-          required: false
       responses:
         '200':
-          description: A successful response with your business details.
+          description: Your business details.
           content:
-            application/json; charset=utf-8:
+            application/json:
               schema:
-                $ref: '#/components/schemas/success_response'
+                $ref: '#/components/schemas/get_business_response'
+        '400':
+          $ref: '#/components/responses/bad_request'
         '403':
-          description: Invalid credentials.
+          $ref: '#/components/responses/forbidden'
         '429':
-          description: Request was throttled.
+          $ref: '#/components/responses/too_many_requests'
     patch:
       tags:
         - Business
       operationId: updateBusiness
-      description: Update business details.
+      summary: Update business
+      description: Update your business details.
       security:
         - ManagementAPI:
             - update:businesses
-      summary: Update business details
-      parameters:
-        - name: business_name
-          in: query
-          description: Business name.
-          schema:
-            type: string
-            nullable: false
-          required: true
-        - name: primary_email
-          in: query
-          description: Email associated with business.
-          schema:
-            type: string
-            nullable: false
-          required: true
-        - name: primary_phone
-          in: query
-          description: Phone number associated with business.
-          schema:
-            type: string
-            nullable: true
-          required: false
-        - name: industry_key
-          in: query
-          description: The key of the industry your business is in.
-          schema:
-            type: string
-            nullable: false
-          required: false
-        - name: timezone_id
-          in: query
-          description: The ID of the timezone your business is in.
-          schema:
-            type: string
-            nullable: false
-          required: false
-        - name: privacy_url
-          in: query
-          description: Your Privacy policy URL.
-          schema:
-            type: string
-            nullable: true
-          required: false
-        - name: terms_url
-          in: query
-          description: Your Terms and Conditions URL.
-          schema:
-            type: string
-            nullable: true
-          required: false
-        - name: is_show_kinde_branding
-          in: query
-          description: >-
-            Display "Powered by Kinde" on your sign up, sign in, and
-            subscription pages.
-          schema:
-            type: string
-            nullable: true
-          required: false
-        - name: is_click_wrap
-          in: query
-          description: Show a policy acceptance checkbox on sign up.
-          schema:
-            type: boolean
-            nullable: true
-          required: false
-        - name: partner_code
-          in: query
-          description: Your Kinde Perk code.
-          schema:
-            type: string
-            nullable: true
-          required: false
+      requestBody:
+        description: The business details to update.
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                business_name:
+                  type: string
+                  description: The name of the business.
+                  example: Tailsforce Ltd
+                  nullable: true
+                email:
+                  type: string
+                  description: The email address of the business.
+                  example: sally@example.com
+                  nullable: true
+                industry_key:
+                  type: string
+                  description: >-
+                    The key of the industry of your business. Can be retrieved
+                    from the /industries endpoint.
+                  example: construction
+                  nullable: true
+                is_click_wrap:
+                  description: Whether the business is using clickwrap agreements.
+                  type: boolean
+                  example: false
+                  nullable: true
+                is_show_kinde_branding:
+                  description: >-
+                    Whether the business is showing Kinde branding. Requires a
+                    paid plan.
+                  type: boolean
+                  example: true
+                  nullable: true
+                kinde_perk_code:
+                  description: The Kinde perk code for the business.
+                  type: string
+                  nullable: true
+                phone:
+                  description: The phone number of the business.
+                  type: string
+                  example: 123-456-7890
+                  nullable: true
+                privacy_url:
+                  description: The URL to the business's privacy policy.
+                  type: string
+                  example: https://example.com/privacy
+                  nullable: true
+                terms_url:
+                  description: The URL to the business's terms of service.
+                  type: string
+                  example: https://example.com/terms
+                  nullable: true
+                timezone_key:
+                  description: >-
+                    The key of the timezone of your business. Can be retrieved
+                    from the /timezones endpoint.
+                  type: string
+                  example: los_angeles_pacific_standard_time
+                  nullable: true
       responses:
         '200':
           description: Business successfully updated.
           content:
-            application/json; charset=utf-8:
+            application/json:
               schema:
                 $ref: '#/components/schemas/success_response'
         '400':
-          description: Invalid request.
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/error_response'
+          $ref: '#/components/responses/bad_request'
         '403':
-          description: Invalid credentials.
+          $ref: '#/components/responses/forbidden'
         '429':
-          description: Request was throttled.
+          $ref: '#/components/responses/too_many_requests'
   /api/v1/industries:
     get:
       tags:
         - Industries
       operationId: getIndustries
+      summary: Get industries
       description: Get a list of industries and associated industry keys.
       security:
         - ManagementAPI:
             - read:industries
-      summary: List industries and industry keys.
-      parameters:
-        - name: industry_key
-          in: query
-          description: Industry Key.
-          schema:
-            type: string
-        - name: name
-          in: query
-          description: Industry name.
-          schema:
-            type: string
       responses:
         '200':
-          description: A successful response with a list of industries and industry keys.
+          description: A list of industries.
           content:
-            application/json; charset=utf-8:
+            application/json:
               schema:
-                $ref: '#/components/schemas/success_response'
+                $ref: '#/components/schemas/get_industries_response'
+        '400':
+          $ref: '#/components/responses/bad_request'
         '403':
-          description: Invalid credentials.
+          $ref: '#/components/responses/forbidden'
         '429':
-          description: Request was throttled.
+          $ref: '#/components/responses/too_many_requests'
   /api/v1/timezones:
     get:
       tags:
         - Timezones
       operationId: getTimezones
+      summary: Get timezones
       description: Get a list of timezones and associated timezone keys.
       security:
         - ManagementAPI:
             - read:timezones
-      summary: List timezones and timezone IDs.
-      parameters:
-        - name: timezone_key
-          in: query
-          description: Timezone Key.
-          schema:
-            type: string
-        - name: name
-          in: query
-          description: Timezone.
-          schema:
-            type: string
       responses:
         '200':
-          description: A successful response with a list of timezones and timezone keys.
+          description: A list of timezones.
           content:
-            application/json; charset=utf-8:
+            application/json:
               schema:
-                $ref: '#/components/schemas/success_response'
+                $ref: '#/components/schemas/get_timezones_response'
+        '400':
+          $ref: '#/components/responses/bad_request'
         '403':
-          description: Invalid credentials.
+          $ref: '#/components/responses/forbidden'
         '429':
-          description: Request was throttled.
+          $ref: '#/components/responses/too_many_requests'
   /api/v1/applications/{app_id}/auth_redirect_urls:
     get:
       tags:
@@ -2372,6 +2291,9 @@ paths:
                     code is supplied during authentication.
                   type: boolean
                   example: true
+                is_custom_auth_connections_enabled:
+                  description: Enable custom auth connections for this organization.
+                  type: boolean
       responses:
         '200':
           description: Organization successfully created.
@@ -2385,131 +2307,6 @@ paths:
           $ref: '#/components/responses/forbidden'
         '429':
           $ref: '#/components/responses/too_many_requests'
-  /api/v1/organization/{org_code}:
-    patch:
-      tags:
-        - Organizations
-      operationId: updateOrganization
-      description: Update an organization.
-      summary: Update Organization
-      security:
-        - ManagementAPI:
-            - update:organizations
-      parameters:
-        - name: org_code
-          in: path
-          description: The identifier for the organization.
-          required: true
-          schema:
-            type: string
-      requestBody:
-        description: Organization details.
-        required: false
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                name:
-                  description: The organization's name.
-                  type: string
-                external_id:
-                  description: The organization's ID.
-                  type: string
-                background_color:
-                  description: The organization's brand settings - background color.
-                  type: string
-                button_color:
-                  description: The organization's brand settings - button color.
-                  type: string
-                button_text_color:
-                  description: The organization's brand settings - button text color.
-                  type: string
-                link_color:
-                  description: The organization's brand settings - link color.
-                  type: string
-                background_color_dark:
-                  description: >-
-                    The organization's brand settings - dark mode background
-                    color.
-                  type: string
-                button_color_dark:
-                  description: The organization's brand settings - dark mode button color.
-                  type: string
-                button_text_color_dark:
-                  description: >-
-                    The organization's brand settings - dark mode button text
-                    color.
-                  type: string
-                link_color_dark:
-                  description: The organization's brand settings - dark mode link color.
-                  type: string
-                theme_code:
-                  description: >-
-                    The organization's brand settings - theme/mode 'light' |
-                    'dark' | 'user_preference'.
-                  type: string
-                handle:
-                  description: The organization's handle.
-                  type: string
-                is_allow_registrations:
-                  description: Users can sign up to this organization.
-                  type: boolean
-      responses:
-        '200':
-          description: Organization successfully updated.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/success_response'
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/success_response'
-        '400':
-          description: Error updating organization.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error_response'
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/error_response'
-        '403':
-          description: Invalid credentials.
-        '429':
-          description: Request was throttled.
-    delete:
-      tags:
-        - Organizations
-      operationId: deleteOrganization
-      description: Delete an organization.
-      summary: Delete Organization
-      security:
-        - ManagementAPI:
-            - delete:organizations
-      parameters:
-        - name: org_code
-          in: path
-          description: The identifier for the organization.
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: Organization successfully deleted.
-        '400':
-          description: Error deleting organization.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error_response'
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/error_response'
-        '403':
-          description: Invalid credentials.
-        '429':
-          description: Request was throttled.
   /api/v1/organizations:
     get:
       tags:
@@ -2555,6 +2352,152 @@ paths:
           $ref: '#/components/responses/bad_request'
         '403':
           $ref: '#/components/responses/forbidden'
+        '429':
+          $ref: '#/components/responses/too_many_requests'
+  /api/v1/organization/{org_code}:
+    patch:
+      tags:
+        - Organizations
+      operationId: updateOrganization
+      description: Update an organization.
+      summary: Update Organization
+      security:
+        - ManagementAPI:
+            - update:organizations
+      parameters:
+        - name: org_code
+          in: path
+          description: The identifier for the organization.
+          required: true
+          schema:
+            type: string
+            example: org_1ccfb819462
+      requestBody:
+        description: Organization details.
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  description: The organization's name.
+                  type: string
+                  example: Acme Corp
+                external_id:
+                  description: The organization's ID.
+                  type: string
+                  example: some1234
+                background_color:
+                  description: The organization's brand settings - background color.
+                  type: string
+                  example: '#fff'
+                button_color:
+                  description: The organization's brand settings - button color.
+                  type: string
+                  example: '#fff'
+                button_text_color:
+                  description: The organization's brand settings - button text color.
+                  type: string
+                  example: '#fff'
+                link_color:
+                  description: The organization's brand settings - link color.
+                  type: string
+                  example: '#fff'
+                background_color_dark:
+                  description: >-
+                    The organization's brand settings - dark mode background
+                    color.
+                  type: string
+                  example: '#000'
+                button_color_dark:
+                  description: The organization's brand settings - dark mode button color.
+                  type: string
+                  example: '#000'
+                button_text_color_dark:
+                  description: >-
+                    The organization's brand settings - dark mode button text
+                    color.
+                  type: string
+                  example: '#000'
+                link_color_dark:
+                  description: The organization's brand settings - dark mode link color.
+                  type: string
+                  example: '#000'
+                theme_code:
+                  description: The organization's brand settings - theme/mode.
+                  type: string
+                  enum:
+                    - light
+                    - dark
+                    - user_preference
+                  example: light
+                handle:
+                  description: The organization's handle.
+                  type: string
+                  example: acme_corp
+                is_allow_registrations:
+                  deprecated: true
+                  description: Deprecated - Use 'is_auto_membership_enabled' instead.
+                  type: boolean
+                is_custom_auth_connections_enabled:
+                  description: Enable custom auth connections for this organization.
+                  type: boolean
+                  example: true
+                is_auto_join_domain_list:
+                  description: Users can sign up to this organization.
+                  type: boolean
+                  example: true
+                allowed_domains:
+                  description: Domains allowed for self-sign up to this environment.
+                  type: array
+                  example:
+                    - https://acme.kinde.com
+                    - https://acme.com
+                  items:
+                    type: string
+      responses:
+        '200':
+          description: Organization successfully updated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success_response'
+        '400':
+          $ref: '#/components/responses/bad_request'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '429':
+          $ref: '#/components/responses/too_many_requests'
+    delete:
+      tags:
+        - Organizations
+      operationId: deleteOrganization
+      description: Delete an organization.
+      summary: Delete Organization
+      security:
+        - ManagementAPI:
+            - delete:organizations
+      parameters:
+        - name: org_code
+          in: path
+          description: The identifier for the organization.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Organization successfully deleted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success_response'
+        '400':
+          $ref: '#/components/responses/bad_request'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '404':
+          $ref: '#/components/responses/not_found'
         '429':
           $ref: '#/components/responses/too_many_requests'
   /api/v1/organizations/{org_code}/users:
@@ -5746,7 +5689,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/error_response'
+            $ref: '#/components/schemas/not_found_response'
     forbidden:
       description: Unauthorized - invalid credentials.
       content:
@@ -5785,6 +5728,18 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/error'
+    not_found_response:
+      type: object
+      properties:
+        errors:
+          type: object
+          properties:
+            code:
+              type: string
+              example: ROUTE_NOT_FOUND
+            message:
+              type: string
+              example: The requested API route does not exist
     get_apis_response:
       type: object
       properties:
@@ -5842,6 +5797,106 @@ components:
               description: The unique ID for the API.
               type: string
               example: 7ccd126599aa422a771abcb341596881
+    get_business_response:
+      type: object
+      properties:
+        code:
+          type: string
+          description: Response code.
+          example: OK
+        message:
+          type: string
+          description: Response message.
+          example: Success
+        business:
+          type: object
+          properties:
+            code:
+              type: string
+              description: The unique ID for the business.
+              example: bus_c69fb73b091
+            name:
+              type: string
+              description: Your business's name.
+              example: Tailsforce Ltd
+            phone:
+              type: string
+              description: Phone number associated with business.
+              example: 555-555-5555
+              nullable: true
+            email:
+              type: string
+              description: Email address associated with business.
+              example: sally@example.com
+              nullable: true
+            industry:
+              type: string
+              description: The industry your business is in.
+              example: Healthcare & Medical
+              nullable: true
+            timezone:
+              type: string
+              description: The timezone your business is in.
+              example: Los Angeles (Pacific Standard Time)
+              nullable: true
+            privacy_url:
+              type: string
+              description: Your Privacy policy URL.
+              example: https://example.com/privacy
+              nullable: true
+            terms_url:
+              type: string
+              description: Your Terms and Conditions URL.
+              example: https://example.com/terms
+              nullable: true
+    get_industries_response:
+      type: object
+      properties:
+        code:
+          type: string
+          description: Response code.
+          example: OK
+        message:
+          type: string
+          description: Response message.
+          example: Success
+        industries:
+          type: array
+          items:
+            type: object
+            properties:
+              key:
+                description: The unique key for the industry.
+                type: string
+                example: administration_office_support
+              name:
+                type: string
+                description: The display name for the industry.
+                example: Administration & Office Support
+    get_timezones_response:
+      type: object
+      properties:
+        code:
+          type: string
+          description: Response code.
+          example: OK
+        message:
+          type: string
+          description: Response message.
+          example: Success
+        timezones:
+          type: array
+          items:
+            type: object
+            properties:
+              key:
+                description: The unique key for the timezone.
+                type: string
+                example: london_greenwich_mean_time
+              name:
+                type: string
+                description: The display name for the timezone.
+                example: London (Greenwich Mean Time) [+01:00]
     get_api_response:
       type: object
       properties:
@@ -6598,6 +6653,58 @@ components:
             hsl:
               type: string
               example: hsl(0, 0%, 100%)
+        link_color_dark:
+          type: object
+          nullable: true
+          properties:
+            raw:
+              type: string
+              example: '#0056F1'
+            hex:
+              type: string
+              example: '#0056F1'
+            hsl:
+              type: string
+              example: hsl(220, 100%, 50%)
+        background_color_dark:
+          type: object
+          nullable: true
+          properties:
+            raw:
+              type: string
+              example: '#0056F1'
+            hex:
+              type: string
+              example: '#0056F1'
+            hsl:
+              type: string
+              example: hsl(220, 100%, 50%)
+        button_text_color_dark:
+          type: object
+          nullable: true
+          properties:
+            raw:
+              type: string
+              example: '#0056F1'
+            hex:
+              type: string
+              example: '#0056F1'
+            hsl:
+              type: string
+              example: hsl(220, 100%, 50%)
+        button_color_dark:
+          type: object
+          nullable: true
+          properties:
+            raw:
+              type: string
+              example: '#0056F1'
+            hex:
+              type: string
+              example: '#0056F1'
+            hsl:
+              type: string
+              example: hsl(220, 100%, 50%)
         is_allow_registrations:
           nullable: true
           type: boolean
