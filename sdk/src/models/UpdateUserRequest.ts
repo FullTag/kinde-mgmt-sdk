@@ -43,6 +43,12 @@ export interface UpdateUserRequest {
      * @memberof UpdateUserRequest
      */
     isPasswordResetRequested?: boolean;
+    /**
+     * An external id to reference the user.
+     * @type {string}
+     * @memberof UpdateUserRequest
+     */
+    providedId?: string;
 }
 
 /**
@@ -66,6 +72,7 @@ export function UpdateUserRequestFromJSONTyped(json: any, ignoreDiscriminator: b
         'familyName': json['family_name'] == null ? undefined : json['family_name'],
         'isSuspended': json['is_suspended'] == null ? undefined : json['is_suspended'],
         'isPasswordResetRequested': json['is_password_reset_requested'] == null ? undefined : json['is_password_reset_requested'],
+        'providedId': json['provided_id'] == null ? undefined : json['provided_id'],
     };
 }
 
@@ -84,6 +91,7 @@ export function UpdateUserRequestFromJSONTyped(json: any, ignoreDiscriminator: b
         'family_name': value['familyName'],
         'is_suspended': value['isSuspended'],
         'is_password_reset_requested': value['isPasswordResetRequested'],
+        'provided_id': value['providedId'],
     };
 }
 

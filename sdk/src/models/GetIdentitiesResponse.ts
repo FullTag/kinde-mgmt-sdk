@@ -44,7 +44,7 @@ export interface GetIdentitiesResponse {
      * @type {Array<Identity>}
      * @memberof GetIdentitiesResponse
      */
-    properties?: Array<Identity>;
+    identities?: Array<Identity>;
     /**
      * Whether more records exist.
      * @type {boolean}
@@ -72,7 +72,7 @@ export function GetIdentitiesResponseFromJSONTyped(json: any, ignoreDiscriminato
         
         'code': json['code'] == null ? undefined : json['code'],
         'message': json['message'] == null ? undefined : json['message'],
-        'properties': json['properties'] == null ? undefined : ((json['properties'] as Array<any>).map(IdentityFromJSON)),
+        'identities': json['identities'] == null ? undefined : ((json['identities'] as Array<any>).map(IdentityFromJSON)),
         'hasMore': json['has_more'] == null ? undefined : json['has_more'],
     };
 }
@@ -90,7 +90,7 @@ export function GetIdentitiesResponseFromJSONTyped(json: any, ignoreDiscriminato
         
         'code': value['code'],
         'message': value['message'],
-        'properties': value['properties'] == null ? undefined : ((value['properties'] as Array<any>).map(IdentityToJSON)),
+        'identities': value['identities'] == null ? undefined : ((value['identities'] as Array<any>).map(IdentityToJSON)),
         'has_more': value['hasMore'],
     };
 }

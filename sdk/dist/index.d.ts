@@ -2123,6 +2123,12 @@ interface CreateUserRequest {
      */
     organizationCode?: string;
     /**
+     * An external id to reference the user.
+     * @type {string}
+     * @memberof CreateUserRequest
+     */
+    providedId?: string;
+    /**
      * Array of identities to assign to the created user
      * @type {Array<CreateUserRequestIdentitiesInner>}
      * @memberof CreateUserRequest
@@ -3615,7 +3621,7 @@ interface GetIdentitiesResponse {
      * @type {Array<Identity>}
      * @memberof GetIdentitiesResponse
      */
-    properties?: Array<Identity>;
+    identities?: Array<Identity>;
     /**
      * Whether more records exist.
      * @type {boolean}
@@ -6859,6 +6865,12 @@ interface UpdateUserRequest {
      * @memberof UpdateUserRequest
      */
     isPasswordResetRequested?: boolean;
+    /**
+     * An external id to reference the user.
+     * @type {string}
+     * @memberof UpdateUserRequest
+     */
+    providedId?: string;
 }
 /**
  * Check if a given object implements the UpdateUserRequest interface.

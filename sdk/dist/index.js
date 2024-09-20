@@ -2476,6 +2476,7 @@ function CreateUserRequestFromJSONTyped(json, ignoreDiscriminator) {
   return {
     "profile": json["profile"] == null ? void 0 : CreateUserRequestProfileFromJSON(json["profile"]),
     "organizationCode": json["organization_code"] == null ? void 0 : json["organization_code"],
+    "providedId": json["provided_id"] == null ? void 0 : json["provided_id"],
     "identities": json["identities"] == null ? void 0 : json["identities"].map(CreateUserRequestIdentitiesInnerFromJSON)
   };
 }
@@ -2489,6 +2490,7 @@ function CreateUserRequestToJSONTyped(value, ignoreDiscriminator = false) {
   return {
     "profile": CreateUserRequestProfileToJSON(value["profile"]),
     "organization_code": value["organizationCode"],
+    "provided_id": value["providedId"],
     "identities": value["identities"] == null ? void 0 : value["identities"].map(CreateUserRequestIdentitiesInnerToJSON)
   };
 }
@@ -3456,7 +3458,7 @@ function GetIdentitiesResponseFromJSONTyped(json, ignoreDiscriminator) {
   return {
     "code": json["code"] == null ? void 0 : json["code"],
     "message": json["message"] == null ? void 0 : json["message"],
-    "properties": json["properties"] == null ? void 0 : json["properties"].map(IdentityFromJSON),
+    "identities": json["identities"] == null ? void 0 : json["identities"].map(IdentityFromJSON),
     "hasMore": json["has_more"] == null ? void 0 : json["has_more"]
   };
 }
@@ -3470,7 +3472,7 @@ function GetIdentitiesResponseToJSONTyped(value, ignoreDiscriminator = false) {
   return {
     "code": value["code"],
     "message": value["message"],
-    "properties": value["properties"] == null ? void 0 : value["properties"].map(IdentityToJSON),
+    "identities": value["identities"] == null ? void 0 : value["identities"].map(IdentityToJSON),
     "has_more": value["hasMore"]
   };
 }
@@ -5593,7 +5595,8 @@ function UpdateUserRequestFromJSONTyped(json, ignoreDiscriminator) {
     "givenName": json["given_name"] == null ? void 0 : json["given_name"],
     "familyName": json["family_name"] == null ? void 0 : json["family_name"],
     "isSuspended": json["is_suspended"] == null ? void 0 : json["is_suspended"],
-    "isPasswordResetRequested": json["is_password_reset_requested"] == null ? void 0 : json["is_password_reset_requested"]
+    "isPasswordResetRequested": json["is_password_reset_requested"] == null ? void 0 : json["is_password_reset_requested"],
+    "providedId": json["provided_id"] == null ? void 0 : json["provided_id"]
   };
 }
 function UpdateUserRequestToJSON(json) {
@@ -5607,7 +5610,8 @@ function UpdateUserRequestToJSONTyped(value, ignoreDiscriminator = false) {
     "given_name": value["givenName"],
     "family_name": value["familyName"],
     "is_suspended": value["isSuspended"],
-    "is_password_reset_requested": value["isPasswordResetRequested"]
+    "is_password_reset_requested": value["isPasswordResetRequested"],
+    "provided_id": value["providedId"]
   };
 }
 

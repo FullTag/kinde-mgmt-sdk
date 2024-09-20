@@ -47,6 +47,12 @@ export interface CreateUserRequest {
      */
     organizationCode?: string;
     /**
+     * An external id to reference the user.
+     * @type {string}
+     * @memberof CreateUserRequest
+     */
+    providedId?: string;
+    /**
      * Array of identities to assign to the created user
      * @type {Array<CreateUserRequestIdentitiesInner>}
      * @memberof CreateUserRequest
@@ -73,6 +79,7 @@ export function CreateUserRequestFromJSONTyped(json: any, ignoreDiscriminator: b
         
         'profile': json['profile'] == null ? undefined : CreateUserRequestProfileFromJSON(json['profile']),
         'organizationCode': json['organization_code'] == null ? undefined : json['organization_code'],
+        'providedId': json['provided_id'] == null ? undefined : json['provided_id'],
         'identities': json['identities'] == null ? undefined : ((json['identities'] as Array<any>).map(CreateUserRequestIdentitiesInnerFromJSON)),
     };
 }
@@ -90,6 +97,7 @@ export function CreateUserRequestFromJSONTyped(json: any, ignoreDiscriminator: b
         
         'profile': CreateUserRequestProfileToJSON(value['profile']),
         'organization_code': value['organizationCode'],
+        'provided_id': value['providedId'],
         'identities': value['identities'] == null ? undefined : ((value['identities'] as Array<any>).map(CreateUserRequestIdentitiesInnerToJSON)),
     };
 }
