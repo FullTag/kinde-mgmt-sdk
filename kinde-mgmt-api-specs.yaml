@@ -5273,6 +5273,18 @@ paths:
           schema:
             type: string
             nullable: false
+        - name: starting_after
+          in: query
+          description: The ID of the identity to start after.
+          schema:
+            type: string
+            nullable: true
+        - name: ending_before
+          in: query
+          description: The ID of the identity to end before.
+          schema:
+            type: string
+            nullable: true
       responses:
         '200':
           description: Identities successfully retrieved.
@@ -5324,7 +5336,8 @@ paths:
               properties:
                 value:
                   type: string
-                  description: The email address, or username of the user.
+                  description: The email address, social identity, or username of the user.
+                  example: sally@example.com
                 type:
                   type: string
                   description: The identity type
@@ -5333,11 +5346,20 @@ paths:
                     - username
                     - phone
                     - enterprise
+                    - social
+                  example: email
                 phone_country_id:
                   type: string
                   description: >-
                     The country code for the phone number, only required when
                     identity type is 'phone'.
+                  example: au
+                connection_id:
+                  type: string
+                  description: >-
+                    The social connection ID, only required when identity type
+                    is 'social'.
+                  example: conn_019289347f1193da6c0e4d49b97b4bd2
       responses:
         '201':
           description: Identity successfully created.
