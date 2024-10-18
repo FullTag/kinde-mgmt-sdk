@@ -1013,9 +1013,8 @@ paths:
       tags:
         - Callbacks
       operationId: getLogoutURLs
-      description: |
-        Returns an application's logout redirect URLs.
-      summary: List Logout URLs
+      description: Returns an application's logout redirect URLs.
+      summary: List logout URLs
       security:
         - ManagementAPI:
             - read:application_logout_uris
@@ -1033,29 +1032,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/logout_redirect_urls'
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/logout_redirect_urls'
         '400':
-          description: Invalid request.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error_response'
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/error_response'
+          $ref: '#/components/responses/bad_request'
         '403':
-          description: Invalid credentials.
+          $ref: '#/components/responses/forbidden'
         '429':
-          description: Request was throttled.
+          $ref: '#/components/responses/too_many_requests'
     post:
       tags:
         - Callbacks
       operationId: addLogoutRedirectURLs
-      description: |
-        Add additional logout redirect URLs.
-      summary: Add Logout Redirect URLs
+      description: Add additional logout redirect URLs.
+      summary: Add logout redirect URLs
       security:
         - ManagementAPI:
             - create:application_logout_uris
@@ -1081,32 +1069,23 @@ paths:
                   description: Array of logout urls.
       responses:
         '200':
-          description: Logouts successfully updated
+          description: Logout URLs successfully updated.
           content:
-            application/json; charset=utf-8:
+            application/json:
               schema:
                 $ref: '#/components/schemas/success_response'
         '400':
-          description: Invalid request.
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/error_response'
+          $ref: '#/components/responses/bad_request'
         '403':
-          description: Invalid credentials.
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/error_response'
+          $ref: '#/components/responses/forbidden'
         '429':
-          description: Request was throttled.
+          $ref: '#/components/responses/too_many_requests'
     put:
       tags:
         - Callbacks
       operationId: replaceLogoutRedirectURLs
-      description: |
-        Replace all logout redirect URLs.
-      summary: Replace Logout Redirect URLs
+      description: Replace all logout redirect URLs.
+      summary: Replace logout redirect URls
       security:
         - ManagementAPI:
             - update:application_logout_uris
@@ -1132,21 +1111,17 @@ paths:
                   description: Array of logout urls.
       responses:
         '200':
-          description: Logout URLs successfully updated
+          description: Logout URLs successfully updated.
           content:
-            application/json; charset=utf-8:
+            application/json:
               schema:
                 $ref: '#/components/schemas/success_response'
         '400':
-          description: Invalid request.
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/error_response'
+          $ref: '#/components/responses/bad_request'
         '403':
-          description: Invalid credentials.
+          $ref: '#/components/responses/forbidden'
         '429':
-          description: Request was throttled.
+          $ref: '#/components/responses/too_many_requests'
     delete:
       tags:
         - Callbacks
@@ -1177,26 +1152,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success_response'
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/success_response'
         '400':
-          description: Invalid request.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error_response'
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/error_response'
+          $ref: '#/components/responses/bad_request'
         '403':
-          description: Invalid credentials.
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/error_response'
+          $ref: '#/components/responses/forbidden'
         '429':
-          description: Request was throttled.
+          $ref: '#/components/responses/too_many_requests'
   /api/v1/connected_apps/auth_url:
     get:
       tags:
@@ -4602,7 +4563,7 @@ paths:
         The returned list can be sorted by full name or email address in
         ascending or descending order. The number of records to return at a time
         can also be controlled using the `page_size` query string parameter.
-      summary: List Users
+      summary: Get users
       security:
         - ManagementAPI:
             - read:users
@@ -4666,13 +4627,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/users_response'
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/users_response'
+        '400':
+          $ref: '#/components/responses/bad_request'
         '403':
-          description: Invalid credentials.
+          $ref: '#/components/responses/forbidden'
         '429':
-          description: Request was throttled.
+          $ref: '#/components/responses/too_many_requests'
   /api/v1/users/{user_id}/refresh_claims:
     post:
       tags:
@@ -4728,7 +4688,7 @@ paths:
       operationId: getUserData
       description: |
         Retrieve a user record.
-      summary: Get User
+      summary: Get user
       security:
         - ManagementAPI:
             - read:users
@@ -4756,22 +4716,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/user'
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/user'
         '400':
-          description: Bad request.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error_response'
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/error_response'
+          $ref: '#/components/responses/bad_request'
         '403':
-          description: Invalid credentials.
+          $ref: '#/components/responses/forbidden'
         '429':
-          description: Request was throttled.
+          $ref: '#/components/responses/too_many_requests'
     post:
       tags:
         - Users
@@ -4781,7 +4731,7 @@ paths:
         user. An example identity could be the email
 
         address of the user.
-      summary: Create User
+      summary: Create user
       security:
         - ManagementAPI:
             - create:users
@@ -4803,6 +4753,9 @@ paths:
                     family_name:
                       type: string
                       description: User's last name.
+                    picture:
+                      type: string
+                      description: The user's profile picture.
                 organization_code:
                   description: >-
                     The unique code associated with the organization you want
@@ -4832,12 +4785,19 @@ paths:
                           email:
                             type: string
                             description: The email address of the user.
+                            example: email@email.com
                           phone:
                             type: string
                             description: The phone number of the user.
+                            example: '+61426148233'
+                          phone_country_id:
+                            type: string
+                            description: The country code for the phone number.
+                            example: au
                           username:
                             type: string
                             description: The username of the user.
+                            example: myusername
       responses:
         '200':
           description: User successfully created.
@@ -4845,29 +4805,19 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/create_user_response'
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/create_user_response'
         '400':
-          description: Error creating user.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error_response'
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/error_response'
+          $ref: '#/components/responses/bad_request'
         '403':
-          description: Invalid credentials.
+          $ref: '#/components/responses/forbidden'
         '429':
-          description: Request was throttled.
+          $ref: '#/components/responses/too_many_requests'
     patch:
       tags:
         - Users
       operationId: updateUser
       description: |
         Update a user record.
-      summary: Update User
+      summary: Update user
       security:
         - ManagementAPI:
             - update:users
@@ -4893,6 +4843,9 @@ paths:
                 family_name:
                   type: string
                   description: User's last name.
+                picture:
+                  type: string
+                  description: The user's profile picture.
                 is_suspended:
                   type: boolean
                   description: Whether the user is currently suspended or not.
@@ -4909,29 +4862,19 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/update_user_response'
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/update_user_response'
         '400':
-          description: Bad request.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error_response'
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/error_response'
+          $ref: '#/components/responses/bad_request'
         '403':
-          description: Invalid credentials.
+          $ref: '#/components/responses/forbidden'
         '429':
-          description: Request was throttled.
+          $ref: '#/components/responses/too_many_requests'
     delete:
       tags:
         - Users
       operationId: deleteUser
       description: |
         Delete a user record.
-      summary: Delete User
+      summary: Delete user
       security:
         - ManagementAPI:
             - delete:users
@@ -4943,6 +4886,7 @@ paths:
           schema:
             type: string
             nullable: false
+            example: kp_c3143a4b50ad43c88e541d9077681782
         - name: is_delete_profile
           in: query
           description: >-
@@ -4951,6 +4895,7 @@ paths:
           schema:
             type: boolean
             nullable: false
+            example: true
       responses:
         '200':
           description: User successfully deleted.
@@ -4958,22 +4903,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success_response'
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/success_response'
         '400':
-          description: Bad request.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error_response'
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/error_response'
+          $ref: '#/components/responses/bad_request'
         '403':
-          description: Invalid credentials.
+          $ref: '#/components/responses/forbidden'
         '429':
-          description: Request was throttled.
+          $ref: '#/components/responses/too_many_requests'
   /api/v1/users/{user_id}/feature_flags/{feature_flag_key}:
     patch:
       tags:
@@ -6095,6 +6030,7 @@ components:
         picture:
           type: string
           description: User's profile picture URL.
+          nullable: true
     users:
       type: array
       description: Array of users.
@@ -7239,11 +7175,19 @@ components:
     logout_redirect_urls:
       type: object
       properties:
-        redirect_urls:
+        logout_urls:
           type: array
           description: An application's logout URLs.
           items:
             type: string
+        code:
+          type: string
+          description: Response code.
+          example: OK
+        message:
+          type: string
+          description: Response message.
+          example: Success
     get_permissions_response:
       type: object
       properties:
