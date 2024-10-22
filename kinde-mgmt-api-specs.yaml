@@ -172,7 +172,7 @@ paths:
         - OAuth
       operationId: getUserProfileV2
       description: >
-        Contains the id, names, profile picture URL and email of the currently
+        Contains the ID, names, profile picture URL and email of the currently
         logged in user.
       summary: Returns the details of the currently logged in user
       responses:
@@ -4029,7 +4029,7 @@ paths:
         The returned list can be sorted by role name or role ID in ascending or
         descending order. The number of records to return at a time can also be
         controlled using the `page_size` query string parameter.
-      summary: List Roles
+      summary: List roles
       security:
         - ManagementAPI:
             - read:roles
@@ -4064,26 +4064,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/get_roles_response'
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/get_roles_response'
+        '400':
+          $ref: '#/components/responses/bad_request'
         '403':
-          description: Invalid credentials.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error_response'
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/error_response'
+          $ref: '#/components/responses/forbidden'
         '429':
-          description: Request was throttled.
+          $ref: '#/components/responses/too_many_requests'
     post:
       tags:
         - Roles
       operationId: CreateRole
       description: Create role.
-      summary: Create Role
+      summary: Create role
       security:
         - ManagementAPI:
             - create:roles
@@ -4113,35 +4105,131 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/success_response'
-            application/json; charset=utf-8:
+                $ref: '#/components/schemas/create_roles_response'
+        '400':
+          $ref: '#/components/responses/bad_request'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '429':
+          $ref: '#/components/responses/too_many_requests'
+  /api/v1/roles/{role_id}:
+    get:
+      tags:
+        - Roles
+      operationId: GetRole
+      description: Get a role
+      summary: Get role
+      security:
+        - ManagementAPI:
+            - read:roles
+      parameters:
+        - name: role_id
+          in: path
+          description: The identifier for the role.
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Role successfully retrieved.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/get_role_response'
+        '400':
+          $ref: '#/components/responses/bad_request'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '429':
+          $ref: '#/components/responses/too_many_requests'
+    patch:
+      tags:
+        - Roles
+      operationId: UpdateRoles
+      description: Update a role
+      summary: Update role
+      security:
+        - ManagementAPI:
+            - update:roles
+      parameters:
+        - name: role_id
+          in: path
+          description: The identifier for the role.
+          schema:
+            type: string
+          required: true
+      requestBody:
+        description: Role details.
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  description: The role's name.
+                  type: string
+                description:
+                  description: The role's description.
+                  type: string
+                key:
+                  description: The role identifier to use in code.
+                  type: string
+                is_default_role:
+                  description: Set role as default for new users.
+                  type: boolean
+              required:
+                - name
+                - key
+      responses:
+        '201':
+          description: Role successfully updated
+          content:
+            application/json:
               schema:
                 $ref: '#/components/schemas/success_response'
         '400':
-          description: Invalid request.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error_response'
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/error_response'
+          $ref: '#/components/responses/bad_request'
         '403':
-          description: Invalid credentials.
+          $ref: '#/components/responses/forbidden'
+        '429':
+          $ref: '#/components/responses/too_many_requests'
+    delete:
+      tags:
+        - Roles
+      operationId: DeleteRole
+      description: Delete role
+      summary: Delete role
+      security:
+        - ManagementAPI:
+            - delete:roles
+      parameters:
+        - name: role_id
+          in: path
+          description: The identifier for the role.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Role successfully deleted.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error_response'
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/error_response'
+                $ref: '#/components/schemas/success_response'
+        '400':
+          $ref: '#/components/responses/bad_request'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '429':
+          $ref: '#/components/responses/too_many_requests'
   /api/v1/roles/{role_id}/permissions:
     get:
       tags:
         - Roles
       operationId: GetRolePermission
       description: Get permissions for a role.
-      summary: Get Role Permissions
+      summary: Get role permissions
       security:
         - ManagementAPI:
             - read:role_permissions
@@ -4205,7 +4293,7 @@ paths:
       operationId: UpdateRolePermissions
       description: |
         Update role permissions.
-      summary: Update Role Permissions
+      summary: Update role permissions
       security:
         - ManagementAPI:
             - update:role_permissions
@@ -4265,7 +4353,7 @@ paths:
         - Roles
       operationId: RemoveRolePermission
       description: Remove a permission from a role.
-      summary: Remove Role Permission
+      summary: Remove role permission
       security:
         - ManagementAPI:
             - delete:role_permissions
@@ -4296,106 +4384,6 @@ paths:
                 $ref: '#/components/schemas/success_response'
         '400':
           description: Error removing user
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error_response'
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/error_response'
-        '403':
-          description: Invalid credentials.
-        '429':
-          description: Request was throttled.
-  /api/v1/roles/{role_id}:
-    patch:
-      tags:
-        - Roles
-      operationId: UpdateRoles
-      description: Update a role
-      summary: Update Role
-      security:
-        - ManagementAPI:
-            - update:roles
-      parameters:
-        - name: role_id
-          in: path
-          description: The identifier for the role.
-          schema:
-            type: string
-          required: true
-      requestBody:
-        description: Role details.
-        required: false
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                name:
-                  description: The role's name.
-                  type: string
-                description:
-                  description: The role's description.
-                  type: string
-                key:
-                  description: The role identifier to use in code.
-                  type: string
-                is_default_role:
-                  description: Set role as default for new users.
-                  type: boolean
-              required:
-                - name
-                - key
-      responses:
-        '201':
-          description: Role successfully updated
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/success_response'
-        '400':
-          description: Invalid request.
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/error_response'
-        '403':
-          description: Invalid credentials.
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/error_response'
-        '429':
-          description: Request was throttled.
-    delete:
-      tags:
-        - Roles
-      operationId: DeleteRole
-      description: Delete role
-      summary: Delete Role
-      security:
-        - ManagementAPI:
-            - delete:roles
-      parameters:
-        - name: role_id
-          in: path
-          description: The identifier for the role.
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: Role successfully deleted.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/success_response'
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/success_response'
-        '400':
-          description: Invalid request.
           content:
             application/json:
               schema:
@@ -5953,10 +5941,10 @@ components:
       properties:
         id:
           type: string
-          description: Unique id of the user in Kinde.
+          description: Unique ID of the user in Kinde.
         provided_id:
           type: string
-          description: External id for user.
+          description: External ID for user.
         preferred_email:
           type: string
           description: Default email address of the user in Kinde.
@@ -6011,7 +5999,7 @@ components:
       properties:
         id:
           type: string
-          description: Unique id of the user in Kinde.
+          description: Unique ID of the user in Kinde.
         given_name:
           type: string
           description: User's first name.
@@ -6052,10 +6040,10 @@ components:
             properties:
               id:
                 type: string
-                description: Unique id of the user in Kinde.
+                description: Unique ID of the user in Kinde.
               provided_id:
                 type: string
-                description: External id for user.
+                description: External ID for user.
               email:
                 type: string
                 description: Default email address of the user in Kinde.
@@ -6112,7 +6100,7 @@ components:
       type: object
       properties:
         id:
-          description: Unique id of the user in Kinde.
+          description: Unique ID of the user in Kinde.
           type: string
         created:
           description: True if the user was successfully created.
@@ -6157,7 +6145,7 @@ components:
       properties:
         id:
           type: string
-          description: Unique id of the user in Kinde.
+          description: Unique ID of the user in Kinde.
         preferred_email:
           type: string
           description: Default email address of the user in Kinde.
@@ -6167,7 +6155,7 @@ components:
         provided_id:
           type: string
           description: >-
-            Value of the user's id in a third-party system when the user is
+            Value of the user's ID in a third-party system when the user is
             imported into Kinde.
           nullable: true
         last_name:
@@ -6463,14 +6451,14 @@ components:
       properties:
         id:
           type: string
-          description: Unique id of the user in Kinde (deprecated).
+          description: Unique ID of the user in Kinde (deprecated).
         sub:
           type: string
-          description: Unique id of the user in Kinde.
+          description: Unique ID of the user in Kinde.
         provided_id:
           type: string
           description: >-
-            Value of the user's id in a third-party system when the user is
+            Value of the user's ID in a third-party system when the user is
             imported into Kinde.
           nullable: true
         name:
@@ -6884,6 +6872,53 @@ components:
         next_token:
           description: Pagination token.
           type: string
+    get_role_response:
+      type: object
+      properties:
+        code:
+          type: string
+          description: Response code.
+        message:
+          type: string
+          description: Response message.
+        role:
+          type: object
+          properties:
+            id:
+              type: string
+              description: The role's ID.
+              example: 01929904-316d-bb2c-069f-99dfea4ac394
+            key:
+              type: string
+              description: The role identifier to use in code.
+              example: admin
+            name:
+              type: string
+              description: The role's name.
+              example: Administrator
+            description:
+              type: string
+              description: The role's description.
+              example: Full access to all resources.
+            is_default_role:
+              type: boolean
+              description: Whether the role is the default role.
+              example: false
+    create_roles_response:
+      type: object
+      properties:
+        code:
+          type: string
+          description: Response code.
+        message:
+          type: string
+          description: Response message.
+        role:
+          type: object
+          properties:
+            id:
+              type: string
+              description: The role's ID.
     get_organizations_response:
       type: object
       properties:
@@ -7093,7 +7128,7 @@ components:
               description: The application's identifier.
               type: string
             client_id:
-              description: The application's client id.
+              description: The application's client ID.
               type: string
             client_secret:
               description: The application's client secret.
@@ -7120,7 +7155,7 @@ components:
               description: The application's type.
               type: string
             client_id:
-              description: The application's client id.
+              description: The application's client ID.
               type: string
             client_secret:
               description: The application's client secret.
@@ -7209,7 +7244,7 @@ components:
       properties:
         id:
           type: string
-          description: The permission's id.
+          description: The permission's ID.
         key:
           type: string
           description: The permission identifier to use in code.
@@ -7224,7 +7259,7 @@ components:
       properties:
         id:
           type: string
-          description: The role's id.
+          description: The role's ID.
         key:
           type: string
           description: The role identifier to use in code.
@@ -7234,6 +7269,10 @@ components:
         description:
           type: string
           description: The role's description.
+          nullable: true
+        is_default_role:
+          type: boolean
+          description: Whether the role is the default role.
     roles_permission_response:
       type: array
       items:
