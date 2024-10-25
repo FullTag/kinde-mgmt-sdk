@@ -38,6 +38,8 @@ tags:
     x-displayName: Connections
   - name: Environments
     x-displayName: Environments
+  - name: Environment variables
+    x-displayName: Environment variables
   - name: Feature Flags
     x-displayName: Feature Flags
   - name: Identities
@@ -1797,6 +1799,181 @@ paths:
           description: Invalid credentials.
         '429':
           description: Request was throttled.
+  /api/v1/environment_variables:
+    get:
+      tags:
+        - Environment variables
+      operationId: getEnvironmentVariables
+      summary: Get environment variables
+      description: >-
+        Get environment variables. This feature is in beta and admin UI is not
+        yet available.
+      security:
+        - ManagementAPI:
+            - read:environment_variables
+      responses:
+        '200':
+          description: >-
+            A successful response with a list of environment variables or an
+            empty list.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/get_environment_variables_response'
+        '400':
+          $ref: '#/components/responses/bad_request'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '429':
+          $ref: '#/components/responses/too_many_requests'
+    post:
+      tags:
+        - Environment variables
+      operationId: createEnvironmentVariable
+      summary: Create environment variable
+      description: >-
+        Create a new environment variable. This feature is in beta and admin UI
+        is not yet available.
+      security:
+        - ManagementAPI:
+            - create:environment_variables
+      requestBody:
+        description: The environment variable details.
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                key:
+                  type: string
+                  description: The name of the environment variable (max 128 characters).
+                  example: MY_API_KEY
+                value:
+                  type: string
+                  description: >-
+                    The value of the new environment variable (max 2048
+                    characters).
+                  example: some-secret-value
+                is_secret:
+                  type: boolean
+                  description: >-
+                    Whether the environment variable is sensitive. Secrets are
+                    not-readable by you or your team after creation.
+                  example: false
+              required:
+                - key
+                - value
+      responses:
+        '201':
+          description: Environment variable successfully created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/create_environment_variable_response'
+        '400':
+          $ref: '#/components/responses/bad_request'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '429':
+          $ref: '#/components/responses/too_many_requests'
+  /api/v1/environment_variables/{variable_id}:
+    parameters:
+      - $ref: '#/components/parameters/variable_id'
+    get:
+      tags:
+        - Environment variables
+      operationId: getEnvironmentVariable
+      summary: Get environment variable
+      description: >-
+        Retrieve environment variable details by ID. This feature is in beta and
+        admin UI is not yet available.
+      security:
+        - ManagementAPI:
+            - read:environment_variables
+      responses:
+        '200':
+          description: Environment variable successfully retrieved.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/get_environment_variable_response'
+        '400':
+          $ref: '#/components/responses/bad_request'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '429':
+          $ref: '#/components/responses/too_many_requests'
+    patch:
+      tags:
+        - Environment variables
+      operationId: updateEnvironmentVariable
+      summary: Update environment variable
+      description: >-
+        Update an environment variable you previously created. This feature is
+        in beta and admin UI is not yet available.
+      security:
+        - ManagementAPI:
+            - update:environment_variables
+      requestBody:
+        description: The new details for the environment variable
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                key:
+                  type: string
+                  description: The key to update.
+                  example: MY_API_KEY
+                value:
+                  type: string
+                  description: The new value for the environment variable.
+                  example: new-secret-value
+                is_secret:
+                  type: boolean
+                  description: >-
+                    Whether the environment variable is sensitive. Secret
+                    variables are not-readable by you or your team after
+                    creation.
+      responses:
+        '200':
+          description: Environment variable successfully updated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/update_environment_variable_response'
+        '400':
+          $ref: '#/components/responses/bad_request'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '429':
+          $ref: '#/components/responses/too_many_requests'
+    delete:
+      tags:
+        - Environment variables
+      operationId: deleteEnvironmentVariable
+      summary: Delete environment variable
+      description: >-
+        Delete an environment variable you previously created. This feature is
+        in beta and admin UI is not yet available.
+      security:
+        - ManagementAPI:
+            - delete:environment_variables
+      responses:
+        '200':
+          description: Environment variable successfully deleted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/delete_environment_variable_response'
+        '400':
+          $ref: '#/components/responses/bad_request'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '429':
+          $ref: '#/components/responses/too_many_requests'
   /api/v1/feature_flags:
     post:
       tags:
@@ -5628,6 +5805,14 @@ components:
       schema:
         type: string
         example: 7ccd126599aa422a771abcb341596881
+    variable_id:
+      in: path
+      name: variable_id
+      description: The environment variable's ID.
+      required: true
+      schema:
+        type: string
+        example: env_var_0192b1941f125645fa15bf28a662a0b3
   responses:
     bad_request:
       description: Invalid request.
@@ -5748,6 +5933,77 @@ components:
               description: The unique ID for the API.
               type: string
               example: 7ccd126599aa422a771abcb341596881
+    get_environment_variables_response:
+      type: object
+      properties:
+        code:
+          type: string
+          description: Response code.
+          example: OK
+        message:
+          type: string
+          description: Response message.
+          example: Success
+        has_more:
+          description: Whether more records exist.
+          type: boolean
+        environment_variables:
+          type: array
+          items:
+            $ref: '#/components/schemas/environment_variable'
+    get_environment_variable_response:
+      type: object
+      properties:
+        code:
+          type: string
+          description: Response code.
+          example: OK
+        message:
+          type: string
+          description: Response message.
+          example: Success
+        environment_variable:
+          $ref: '#/components/schemas/environment_variable'
+    create_environment_variable_response:
+      type: object
+      properties:
+        message:
+          type: string
+          description: A Kinde generated message.
+          example: Environment variable created
+        code:
+          type: string
+          description: A Kinde generated status code.
+          example: VARIABLE_CREATED
+        environment_variable:
+          type: object
+          properties:
+            id:
+              description: The unique ID for the environment variable.
+              type: string
+              example: env_var_0192b194f6156fb7452fe38cfb144958
+    update_environment_variable_response:
+      type: object
+      properties:
+        message:
+          type: string
+          description: A Kinde generated message.
+          example: Environment variable updated
+        code:
+          type: string
+          description: A Kinde generated status code.
+          example: ENVIRONMENT_VARIABLE_UPDATED
+    delete_environment_variable_response:
+      type: object
+      properties:
+        message:
+          type: string
+          description: A Kinde generated message.
+          example: Environment variable deleted
+        code:
+          type: string
+          description: A Kinde generated status code.
+          example: ENVIRONMENT_VARIABLE_DELETED
     get_business_response:
       type: object
       properties:
@@ -6700,6 +6956,30 @@ components:
           type: string
         strategy:
           type: string
+    environment_variable:
+      type: object
+      properties:
+        id:
+          description: The unique ID for the environment variable.
+          type: string
+          example: env_var_0192b1941f125645fa15bf28a662a0b3
+        key:
+          type: string
+          description: The name of the environment variable.
+          example: MY_API_KEY
+        value:
+          type: string
+          description: The value of the environment variable.
+          example: some-secret
+          nullable: true
+        is_secret:
+          type: boolean
+          description: Whether the environment variable is sensitive.
+          example: false
+        created_on:
+          type: string
+          description: The date the environment variable was created.
+          example: '2021-01-01T00:00:00Z'
     identity:
       type: object
       properties:
@@ -7312,6 +7592,7 @@ components:
             create:billing_payment_methods: Create Billing Payment Methods
             create:connected_apps: Create Connected Apps
             create:connections: Create Connections
+            create:environment_variables: Create Environment Variables
             create:feature_flags: Create Feature Flags
             create:organization_connections: Create Organization Connections
             create:organization_user_permissions: Create Organization User Permissions
@@ -7334,6 +7615,7 @@ components:
             delete:billing_payment_methods: Delete Billing Payment Methods
             delete:connections: Delete Connections
             delete:environment_feature_flags: Delete Environment Feature Flags
+            delete:environment_variables: Delete Environment Variables
             delete:feature_flags: Delete Feature Flags
             delete:identities: Delete Identities
             delete:organization_connections: Delete Organization Connections
@@ -7359,6 +7641,7 @@ components:
             read:connected_apps: Read Connected Apps
             read:connections: Read Connections
             read:environment_feature_flags: Read Environment Feature Flags
+            read:environment_variables: Read Environment Variables
             read:event_types: Read Event Types
             read:events: Read Events
             read:identities: Read Identities
@@ -7389,6 +7672,7 @@ components:
             update:businesses: Update Businesses
             update:connections: Update Connections
             update:environment_feature_flags: Update Environment Feature Flags
+            update:environment_variables: Update Environment Variables
             update:feature_flags: Update Feature Flags
             update:identities: Update Identities
             update:organization_feature_flags: Update Organization Feature Flags
@@ -7431,6 +7715,9 @@ x-tagGroups:
   - name: Environment API
     tags:
       - Environments
+  - name: Environment variables API
+    tags:
+      - Environment variables
   - name: Feature flags API
     tags:
       - Feature Flags
