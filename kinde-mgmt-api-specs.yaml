@@ -667,6 +667,72 @@ paths:
           $ref: '#/components/responses/forbidden'
         '429':
           $ref: '#/components/responses/too_many_requests'
+  /api/v1/applications/{application_id}/properties:
+    parameters:
+      - $ref: '#/components/parameters/application_id'
+    get:
+      tags:
+        - Applications
+      operationId: getApplicationPropertyValues
+      summary: Get property values
+      description: Gets properties for an application by client ID.
+      security:
+        - ManagementAPI:
+            - read:application_properties
+      responses:
+        '200':
+          description: Properties successfully retrieved.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/get_property_values_response'
+        '400':
+          $ref: '#/components/responses/bad_request'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '429':
+          $ref: '#/components/responses/too_many_requests'
+  /api/v1/applications/{application_id}/properties/{property_key}:
+    parameters:
+      - $ref: '#/components/parameters/application_id'
+      - $ref: '#/components/parameters/property_key'
+    put:
+      tags:
+        - Applications
+      operationId: updateApplicationsProperty
+      summary: Update property
+      description: Update application property value.
+      security:
+        - ManagementAPI:
+            - update:application_properties
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                value:
+                  oneOf:
+                    - type: string
+                    - type: boolean
+                  description: The new value for the propery
+                  example: Some new value
+              required:
+                - value
+      responses:
+        '200':
+          description: Property successfully updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success_response'
+        '400':
+          $ref: '#/components/responses/bad_request'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '429':
+          $ref: '#/components/responses/too_many_requests'
   /api/v1/business:
     get:
       tags:
@@ -3874,6 +3940,7 @@ paths:
                   enum:
                     - org
                     - usr
+                    - app
                   nullable: false
                 is_private:
                   description: >-
@@ -4118,6 +4185,7 @@ paths:
                   enum:
                     - org
                     - usr
+                    - app
                   nullable: false
               required:
                 - name
@@ -4938,7 +5006,9 @@ paths:
                     properties:
                       type:
                         type: string
-                        description: The type of identity to create, for e.g. email.
+                        description: >-
+                          The type of identity to create, e.g. email, username,
+                          or phone.
                         enum:
                           - email
                           - phone
@@ -4963,6 +5033,17 @@ paths:
                             type: string
                             description: The username of the user.
                             example: myusername
+                  example:
+                    - type: email
+                      details:
+                        email: email@email.com
+                    - type: phone
+                      details:
+                        phone: '+61426148233'
+                        phone_country_id: au
+                    - type: username
+                      details:
+                        username: myusername
       responses:
         '200':
           description: User successfully created.
@@ -5805,6 +5886,22 @@ components:
       schema:
         type: string
         example: 7ccd126599aa422a771abcb341596881
+    application_id:
+      in: path
+      name: application_id
+      description: The application's ID / client ID.
+      required: true
+      schema:
+        type: string
+        example: 3b0b5c6c8fcc464fab397f4969b5f482
+    property_key:
+      in: path
+      name: property_key
+      description: The property's key.
+      required: true
+      schema:
+        type: string
+        example: kp_some_key
     variable_id:
       in: path
       name: variable_id
@@ -7019,14 +7116,21 @@ components:
       properties:
         id:
           type: string
+          example: prop_0192b7e8b4f8ca08110d2b22059662a8
         name:
           type: string
+          example: Town
         description:
           type: string
+          example: Where the entity is located
+          nullable: true
         key:
           type: string
+          example: kp_town
         value:
           type: string
+          example: West-side Staines massive
+          nullable: true
     role:
       type: object
       properties:
