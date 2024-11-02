@@ -2902,13 +2902,13 @@ paths:
       tags:
         - Organizations
       operationId: GetOrganizationUsers
+      summary: Get organization users
       description: |
-        Get users in an organization.
+        Get user details for all members of an organization.
 
         <div>
           <code>read:organization_users</code>
         </div>
-      summary: List Organization Users
       parameters:
         - name: sort
           in: query
@@ -2940,6 +2940,7 @@ paths:
           description: The organization's code.
           required: true
           schema:
+            example: org_1ccfb819462
             type: string
             nullable: false
         - name: permissions
@@ -2961,22 +2962,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/get_organization_users_response'
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/get_organization_users_response'
         '400':
-          description: Error creating user
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error_response'
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/error_response'
+          $ref: '#/components/responses/bad_request'
         '403':
-          description: Invalid credentials.
+          $ref: '#/components/responses/forbidden'
         '429':
-          description: Request was throttled.
+          $ref: '#/components/responses/too_many_requests'
       security:
         - kindeBearerAuth: []
     post:
@@ -7424,20 +7415,39 @@ components:
       properties:
         id:
           type: string
+          example: kp:97c2ba24217d48e3b96a799b76cf2c74
+          description: The unique ID for the user.
         email:
           type: string
+          example: john.snow@example.com
+          description: The user's email address.
         full_name:
           type: string
+          example: John Snow
+          description: The user's full name.
         last_name:
           type: string
+          example: Snow
+          description: The user's last name.
         first_name:
           type: string
+          example: John
+          description: The user's first name.
         picture:
           type: string
+          example: https://example.com/john_snow.jpg
+          description: The user's profile picture URL.
+        joined_on:
+          type: string
+          example: '2021-01-01T00:00:00Z'
+          description: The date the user joined the organization.
         roles:
           type: array
+          description: The roles the user has in the organization.
           items:
             type: string
+            example: admin
+            description: The role's key.
     category:
       type: object
       properties:
@@ -7731,9 +7741,11 @@ components:
         code:
           type: string
           description: Response code.
+          example: OK
         message:
           type: string
           description: Response message.
+          example: Success
         organization_users:
           type: array
           items:
