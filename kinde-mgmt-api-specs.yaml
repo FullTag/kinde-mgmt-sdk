@@ -4789,7 +4789,7 @@ paths:
     get:
       tags:
         - Roles
-      operationId: GetRolePermission
+      operationId: GetRolePermissions
       description: |
         Get permissions for a role.
 
