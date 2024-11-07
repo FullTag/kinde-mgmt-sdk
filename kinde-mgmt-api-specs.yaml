@@ -4834,10 +4834,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/roles_permission_response'
+                $ref: '#/components/schemas/role_permissions_response'
             application/json; charset=utf-8:
               schema:
-                $ref: '#/components/schemas/roles_permission_response'
+                $ref: '#/components/schemas/role_permissions_response'
         '400':
           description: Error removing user
           content:
@@ -8072,19 +8072,22 @@ components:
         is_default_role:
           type: boolean
           description: Whether the role is the default role.
-    roles_permission_response:
-      type: array
-      items:
-        type: object
-        properties:
-          id:
-            type: string
-          key:
-            type: string
-          name:
-            type: string
-          description:
-            type: string
+    role_permissions_response:
+      type: object
+      properties:
+        code:
+          type: string
+          description: Response code.
+        message:
+          type: string
+          description: Response message.
+        permissions:
+          type: array
+          items:
+            $ref: '#/components/schemas/permissions'
+        next_token:
+          type: string
+          description: Pagination token.
   securitySchemes:
     kindeBearerAuth:
       description: >
