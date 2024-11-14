@@ -385,6 +385,7 @@ paths:
           schema:
             type: string
             nullable: false
+            example: 20bbffaa4c5e492a962273039d4ae18b
       responses:
         '200':
           description: Application successfully retrieved.
@@ -420,6 +421,7 @@ paths:
           required: true
           schema:
             type: string
+            example: 20bbffaa4c5e492a962273039d4ae18b
       requestBody:
         description: Application details.
         required: false
@@ -479,6 +481,7 @@ paths:
           required: true
           schema:
             type: string
+            example: 20bbffaa4c5e492a962273039d4ae18b
       responses:
         '200':
           description: Application successfully deleted.
@@ -514,6 +517,7 @@ paths:
           schema:
             type: string
             nullable: false
+            example: 20bbffaa4c5e492a962273039d4ae18b
       responses:
         '200':
           description: Application connections successfully retrieved.
@@ -548,12 +552,14 @@ paths:
           required: true
           schema:
             type: string
+            example: 20bbffaa4c5e492a962273039d4ae18b
         - name: connection_id
           in: path
           description: The identifier for the connection.
           required: true
           schema:
             type: string
+            example: conn_0192c16abb53b44277e597d31877ba5b
       responses:
         '200':
           description: Connection successfully enabled.
@@ -583,12 +589,14 @@ paths:
           required: true
           schema:
             type: string
+            example: 20bbffaa4c5e492a962273039d4ae18b
         - name: connection_id
           in: path
           description: The identifier for the connection.
           required: true
           schema:
             type: string
+            example: conn_0192c16abb53b44277e597d31877ba5b
       responses:
         '200':
           description: Connection successfully removed.
@@ -659,13 +667,75 @@ paths:
                   oneOf:
                     - type: string
                     - type: boolean
-                  description: The new value for the propery
+                  description: The new value for the property
                   example: Some new value
               required:
                 - value
       responses:
         '200':
           description: Property successfully updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success_response'
+        '400':
+          $ref: '#/components/responses/bad_request'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '429':
+          $ref: '#/components/responses/too_many_requests'
+      security:
+        - kindeBearerAuth: []
+  /api/v1/applications/{application_id}/tokens:
+    patch:
+      tags:
+        - Applications
+      operationId: updateApplicationTokens
+      summary: Update application tokens
+      description: |
+        Configure tokens for an application.
+          <div>
+            <code>update:application_tokens</code>
+          </div>
+      parameters:
+        - name: application_id
+          in: path
+          description: The identifier/client ID for the application.
+          required: true
+          schema:
+            type: string
+            example: 20bbffaa4c5e492a962273039d4ae18b
+      requestBody:
+        description: Application tokens.
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                access_token_lifetime:
+                  description: The lifetime of an access token in seconds.
+                  type: integer
+                  example: 3600
+                refresh_token_lifetime:
+                  description: The lifetime of a refresh token in seconds.
+                  type: integer
+                  example: 86400
+                id_token_lifetime:
+                  description: The lifetime of an ID token in seconds.
+                  type: integer
+                  example: 3600
+                authenticated_session_lifetime:
+                  description: The lifetime of an authenticated session in seconds.
+                  type: integer
+                  example: 86400
+                is_hasura_mapping_enabled:
+                  description: Enable or disable Hasura mapping.
+                  type: boolean
+                  example: true
+      responses:
+        '200':
+          description: Application tokens succesfully updated.
           content:
             application/json:
               schema:
@@ -5850,6 +5920,43 @@ paths:
           description: Invalid credentials.
         '429':
           description: Request was throttled.
+      security:
+        - kindeBearerAuth: []
+  /api/v1/users/{user_id}/sessions:
+    delete:
+      tags:
+        - Users
+      operationId: DeleteUserSessions
+      description: |
+        Invalidate user sessions.
+
+        <div>
+          <code>delete:user_sessions</code>
+        </div>
+      summary: Delete user sessions
+      parameters:
+        - name: user_id
+          in: path
+          description: The identifier for the user
+          required: true
+          schema:
+            type: string
+            example: kp_c3143a4b50ad43c88e541d9077681782
+      responses:
+        '200':
+          description: User sessions successfully invalidated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success_response'
+        '400':
+          $ref: '#/components/responses/bad_request'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '404':
+          $ref: '#/components/responses/not_found'
+        '429':
+          $ref: '#/components/responses/too_many_requests'
       security:
         - kindeBearerAuth: []
   /api/v1/events/{event_id}:
