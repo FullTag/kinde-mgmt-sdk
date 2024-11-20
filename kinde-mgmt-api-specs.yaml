@@ -76,8 +76,6 @@ tags:
     x-displayName: OAuth
 paths:
   /api/v1/apis:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     get:
       tags:
         - APIs
@@ -159,7 +157,6 @@ paths:
   /api/v1/apis/{api_id}:
     parameters:
       - $ref: '#/components/parameters/api_id'
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     get:
       tags:
         - APIs
@@ -215,7 +212,6 @@ paths:
   /api/v1/apis/{api_id}/applications:
     parameters:
       - $ref: '#/components/parameters/api_id'
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     patch:
       tags:
         - APIs
@@ -271,8 +267,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/applications:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     get:
       tags:
         - Applications
@@ -372,8 +366,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/applications/{application_id}:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     get:
       tags:
         - Applications
@@ -506,8 +498,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/applications/{application_id}/connections:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     get:
       tags:
         - Applications
@@ -544,8 +534,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/applications/{application_id}/connections/{connection_id}:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     post:
       tags:
         - Applications
@@ -627,7 +615,6 @@ paths:
   /api/v1/applications/{application_id}/properties:
     parameters:
       - $ref: '#/components/parameters/application_id'
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     get:
       tags:
         - Applications
@@ -658,7 +645,6 @@ paths:
     parameters:
       - $ref: '#/components/parameters/application_id'
       - $ref: '#/components/parameters/property_key'
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     put:
       tags:
         - Applications
@@ -763,8 +749,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/business:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     get:
       tags:
         - Business
@@ -881,8 +865,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/industries:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     get:
       tags:
         - Industries
@@ -910,8 +892,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/timezones:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     get:
       tags:
         - Timezones
@@ -939,8 +919,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/applications/{app_id}/auth_redirect_urls:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     get:
       tags:
         - Callbacks
@@ -1142,8 +1120,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/applications/{app_id}/auth_logout_urls:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     get:
       tags:
         - Callbacks
@@ -1309,8 +1285,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/connected_apps/auth_url:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     get:
       tags:
         - Connected Apps
@@ -1398,8 +1372,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/connected_apps/token:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     get:
       tags:
         - Connected Apps
@@ -1456,8 +1428,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/connected_apps/revoke:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     post:
       tags:
         - Connected Apps
@@ -1514,8 +1484,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/connections:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     get:
       tags:
         - Connections
@@ -1668,8 +1636,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/connections/{connection_id}:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     get:
       tags:
         - Connections
@@ -1830,8 +1796,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/environment:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     get:
       tags:
         - Environments
@@ -1859,8 +1823,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/environment/feature_flags:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     delete:
       tags:
         - Environments
@@ -1934,8 +1896,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/environment/feature_flags/{feature_flag_key}:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     delete:
       tags:
         - Environments
@@ -2037,8 +1997,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/environment_variables:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     get:
       tags:
         - Environment variables
@@ -2127,7 +2085,6 @@ paths:
   /api/v1/environment_variables/{variable_id}:
     parameters:
       - $ref: '#/components/parameters/variable_id'
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     get:
       tags:
         - Environment variables
@@ -2235,8 +2192,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/feature_flags:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     post:
       tags:
         - Feature Flags
@@ -2321,8 +2276,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/feature_flags/{feature_flag_key}:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     delete:
       tags:
         - Feature Flags
@@ -2452,8 +2405,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/identities/{identity_id}:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     get:
       tags:
         - Identities
@@ -2603,8 +2554,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/organization:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     get:
       tags:
         - Organizations
@@ -2745,8 +2694,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/organizations:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     get:
       tags:
         - Organizations
@@ -2798,8 +2745,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/organization/{org_code}:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     patch:
       tags:
         - Organizations
@@ -2954,8 +2899,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/organizations/{org_code}/users:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     get:
       tags:
         - Organizations
@@ -3176,8 +3119,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/organizations/{org_code}/users/{user_id}/roles:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     get:
       tags:
         - Organizations
@@ -3274,8 +3215,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/organizations/{org_code}/users/{user_id}/roles/{role_id}:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     delete:
       tags:
         - Organizations
@@ -3335,8 +3274,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/organizations/{org_code}/users/{user_id}/permissions:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     get:
       tags:
         - Organizations
@@ -3442,8 +3379,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/organizations/{org_code}/users/{user_id}/permissions/{permission_id}:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     delete:
       tags:
         - Organizations
@@ -3503,8 +3438,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/organizations/{org_code}/users/{user_id}:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     delete:
       tags:
         - Organizations
@@ -3557,8 +3490,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/organizations/{org_code}/feature_flags:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     get:
       tags:
         - Organizations
@@ -3646,8 +3577,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/organizations/{org_code}/feature_flags/{feature_flag_key}:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     delete:
       tags:
         - Organizations
@@ -3753,8 +3682,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/organizations/{org_code}/properties/{property_key}:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     put:
       tags:
         - Organizations
@@ -3811,8 +3738,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/organizations/{org_code}/properties:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     get:
       tags:
         - Organizations
@@ -3915,8 +3840,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/organization/{org_code}/handle:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     delete:
       tags:
         - Organizations
@@ -3962,8 +3885,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/permissions:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     get:
       tags:
         - Permissions
@@ -4077,8 +3998,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/permissions/{permission_id}:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     patch:
       tags:
         - Permissions
@@ -4182,8 +4101,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/properties:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     get:
       tags:
         - Properties
@@ -4345,8 +4262,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/properties/{property_id}:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     put:
       tags:
         - Properties
@@ -4462,8 +4377,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/property_categories:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     get:
       tags:
         - Property Categories
@@ -4595,8 +4508,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/property_categories/{category_id}:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     put:
       tags:
         - Property Categories
@@ -4653,8 +4564,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/roles:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     get:
       tags:
         - Roles
@@ -4755,8 +4664,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/roles/{role_id}:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     get:
       tags:
         - Roles
@@ -4880,8 +4787,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/roles/{role_id}/permissions:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     get:
       tags:
         - Roles
@@ -5013,8 +4918,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/roles/{role_id}/permissions/{permission_id}:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     delete:
       tags:
         - Roles
@@ -5067,8 +4970,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/subscribers:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     get:
       tags:
         - Subscribers
@@ -5184,8 +5085,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/subscribers/{subscriber_id}:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     get:
       tags:
         - Subscribers
@@ -5229,8 +5128,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/users:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     get:
       tags:
         - Users
@@ -5314,8 +5211,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/users/{user_id}/refresh_claims:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     post:
       tags:
         - Users
@@ -5367,8 +5262,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/user:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     get:
       tags:
         - Users
@@ -5623,8 +5516,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/users/{user_id}/feature_flags/{feature_flag_key}:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     patch:
       tags:
         - Users
@@ -5681,8 +5572,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/users/{user_id}/properties/{property_key}:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     put:
       tags:
         - Users
@@ -5739,8 +5628,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/users/{user_id}/properties:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     get:
       tags:
         - Users
@@ -5843,8 +5730,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/users/{user_id}/password:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     put:
       tags:
         - Users
@@ -5930,8 +5815,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/users/{user_id}/identities:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     get:
       tags:
         - Users
@@ -6104,8 +5987,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/events/{event_id}:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     get:
       tags:
         - Webhooks
@@ -6158,8 +6039,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/event_types:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     get:
       tags:
         - Webhooks
@@ -6204,8 +6083,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/webhooks/{webhook_id}:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     delete:
       tags:
         - Webhooks
@@ -6258,8 +6135,6 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/webhooks:
-    parameters:
-      - $ref: '#/components/parameters/acceptApplicationJsonHeader'
     get:
       tags:
         - Webhooks
@@ -6574,16 +6449,6 @@ paths:
       security:
         - kindeBearerAuth: []
 components:
-  headers:
-    acceptApplicationJsonHeader:
-      name: Accept
-      in: header
-      required: true
-      schema:
-        type: string
-        enum:
-          - application/json
-      description: The `Accept` header is required and must always be `application/json`.
   parameters:
     api_id:
       in: path
@@ -6617,15 +6482,6 @@ components:
       schema:
         type: string
         example: env_var_0192b1941f125645fa15bf28a662a0b3
-    acceptApplicationJsonHeader:
-      name: Accept
-      in: header
-      required: true
-      schema:
-        type: string
-        enum:
-          - application/json
-      description: The `Accept` header is required and must always be `application/json`.
   responses:
     bad_request:
       description: Invalid request.
