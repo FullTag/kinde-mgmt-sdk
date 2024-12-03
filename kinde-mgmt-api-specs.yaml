@@ -1604,35 +1604,133 @@ paths:
                   items:
                     type: string
                 options:
-                  description: The connection's options (varies by strategy).
-                  type: object
-              required:
-                - name
-                - display_name
-                - strategy
+                  oneOf:
+                    - type: object
+                      description: Social connection options (e.g., Google SSO).
+                      properties:
+                        client_id:
+                          type: string
+                          description: OAuth client ID.
+                          example: hji7db2146af332akfldfded22
+                        client_secret:
+                          type: string
+                          description: OAuth client secret.
+                          example: 19fkjdalg521l23fassf3039d4ae18b
+                        is_use_custom_domain:
+                          type: boolean
+                          description: Use custom domain callback URL.
+                          example: true
+                    - type: object
+                      description: Azure AD connection options.
+                      properties:
+                        client_id:
+                          type: string
+                          description: Client ID.
+                          example: hji7db2146af332akfldfded22
+                        client_secret:
+                          type: string
+                          description: Client secret.
+                          example: 19fkjdalg521l23fassf3039d4ae18b
+                        home_realm_domains:
+                          type: array
+                          items:
+                            type: string
+                          description: List of domains to limit authentication.
+                          example:
+                            - '@kinde.com'
+                            - '@kinde.io'
+                        entra_id_domain:
+                          type: string
+                          description: Domain for Entra ID.
+                          example: kinde.com
+                        is_use_common_endpoint:
+                          type: boolean
+                          description: >-
+                            Use https://login.windows.net/common instead of a
+                            default endpoint.
+                          example: true
+                        is_sync_user_profile_on_login:
+                          type: boolean
+                          description: Sync user profile data with IDP.
+                          example: true
+                        is_retrieve_provider_user_groups:
+                          type: boolean
+                          description: Include user group info from MS Entra ID.
+                          example: true
+                        is_extended_attributes_required:
+                          type: boolean
+                          description: Include additional user profile information.
+                          example: true
+                    - type: object
+                      description: SAML connection options (e.g., Cloudflare SAML).
+                      properties:
+                        home_realm_domains:
+                          type: array
+                          items:
+                            type: string
+                          description: List of domains to restrict authentication.
+                          example:
+                            - '@kinde.com'
+                            - '@kinde.io'
+                        saml_entity_id:
+                          type: string
+                          description: SAML Entity ID.
+                          example: https://kinde.com
+                        saml_acs_url:
+                          type: string
+                          description: Assertion Consumer Service URL.
+                          example: https://kinde.com/saml/acs
+                        saml_idp_metadata_url:
+                          type: string
+                          description: URL for the IdP metadata.
+                          example: https://kinde.com/saml/metadata
+                        saml_email_key_attr:
+                          type: string
+                          description: Attribute key for the user’s email.
+                          example: email
+                        saml_first_name_key_attr:
+                          type: string
+                          description: Attribute key for the user’s first name.
+                          example: given_name
+                        saml_last_name_key_attr:
+                          type: string
+                          description: Attribute key for the user’s last name.
+                          example: family_name
+                        is_create_missing_user:
+                          type: boolean
+                          description: Create user if they don’t exist.
+                          example: true
+                        saml_signing_certificate:
+                          type: string
+                          description: Certificate for signing SAML requests.
+                          example: >-
+                            -----BEGIN CERTIFICATE-----
+
+                            MIIDdTCCAl2gAwIBAgIEUjZoyDANBgkqhkiG9w0BAQsFADBzMQswCQYDVQQGEwJVUzELMAkGA1UECAwCQ0ExEjAQBgNVBAcMCVNhbiBGcmFuYzEXMBUGA1UECgwOQ2xv
+
+                            -----END CERTIFICATE-----
+                        saml_signing_private_key:
+                          type: string
+                          description: Private key associated with the signing certificate.
+                          example: >-
+                            -----BEGIN PRIVATE KEY-----
+
+                            MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCy5+KLjTzF6tvl
+
+                            -----END PRIVATE KEY-----
       responses:
         '201':
-          description: Connection successfully created
+          description: Connection successfully created.
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/create_connection_response'
-            application/json; charset=utf-8:
               schema:
                 $ref: '#/components/schemas/create_connection_response'
         '400':
-          description: Invalid request.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error_response'
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/error_response'
+          $ref: '#/components/responses/bad_request'
         '403':
-          description: Invalid credentials.
+          $ref: '#/components/responses/forbidden'
         '429':
-          description: Request was throttled.
+          $ref: '#/components/responses/too_many_requests'
       security:
         - kindeBearerAuth: []
   /api/v1/connections/{connection_id}:
@@ -1661,22 +1759,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/connection'
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/connection'
         '400':
-          description: Invalid request.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error_response'
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/error_response'
+          $ref: '#/components/responses/bad_request'
         '403':
-          description: Invalid credentials.
+          $ref: '#/components/responses/forbidden'
         '429':
-          description: Request was throttled.
+          $ref: '#/components/responses/too_many_requests'
       security:
         - kindeBearerAuth: []
     patch:
@@ -1709,9 +1797,189 @@ paths:
                   description: The internal name of the connection.
                   type: string
                   nullable: false
+                  example: ConnectionA
                 display_name:
                   description: The public facing name of the connection.
                   type: string
+                  nullable: false
+                  example: Connection
+                enabled_applications:
+                  description: >-
+                    Client IDs of applications in which this connection is to be
+                    enabled.
+                  type: array
+                  example:
+                    - c647dbe20f5944e28af97c9184fded22
+                    - 20bbffaa4c5e492a962273039d4ae18b
+                  items:
+                    type: string
+                options:
+                  oneOf:
+                    - type: object
+                      description: Social connection options (e.g., Google SSO).
+                      properties:
+                        client_id:
+                          type: string
+                          description: OAuth client ID.
+                          example: hji7db2146af332akfldfded22
+                        client_secret:
+                          type: string
+                          description: OAuth client secret.
+                          example: 19fkjdalg521l23fassf3039d4ae18b
+                        is_use_custom_domain:
+                          type: boolean
+                          description: Use custom domain callback URL.
+                          example: true
+                    - type: object
+                      description: Azure AD connection options.
+                      properties:
+                        client_id:
+                          type: string
+                          description: Client ID.
+                          example: hji7db2146af332akfldfded22
+                        client_secret:
+                          type: string
+                          description: Client secret.
+                          example: 19fkjdalg521l23fassf3039d4ae18b
+                        home_realm_domains:
+                          type: array
+                          items:
+                            type: string
+                          description: List of domains to limit authentication.
+                          example:
+                            - '@kinde.com'
+                            - '@kinde.io'
+                        entra_id_domain:
+                          type: string
+                          description: Domain for Entra ID.
+                          example: kinde.com
+                        is_use_common_endpoint:
+                          type: boolean
+                          description: >-
+                            Use https://login.windows.net/common instead of a
+                            default endpoint.
+                          example: true
+                        is_sync_user_profile_on_login:
+                          type: boolean
+                          description: Sync user profile data with IDP.
+                          example: true
+                        is_retrieve_provider_user_groups:
+                          type: boolean
+                          description: Include user group info from MS Entra ID.
+                          example: true
+                        is_extended_attributes_required:
+                          type: boolean
+                          description: Include additional user profile information.
+                          example: true
+                    - type: object
+                      description: SAML connection options (e.g., Cloudflare SAML).
+                      properties:
+                        home_realm_domains:
+                          type: array
+                          items:
+                            type: string
+                          description: List of domains to restrict authentication.
+                          example:
+                            - '@kinde.com'
+                            - '@kinde.io'
+                        saml_entity_id:
+                          type: string
+                          description: SAML Entity ID.
+                          example: https://kinde.com
+                        saml_acs_url:
+                          type: string
+                          description: Assertion Consumer Service URL.
+                          example: https://kinde.com/saml/acs
+                        saml_idp_metadata_url:
+                          type: string
+                          description: URL for the IdP metadata.
+                          example: https://kinde.com/saml/metadata
+                        saml_email_key_attr:
+                          type: string
+                          description: Attribute key for the user’s email.
+                          example: email
+                        saml_first_name_key_attr:
+                          type: string
+                          description: Attribute key for the user’s first name.
+                          example: given_name
+                        saml_last_name_key_attr:
+                          type: string
+                          description: Attribute key for the user’s last name.
+                          example: family_name
+                        is_create_missing_user:
+                          type: boolean
+                          description: Create user if they don’t exist.
+                          example: true
+                        saml_signing_certificate:
+                          type: string
+                          description: Certificate for signing SAML requests.
+                          example: >-
+                            -----BEGIN CERTIFICATE-----
+
+                            MIIDdTCCAl2gAwIBAgIEUjZoyDANBgkqhkiG9w0BAQsFADBzMQswCQYDVQQGEwJVUzELMAkGA1UECAwCQ0ExEjAQBgNVBAcMCVNhbiBGcmFuYzEXMBUGA1UECgwOQ2xv
+
+                            -----END CERTIFICATE-----
+                        saml_signing_private_key:
+                          type: string
+                          description: Private key associated with the signing certificate.
+                          example: >-
+                            -----BEGIN PRIVATE KEY-----
+
+                            MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCy5+KLjTzF6tvl
+
+                            -----END PRIVATE KEY-----
+      responses:
+        '200':
+          description: Connection successfully updated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success_response'
+        '400':
+          $ref: '#/components/responses/bad_request'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '404':
+          $ref: '#/components/responses/not_found'
+        '429':
+          $ref: '#/components/responses/too_many_requests'
+      security:
+        - kindeBearerAuth: []
+    put:
+      tags:
+        - Connections
+      operationId: ReplaceConnection
+      description: |
+        Replace Connection Config.
+
+        <div>
+          <code>update:connections</code>
+        </div>
+      summary: Replace Connection
+      parameters:
+        - name: connection_id
+          in: path
+          description: The unique identifier for the connection.
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The complete connection configuration to replace the existing one.
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  description: The internal name of the connection.
+                  type: string
+                  example: ConnectionA
+                  nullable: false
+                display_name:
+                  description: The public-facing name of the connection.
+                  type: string
+                  example: Connection
                   nullable: false
                 enabled_applications:
                   description: >-
@@ -1720,32 +1988,139 @@ paths:
                   type: array
                   items:
                     type: string
+                  example:
+                    - c647dbe20f5944e28af97c9184fded22
+                    - 20bbffaa4c5e492a962273039d4ae18b
                 options:
-                  description: The connection's options (varies by strategy).
-                  type: object
+                  oneOf:
+                    - type: object
+                      description: Social connection options (e.g., Google SSO).
+                      properties:
+                        client_id:
+                          type: string
+                          description: OAuth client ID.
+                          example: hji7db2146af332akfldfded22
+                        client_secret:
+                          type: string
+                          description: OAuth client secret.
+                          example: 19fkjdalg521l23fassf3039d4ae18b
+                        is_use_custom_domain:
+                          type: boolean
+                          description: Use custom domain callback URL.
+                          example: true
+                    - type: object
+                      description: Azure AD connection options.
+                      properties:
+                        client_id:
+                          type: string
+                          description: Client ID.
+                          example: hji7db2146af332akfldfded22
+                        client_secret:
+                          type: string
+                          description: Client secret.
+                          example: 19fkjdalg521l23fassf3039d4ae18b
+                        home_realm_domains:
+                          type: array
+                          items:
+                            type: string
+                          description: List of domains to limit authentication.
+                          example:
+                            - '@kinde.com'
+                            - '@kinde.io'
+                        entra_id_domain:
+                          type: string
+                          description: Domain for Entra ID.
+                          example: kinde.com
+                        is_use_common_endpoint:
+                          type: boolean
+                          description: >-
+                            Use https://login.windows.net/common instead of a
+                            default endpoint.
+                          example: true
+                        is_sync_user_profile_on_login:
+                          type: boolean
+                          description: Sync user profile data with IDP.
+                          example: true
+                        is_retrieve_provider_user_groups:
+                          type: boolean
+                          description: Include user group info from MS Entra ID.
+                          example: true
+                        is_extended_attributes_required:
+                          type: boolean
+                          description: Include additional user profile information.
+                          example: true
+                    - type: object
+                      description: SAML connection options (e.g., Cloudflare SAML).
+                      properties:
+                        home_realm_domains:
+                          type: array
+                          items:
+                            type: string
+                          description: List of domains to restrict authentication.
+                          example:
+                            - '@kinde.com'
+                            - '@kinde.io'
+                        saml_entity_id:
+                          type: string
+                          description: SAML Entity ID.
+                          example: https://kinde.com
+                        saml_acs_url:
+                          type: string
+                          description: Assertion Consumer Service URL.
+                          example: https://kinde.com/saml/acs
+                        saml_idp_metadata_url:
+                          type: string
+                          description: URL for the IdP metadata.
+                          example: https://kinde.com/saml/metadata
+                        saml_email_key_attr:
+                          type: string
+                          description: Attribute key for the user’s email.
+                          example: email
+                        saml_first_name_key_attr:
+                          type: string
+                          description: Attribute key for the user’s first name.
+                          example: given_name
+                        saml_last_name_key_attr:
+                          type: string
+                          description: Attribute key for the user’s last name.
+                          example: family_name
+                        is_create_missing_user:
+                          type: boolean
+                          description: Create user if they don’t exist.
+                          example: true
+                        saml_signing_certificate:
+                          type: string
+                          description: Certificate for signing SAML requests.
+                          example: >-
+                            -----BEGIN CERTIFICATE-----
+
+                            MIIDdTCCAl2gAwIBAgIEUjZoyDANBgkqhkiG9w0BAQsFADBzMQswCQYDVQQGEwJVUzELMAkGA1UECAwCQ0ExEjAQBgNVBAcMCVNhbiBGcmFuYzEXMBUGA1UECgwOQ2xv
+
+                            -----END CERTIFICATE-----
+                        saml_signing_private_key:
+                          type: string
+                          description: Private key associated with the signing certificate.
+                          example: >-
+                            -----BEGIN PRIVATE KEY-----
+
+                            MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCy5+KLjTzF6tvl
+
+                            -----END PRIVATE KEY-----
       responses:
         '200':
-          description: Connection successfully updated.
+          description: Connection successfully updated
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/success_response'
-            application/json; charset=utf-8:
               schema:
                 $ref: '#/components/schemas/success_response'
         '400':
-          description: Invalid request.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error_response'
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/error_response'
+          $ref: '#/components/responses/bad_request'
         '403':
-          description: Invalid credentials.
+          $ref: '#/components/responses/forbidden'
+        '404':
+          $ref: '#/components/responses/not_found'
         '429':
-          description: Request was throttled.
+          $ref: '#/components/responses/too_many_requests'
       security:
         - kindeBearerAuth: []
     delete:
@@ -1768,31 +2143,19 @@ paths:
             type: string
       responses:
         '200':
-          description: Connection deleted.
+          description: Connection successfully deleted.
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/success_response'
-            application/json; charset=utf-8:
               schema:
                 $ref: '#/components/schemas/success_response'
         '400':
-          description: Invalid request.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error_response'
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/error_response'
+          $ref: '#/components/responses/bad_request'
         '403':
-          description: Invalid credentials.
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/error_response'
+          $ref: '#/components/responses/forbidden'
+        '404':
+          $ref: '#/components/responses/not_found'
         '429':
-          description: Request was throttled.
+          $ref: '#/components/responses/too_many_requests'
       security:
         - kindeBearerAuth: []
   /api/v1/environment:
@@ -7850,14 +8213,23 @@ components:
     connection:
       type: object
       properties:
-        id:
+        code:
           type: string
-        name:
+          description: Response code.
+        message:
           type: string
-        display_name:
-          type: string
-        strategy:
-          type: string
+          description: Response message.
+        connection:
+          type: object
+          properties:
+            id:
+              type: string
+            name:
+              type: string
+            display_name:
+              type: string
+            strategy:
+              type: string
     environment_variable:
       type: object
       properties:
