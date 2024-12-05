@@ -10,16 +10,18 @@ info:
     ## Intro
 
 
-    ## Prerequisites
+    ## How to use
 
 
-    1. [Create and authorize a machine-to-machine (M2M) application for
-    accessing the Kinde Management
-    API](https://docs.kinde.com/developer-tools/kinde-api/connect-to-kinde-api/).
+    1. [Set up and authorize a machine-to-machine (M2M)
+    application](https://docs.kinde.com/developer-tools/kinde-api/connect-to-kinde-api/).
 
 
-    2. [Get access
-    tokens](https://docs.kinde.com/developer-tools/kinde-api/access-token-for-api/#get-access-tokens)
+    2. [Generate a test access
+    token](https://docs.kinde.com/developer-tools/kinde-api/access-token-for-api/)
+
+
+    3. Test request any endpoint using the test token
   termsOfService: https://docs.kinde.com/trust-center/agreements/terms-of-service/
   contact:
     name: Kinde Support Team
