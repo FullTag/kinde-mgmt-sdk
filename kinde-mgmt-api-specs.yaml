@@ -89,6 +89,16 @@ paths:
         <div>
           <code>read:apis</code>
         </div>
+      parameters:
+        - name: expand
+          in: query
+          description: Specify additional data to retrieve. Use "scopes".
+          required: false
+          schema:
+            type: string
+            nullable: true
+            enum:
+              - scopes
       responses:
         '200':
           description: A list of APIs.
@@ -211,6 +221,229 @@ paths:
           $ref: '#/components/responses/too_many_requests'
       security:
         - kindeBearerAuth: []
+  /api/v1/apis/{api_id}/scopes:
+    get:
+      tags:
+        - APIs
+      operationId: getAPIScopes
+      summary: Get API scopes
+      parameters:
+        - name: api_id
+          in: path
+          description: API ID
+          required: true
+          schema:
+            type: string
+            nullable: false
+            example: 838f208d006a482dbd8cdb79a9889f68
+      description: |
+        Retrieve API scopes by API ID.
+
+        <div>
+          <code>read:api_scopes</code>
+        </div>
+      responses:
+        '200':
+          description: API scopes successfully retrieved.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/get_api_scopes_response'
+        '400':
+          $ref: '#/components/responses/bad_request'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '429':
+          $ref: '#/components/responses/too_many_requests'
+      security:
+        - kindeBearerAuth: []
+    post:
+      tags:
+        - APIs
+      operationId: addAPIScope
+      summary: Create API scope
+      parameters:
+        - name: api_id
+          in: path
+          description: API ID
+          required: true
+          schema:
+            type: string
+            nullable: false
+            example: 838f208d006a482dbd8cdb79a9889f68
+      description: |
+        Create a new API scope.
+
+        <div>
+          <code>create:api_scopes</code>
+        </div>
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                key:
+                  type: string
+                  description: >-
+                    The key reference for the scope (1-64 characters, no white
+                    space).
+                  example: read:logs
+                description:
+                  type: string
+                  description: Description of the api scope purpose.
+                  example: Scope for reading logs.
+              required:
+                - key
+      responses:
+        '200':
+          description: API scopes successfully created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/create_api_scopes_response'
+        '400':
+          $ref: '#/components/responses/bad_request'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '429':
+          $ref: '#/components/responses/too_many_requests'
+      security:
+        - kindeBearerAuth: []
+  /api/v1/apis/{api_id}/scopes/{scope_id}:
+    get:
+      tags:
+        - APIs
+      operationId: getAPIScope
+      summary: Get API scope
+      parameters:
+        - name: api_id
+          in: path
+          description: API ID
+          required: true
+          schema:
+            type: string
+            nullable: false
+            example: 838f208d006a482dbd8cdb79a9889f68
+        - name: scope_id
+          in: path
+          description: Scope ID
+          required: true
+          schema:
+            type: string
+            nullable: false
+            example: api_scope_019391daf58d87d8a7213419c016ac95
+      description: |
+        Retrieve API scope by API ID.
+
+        <div>
+          <code>read:api_scopes</code>
+        </div>
+      responses:
+        '200':
+          description: API scope successfully retrieved.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/get_api_scope_response'
+        '400':
+          $ref: '#/components/responses/bad_request'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '429':
+          $ref: '#/components/responses/too_many_requests'
+      security:
+        - kindeBearerAuth: []
+    patch:
+      tags:
+        - APIs
+      operationId: updateAPIScope
+      summary: Update API scope
+      parameters:
+        - name: api_id
+          in: path
+          description: API ID
+          required: true
+          schema:
+            type: string
+            nullable: false
+            example: 838f208d006a482dbd8cdb79a9889f68
+        - name: scope_id
+          in: path
+          description: Scope ID
+          required: true
+          schema:
+            type: string
+            nullable: false
+            example: api_scope_019391daf58d87d8a7213419c016ac95
+      description: |
+        Update an API scope.
+
+        <div>
+          <code>update:api_scopes</code>
+        </div>
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                description:
+                  type: string
+                  description: Description of the api scope purpose.
+                  example: Scope for reading logs.
+      responses:
+        '200':
+          description: API scope successfully updated
+        '400':
+          $ref: '#/components/responses/bad_request'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '429':
+          $ref: '#/components/responses/too_many_requests'
+      security:
+        - kindeBearerAuth: []
+    delete:
+      tags:
+        - APIs
+      operationId: deleteAPIScope
+      summary: Delete API scope
+      parameters:
+        - name: api_id
+          in: path
+          description: API ID
+          required: true
+          schema:
+            type: string
+            nullable: false
+            example: 838f208d006a482dbd8cdb79a9889f68
+        - name: scope_id
+          in: path
+          description: Scope ID
+          required: true
+          schema:
+            type: string
+            nullable: false
+            example: api_scope_019391daf58d87d8a7213419c016ac95
+      description: |
+        Delete an API scope you previously created.
+
+        <div>
+          <code>delete:apis_scopes</code>
+        </div>
+      responses:
+        '200':
+          description: API scope successfully deleted.
+        '400':
+          $ref: '#/components/responses/bad_request'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '429':
+          $ref: '#/components/responses/too_many_requests'
+      security:
+        - kindeBearerAuth: []
   /api/v1/apis/{api_id}/applications:
     parameters:
       - $ref: '#/components/parameters/api_id'
@@ -260,6 +493,101 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/authorize_app_api_response'
+        '400':
+          $ref: '#/components/responses/bad_request'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '429':
+          $ref: '#/components/responses/too_many_requests'
+      security:
+        - kindeBearerAuth: []
+  /api/v1/apis/{api_id}/applications/{application_id}/scopes/{scope_id}:
+    post:
+      tags:
+        - APIs
+      operationId: addAPIApplicationScope
+      summary: Add scope to API application
+      parameters:
+        - name: api_id
+          in: path
+          description: API ID
+          required: true
+          schema:
+            type: string
+            nullable: false
+            example: 838f208d006a482dbd8cdb79a9889f68
+        - name: application_id
+          in: path
+          description: Application ID
+          required: true
+          schema:
+            type: string
+            nullable: false
+            example: 7643b487c97545aab79257fd13a1085a
+        - name: scope_id
+          in: path
+          description: Scope ID
+          required: true
+          schema:
+            type: string
+            nullable: false
+            example: api_scope_019391daf58d87d8a7213419c016ac95
+      description: |
+        Add a scope to an API application.
+
+        <div>
+          <code>create:api_application_scopes</code>
+        </div>
+      responses:
+        '200':
+          description: API scope successfully added to API application
+        '400':
+          $ref: '#/components/responses/bad_request'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '429':
+          $ref: '#/components/responses/too_many_requests'
+      security:
+        - kindeBearerAuth: []
+    delete:
+      tags:
+        - APIs
+      operationId: deleteAPIAppliationScope
+      summary: Delete API application scope
+      parameters:
+        - name: api_id
+          in: path
+          description: API ID
+          required: true
+          schema:
+            type: string
+            nullable: false
+            example: 838f208d006a482dbd8cdb79a9889f68
+        - name: application_id
+          in: path
+          description: Application ID
+          required: true
+          schema:
+            type: string
+            nullable: false
+            example: 7643b487c97545aab79257fd13a1085a
+        - name: scope_id
+          in: path
+          description: Scope ID
+          required: true
+          schema:
+            type: string
+            nullable: false
+            example: api_scope_019391daf58d87d8a7213419c016ac95
+      description: |
+        Delete an API application scope you previously created.
+
+        <div>
+          <code>delete:apis_application_scopes</code>
+        </div>
+      responses:
+        '200':
+          description: API scope successfully deleted.
         '400':
           $ref: '#/components/responses/bad_request'
         '403':
@@ -3854,6 +4182,113 @@ paths:
           description: Request was throttled.
       security:
         - kindeBearerAuth: []
+  /api/v1/organizations/{org_code}/users/{user_id}/apis/{api_id}/scopes/{scope_id}:
+    post:
+      tags:
+        - Organizations
+      operationId: addOrganizationUserAPIScope
+      summary: Add scope to organization user api
+      parameters:
+        - name: org_code
+          in: path
+          description: The identifier for the organization.
+          required: true
+          schema:
+            type: string
+        - name: user_id
+          in: path
+          description: User ID
+          required: true
+          schema:
+            type: string
+            nullable: false
+            example: kp_5ce676e5d6a24bc9aac2fba35a46e958
+        - name: api_id
+          in: path
+          description: API ID
+          required: true
+          schema:
+            type: string
+            nullable: false
+            example: 838f208d006a482dbd8cdb79a9889f68
+        - name: scope_id
+          in: path
+          description: Scope ID
+          required: true
+          schema:
+            type: string
+            nullable: false
+            example: api_scope_019391daf58d87d8a7213419c016ac95
+      description: |
+        Add a scope to an organization user api.
+
+        <div>
+          <code>create:organization_user_api_scopes</code>
+        </div>
+      responses:
+        '200':
+          description: API scope successfully added to organization user api
+        '400':
+          $ref: '#/components/responses/bad_request'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '429':
+          $ref: '#/components/responses/too_many_requests'
+      security:
+        - kindeBearerAuth: []
+    delete:
+      tags:
+        - Organizations
+      operationId: deleteOrganizationUserAPIScope
+      summary: Delete scope from organization user API
+      parameters:
+        - name: org_code
+          in: path
+          description: The identifier for the organization.
+          required: true
+          schema:
+            type: string
+        - name: user_id
+          in: path
+          description: User ID
+          required: true
+          schema:
+            type: string
+            nullable: false
+            example: kp_5ce676e5d6a24bc9aac2fba35a46e958
+        - name: api_id
+          in: path
+          description: API ID
+          required: true
+          schema:
+            type: string
+            nullable: false
+            example: 838f208d006a482dbd8cdb79a9889f68
+        - name: scope_id
+          in: path
+          description: Scope ID
+          required: true
+          schema:
+            type: string
+            nullable: false
+            example: api_scope_019391daf58d87d8a7213419c016ac95
+      description: |
+        Delete a scope from an organization user api you previously created.
+
+        <div>
+          <code>delete:organization_user_api_scopes</code>
+        </div>
+      responses:
+        '200':
+          description: Organization user API scope successfully deleted.
+        '400':
+          $ref: '#/components/responses/bad_request'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '429':
+          $ref: '#/components/responses/too_many_requests'
+      security:
+        - kindeBearerAuth: []
   /api/v1/organizations/{org_code}/feature_flags:
     get:
       tags:
@@ -6949,6 +7384,17 @@ components:
                 type: boolean
                 description: Whether or not it is the Kinde management API.
                 example: false
+              scopes:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: api_scope_01939128c3d7193ae87c4755213c07c6
+                    key:
+                      type: string
+                      example: create:apis
     create_apis_response:
       type: object
       properties:
@@ -6967,6 +7413,24 @@ components:
               description: The unique ID for the API.
               type: string
               example: 7ccd126599aa422a771abcb341596881
+    create_api_scopes_response:
+      type: object
+      properties:
+        message:
+          type: string
+          description: A Kinde generated message.
+          example: Success
+        code:
+          type: string
+          description: A Kinde generated status code.
+          example: OK
+        scope:
+          type: object
+          properties:
+            id:
+              description: The unique ID for the API scope.
+              type: string
+              example: api_scope_0193ab57965aef77b2b687d0ef673713
     get_environment_variables_response:
       type: object
       properties:
@@ -7183,6 +7647,19 @@ components:
               type: boolean
               description: Whether or not it is the Kinde management API.
               example: false
+            scopes:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: The ID of the scope.
+                    example: api_scope_01939222ef24200668b9f5829af001ce
+                  key:
+                    type: string
+                    description: The reference key for the scope.
+                    example: read:logs
             applications:
               type: array
               items:
@@ -7211,6 +7688,60 @@ components:
                       API
                     example: true
                     nullable: true
+    get_api_scopes_response:
+      type: object
+      properties:
+        code:
+          type: string
+          description: Response code.
+          example: OK
+        message:
+          type: string
+          description: Response message.
+          example: success_response
+        scopes:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                description: Unique ID of the API scope.
+                example: api_scope_01939128c3d7193ae87c4755213c07c6
+              key:
+                type: string
+                description: The scope's reference key.
+                example: read:logs
+              description:
+                type: string
+                description: Explanation of the scope purpose.
+                example: Read logs scope
+    get_api_scope_response:
+      type: object
+      properties:
+        code:
+          type: string
+          description: Response code.
+          example: OK
+        message:
+          type: string
+          description: Response message.
+          example: success_response
+        scope:
+          type: object
+          properties:
+            id:
+              type: string
+              description: Unique ID of the API scope.
+              example: api_scope_01939128c3d7193ae87c4755213c07c6
+            key:
+              type: string
+              description: The scope's reference key.
+              example: read:logs
+            description:
+              type: string
+              description: Explanation of the scope purpose.
+              example: Read logs scope
     authorize_app_api_response:
       type: object
       properties:
