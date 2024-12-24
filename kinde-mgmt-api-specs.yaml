@@ -58,6 +58,8 @@ tags:
     x-displayName: Feature Flags
   - name: Identities
     x-displayName: Identities
+  - name: MFA
+    x-displayName: MFA
   - name: Organizations
     x-displayName: Organizations
   - name: Permissions
@@ -3246,6 +3248,64 @@ paths:
           description: Request was throttled.
       security:
         - kindeBearerAuth: []
+  /api/v1/mfa:
+    put:
+      tags:
+        - MFA
+      operationId: ReplaceMFA
+      description: |
+        Replace MFA Configuration.
+
+        <div>
+          <code>update:mfa</code>
+        </div>
+      summary: Replace MFA Configuration
+      requestBody:
+        description: MFA details.
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                policy:
+                  description: >-
+                    Specifies whether MFA is required, optional, or not
+                    enforced.
+                  type: string
+                  enum:
+                    - required
+                    - 'off'
+                    - optional
+                  nullable: false
+                enabled_factors:
+                  description: The MFA methods to enable.
+                  type: array
+                  nullable: false
+                  items:
+                    type: string
+                    enum:
+                      - mfa:email
+                      - mfa:sms
+                      - mfa:authenticator_app
+              required:
+                - policy
+                - enabled_factors
+      responses:
+        '200':
+          description: MFA Configuration updated successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success_response'
+        '400':
+          $ref: '#/components/responses/bad_request'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '429':
+          $ref: '#/components/responses/too_many_requests'
+      security:
+        - kindeBearerAuth: []
   /api/v1/organization:
     get:
       tags:
@@ -3541,6 +3601,14 @@ paths:
                     - https://acme.com
                   items:
                     type: string
+                is_enable_advanced_orgs:
+                  description: Activate advanced organization features.
+                  type: boolean
+                  example: true
+                is_enforce_mfa:
+                  description: Enforce MFA for all users in this organization.
+                  type: boolean
+                  example: true
       responses:
         '200':
           description: Organization successfully updated.
@@ -4285,6 +4353,57 @@ paths:
           $ref: '#/components/responses/bad_request'
         '403':
           $ref: '#/components/responses/forbidden'
+        '429':
+          $ref: '#/components/responses/too_many_requests'
+      security:
+        - kindeBearerAuth: []
+  /api/v1/organizations/{org_code}/users/{user_id}/mfa/{factor_id}:
+    delete:
+      tags:
+        - Organizations
+      operationId: ResetOrgUserMFA
+      description: |
+        Reset an organization user’s MFA.
+
+        <div>
+          <code>delete:organization_user_mfa</code>
+        </div>
+      summary: Reset MFA for a user
+      parameters:
+        - name: org_code
+          in: path
+          description: The identifier for the organization.
+          required: true
+          schema:
+            type: string
+            example: org_1ccfb819462
+        - name: user_id
+          in: path
+          description: The identifier for the user
+          required: true
+          schema:
+            type: string
+            example: kp_c3143a4b50ad43c88e541d9077681782
+        - name: factor_id
+          in: path
+          description: The identifier for the MFA factor
+          required: true
+          schema:
+            type: string
+            example: mfa_0193278a00ac29b3f6d4e4d462d55c47
+      responses:
+        '200':
+          description: User's MFA successfully reset.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success_response'
+        '400':
+          $ref: '#/components/responses/bad_request'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '404':
+          $ref: '#/components/responses/not_found'
         '429':
           $ref: '#/components/responses/too_many_requests'
       security:
@@ -6786,6 +6905,87 @@ paths:
           $ref: '#/components/responses/too_many_requests'
       security:
         - kindeBearerAuth: []
+  /api/v1/users/{user_id}/mfa:
+    get:
+      tags:
+        - Users
+      operationId: GetUsersMFA
+      description: |
+        Get a user’s MFA configuration.
+
+        <div>
+          <code>get:user_mfa</code>
+        </div>
+      summary: Get user's MFA configuration
+      parameters:
+        - name: user_id
+          in: path
+          description: The identifier for the user
+          required: true
+          schema:
+            type: string
+            example: kp_c3143a4b50ad43c88e541d9077681782
+      responses:
+        '200':
+          description: Successfully retrieve user's MFA configuration.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/get_user_mfa_response'
+        '400':
+          $ref: '#/components/responses/bad_request'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '404':
+          $ref: '#/components/responses/not_found'
+        '429':
+          $ref: '#/components/responses/too_many_requests'
+      security:
+        - kindeBearerAuth: []
+  /api/v1/users/{user_id}/mfa/{factor_id}:
+    delete:
+      tags:
+        - Users
+      operationId: ResetUsersMFA
+      description: |
+        Reset a user’s MFA.
+
+        <div>
+          <code>delete:user_mfa</code>
+        </div>
+      summary: Reset MFA for a user
+      parameters:
+        - name: user_id
+          in: path
+          description: The identifier for the user
+          required: true
+          schema:
+            type: string
+            example: kp_c3143a4b50ad43c88e541d9077681782
+        - name: factor_id
+          in: path
+          description: The identifier for the MFA factor
+          required: true
+          schema:
+            type: string
+            example: mfa_0193278a00ac29b3f6d4e4d462d55c47
+      responses:
+        '200':
+          description: User's MFA successfully reset.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success_response'
+        '400':
+          $ref: '#/components/responses/bad_request'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '404':
+          $ref: '#/components/responses/not_found'
+        '429':
+          $ref: '#/components/responses/too_many_requests'
+      security:
+        - kindeBearerAuth: []
   /api/v1/events/{event_id}:
     get:
       tags:
@@ -8015,6 +8215,46 @@ components:
         has_more:
           description: Whether more records exist.
           type: boolean
+    get_user_mfa_response:
+      type: object
+      properties:
+        message:
+          type: string
+        code:
+          type: string
+        mfa:
+          type: object
+          properties:
+            id:
+              description: The MFA's identifier.
+              type: string
+              example: mfa_01933d1ca1f093e7fad48ebcdb65a871
+            type:
+              description: The type of MFA (e.g. email, SMS, authenticator app).
+              type: string
+              example: email
+            created_on:
+              description: The timestamp when the MFA was created.
+              type: string
+              format: date-time
+              example: '2024-11-18T13:31:46.795085+11:00'
+            name:
+              description: The identifier used for MFA (e.g. email address, phone number).
+              type: string
+              example: sally@gmail.com
+            is_verified:
+              description: Whether the MFA is verified or not.
+              type: boolean
+              example: true
+            usage_count:
+              description: The number of times MFA has been used.
+              type: integer
+              example: 2
+            last_used_on:
+              description: The timestamp when the MFA was last used.
+              type: string
+              format: date-time
+              example: '2024-11-18T13:32:07.22538+11:00'
     get_properties_response:
       type: object
       properties:
