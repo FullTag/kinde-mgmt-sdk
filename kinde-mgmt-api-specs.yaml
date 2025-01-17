@@ -4357,6 +4357,50 @@ paths:
           $ref: '#/components/responses/too_many_requests'
       security:
         - kindeBearerAuth: []
+  /api/v1/organizations/{org_code}/users/{user_id}/mfa:
+    get:
+      tags:
+        - Organizations
+      operationId: GetOrgUserMFA
+      description: |
+        Get an organization user’s MFA configuration.
+
+        <div>
+          <code>read:organization_user_mfa</code>
+        </div>
+      summary: Get an organization user's MFA configuration
+      parameters:
+        - name: org_code
+          in: path
+          description: The identifier for the organization.
+          required: true
+          schema:
+            type: string
+            example: org_1ccfb819462
+        - name: user_id
+          in: path
+          description: The identifier for the user
+          required: true
+          schema:
+            type: string
+            example: kp_c3143a4b50ad43c88e541d9077681782
+      responses:
+        '200':
+          description: Successfully retrieve user's MFA configuration.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/get_user_mfa_response'
+        '400':
+          $ref: '#/components/responses/bad_request'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '404':
+          $ref: '#/components/responses/not_found'
+        '429':
+          $ref: '#/components/responses/too_many_requests'
+      security:
+        - kindeBearerAuth: []
   /api/v1/organizations/{org_code}/users/{user_id}/mfa/{factor_id}:
     delete:
       tags:
@@ -4756,6 +4800,60 @@ paths:
           description: Invalid credentials.
         '429':
           description: Request was throttled.
+      security:
+        - kindeBearerAuth: []
+  /api/v1/organizations/{org_code}/mfa:
+    put:
+      tags:
+        - Organizations
+      operationId: ReplaceOrganizationMFA
+      description: |
+        Replace Organization MFA Configuration.
+
+        <div>
+          <code>update:organization_mfa</code>
+        </div>
+      summary: Replace Organization MFA Configuration
+      parameters:
+        - name: org_code
+          in: path
+          description: The identifier for the organization
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: MFA details.
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                enabled_factors:
+                  description: The MFA methods to enable.
+                  type: array
+                  nullable: false
+                  items:
+                    type: string
+                    enum:
+                      - mfa:email
+                      - mfa:sms
+                      - mfa:authenticator_app
+              required:
+                - enabled_factors
+      responses:
+        '200':
+          description: MFA Configuration updated successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success_response'
+        '400':
+          $ref: '#/components/responses/bad_request'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '429':
+          $ref: '#/components/responses/too_many_requests'
       security:
         - kindeBearerAuth: []
   /api/v1/organization/{org_code}/handle:
