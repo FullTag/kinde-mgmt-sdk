@@ -7012,7 +7012,7 @@ paths:
         Get a user’s MFA configuration.
 
         <div>
-          <code>get:user_mfa</code>
+          <code>read:user_mfa</code>
         </div>
       summary: Get user's MFA configuration
       parameters:
