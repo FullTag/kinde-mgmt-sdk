@@ -3676,6 +3676,7 @@ paths:
           in: query
           description: Field and order to sort the result by.
           schema:
+            example: email_asc
             type: string
             nullable: true
             enum:
@@ -3689,12 +3690,14 @@ paths:
           in: query
           description: Number of results per page. Defaults to 10 if parameter not sent.
           schema:
+            example: 10
             type: integer
             nullable: true
         - name: next_token
           in: query
           description: A string to get the next page of results if there are more results.
           schema:
+            example: MTo6OmlkX2FzYw==
             type: string
             nullable: true
         - name: org_code
@@ -3709,11 +3712,13 @@ paths:
           in: query
           description: Filter by user permissions comma separated (where all match)
           schema:
+            example: admin
             type: string
         - name: roles
           in: query
           description: Filter by user roles comma separated (where all match)
           schema:
+            example: manager
             type: string
       responses:
         '200':
@@ -3767,16 +3772,19 @@ paths:
                       id:
                         description: The users id.
                         type: string
+                        example: kp_057ee6debc624c70947b6ba512908c35
                       roles:
                         description: Role keys to assign to the user.
                         type: array
                         items:
                           type: string
+                          example: manager
                       permissions:
                         description: Permission keys to assign to the user.
                         type: array
                         items:
                           type: string
+                          example: admin
       responses:
         '200':
           description: Users successfully added.
@@ -3784,24 +3792,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/add_organization_users_response'
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/add_organization_users_response'
         '204':
           description: No users added.
         '400':
-          description: Bad request.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error_response'
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/error_response'
+          $ref: '#/components/responses/bad_request'
         '403':
-          description: Invalid credentials.
+          $ref: '#/components/responses/forbidden'
         '429':
-          description: Request was throttled.
+          $ref: '#/components/responses/too_many_requests'
       security:
         - kindeBearerAuth: []
     patch:
@@ -3839,21 +3837,25 @@ paths:
                       id:
                         description: The users id.
                         type: string
+                        example: kp_057ee6debc624c70947b6ba512908c35
                       operation:
                         description: >-
                           Optional operation, set to 'delete' to remove the user
                           from the organization.
                         type: string
+                        example: delete
                       roles:
                         description: Role keys to assign to the user.
                         type: array
                         items:
                           type: string
+                          example: manager
                       permissions:
                         description: Permission keys to assign to the user.
                         type: array
                         items:
                           type: string
+                          example: admin
       responses:
         '200':
           description: Users successfully removed.
@@ -3861,22 +3863,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/update_organization_users_response'
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/update_organization_users_response'
         '400':
-          description: Error updating organization user.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error_response'
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/error_response'
+          $ref: '#/components/responses/bad_request'
         '403':
-          description: Invalid credentials.
+          $ref: '#/components/responses/forbidden'
         '429':
-          description: Request was throttled.
+          $ref: '#/components/responses/too_many_requests'
       security:
         - kindeBearerAuth: []
   /api/v1/organizations/{org_code}/users/{user_id}/roles:
@@ -6168,7 +6160,9 @@ paths:
             nullable: true
         - name: user_id
           in: query
-          description: ID of the user to filter by.
+          description: >-
+            Filter the results by User ID. The query string should be comma
+            separated and url encoded.
           schema:
             type: string
             nullable: true
@@ -9043,10 +9037,12 @@ components:
           type: string
           example: kp:97c2ba24217d48e3b96a799b76cf2c74
           description: The unique ID for the user.
+          nullable: true
         email:
           type: string
           example: john.snow@example.com
           description: The user's email address.
+          nullable: true
         full_name:
           type: string
           example: John Snow
@@ -9055,14 +9051,17 @@ components:
           type: string
           example: Snow
           description: The user's last name.
+          nullable: true
         first_name:
           type: string
           example: John
           description: The user's first name.
+          nullable: true
         picture:
           type: string
           example: https://example.com/john_snow.jpg
           description: The user's profile picture URL.
+          nullable: true
         joined_on:
           type: string
           example: '2021-01-01T00:00:00Z'
@@ -9499,18 +9498,25 @@ components:
       properties:
         message:
           type: string
+          example: Success
+        code:
+          type: string
+          example: OK
         users_added:
           type: array
           items:
             type: string
+            example: kp_057ee6debc624c70947b6ba512908c35
         users_updated:
           type: array
           items:
             type: string
+            example: kp_057ee6debc624c70947b6ba512908c35
         users_removed:
           type: array
           items:
             type: string
+            example: kp_057ee6debc624c70947b6ba512908c35
     connected_apps_auth_url:
       type: object
       properties:
