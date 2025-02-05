@@ -4893,6 +4893,147 @@ paths:
           description: Request was throttled.
       security:
         - kindeBearerAuth: []
+  /api/v1/organizations/{org_code}/logos:
+    get:
+      tags:
+        - Organizations
+      operationId: ReadOrganizationLogo
+      description: |
+        Read organization logo details
+
+        <div>
+          <code>read:organizations</code>
+        </div>
+      summary: Read organization logo details
+      parameters:
+        - name: org_code
+          in: path
+          description: The organization's code.
+          required: true
+          schema:
+            type: string
+            nullable: false
+            example: org_1ccfb819462
+      responses:
+        '200':
+          description: Successfully retrieved organization logo details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/read_logo_response'
+        '400':
+          $ref: '#/components/responses/bad_request'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '429':
+          $ref: '#/components/responses/too_many_requests'
+      security:
+        - kindeBearerAuth: []
+  /api/v1/organizations/{org_code}/logos/{type}:
+    post:
+      tags:
+        - Organizations
+      operationId: AddOrganizationLogo
+      description: |
+        Add organization logo
+
+        <div>
+          <code>update:organizations</code>
+        </div>
+      summary: Add organization logo
+      parameters:
+        - name: org_code
+          in: path
+          description: The organization's code.
+          required: true
+          schema:
+            type: string
+            nullable: false
+            example: org_1ccfb819462
+        - name: type
+          in: path
+          description: The type of logo to add.
+          required: true
+          schema:
+            type: string
+            example: dark
+            enum:
+              - dark
+              - light
+      requestBody:
+        description: Organization logo details.
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+                - logo
+              properties:
+                logo:
+                  type: string
+                  format: binary
+                  description: The logo file to upload.
+      responses:
+        '200':
+          description: Organization logo successfully updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success_response'
+        '400':
+          $ref: '#/components/responses/bad_request'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '429':
+          $ref: '#/components/responses/too_many_requests'
+      security:
+        - kindeBearerAuth: []
+    delete:
+      tags:
+        - Organizations
+      operationId: DeleteOrganizationLogo
+      description: |
+        Delete organization logo
+
+        <div>
+          <code>update:organizations</code>
+        </div>
+      summary: Delete organization logo
+      parameters:
+        - name: org_code
+          in: path
+          description: The organization's code.
+          required: true
+          schema:
+            type: string
+            nullable: false
+            example: org_1ccfb819462
+        - name: type
+          in: path
+          description: The type of logo to delete.
+          required: true
+          schema:
+            type: string
+            example: dark
+            enum:
+              - dark
+              - light
+      responses:
+        '200':
+          description: Organization logo successfully deleted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success_response'
+        '400':
+          $ref: '#/components/responses/bad_request'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '429':
+          $ref: '#/components/responses/too_many_requests'
+      security:
+        - kindeBearerAuth: []
   /api/v1/permissions:
     get:
       tags:
@@ -9748,6 +9889,35 @@ components:
         next_token:
           type: string
           description: Pagination token.
+    read_logo_response:
+      type: object
+      properties:
+        code:
+          type: string
+          description: Response code.
+          example: OK
+        logos:
+          type: array
+          description: A list of logos.
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+                description: The type of logo (light or dark).
+                example: light
+              file_name:
+                type: string
+                description: The name of the logo file.
+                example: kinde_light.jpeg
+              path:
+                type: string
+                description: The relative path to the logo file.
+                example: /logo?p_org_code=org_1767f11ce62
+        message:
+          type: string
+          description: Response message.
+          example: Success
     user_profile_v2:
       type: object
       properties:
