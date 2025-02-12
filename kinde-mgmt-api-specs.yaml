@@ -3431,6 +3431,18 @@ paths:
                 is_custom_auth_connections_enabled:
                   description: Enable custom auth connections for this organization.
                   type: boolean
+                sender_name:
+                  nullable: true
+                  type: string
+                  example: Acme Corp
+                  description: The name of the organization that will be used in emails
+                sender_email:
+                  nullable: true
+                  type: string
+                  example: hello@acmecorp.com
+                  description: >-
+                    The email address that will be used in emails. Requires
+                    custom SMTP to be set up.
       responses:
         '200':
           description: Organization successfully created.
@@ -3609,6 +3621,18 @@ paths:
                   description: Enforce MFA for all users in this organization.
                   type: boolean
                   example: true
+                sender_name:
+                  nullable: true
+                  type: string
+                  example: Acme Corp
+                  description: The name of the organization that will be used in emails
+                sender_email:
+                  nullable: true
+                  type: string
+                  example: hello@acmecorp.com
+                  description: >-
+                    The email address that will be used in emails. Requires
+                    custom SMTP to be set up.
       responses:
         '200':
           description: Organization successfully updated.
@@ -9171,6 +9195,18 @@ components:
           example: true
           deprecated: true
           description: Deprecated - Use 'is_auto_membership_enabled' instead
+        sender_name:
+          nullable: true
+          type: string
+          example: Acme Corp
+          description: The name of the organization that will be used in emails
+        sender_email:
+          nullable: true
+          type: string
+          example: hello@acmecorp.com
+          description: >-
+            The email address that will be used in emails. Requires custom SMTP
+            to be set up.
     organization_user:
       type: object
       properties:
