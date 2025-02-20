@@ -5060,6 +5060,121 @@ paths:
           $ref: '#/components/responses/too_many_requests'
       security:
         - kindeBearerAuth: []
+  /api/v1/organizations/{organization_code}/connections:
+    get:
+      tags:
+        - Organizations
+      operationId: GetOrganizationConnections
+      description: |
+        Gets all connections for an organization.
+
+        <div>
+          <code>read:organization_connections</code>
+        </div>
+      summary: Get connections
+      parameters:
+        - name: organization_code
+          in: path
+          description: The organization code.
+          required: true
+          schema:
+            type: string
+            nullable: false
+            example: org_7d45b01ef13
+      responses:
+        '200':
+          description: Organization connections successfully retrieved.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/get_connections_response'
+        '400':
+          $ref: '#/components/responses/bad_request'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '429':
+          $ref: '#/components/responses/too_many_requests'
+      security:
+        - kindeBearerAuth: []
+  /api/v1/organizations/{organization_code}/connections/{connection_id}:
+    post:
+      tags:
+        - Organizations
+      operationId: EnableOrgConnection
+      summary: Enable connection
+      description: |
+        Enable an auth connection for an organization.
+
+        <div>
+          <code>create:organization_connections</code>
+        </div>
+      parameters:
+        - name: organization_code
+          in: path
+          description: The unique code for the organization.
+          required: true
+          schema:
+            type: string
+            example: org_7d45b01ef13
+        - name: connection_id
+          in: path
+          description: The identifier for the connection.
+          required: true
+          schema:
+            type: string
+            example: conn_0192c16abb53b44277e597d31877ba5b
+      responses:
+        '200':
+          description: Connection successfully enabled.
+        '400':
+          $ref: '#/components/responses/bad_request'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '429':
+          $ref: '#/components/responses/too_many_requests'
+      security:
+        - kindeBearerAuth: []
+    delete:
+      tags:
+        - Organizations
+      operationId: RemoveOrgConnection
+      summary: Remove connection
+      description: |
+        Turn off an auth connection for an organization
+
+        <div>
+          <code>delete:organization_connections</code>
+        </div>
+      parameters:
+        - name: organization_code
+          in: path
+          description: The unique code for the organization.
+          required: true
+          schema:
+            type: string
+            example: org_7d45b01ef13
+        - name: connection_id
+          in: path
+          description: The identifier for the connection.
+          required: true
+          schema:
+            type: string
+            example: conn_0192c16abb53b44277e597d31877ba5b
+      responses:
+        '200':
+          description: Connection successfully removed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success_response'
+        '400':
+          $ref: '#/components/responses/bad_request'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '429':
+          $ref: '#/components/responses/too_many_requests'
+      security:
+        - kindeBearerAuth: []
   /api/v1/permissions:
     get:
       tags:
@@ -8317,6 +8432,9 @@ components:
         preferred_email:
           type: string
           description: Default email address of the user in Kinde.
+        phone:
+          type: string
+          description: User's primary phone number.
         username:
           type: string
           description: Primary username of the user in Kinde.
@@ -8416,6 +8534,9 @@ components:
               email:
                 type: string
                 description: Default email address of the user in Kinde.
+              phone:
+                type: string
+                description: User's primary phone number.
               username:
                 type: string
                 description: Primary username of the user in Kinde.
