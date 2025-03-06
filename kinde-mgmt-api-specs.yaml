@@ -6077,6 +6077,138 @@ paths:
           $ref: '#/components/responses/too_many_requests'
       security:
         - kindeBearerAuth: []
+  /api/v1/roles/{role_id}/scopes:
+    get:
+      tags:
+        - Roles
+      operationId: GetRoleScopes
+      description: |
+        Get scopes for a role.
+
+        <div>
+          <code>read:role_scopes</code>
+        </div>
+      summary: Get role scopes
+      parameters:
+        - name: role_id
+          in: path
+          description: The role id.
+          required: true
+          schema:
+            type: string
+            nullable: false
+      responses:
+        '200':
+          description: A list of scopes for a role
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/role_scopes_response'
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/role_scopes_response'
+        '400':
+          description: Error removing user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_response'
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/error_response'
+        '403':
+          description: Invalid credentials.
+        '429':
+          description: Request was throttled.
+      security:
+        - kindeBearerAuth: []
+    post:
+      tags:
+        - Roles
+      operationId: AddRoleScope
+      description: |
+        Add scope to role.
+
+        <div>
+          <code>create:role_scopes</code>
+        </div>
+      summary: Add role scope
+      parameters:
+        - name: role_id
+          in: path
+          description: The role id.
+          required: true
+          schema:
+            type: string
+            nullable: false
+      requestBody:
+        description: Add scope to role.
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                scope_id:
+                  description: The scope identifier.
+                  type: string
+      responses:
+        '201':
+          description: Role scope successfully added.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/add_role_scope_response'
+        '400':
+          $ref: '#/components/responses/bad_request'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '429':
+          $ref: '#/components/responses/too_many_requests'
+      security:
+        - kindeBearerAuth: []
+  /api/v1/roles/{role_id}/scopes/{scope_id}:
+    delete:
+      tags:
+        - Roles
+      operationId: DeleteRoleScope
+      description: |
+        Delete scope from role.
+
+        <div>
+          <code>delete:role_scopes</code>
+        </div>
+      summary: Delete role scope
+      parameters:
+        - name: role_id
+          in: path
+          description: The role id.
+          required: true
+          schema:
+            type: string
+            nullable: false
+        - name: scope_id
+          in: path
+          description: The scope id.
+          required: true
+          schema:
+            type: string
+            nullable: false
+      responses:
+        '200':
+          description: Role scope successfully deleted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/delete_role_scope_response'
+        '400':
+          $ref: '#/components/responses/bad_request'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '429':
+          $ref: '#/components/responses/too_many_requests'
+      security:
+        - kindeBearerAuth: []
   /api/v1/roles/{role_id}/permissions:
     get:
       tags:
@@ -9817,6 +9949,28 @@ components:
             id:
               type: string
               description: The role's ID.
+    add_role_scope_response:
+      type: object
+      properties:
+        code:
+          type: string
+          description: Response code.
+          example: ROLE_SCOPE_ADDED
+        message:
+          type: string
+          description: Response message.
+          example: Scope added to role
+    delete_role_scope_response:
+      type: object
+      properties:
+        code:
+          type: string
+          description: Response code.
+          example: SCOPE_DELETED
+        message:
+          type: string
+          description: Response message.
+          example: Scope deleted from role
     get_organizations_response:
       type: object
       properties:
@@ -10180,6 +10334,25 @@ components:
         description:
           type: string
           description: The permission's description.
+    scopes:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Scope ID.
+          example: api_scope_019541f3fa0c874fc47b3ae73585b21c
+        key:
+          type: string
+          description: Scope key.
+          example: create:users
+        description:
+          type: string
+          description: Description of scope.
+          example: Create users
+        api_id:
+          type: string
+          description: API ID.
+          example: 3635b4431f174de6b789c67481bd0c7a
     roles:
       type: object
       properties:
@@ -10215,6 +10388,21 @@ components:
         next_token:
           type: string
           description: Pagination token.
+    role_scopes_response:
+      type: object
+      properties:
+        code:
+          type: string
+          description: Response code.
+          example: OK
+        message:
+          type: string
+          description: Response message.
+          example: Success
+        scopes:
+          type: array
+          items:
+            $ref: '#/components/schemas/scopes'
     read_logo_response:
       type: object
       properties:
