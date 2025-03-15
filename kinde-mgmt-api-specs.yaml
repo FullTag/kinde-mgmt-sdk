@@ -1937,6 +1937,13 @@ paths:
                   type: array
                   items:
                     type: string
+                organization_code:
+                  description: >-
+                    Enterprise connections only - the code for organization that
+                    manages this connection.
+                  type: string
+                  nullable: true
+                  example: org_80581732fbe
                 options:
                   oneOf:
                     - type: object
@@ -1995,6 +2002,12 @@ paths:
                           type: boolean
                           description: Include additional user profile information.
                           example: true
+                        is_auto_join_organization_enabled:
+                          type: boolean
+                          description: >-
+                            Users automatically join organization when using
+                            this connection.
+                          example: true
                     - type: object
                       description: SAML connection options (e.g., Cloudflare SAML).
                       properties:
@@ -2052,6 +2065,12 @@ paths:
                             MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCy5+KLjTzF6tvl
 
                             -----END PRIVATE KEY-----
+                        is_auto_join_organization_enabled:
+                          type: boolean
+                          description: >-
+                            Users automatically join organization when using
+                            this connection.
+                          example: true
       responses:
         '201':
           description: Connection successfully created.
@@ -2499,7 +2518,7 @@ paths:
       operationId: getEnvironment
       summary: Get environment
       description: |
-        Get's the current environment.
+        Gets the current environment.
 
         <div>
           <code>read:environments</code>
@@ -2691,6 +2710,124 @@ paths:
           description: Invalid credentials.
         '429':
           description: Request was throttled.
+      security:
+        - kindeBearerAuth: []
+  /api/v1/environment/logos:
+    get:
+      tags:
+        - Environments
+      operationId: ReadLogo
+      description: |
+        Read environment logo details
+
+        <div>
+          <code>read:environments</code>
+        </div>
+      summary: Read logo details
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/read_env_logo_response'
+        '400':
+          $ref: '#/components/responses/bad_request'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '429':
+          $ref: '#/components/responses/too_many_requests'
+      security:
+        - kindeBearerAuth: []
+  /api/v1/environment/logos/{type}:
+    put:
+      tags:
+        - Environments
+      operationId: AddLogo
+      description: |
+        Add environment logo
+
+        <div>
+          <code>update:environments</code>
+        </div>
+      summary: Add logo
+      parameters:
+        - name: type
+          in: path
+          description: The type of logo to add.
+          required: true
+          schema:
+            type: string
+            example: dark
+            enum:
+              - dark
+              - light
+      requestBody:
+        description: Logo details.
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+                - logo
+              properties:
+                logo:
+                  type: string
+                  format: binary
+                  description: The logo file to upload.
+      responses:
+        '200':
+          description: Logo successfully updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success_response'
+        '400':
+          $ref: '#/components/responses/bad_request'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '429':
+          $ref: '#/components/responses/too_many_requests'
+      security:
+        - kindeBearerAuth: []
+    delete:
+      tags:
+        - Environments
+      operationId: DeleteLogo
+      description: |
+        Delete environment logo
+
+        <div>
+          <code>update:environments</code>
+        </div>
+      summary: Delete logo
+      parameters:
+        - name: type
+          in: path
+          description: The type of logo to delete.
+          required: true
+          schema:
+            type: string
+            example: dark
+            enum:
+              - dark
+              - light
+      responses:
+        '200':
+          description: Logo successfully deleted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success_response'
+        '204':
+          description: No logo found to delete
+        '400':
+          $ref: '#/components/responses/bad_request'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '429':
+          $ref: '#/components/responses/too_many_requests'
       security:
         - kindeBearerAuth: []
   /api/v1/environment_variables:
@@ -3430,9 +3567,6 @@ paths:
                     code is supplied during authentication.
                   type: boolean
                   example: true
-                is_custom_auth_connections_enabled:
-                  description: Enable custom auth connections for this organization.
-                  type: boolean
                 sender_name:
                   nullable: true
                   type: string
@@ -3599,10 +3733,6 @@ paths:
                   deprecated: true
                   description: Deprecated - Use 'is_auto_membership_enabled' instead.
                   type: boolean
-                is_custom_auth_connections_enabled:
-                  description: Enable custom auth connections for this organization.
-                  type: boolean
-                  example: true
                 is_auto_join_domain_list:
                   description: Users can sign up to this organization.
                   type: boolean
@@ -5052,6 +5182,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success_response'
+        '204':
+          description: No logo found to delete
         '400':
           $ref: '#/components/responses/bad_request'
         '403':
@@ -7423,8 +7555,8 @@ paths:
                 connection_id:
                   type: string
                   description: >-
-                    The social connection ID, only required when identity type
-                    is 'social'.
+                    The social or enterprise connection ID, only required when
+                    identity type is 'social' or 'enterprise'.
                   example: conn_019289347f1193da6c0e4d49b97b4bd2
       responses:
         '201':
@@ -10428,6 +10560,31 @@ components:
                 type: string
                 description: The relative path to the logo file.
                 example: /logo?p_org_code=org_1767f11ce62
+        message:
+          type: string
+          description: Response message.
+          example: Success
+    read_env_logo_response:
+      type: object
+      properties:
+        code:
+          type: string
+          description: Response code.
+          example: OK
+        logos:
+          type: array
+          description: A list of logos.
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+                description: The type of logo (light or dark).
+                example: light
+              file_name:
+                type: string
+                description: The name of the logo file.
+                example: kinde_light.jpeg
         message:
           type: string
           description: Response message.
