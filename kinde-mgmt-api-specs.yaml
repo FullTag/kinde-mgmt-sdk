@@ -1822,19 +1822,28 @@ paths:
       tags:
         - Connections
       operationId: GetConnections
-      description: |
-        Returns a list of Connections
+      description: >
+        Returns a list of authentication connections. Optionally you can filter
+        this by a home realm domain.
+
 
         <div>
           <code>read:connections</code>
         </div>
-      summary: List Connections
+      summary: Get connections
       parameters:
         - name: page_size
           in: query
           description: Number of results per page. Defaults to 10 if parameter not sent.
           schema:
             type: integer
+            nullable: true
+        - name: home_realm_domain
+          in: query
+          description: Filter the results by the home realm domain.
+          schema:
+            example: myapp.com
+            type: string
             nullable: true
         - name: starting_after
           in: query
