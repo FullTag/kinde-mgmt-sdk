@@ -38,6 +38,12 @@ tags:
     x-displayName: APIs
   - name: Applications
     x-displayName: Applications
+  - name: Billing Entitlements
+    x-displayName: Billing Entitlements
+  - name: Billing Agreements
+    x-displayName: Billing Agreements
+  - name: Billing Meter Usage
+    x-displayName: Billing Meter Usage
   - name: Business
     x-displayName: Business
   - name: Industries
@@ -1074,6 +1080,293 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success_response'
+        '400':
+          $ref: '#/components/responses/bad_request'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '429':
+          $ref: '#/components/responses/too_many_requests'
+      security:
+        - kindeBearerAuth: []
+  /api/v1/billing/entitlements:
+    get:
+      tags:
+        - Billing Entitlements
+      operationId: getBillingEntitlements
+      description: |
+        Returns all the entitlements a billing customer currently has access to
+
+        <div>
+          <code>read:billing_entitlements</code>
+        </div>
+      summary: Get billing entitlements
+      parameters:
+        - name: page_size
+          in: query
+          required: false
+          description: Number of results per page. Defaults to 10 if parameter not sent.
+          schema:
+            type: integer
+            nullable: true
+        - name: starting_after
+          in: query
+          required: false
+          description: The ID of the billing entitlement to start after.
+          schema:
+            type: string
+            nullable: true
+        - name: ending_before
+          in: query
+          required: false
+          description: The ID of the billing entitlement to end before.
+          schema:
+            type: string
+            nullable: true
+        - name: customer_id
+          in: query
+          description: The ID of the billing customer to retrieve entitlements for
+          required: true
+          schema:
+            type: string
+            nullable: false
+        - name: max_value
+          in: query
+          description: >-
+            When the maximum limit of an entitlement is null, this value is
+            returned as the maximum limit
+          schema:
+            type: string
+            nullable: true
+        - name: expand
+          in: query
+          description: Specify additional plan data to retrieve. Use "plans".
+          required: false
+          schema:
+            type: string
+            nullable: true
+            enum:
+              - plans
+      responses:
+        '200':
+          description: Billing entitlements successfully retrieved.
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/get_billing_entitlements_response'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/get_billing_entitlements_response'
+        '400':
+          description: Invalid request.
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/error_response'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_response'
+        '403':
+          description: Invalid credentials.
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/error_response'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_response'
+        '429':
+          description: Request was throttled.
+      security:
+        - kindeBearerAuth: []
+  /api/v1/billing/agreements:
+    get:
+      tags:
+        - Billing Agreements
+      operationId: getBillingAgreements
+      description: |
+        Returns all the agreements a billing customer currently has access to
+
+        <div>
+          <code>read:billing_agreements</code>
+        </div>
+      summary: Get billing agreements
+      parameters:
+        - name: page_size
+          in: query
+          required: false
+          description: Number of results per page. Defaults to 10 if parameter not sent.
+          schema:
+            type: integer
+            nullable: true
+        - name: starting_after
+          in: query
+          required: false
+          description: The ID of the billing agreement to start after.
+          schema:
+            type: string
+            nullable: true
+        - name: ending_before
+          in: query
+          required: false
+          description: The ID of the billing agreement to end before.
+          schema:
+            type: string
+            nullable: true
+        - name: customer_id
+          in: query
+          description: The ID of the billing customer to retrieve agreements for
+          required: true
+          schema:
+            type: string
+            nullable: false
+          example: customer_0195ac80a14c2ca2cec97d026d864de0
+        - name: feature_code
+          in: query
+          required: false
+          description: >-
+            The feature code to filter by agreements only containing that
+            feature
+          schema:
+            type: string
+            nullable: true
+      responses:
+        '200':
+          description: Billing agreements successfully retrieved.
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/get_billing_agreements_response'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/get_billing_agreements_response'
+        '400':
+          description: Invalid request.
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/error_response'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_response'
+        '403':
+          description: Invalid credentials.
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/error_response'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_response'
+        '429':
+          description: Request was throttled.
+      security:
+        - kindeBearerAuth: []
+    post:
+      tags:
+        - Billing Agreements
+      operationId: createBillingAgreement
+      description: >
+        Creates a new billing agreement based on the plan code passed, and
+        cancels the customer's existing agreements
+
+
+        <div>
+          <code>create:billing_agreements</code>
+        </div>
+      requestBody:
+        description: New agreement request values
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - customer_id
+                - plan_code
+              properties:
+                customer_id:
+                  description: The ID of the billing customer to create a new agreement for
+                  type: string
+                  example: customer_0195ac80a14c2ca2cec97d026d864de0
+                plan_code:
+                  description: >-
+                    The code of the billing plan the new agreement will be based
+                    on
+                  type: string
+                  example: pro
+      responses:
+        '200':
+          description: Billing agreement successfully changed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success_response'
+        '400':
+          $ref: '#/components/responses/bad_request'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '429':
+          $ref: '#/components/responses/too_many_requests'
+      security:
+        - kindeBearerAuth: []
+  /api/v1/billing/meter_usage:
+    post:
+      tags:
+        - Billing Meter Usage
+      operationId: createMeterUsageRecord
+      summary: Create meter usage record
+      description: |
+        Create a new meter usage record
+
+        <div>
+          <code>create:meter_usage</code>
+        </div>
+      requestBody:
+        description: Meter usage record
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - customer_agreement_id
+                - billing_feature_code
+                - meter_value
+              properties:
+                customer_agreement_id:
+                  description: The billing agreement against which to record usage
+                  type: string
+                  example: agreement_0195ac80a14c2ca2cec97d026d864de0
+                billing_feature_code:
+                  description: >-
+                    The code of the feature within the agreement against which
+                    to record usage
+                  type: string
+                  example: pro_gym
+                meter_value:
+                  description: The value of usage to record
+                  type: string
+                  example: pro_gym
+                meter_usage_timestamp:
+                  type: string
+                  format: date-time
+                  description: >-
+                    The date and time the usage needs to be recorded for
+                    (defaults to current date/time)
+                  example: '2024-11-18T13:32:03+11'
+                meter_type_code:
+                  type: string
+                  enum:
+                    - absolute
+                    - delta
+                  description: Absolutes overrides the current usage
+      responses:
+        '200':
+          description: Meter usage record successfully created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/create_meter_usage_record_response'
         '400':
           $ref: '#/components/responses/bad_request'
         '403':
@@ -3588,6 +3881,22 @@ paths:
                   description: >-
                     The email address that will be used in emails. Requires
                     custom SMTP to be set up.
+                is_create_billing_customer:
+                  type: boolean
+                  example: false
+                  description: If a billing customer is also created for this organization
+                billing_email:
+                  type: string
+                  example: billing@acmecorp.com
+                  description: >-
+                    The email address used for billing purposes for the
+                    organization
+                billing_plan_code:
+                  type: string
+                  example: pro
+                  description: >-
+                    The billing plan to put the customer on. If not specified,
+                    the default plan is used
       responses:
         '200':
           description: Organization successfully created.
@@ -3674,6 +3983,15 @@ paths:
           schema:
             type: string
             example: org_1ccfb819462
+        - name: expand
+          in: query
+          description: Specify additional data to retrieve. Use "billing".
+          required: false
+          schema:
+            type: string
+            nullable: true
+            enum:
+              - billing
       requestBody:
         description: Organization details.
         required: false
@@ -8980,6 +9298,12 @@ components:
               description: The organization's unique code.
               type: string
               example: org_1ccfb819462
+            billing_customer_id:
+              description: >-
+                The billing customer id if the organization was created with the
+                is_create_billing_customer as true
+              type: string
+              example: customer_1245adbc6789
     user_identity:
       type: object
       properties:
@@ -9770,6 +10094,30 @@ components:
           description: >-
             The email address that will be used in emails. Requires custom SMTP
             to be set up.
+        billing:
+          type: object
+          description: The billing information if the organization is a billing customer.
+          properties:
+            billing_customer_id:
+              type: string
+            agreements:
+              type: array
+              description: >-
+                The billing agreements the billing customer is currently
+                subscribed to
+              items:
+                type: object
+                properties:
+                  plan_code:
+                    type: string
+                    example: pro
+                    description: >-
+                      The code of the plan from which this agreement is taken
+                      from
+                  agreement_id:
+                    type: string
+                    example: agreement_a1234b
+                    description: The id of the billing agreement in Kinde
     organization_user:
       type: object
       properties:
@@ -9806,6 +10154,10 @@ components:
           type: string
           example: '2021-01-01T00:00:00Z'
           description: The date the user joined the organization.
+        last_accessed_on:
+          type: string
+          example: '2022-01-01T00:00:00Z'
+          description: The date the user last accessed the organization.
         roles:
           type: array
           description: The roles the user has in the organization.
@@ -10598,6 +10950,143 @@ components:
           type: string
           description: Response message.
           example: Success
+    get_billing_entitlements_response:
+      type: object
+      properties:
+        code:
+          type: string
+          description: Response code.
+          example: OK
+        message:
+          type: string
+          description: Response message.
+          example: Success
+        has_more:
+          description: Whether more records exist.
+          type: boolean
+        entitlements:
+          type: array
+          description: A list of entitlements
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                description: The friendly id of an entitlement
+                example: entitlement_0195ac80a14e8d71f42b98e75d3c61ad
+              fixed_charge:
+                type: integer
+                description: >-
+                  The price charged if this is an entitlement for a fixed
+                  charged
+                example: 35
+              price_name:
+                type: string
+                description: The name of the price associated with the entitlement
+                example: Pro gym
+              unit_amount:
+                type: integer
+                description: The price charged for this entitlement in cents
+              feature_code:
+                type: string
+                description: >-
+                  The feature code of the feature corresponding to this
+                  entitlement
+                example: CcdkvEXpbg6UY
+              feature_name:
+                type: string
+                description: >-
+                  The feature name of the feature corresponding to this
+                  entitlement
+                example: Pro Gym
+              entitlement_limit_max:
+                type: integer
+                description: >-
+                  The maximum number of units of the feature the customer is
+                  entitled to
+              entitlement_limit_min:
+                type: integer
+                description: >-
+                  The minimum number of units of the feature the customer is
+                  entitled to
+        plans:
+          type: array
+          description: A list of plans.
+          items:
+            type: object
+            properties:
+              code:
+                type: string
+                description: The plan code the billing customer is subscribed to
+              subscribed_on:
+                type: string
+                format: date-time
+                example: '2024-11-18T13:32:03+11'
+    get_billing_agreements_response:
+      type: object
+      properties:
+        code:
+          type: string
+          description: Response code.
+          example: OK
+        message:
+          type: string
+          description: Response message.
+          example: Success
+        has_more:
+          description: Whether more records exist.
+          type: boolean
+        agreements:
+          type: array
+          description: A list of billing agreements
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                description: The friendly id of an agreement
+                example: agreement_0195ac80a14c2ca2cec97d026d864de0
+              plan_code:
+                type: string
+                description: The plan code the billing customer is subscribed to
+              expires_on:
+                type: string
+                format: date-time
+                description: The date the agreement expired (and was no longer active)
+                example: '2024-11-18T13:32:03+11'
+              billing_group_id:
+                type: string
+                description: >-
+                  The friendly id of the billing group this agreement's plan is
+                  part of
+                example: sbg_0195abf6773fdae18d5da72281a3fde2
+              entitlements:
+                type: array
+                description: A list of billing entitlements that is part of this agreement
+                items:
+                  type: object
+                  properties:
+                    feature_code:
+                      type: string
+                      description: >-
+                        The feature code of the feature corresponding to this
+                        entitlement
+                      example: CcdkvEXpbg6UY
+                    entitlement_id:
+                      type: string
+                      description: The friendly id of an entitlement
+                      example: entitlement_0195ac80a14e8d71f42b98e75d3c61ad
+    create_meter_usage_record_response:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Response message.
+          example: Success
+        code:
+          type: string
+          description: Response code.
+          example: OK
     user_profile_v2:
       type: object
       properties:
