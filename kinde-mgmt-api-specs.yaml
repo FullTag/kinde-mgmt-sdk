@@ -2333,6 +2333,12 @@ paths:
                           type: string
                           description: URL for the IdP metadata.
                           example: https://kinde.com/saml/metadata
+                        saml_sign_in_url:
+                          type: string
+                          description: >-
+                            Override the default SSO endpoint with a URL your
+                            IdP recognizes.
+                          example: https://kinde.com/saml/signin
                         saml_email_key_attr:
                           type: string
                           description: Attribute key for the user’s email.
@@ -4881,12 +4887,12 @@ paths:
         - Organizations
       operationId: ResetOrgUserMFAAll
       description: |
-        Reset all MFA methods for an organization user.
+        Reset all organization MFA factors for a user.
 
         <div>
           <code>delete:organization_user_mfa</code>
         </div>
-      summary: Reset all MFA methods for an organization user.
+      summary: Reset all organization MFA for a user
       parameters:
         - name: org_code
           in: path
@@ -4925,12 +4931,12 @@ paths:
         - Organizations
       operationId: ResetOrgUserMFA
       description: |
-        Reset an organization user’s MFA.
+        Reset a specific organization MFA factor for a user.
 
         <div>
           <code>delete:organization_user_mfa</code>
         </div>
-      summary: Reset MFA for a user
+      summary: Reset specific organization MFA for a user
       parameters:
         - name: org_code
           in: path
@@ -8070,12 +8076,12 @@ paths:
         - Users
       operationId: ResetUsersMFAAll
       description: |
-        Reset all environment MFA methods for a user.
+        Reset all environment MFA factors for a user.
 
         <div>
           <code>delete:user_mfa</code>
         </div>
-      summary: Reset all environment MFA methods for a user.
+      summary: Reset all environment MFA for a user
       parameters:
         - name: user_id
           in: path
@@ -8107,12 +8113,12 @@ paths:
         - Users
       operationId: ResetUsersMFA
       description: |
-        Reset a user’s MFA.
+        Reset a specific environment MFA factor for a user.
 
         <div>
           <code>delete:user_mfa</code>
         </div>
-      summary: Reset MFA for a user
+      summary: Reset specific environment MFA for a user
       parameters:
         - name: user_id
           in: path
