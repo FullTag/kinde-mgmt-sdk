@@ -10442,6 +10442,10 @@ components:
           type: integer
         name:
           type: string
+          description: The value of the identity
+        email:
+          type: string
+          description: The associated email of the identity
     property:
       type: object
       properties:
