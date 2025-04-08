@@ -7377,6 +7377,12 @@ paths:
                           - email
                           - phone
                           - username
+                      is_verified:
+                        type: boolean
+                        description: >-
+                          Set whether an email or phone identity is verified or
+                          not.
+                        example: true
                       details:
                         type: object
                         description: Additional details required to create the user.
@@ -7399,9 +7405,11 @@ paths:
                             example: myusername
                   example:
                     - type: email
+                      is_verified: true
                       details:
                         email: email@email.com
                     - type: phone
+                      is_verified: false
                       details:
                         phone: '+61426148233'
                         phone_country_id: au
