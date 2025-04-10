@@ -10436,24 +10436,40 @@ components:
       properties:
         id:
           type: string
+          description: The unique ID for the identity
+          example: identity_019617f0cd72460a42192cf37b41084f
         type:
           type: string
+          description: The type of identity
+          example: email
         is_confirmed:
           type: boolean
+          description: Whether the identity is confirmed
+          example: true
         created_on:
           type: string
-          description: Date of user creation in ISO 8601 format.
+          description: Date of user creation in ISO 8601 format
+          example: '2025-01-01T00:00:00Z'
         last_login_on:
           type: string
-          description: Date of user creation in ISO 8601 format.
+          description: Date of last login in ISO 8601 format
+          example: '2025-01-05T00:00:00Z'
         total_logins:
           type: integer
+          example: 20
         name:
           type: string
           description: The value of the identity
+          example: sally@example.com
         email:
           type: string
           description: The associated email of the identity
+          example: sally@example.com
+        is_primary:
+          type: boolean
+          description: Whether the identity is the primary identity for the user
+          nullable: true
+          example: true
     property:
       type: object
       properties:
