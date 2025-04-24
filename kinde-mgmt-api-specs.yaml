@@ -8307,6 +8307,79 @@ paths:
           description: Request was throttled.
       security:
         - kindeBearerAuth: []
+    patch:
+      tags:
+        - Webhooks
+      operationId: UpdateWebHook
+      description: |
+        Update a webhook
+
+        <div>
+          <code>update:webhooks</code>
+        </div>
+      summary: Update a Webhook
+      parameters:
+        - name: webhook_id
+          in: path
+          description: The webhook id.
+          required: true
+          schema:
+            type: string
+            nullable: false
+      requestBody:
+        description: Update webhook request specification.
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                event_types:
+                  description: Array of event type keys
+                  type: array
+                  items:
+                    type: string
+                  nullable: false
+                name:
+                  description: The webhook name
+                  type: string
+                  nullable: false
+                description:
+                  description: The webhook description
+                  type: string
+                  nullable: true
+      responses:
+        '200':
+          description: Webhook successfully updated.
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/update_webhook_response'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/update_webhook_response'
+        '400':
+          description: Invalid request.
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/error_response'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_response'
+        '403':
+          description: Invalid credentials.
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/error_response'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_response'
+        '429':
+          description: Request was throttled.
+      security:
+        - kindeBearerAuth: []
   /api/v1/webhooks:
     get:
       tags:
@@ -8402,71 +8475,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/create_webhook_response'
-        '400':
-          description: Invalid request.
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/error_response'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error_response'
-        '403':
-          description: Invalid credentials.
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/error_response'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error_response'
-        '429':
-          description: Request was throttled.
-      security:
-        - kindeBearerAuth: []
-    patch:
-      tags:
-        - Webhooks
-      operationId: UpdateWebHook
-      description: |
-        Update a webhook
-
-        <div>
-          <code>update:webhooks</code>
-        </div>
-      summary: Update a Webhook
-      requestBody:
-        description: Update webhook request specification.
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                event_types:
-                  description: Array of event type keys
-                  type: array
-                  items:
-                    type: string
-                  nullable: false
-                name:
-                  description: The webhook name
-                  type: string
-                  nullable: false
-                description:
-                  description: The webhook description
-                  type: string
-                  nullable: true
-      responses:
-        '200':
-          description: Webhook successfully updated.
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/update_webhook_response'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/update_webhook_response'
         '400':
           description: Invalid request.
           content:
