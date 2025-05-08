@@ -1294,6 +1294,16 @@ paths:
                     on
                   type: string
                   example: pro
+                is_invoice_now:
+                  type: boolean
+                  description: Generate a final invoice for any un-invoiced metered usage.
+                  example: true
+                is_prorate:
+                  type: boolean
+                  description: >-
+                    Generate a proration invoice item that credits remaining
+                    unused features.
+                  example: true
       responses:
         '200':
           description: Billing agreement successfully changed
