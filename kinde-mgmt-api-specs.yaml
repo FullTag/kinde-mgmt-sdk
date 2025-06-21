@@ -84,8 +84,14 @@ tags:
     x-displayName: Users
   - name: Webhooks
     x-displayName: Webhooks
+  - name: Billing
+    x-displayName: Billing
+  - name: Feature flags
+    x-displayName: Feature flags
   - name: OAuth
     x-displayName: OAuth
+  - name: Self-serve portal
+    x-displayName: Self-serve portal
 paths:
   /api/v1/apis:
     get:
@@ -8572,6 +8578,80 @@ paths:
           description: Request was throttled.
       security:
         - kindeBearerAuth: []
+  /account_api/v1/entitlements:
+    get:
+      tags:
+        - Billing
+      operationId: GetEntitlements
+      summary: Get entitlements
+      description: |
+        Returns all the entitlements a the user currently has access to
+      parameters:
+        - name: page_size
+          in: query
+          required: false
+          description: Number of results per page. Defaults to 10 if parameter not sent.
+          schema:
+            type: integer
+            nullable: true
+        - name: starting_after
+          in: query
+          required: false
+          description: The ID of the entitlement to start after.
+          schema:
+            type: string
+            nullable: true
+            example: entitlement_1234567890abcdef
+      responses:
+        '200':
+          description: Billing entitlements successfully retrieved.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/get_entitlements_response'
+        '403':
+          description: Invalid credentials.
+        '429':
+          description: Request was throttled.
+      security:
+        - kindeBearerAuth: []
+  /account_api/v1/feature_flags:
+    get:
+      tags:
+        - Feature flags
+      operationId: GetFeatureFlags
+      summary: Get feature flags
+      description: |
+        Returns all the feature flags that affect the user
+      parameters:
+        - name: page_size
+          in: query
+          required: false
+          description: Number of results per page. Defaults to 10 if parameter not sent.
+          schema:
+            type: integer
+            nullable: true
+        - name: starting_after
+          in: query
+          required: false
+          description: The ID of the flag to start after.
+          schema:
+            type: string
+            nullable: true
+            example: flag_1234567890abcdef
+      responses:
+        '200':
+          description: Feature flags successfully retrieved.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/get_feature_flags_response'
+        '403':
+          description: Invalid credentials.
+        '429':
+          description: Request was throttled.
+      security:
+        - kindeBearerAuth: []
   /oauth2/v2/user_profile:
     get:
       tags:
@@ -8702,6 +8782,163 @@ paths:
           $ref: '#/components/responses/forbidden'
         '429':
           $ref: '#/components/responses/too_many_requests'
+      security:
+        - kindeBearerAuth: []
+  /account_api/v1/permissions:
+    get:
+      tags:
+        - Permissions
+      operationId: GetUserPermissions
+      summary: Get permissions
+      description: |
+        Returns all the permissions the user has
+      parameters:
+        - name: page_size
+          in: query
+          required: false
+          description: Number of results per page. Defaults to 10 if parameter not sent.
+          schema:
+            type: integer
+            nullable: true
+        - name: starting_after
+          in: query
+          required: false
+          description: The ID of the permission to start after.
+          schema:
+            type: string
+            nullable: true
+            example: perm_1234567890abcdef
+      responses:
+        '200':
+          description: Permissions successfully retrieved.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/get_user_permissions_response'
+        '403':
+          description: Invalid credentials.
+        '429':
+          description: Request was throttled.
+      security:
+        - kindeBearerAuth: []
+  /account_api/v1/get_portal_link:
+    get:
+      tags:
+        - Self-serve portal
+      operationId: GetPortalLink
+      summary: Get self-serve portal link
+      description: >
+        Returns a link to the self-serve portal for the authenticated user. The
+        user can use this link to manage their account, update their profile,
+        and view their entitlements.
+      parameters:
+        - name: subnav
+          in: query
+          description: The area of the portal you want the user to land on
+          schema:
+            type: string
+            nullable: true
+            enum:
+              - profile
+              - organization_details
+              - organization_payment_details
+              - organization_plan_selection
+              - payment_details
+              - plan_details
+              - plan_selection
+        - name: return_url
+          in: query
+          description: >-
+            The URL to redirect the user to after they have completed their
+            actions in the portal.
+          schema:
+            type: string
+            nullable: true
+      responses:
+        '200':
+          description: Successfully generated the portal link
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/get_portal_link'
+        '403':
+          description: Invalid credentials.
+        '429':
+          description: Request was throttled.
+      security:
+        - kindeBearerAuth: []
+  /account_api/v1/properties:
+    get:
+      tags:
+        - Properties
+      operationId: GetUserProperties
+      summary: Get properties
+      description: |
+        Returns all properties for the user
+      parameters:
+        - name: page_size
+          in: query
+          required: false
+          description: Number of results per page. Defaults to 10 if parameter not sent.
+          schema:
+            type: integer
+            nullable: true
+        - name: starting_after
+          in: query
+          required: false
+          description: The ID of the property to start after.
+          schema:
+            type: string
+            nullable: true
+            example: prop_1234567890abcdef
+      responses:
+        '200':
+          description: Properties successfully retrieved.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/get_user_properties_response'
+        '403':
+          description: Invalid credentials.
+        '429':
+          description: Request was throttled.
+      security:
+        - kindeBearerAuth: []
+  /account_api/v1/roles:
+    get:
+      tags:
+        - Roles
+      operationId: GetUserRoles
+      summary: Get roles
+      description: |
+        Returns all roles for the user
+      parameters:
+        - name: page_size
+          in: query
+          required: false
+          description: Number of results per page. Defaults to 10 if parameter not sent.
+          schema:
+            type: integer
+            nullable: true
+        - name: starting_after
+          in: query
+          required: false
+          description: The ID of the role to start after.
+          schema:
+            type: string
+            nullable: true
+            example: role_1234567890abcdef
+      responses:
+        '200':
+          description: Roles successfully retrieved.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/get_user_roles_response'
+        '403':
+          description: Invalid credentials.
+        '429':
+          description: Request was throttled.
       security:
         - kindeBearerAuth: []
 components:
@@ -11405,6 +11642,122 @@ components:
           type: string
           description: Response code.
           example: OK
+    get_entitlements_response:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            org_code:
+              type: string
+              description: The organization code the entitlements are associated with.
+              example: org_0195ac80a14e
+            plans:
+              type: array
+              description: A list of plans the user is subscribed to
+              items:
+                type: object
+                properties:
+                  key:
+                    type: string
+                    description: A unique code for the plan
+                    example: pro_plan
+                  subscribed_on:
+                    type: string
+                    format: date-time
+                    description: The date the user subscribed to the plan
+                    example: '2025-06-01T12:00:00Z'
+            entitlements:
+              type: array
+              description: A list of entitlements
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: The friendly id of an entitlement
+                    example: entitlement_0195ac80a14e8d71f42b98e75d3c61ad
+                  fixed_charge:
+                    type: integer
+                    description: >-
+                      The price charged if this is an entitlement for a fixed
+                      charged
+                    example: 35
+                  price_name:
+                    type: string
+                    description: The name of the price associated with the entitlement
+                    example: Pro gym
+                  unit_amount:
+                    type: integer
+                    description: The price charged for this entitlement in cents
+                    nullable: true
+                  feature_code:
+                    type: string
+                    description: >-
+                      The feature code of the feature corresponding to this
+                      entitlement
+                    example: base_price
+                  feature_name:
+                    type: string
+                    description: >-
+                      The feature name of the feature corresponding to this
+                      entitlement
+                    example: Pro Gym
+                  entitlement_limit_max:
+                    type: integer
+                    description: >-
+                      The maximum number of units of the feature the customer is
+                      entitled to
+                    nullable: true
+                  entitlement_limit_min:
+                    type: integer
+                    description: >-
+                      The minimum number of units of the feature the customer is
+                      entitled to
+                    nullable: true
+        metadata:
+          type: object
+          properties:
+            has_more:
+              type: boolean
+              description: Whether more records exist.
+              example: false
+            next_page_starting_after:
+              type: string
+              description: The ID of the last record on the current page.
+              example: entitlement_0195ac80a14e8d71f42b98e75d3c61ad
+    get_feature_flags_response:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            feature_flags:
+              type: array
+              description: A list of feature flags
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: The friendly ID of an flag
+                    example: flag_0195ac80a14e8d71f42b98e75d3c61ad
+                  name:
+                    type: string
+                    description: The name of the flag
+                    example: new_feature
+                  key:
+                    type: string
+                    description: The key of the flag
+                    example: new_feature_key
+                  type:
+                    type: string
+                    description: The type of the flag
+                    example: boolean
+                  value:
+                    type: string | boolean | integer | object
+                    description: The value of the flag
+                    example: true
     user_profile_v2:
       type: object
       properties:
@@ -11490,12 +11843,135 @@ components:
         error_description:
           type: string
           description: The error description.
+    get_user_permissions_response:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            org_code:
+              type: string
+              description: The organization code the roles are associated with.
+              example: org_0195ac80a14e
+            permissions:
+              type: array
+              description: A list of permissions
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: The friendly ID of a permission
+                    example: perm_0195ac80a14e8d71f42b98e75d3c61ad
+                  name:
+                    type: string
+                    description: The name of the permission
+                    example: View reports
+                  key:
+                    type: string
+                    description: The key of the permission
+                    example: view_reports
+        metadata:
+          type: object
+          properties:
+            has_more:
+              type: boolean
+              description: Whether more records exist.
+              example: false
+            next_page_starting_after:
+              type: string
+              description: The ID of the last record on the current page.
+              example: perm_0195ac80a14e8d71f42b98e75d3c61ad
+    get_portal_link:
+      type: object
+      properties:
+        url:
+          type: string
+          description: Unique URL to redirect the user to.
+          example: >-
+            https://<your_kinde_subdomain>.kinde.com/portal_redirect?key=c30d0407030209af82...
+    get_user_properties_response:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            properties:
+              type: array
+              description: A list of properties
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: The friendly ID of a property
+                    example: prop_0195ac80a14e8d71f42b98e75d3c61ad
+                  name:
+                    type: string
+                    description: The name of the property
+                    example: Company name
+                  key:
+                    type: string
+                    description: The key of the property
+                    example: company_name
+                  value:
+                    type: string | boolean | integer
+                    description: The value of the property
+                    example: Acme Corp
+        metadata:
+          type: object
+          properties:
+            has_more:
+              type: boolean
+              description: Whether more records exist.
+              example: false
+            next_page_starting_after:
+              type: string
+              description: The ID of the last record on the current page.
+              example: prop_0195ac80a14e8d71f42b98e75d3c61ad
+    get_user_roles_response:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            org_code:
+              type: string
+              description: The organization code the roles are associated with.
+              example: org_0195ac80a14e
+            roles:
+              type: array
+              description: A list of roles
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: The friendly ID of a role
+                    example: role_0195ac80a14e8d71f42b98e75d3c61ad
+                  name:
+                    type: string
+                    description: The name of the role
+                    example: Admin
+                  key:
+                    type: string
+                    description: The key of the role
+                    example: admin
+        metadata:
+          type: object
+          properties:
+            has_more:
+              type: boolean
+              description: Whether more records exist.
+              example: false
+            next_page_starting_after:
+              type: string
+              description: The ID of the last record on the current page.
+              example: role_0195ac80a14e8d71f42b98e75d3c61ad
   securitySchemes:
     kindeBearerAuth:
-      description: >
-        Accessing the API requires obtaining an access token when login in
-        through Kinde. However, management functions (for e.g. user management)
-        requires an access token obtained using the client_credentials flow.
+      description: |
+        Requires an access token obtained using the client_credentials flow.
       type: http
       scheme: bearer
       bearerFormat: JWT
