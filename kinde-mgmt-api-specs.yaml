@@ -1371,12 +1371,6 @@ paths:
                     The date and time the usage needs to be recorded for
                     (defaults to current date/time)
                   example: '2024-11-18T13:32:03+11'
-                meter_type_code:
-                  type: string
-                  enum:
-                    - absolute
-                    - delta
-                  description: Absolutes overrides the current usage
       responses:
         '200':
           description: Meter usage record successfully created.
