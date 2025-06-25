@@ -1371,6 +1371,12 @@ paths:
                     The date and time the usage needs to be recorded for
                     (defaults to current date/time)
                   example: '2024-11-18T13:32:03+11'
+                meter_type_code:
+                  type: string
+                  enum:
+                    - absolute
+                    - delta
+                  description: Absolutes overrides the current usage
       responses:
         '200':
           description: Meter usage record successfully created.
@@ -1635,18 +1641,27 @@ paths:
         '200':
           description: Callbacks successfully updated
           content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success_response'
             application/json; charset=utf-8:
               schema:
                 $ref: '#/components/schemas/success_response'
         '400':
           description: Invalid request.
           content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_response'
             application/json; charset=utf-8:
               schema:
                 $ref: '#/components/schemas/error_response'
         '403':
           description: Invalid credentials.
           content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_response'
             application/json; charset=utf-8:
               schema:
                 $ref: '#/components/schemas/error_response'
@@ -1689,12 +1704,18 @@ paths:
         '200':
           description: Callbacks successfully updated
           content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success_response'
             application/json; charset=utf-8:
               schema:
                 $ref: '#/components/schemas/success_response'
         '400':
           description: Invalid request.
           content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_response'
             application/json; charset=utf-8:
               schema:
                 $ref: '#/components/schemas/error_response'
@@ -1750,6 +1771,9 @@ paths:
         '403':
           description: Invalid credentials.
           content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_response'
             application/json; charset=utf-8:
               schema:
                 $ref: '#/components/schemas/error_response'
@@ -5852,18 +5876,27 @@ paths:
         '201':
           description: Permission successfully created
           content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success_response'
             application/json; charset=utf-8:
               schema:
                 $ref: '#/components/schemas/success_response'
         '400':
           description: Invalid request.
           content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_response'
             application/json; charset=utf-8:
               schema:
                 $ref: '#/components/schemas/error_response'
         '403':
           description: Invalid credentials.
           content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_response'
             application/json; charset=utf-8:
               schema:
                 $ref: '#/components/schemas/error_response'
@@ -5912,18 +5945,27 @@ paths:
         '200':
           description: Permission successfully updated
           content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success_response'
             application/json; charset=utf-8:
               schema:
                 $ref: '#/components/schemas/success_response'
         '400':
           description: Invalid request.
           content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_response'
             application/json; charset=utf-8:
               schema:
                 $ref: '#/components/schemas/error_response'
         '403':
           description: Invalid credentials.
           content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_response'
             application/json; charset=utf-8:
               schema:
                 $ref: '#/components/schemas/error_response'
@@ -7100,12 +7142,18 @@ paths:
         '200':
           description: Subscriber successfully retrieved.
           content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/get_subscribers_response'
             application/json; charset=utf-8:
               schema:
                 $ref: '#/components/schemas/get_subscribers_response'
         '403':
           description: Bad request.
           content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_response'
             application/json; charset=utf-8:
               schema:
                 $ref: '#/components/schemas/error_response'
@@ -7150,18 +7198,27 @@ paths:
         '201':
           description: Subscriber successfully created
           content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/create_subscriber_success_response'
             application/json; charset=utf-8:
               schema:
                 $ref: '#/components/schemas/create_subscriber_success_response'
         '400':
           description: Invalid request.
           content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_response'
             application/json; charset=utf-8:
               schema:
                 $ref: '#/components/schemas/error_response'
         '403':
           description: Invalid credentials.
           content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_response'
             application/json; charset=utf-8:
               schema:
                 $ref: '#/components/schemas/error_response'
@@ -7193,18 +7250,27 @@ paths:
         '200':
           description: Subscriber successfully retrieved.
           content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/get_subscriber_response'
             application/json; charset=utf-8:
               schema:
                 $ref: '#/components/schemas/get_subscriber_response'
         '400':
           description: Bad request.
           content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_response'
             application/json; charset=utf-8:
               schema:
                 $ref: '#/components/schemas/error_response'
         '403':
           description: Invalid credentials.
           content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_response'
             application/json; charset=utf-8:
               schema:
                 $ref: '#/components/schemas/error_response'
