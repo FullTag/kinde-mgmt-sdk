@@ -11815,7 +11815,11 @@ components:
                     description: The type of the flag
                     example: boolean
                   value:
-                    type: string | boolean | integer | object
+                    oneOf:
+                      - type: string
+                      - type: boolean
+                      - type: integer
+                      - type: object
                     description: The value of the flag
                     example: true
     user_profile_v2:
@@ -11975,7 +11979,10 @@ components:
                     description: The key of the property
                     example: company_name
                   value:
-                    type: string | boolean | integer
+                    oneOf:
+                      - type: string
+                      - type: boolean
+                      - type: integer
                     description: The value of the property
                     example: Acme Corp
         metadata:
