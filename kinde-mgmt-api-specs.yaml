@@ -8675,6 +8675,34 @@ paths:
           description: Request was throttled.
       security:
         - kindeBearerAuth: []
+  /account_api/v1/entitlement:
+    get:
+      tags:
+        - Billing
+      operationId: GetEntitlement
+      summary: Get entitlement
+      description: |
+        Returns a single entitlement by the feature key
+      parameters:
+        - name: key
+          in: path
+          required: true
+          description: The key of the feature
+          schema:
+            type: varchar
+      responses:
+        '200':
+          description: Billing entitlement successfully retrieved.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/get_entitlement_response'
+        '403':
+          description: Invalid credentials.
+        '429':
+          description: Request was throttled.
+      security:
+        - kindeBearerAuth: []
   /account_api/v1/feature_flags:
     get:
       tags:
@@ -11743,6 +11771,7 @@ components:
                       The price charged if this is an entitlement for a fixed
                       charged
                     example: 35
+                    nullable: true
                   price_name:
                     type: string
                     description: The name of the price associated with the entitlement
@@ -11751,17 +11780,14 @@ components:
                     type: integer
                     description: The price charged for this entitlement in cents
                     nullable: true
-                  feature_code:
+                    example: null
+                  feature_key:
                     type: string
-                    description: >-
-                      The feature code of the feature corresponding to this
-                      entitlement
+                    description: The key of the feature corresponding to this entitlement
                     example: base_price
                   feature_name:
                     type: string
-                    description: >-
-                      The feature name of the feature corresponding to this
-                      entitlement
+                    description: The name of the feature corresponding to this entitlement
                     example: Pro Gym
                   entitlement_limit_max:
                     type: integer
@@ -11769,12 +11795,14 @@ components:
                       The maximum number of units of the feature the customer is
                       entitled to
                     nullable: true
+                    example: null
                   entitlement_limit_min:
                     type: integer
                     description: >-
                       The minimum number of units of the feature the customer is
                       entitled to
                     nullable: true
+                    example: null
         metadata:
           type: object
           properties:
@@ -11786,6 +11814,66 @@ components:
               type: string
               description: The ID of the last record on the current page.
               example: entitlement_0195ac80a14e8d71f42b98e75d3c61ad
+    get_entitlement_response:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            org_code:
+              type: string
+              description: The organization code the entitlements are associated with.
+              example: org_0195ac80a14e
+            entitlement:
+              type: object
+              description: The entitlement data
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: The friendly ID of an entitlement
+                    example: entitlement_0195ac80a14e8d71f42b98e75d3c61ad
+                  fixed_charge:
+                    type: integer
+                    description: >-
+                      The price charged if this is an entitlement for a fixed
+                      charged
+                    nullable: true
+                    example: null
+                  price_name:
+                    type: string
+                    description: The name of the price associated with the entitlement
+                    example: Seats
+                  unit_amount:
+                    type: integer
+                    description: The price charged for this entitlement in cents
+                    nullable: true
+                    example: null
+                  feature_key:
+                    type: string
+                    description: The key of the feature corresponding to this entitlement
+                    example: seats
+                  feature_name:
+                    type: string
+                    description: The name of the feature corresponding to this entitlement
+                    example: Seats
+                  entitlement_limit_max:
+                    type: integer
+                    description: >-
+                      The maximum number of units of the feature the customer is
+                      entitled to
+                    nullable: true
+                    example: 10
+                  entitlement_limit_min:
+                    type: integer
+                    description: >-
+                      The minimum number of units of the feature the customer is
+                      entitled to
+                    nullable: true
+                    example: null
+        metadata:
+          type: object
     get_feature_flags_response:
       type: object
       properties:
