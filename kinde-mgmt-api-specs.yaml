@@ -693,6 +693,11 @@ paths:
                     - reg
                     - spa
                     - m2m
+                org_code:
+                  description: Scope an M2M application to an org (Plus plan required).
+                  type: string
+                  example: org_1234567890abcdef
+                  nullable: true
               required:
                 - name
                 - type
