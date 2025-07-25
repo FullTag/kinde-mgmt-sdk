@@ -7456,8 +7456,8 @@ paths:
         - name: expand
           in: query
           description: >-
-            Specify additional data to retrieve. Use "organizations" and/or
-            "identities".
+            Specify additional data to retrieve. Use "organizations",
+            "identities" and/or "billing".
           required: false
           schema:
             type: string
@@ -9732,6 +9732,13 @@ components:
                       type: string
                     identity:
                       type: string
+              billing:
+                type: object
+                properties:
+                  customer_id:
+                    type: string
+                    description: The billing customer id.
+                    example: customer_1245adbc6789
         next_token:
           type: string
           description: Pagination token.
