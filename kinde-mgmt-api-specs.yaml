@@ -11776,6 +11776,10 @@ components:
                     type: string
                     description: A unique code for the plan
                     example: pro_plan
+                  name:
+                    type: string
+                    description: Name of the plan
+                    example: Pro
                   subscribed_on:
                     type: string
                     format: date-time
