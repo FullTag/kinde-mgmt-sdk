@@ -687,12 +687,14 @@ paths:
                   description: >-
                     The application's type. Use `reg` for regular server
                     rendered applications, `spa` for single-page applications,
-                    and `m2m` for machine-to-machine applications.
+                    `m2m` for machine-to-machine applications, and `device` for
+                    devices and IoT.
                   type: string
                   enum:
                     - reg
                     - spa
                     - m2m
+                    - device
                 org_code:
                   description: Scope an M2M application to an org (Plus plan required).
                   type: string
@@ -9480,6 +9482,7 @@ components:
                       - Machine to machine (M2M)
                       - Back-end web
                       - Front-end and mobile
+                      - Device and IoT
                     example: Machine to machine (M2M)
                   is_active:
                     type: boolean
