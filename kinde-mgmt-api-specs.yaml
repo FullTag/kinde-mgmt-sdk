@@ -6671,6 +6671,13 @@ paths:
                 is_default_role:
                   description: Set role as default for new users.
                   type: boolean
+                assignment_permission_id:
+                  description: >-
+                    The public ID of the permission required to assign this role
+                    to users. If null, no permission is required.
+                  type: string
+                  format: uuid
+                  nullable: true
       responses:
         '201':
           description: Role successfully created
@@ -6758,6 +6765,13 @@ paths:
                 is_default_role:
                   description: Set role as default for new users.
                   type: boolean
+                assignment_permission_id:
+                  description: >-
+                    The public ID of the permission required to assign this role
+                    to users. If null, no permission is required.
+                  type: string
+                  format: uuid
+                  nullable: true
               required:
                 - name
                 - key
