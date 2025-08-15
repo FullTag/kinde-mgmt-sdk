@@ -27,12 +27,6 @@ info:
     name: Kinde Support Team
     email: support@kinde.com
     url: https://docs.kinde.com
-servers:
-  - url: https://{subdomain}.kinde.com
-    variables:
-      subdomain:
-        default: your_kinde_subdomain
-        description: The subdomain generated for your business on Kinde.
 tags:
   - name: API Keys
     x-displayName: API Keys
@@ -96,6 +90,7 @@ tags:
     x-displayName: Self-serve portal
 paths:
   /api/v1/api_keys:
+    servers: []
     get:
       tags:
         - API Keys
@@ -232,6 +227,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/api_keys/{key_id}:
+    servers: []
     get:
       tags:
         - API Keys
@@ -340,6 +336,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/api_keys/verify:
+    servers: []
     post:
       tags:
         - API Keys
@@ -377,6 +374,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/apis:
+    servers: []
     get:
       tags:
         - APIs
@@ -466,6 +464,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/apis/{api_id}:
+    servers: []
     parameters:
       - $ref: '#/components/parameters/api_id'
     get:
@@ -521,6 +520,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/apis/{api_id}/scopes:
+    servers: []
     get:
       tags:
         - APIs
@@ -611,6 +611,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/apis/{api_id}/scopes/{scope_id}:
+    servers: []
     get:
       tags:
         - APIs
@@ -744,6 +745,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/apis/{api_id}/applications:
+    servers: []
     parameters:
       - $ref: '#/components/parameters/api_id'
     patch:
@@ -801,6 +803,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/apis/{api_id}/applications/{application_id}/scopes/{scope_id}:
+    servers: []
     post:
       tags:
         - APIs
@@ -896,6 +899,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/applications:
+    servers: []
     get:
       tags:
         - Applications
@@ -1002,6 +1006,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/applications/{application_id}:
+    servers: []
     get:
       tags:
         - Applications
@@ -1134,6 +1139,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/applications/{application_id}/connections:
+    servers: []
     get:
       tags:
         - Applications
@@ -1170,6 +1176,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/applications/{application_id}/connections/{connection_id}:
+    servers: []
     post:
       tags:
         - Applications
@@ -1249,6 +1256,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/applications/{application_id}/properties:
+    servers: []
     parameters:
       - $ref: '#/components/parameters/application_id'
     get:
@@ -1278,6 +1286,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/applications/{application_id}/properties/{property_key}:
+    servers: []
     parameters:
       - $ref: '#/components/parameters/application_id'
       - $ref: '#/components/parameters/property_key'
@@ -1323,6 +1332,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/applications/{application_id}/tokens:
+    servers: []
     patch:
       tags:
         - Applications
@@ -1385,6 +1395,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/billing/entitlements:
+    servers: []
     get:
       tags:
         - Billing Entitlements
@@ -1475,6 +1486,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/billing/agreements:
+    servers: []
     get:
       tags:
         - Billing Agreements
@@ -1617,6 +1629,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/billing/meter_usage:
+    servers: []
     post:
       tags:
         - Billing Meter Usage
@@ -1683,6 +1696,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/business:
+    servers: []
     get:
       tags:
         - Business
@@ -1799,6 +1813,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/industries:
+    servers: []
     get:
       tags:
         - Industries
@@ -1826,6 +1841,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/timezones:
+    servers: []
     get:
       tags:
         - Timezones
@@ -1853,6 +1869,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/applications/{app_id}/auth_redirect_urls:
+    servers: []
     get:
       tags:
         - Callbacks
@@ -2072,6 +2089,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/applications/{app_id}/auth_logout_urls:
+    servers: []
     get:
       tags:
         - Callbacks
@@ -2237,6 +2255,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/connected_apps/auth_url:
+    servers: []
     get:
       tags:
         - Connected Apps
@@ -2324,6 +2343,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/connected_apps/token:
+    servers: []
     get:
       tags:
         - Connected Apps
@@ -2380,6 +2400,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/connected_apps/revoke:
+    servers: []
     post:
       tags:
         - Connected Apps
@@ -2436,6 +2457,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/connections:
+    servers: []
     get:
       tags:
         - Connections
@@ -2752,6 +2774,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/connections/{connection_id}:
+    servers: []
     get:
       tags:
         - Connections
@@ -3239,6 +3262,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/environment:
+    servers: []
     get:
       tags:
         - Environments
@@ -3266,6 +3290,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/environment/feature_flags:
+    servers: []
     delete:
       tags:
         - Environments
@@ -3339,6 +3364,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/environment/feature_flags/{feature_flag_key}:
+    servers: []
     delete:
       tags:
         - Environments
@@ -3440,6 +3466,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/environment/logos:
+    servers: []
     get:
       tags:
         - Environments
@@ -3467,6 +3494,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/environment/logos/{type}:
+    servers: []
     put:
       tags:
         - Environments
@@ -3558,6 +3586,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/environment_variables:
+    servers: []
     get:
       tags:
         - Environment variables
@@ -3644,6 +3673,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/environment_variables/{variable_id}:
+    servers: []
     parameters:
       - $ref: '#/components/parameters/variable_id'
     get:
@@ -3753,6 +3783,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/feature_flags:
+    servers: []
     post:
       tags:
         - Feature Flags
@@ -3837,6 +3868,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/feature_flags/{feature_flag_key}:
+    servers: []
     delete:
       tags:
         - Feature Flags
@@ -3966,6 +3998,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/identities/{identity_id}:
+    servers: []
     get:
       tags:
         - Identities
@@ -4115,6 +4148,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/mfa:
+    servers: []
     put:
       tags:
         - MFA
@@ -4173,6 +4207,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/organization:
+    servers: []
     get:
       tags:
         - Organizations
@@ -4344,6 +4379,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/organizations:
+    servers: []
     get:
       tags:
         - Organizations
@@ -4395,6 +4431,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/organization/{org_code}:
+    servers: []
     patch:
       tags:
         - Organizations
@@ -4574,6 +4611,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/organizations/{org_code}/users:
+    servers: []
     get:
       tags:
         - Organizations
@@ -4786,6 +4824,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/organizations/{org_code}/users/{user_id}/roles:
+    servers: []
     get:
       tags:
         - Organizations
@@ -4882,6 +4921,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/organizations/{org_code}/users/{user_id}/roles/{role_id}:
+    servers: []
     delete:
       tags:
         - Organizations
@@ -4941,6 +4981,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/organizations/{org_code}/users/{user_id}/permissions:
+    servers: []
     get:
       tags:
         - Organizations
@@ -5046,6 +5087,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/organizations/{org_code}/users/{user_id}/permissions/{permission_id}:
+    servers: []
     delete:
       tags:
         - Organizations
@@ -5105,6 +5147,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/organizations/{org_code}/users/{user_id}:
+    servers: []
     delete:
       tags:
         - Organizations
@@ -5157,6 +5200,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/organizations/{org_code}/users/{user_id}/apis/{api_id}/scopes/{scope_id}:
+    servers: []
     post:
       tags:
         - Organizations
@@ -5264,6 +5308,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/organizations/{org_code}/users/{user_id}/mfa:
+    servers: []
     get:
       tags:
         - Organizations
@@ -5351,6 +5396,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/organizations/{org_code}/users/{user_id}/mfa/{factor_id}:
+    servers: []
     delete:
       tags:
         - Organizations
@@ -5402,6 +5448,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/organizations/{org_code}/feature_flags:
+    servers: []
     get:
       tags:
         - Organizations
@@ -5489,6 +5536,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/organizations/{org_code}/feature_flags/{feature_flag_key}:
+    servers: []
     delete:
       tags:
         - Organizations
@@ -5594,6 +5642,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/organizations/{org_code}/properties/{property_key}:
+    servers: []
     put:
       tags:
         - Organizations
@@ -5650,6 +5699,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/organizations/{org_code}/properties:
+    servers: []
     get:
       tags:
         - Organizations
@@ -5752,6 +5802,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/organizations/{org_code}/mfa:
+    servers: []
     put:
       tags:
         - Organizations
@@ -5806,6 +5857,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/organization/{org_code}/handle:
+    servers: []
     delete:
       tags:
         - Organizations
@@ -5851,6 +5903,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/organizations/{org_code}/logos:
+    servers: []
     get:
       tags:
         - Organizations
@@ -5887,6 +5940,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/organizations/{org_code}/logos/{type}:
+    servers: []
     post:
       tags:
         - Organizations
@@ -5994,6 +6048,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/organizations/{organization_code}/connections:
+    servers: []
     get:
       tags:
         - Organizations
@@ -6030,6 +6085,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/organizations/{organization_code}/connections/{connection_id}:
+    servers: []
     post:
       tags:
         - Organizations
@@ -6109,6 +6165,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/organizations/{org_code}/sessions:
+    servers: []
     patch:
       tags:
         - Organizations
@@ -6173,6 +6230,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/permissions:
+    servers: []
     get:
       tags:
         - Permissions
@@ -6295,6 +6353,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/permissions/{permission_id}:
+    servers: []
     patch:
       tags:
         - Permissions
@@ -6407,6 +6466,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/properties:
+    servers: []
     get:
       tags:
         - Properties
@@ -6568,6 +6628,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/properties/{property_id}:
+    servers: []
     put:
       tags:
         - Properties
@@ -6683,6 +6744,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/property_categories:
+    servers: []
     get:
       tags:
         - Property Categories
@@ -6814,6 +6876,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/property_categories/{category_id}:
+    servers: []
     put:
       tags:
         - Property Categories
@@ -6870,6 +6933,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/roles:
+    servers: []
     get:
       tags:
         - Roles
@@ -6977,6 +7041,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/roles/{role_id}:
+    servers: []
     get:
       tags:
         - Roles
@@ -7107,6 +7172,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/roles/{role_id}/scopes:
+    servers: []
     get:
       tags:
         - Roles
@@ -7199,6 +7265,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/roles/{role_id}/scopes/{scope_id}:
+    servers: []
     delete:
       tags:
         - Roles
@@ -7241,6 +7308,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/roles/{role_id}/permissions:
+    servers: []
     get:
       tags:
         - Roles
@@ -7372,6 +7440,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/roles/{role_id}/permissions/{permission_id}:
+    servers: []
     delete:
       tags:
         - Roles
@@ -7424,6 +7493,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/search/users:
+    servers: []
     get:
       tags:
         - Search
@@ -7501,6 +7571,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/subscribers:
+    servers: []
     get:
       tags:
         - Subscribers
@@ -7631,6 +7702,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/subscribers/{subscriber_id}:
+    servers: []
     get:
       tags:
         - Subscribers
@@ -7683,6 +7755,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/users:
+    servers: []
     get:
       tags:
         - Users
@@ -7776,6 +7849,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/users/{user_id}/refresh_claims:
+    servers: []
     post:
       tags:
         - Users
@@ -7827,6 +7901,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/user:
+    servers: []
     get:
       tags:
         - Users
@@ -8089,6 +8164,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/users/{user_id}/feature_flags/{feature_flag_key}:
+    servers: []
     patch:
       tags:
         - Users
@@ -8145,6 +8221,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/users/{user_id}/properties/{property_key}:
+    servers: []
     put:
       tags:
         - Users
@@ -8201,6 +8278,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/users/{user_id}/properties:
+    servers: []
     get:
       tags:
         - Users
@@ -8303,6 +8381,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/users/{user_id}/password:
+    servers: []
     put:
       tags:
         - Users
@@ -8388,6 +8467,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/users/{user_id}/identities:
+    servers: []
     get:
       tags:
         - Users
@@ -8523,6 +8603,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/users/{user_id}/sessions:
+    servers: []
     get:
       tags:
         - Users
@@ -8596,6 +8677,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/users/{user_id}/mfa:
+    servers: []
     get:
       tags:
         - Users
@@ -8669,6 +8751,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/users/{user_id}/mfa/{factor_id}:
+    servers: []
     delete:
       tags:
         - Users
@@ -8713,6 +8796,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/events/{event_id}:
+    servers: []
     get:
       tags:
         - Webhooks
@@ -8765,6 +8849,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/event_types:
+    servers: []
     get:
       tags:
         - Webhooks
@@ -8809,6 +8894,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/webhooks/{webhook_id}:
+    servers: []
     delete:
       tags:
         - Webhooks
@@ -8934,6 +9020,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /api/v1/webhooks:
+    servers: []
     get:
       tags:
         - Webhooks
@@ -9051,6 +9138,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /account_api/v1/entitlements:
+    servers: []
     get:
       tags:
         - Billing
@@ -9088,6 +9176,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /account_api/v1/entitlement:
+    servers: []
     get:
       tags:
         - Billing
@@ -9116,6 +9205,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /account_api/v1/feature_flags:
+    servers: []
     get:
       tags:
         - Feature flags
@@ -9153,6 +9243,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /oauth2/v2/user_profile:
+    servers: []
     get:
       tags:
         - OAuth
@@ -9175,6 +9266,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /oauth2/introspect:
+    servers: []
     post:
       tags:
         - OAuth
@@ -9227,6 +9319,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /oauth2/revoke:
+    servers: []
     post:
       tags:
         - OAuth
@@ -9285,6 +9378,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /account_api/v1/permissions:
+    servers: []
     get:
       tags:
         - Permissions
@@ -9322,6 +9416,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /account_api/v1/portal_link:
+    servers: []
     get:
       tags:
         - Self-serve portal
@@ -9368,6 +9463,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /account_api/v1/properties:
+    servers: []
     get:
       tags:
         - Properties
@@ -9405,6 +9501,7 @@ paths:
       security:
         - kindeBearerAuth: []
   /account_api/v1/roles:
+    servers: []
     get:
       tags:
         - Roles
@@ -12252,8 +12349,7 @@ components:
             key:
               type: string
               description: The new API key value (only shown once).
-              example: >-
-                kinde_1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef
+              example: k_live_1234567890abcdef1234567890abcdef
     create_api_key_response:
       type: object
       properties:
@@ -12275,7 +12371,7 @@ components:
             key:
               description: The API key value (only shown once on creation).
               type: string
-              example: kinde_sk_test_1234567890abcdef
+              example: k_live_1234567890abcdef
     verify_api_key_response:
       type: object
       properties:
@@ -12360,7 +12456,7 @@ components:
             key_prefix:
               type: string
               description: The first 6 characters of the API key for identification.
-              example: kinde_
+              example: k_live
             key_suffix:
               type: string
               description: The last 4 characters of the API key for identification.
