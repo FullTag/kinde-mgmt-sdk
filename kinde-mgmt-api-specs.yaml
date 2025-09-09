@@ -6203,7 +6203,7 @@ paths:
                   type: string
                   enum:
                     - persistent
-                    - non-persistent
+                    - non_persistent
                   description: Determines if the session should be persistent or not.
                 is_use_org_authenticated_session_lifetime:
                   type: boolean
