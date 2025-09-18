@@ -7523,6 +7523,12 @@ paths:
           schema:
             type: string
             nullable: true
+        - name: api_scopes
+          in: query
+          description: Search the users by api scopes.
+          schema:
+            type: string
+            nullable: true
         - name: properties
           in: query
           required: false
@@ -10323,6 +10329,18 @@ components:
                 description: The user properties.
                 additionalProperties:
                   type: string
+              api_scopes:
+                type: array
+                description: Array of api scopes belonging to the user.
+                items:
+                  type: object
+                  properties:
+                    org_code:
+                      type: string
+                    scope:
+                      type: string
+                    api_id:
+                      type: string
     create_user_response:
       type: object
       properties:
