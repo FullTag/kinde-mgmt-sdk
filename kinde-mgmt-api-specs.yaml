@@ -4739,13 +4739,11 @@ paths:
                           example: admin
       responses:
         '200':
-          description: Users successfully added.
+          description: Add organization users request successfully processed.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/add_organization_users_response'
-        '204':
-          description: No users added.
         '400':
           $ref: '#/components/responses/bad_request'
         '403':
