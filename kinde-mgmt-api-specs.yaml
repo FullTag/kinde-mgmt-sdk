@@ -9149,7 +9149,7 @@ paths:
       operationId: GetEntitlements
       summary: Get entitlements
       description: |
-        Returns all the entitlements a the user currently has access to
+        Returns all the entitlements the user currently has access to
       parameters:
         - name: page_size
           in: query
