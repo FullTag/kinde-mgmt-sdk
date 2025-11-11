@@ -7114,7 +7114,9 @@ paths:
                 assignment_permission_id:
                   description: >-
                     The public ID of the permission required to assign this role
-                    to users. If null, no permission is required.
+                    to users. If null, no change to the assignment permission is
+                    made. If set to 'NO_PERMISSION_REQUIRED', no permission is
+                    required.
                   type: string
                   format: uuid
                   nullable: true
