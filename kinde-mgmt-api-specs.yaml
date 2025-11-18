@@ -11091,6 +11091,16 @@ components:
             support SVG, add a PNG
           example: >-
             https://yoursubdomain.kinde.com/favicon_fallback?org_code=org_1ccfb819462&cache=311308b8ad3544bf8e572979f0e5748d
+        allowed_domains:
+          type: array
+          description: >-
+            Domains allowed for self-sign up to this environment.  Empty array
+            means no restrictions.
+          example:
+            - https://acme.kinde.com
+            - https://acme.com
+          items:
+            type: string
         link_color:
           type: object
           nullable: true
