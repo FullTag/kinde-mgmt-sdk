@@ -11331,6 +11331,10 @@ components:
           example: '2022-01-01T00:00:00Z'
           description: The date the user last accessed the organization.
           nullable: true
+        is_suspended:
+          type: boolean
+          description: Whether the user is currently suspended or not.
+          example: false
         roles:
           type: array
           description: The roles the user has in the organization.
