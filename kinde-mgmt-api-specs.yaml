@@ -2726,10 +2726,6 @@ paths:
                           type: string
                           description: SAML Entity ID.
                           example: https://kinde.com
-                        saml_acs_url:
-                          type: string
-                          description: Assertion Consumer Service URL.
-                          example: https://kinde.com/saml/acs
                         saml_idp_metadata_url:
                           type: string
                           description: URL for the IdP metadata.
@@ -2979,10 +2975,6 @@ paths:
                           type: string
                           description: SAML Entity ID.
                           example: https://kinde.com
-                        saml_acs_url:
-                          type: string
-                          description: Assertion Consumer Service URL.
-                          example: https://kinde.com/saml/acs
                         saml_idp_metadata_url:
                           type: string
                           description: URL for the IdP metadata.
@@ -3189,10 +3181,6 @@ paths:
                           type: string
                           description: SAML Entity ID.
                           example: https://kinde.com
-                        saml_acs_url:
-                          type: string
-                          description: Assertion Consumer Service URL.
-                          example: https://kinde.com/saml/acs
                         saml_idp_metadata_url:
                           type: string
                           description: URL for the IdP metadata.
