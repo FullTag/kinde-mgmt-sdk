@@ -874,7 +874,7 @@ paths:
     delete:
       tags:
         - APIs
-      operationId: deleteAPIAppliationScope
+      operationId: deleteAPIApplicationScope
       summary: Delete API application scope
       parameters:
         - name: api_id
